@@ -233,3 +233,5 @@ footer small { opacity: .55; }
   .location-content{padding-bottom:76px}
 }
 @media (min-width:761px){.mobile-bottom-bar{display:none}}
+
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
