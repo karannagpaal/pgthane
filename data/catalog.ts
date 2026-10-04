@@ -6,6 +6,11 @@ export type Listing = {
   microlocation: string;
   workplace: string[];
   priceFrom?: number;
+  draftPriceFrom?: number;
+  description?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  imageAlt?: string;
   gender?: "Male" | "Female" | "Unisex";
   sharing?: string[];
   food?: "With food" | "Without food" | "Both";
