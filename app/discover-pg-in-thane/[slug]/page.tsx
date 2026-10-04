@@ -33,7 +33,23 @@ export default async function LocationPage({ params, searchParams }: { params: P
   const { slug } = await params;
   const name = locations[slug];
   if (!name) notFound();
-  const filters = await searchParams;
+  const rawFilters = await searchParams;
+  const allowed = {
+    gender: new Set(["Male", "Female", "Unisex"]),
+    food: new Set(["With food", "Without food"]),
+    room: new Set(["Private room", "Shared room"]),
+    amenity: new Set(["Wi-Fi", "Fully Furnished", "Housekeeping", "Washing Machine", "Parking"]),
+    sharing: new Set(["Single", "Double sharing", "Triple sharing", "4 Sharing+"]),
+    budget: new Set(["Under ₹10,000", "₹10,000 – ₹15,000", "₹15,000 – ₹20,000", "₹20,000+"])
+  };
+  const filters = {
+    gender: allowed.gender.has(rawFilters.gender || "") ? rawFilters.gender : undefined,
+    food: allowed.food.has(rawFilters.food || "") ? rawFilters.food : undefined,
+    room: allowed.room.has(rawFilters.room || "") ? rawFilters.room : undefined,
+    amenity: allowed.amenity.has(rawFilters.amenity || "") ? rawFilters.amenity : undefined,
+    sharing: allowed.sharing.has(rawFilters.sharing || "") ? rawFilters.sharing : undefined,
+    budget: allowed.budget.has(rawFilters.budget || "") ? rawFilters.budget : undefined
+  };
   const nearbyMicros = verifiedMicrolocationIndex.filter(x => x.location === name || x.name === name);
   const nearbyWorkplaces = verifiedWorkplaceIndex.filter(x => x.location === name);
   const publishedCount = listings.filter(x => x.published === true && !x.photoOnly && x.location.toLowerCase() === name.toLowerCase()).length;
