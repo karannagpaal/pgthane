@@ -1,7 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { listings, locationIndex, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
 
 const types = ["All", "Location", "Microlocation", "Workplace", "Keyword"];
+
+export const metadata: Metadata = { title: "Search PGs in Thane | PG Thane", description: "Search PG, Paying Guest, Hostel and shared-room options in Thane by location, microlocation and workplace.", robots: { index: false, follow: true } };
 
 export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string; type?: string; budget?: string }> }) {
   const params = await searchParams;
