@@ -79,7 +79,7 @@ export default async function LocationPage({ params, searchParams }: { params: P
       <div id="results">{matchingListings.length > 0 ? <div className="listing-grid">{matchingListings.map(x => <ListingCard key={x.id} listing={x} />)}</div> : <div className="empty-listings"><div className="empty-icon">⌂</div><h3>Verified PG listings are being added</h3><p>No placeholder properties are shown. Real names, photos, pricing, availability and amenities will appear here only after verification.</p><a className="header-cta" href="tel:9892336705">Ask for available PGs</a></div>}</div>
       <div className="mobile-bottom-bar"><a href="#filters">Filters</a><a href="#results">Results</a><a href="tel:9892336705">Enquire Now</a></div>
       <aside className="location-aside"><div className="aside-card"><div className="eyebrow">SEARCH BY WORKPLACE</div><h3>Looking for a PG near your office?</h3><p>Search the directory by workplace or corporate location.</p><Link href="/search?type=Workplace">Search workplaces</Link></div><div className="aside-card"><div className="eyebrow">NEED HELP?</div><h3>Tell us where you work</h3><p>Call the PG Thane enquiry number for current availability.</p><a href="tel:9892336705">9892336705</a></div></aside>
-    </section>
+    </div></section>
     <footer><div className="brand">PG<span>Thane</span></div><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane</small></footer>
   </main>;
 }
