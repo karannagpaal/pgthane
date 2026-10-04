@@ -16,4 +16,7 @@ npm install
 npm run dev
 ```
 
-The current foundation intentionally contains location navigation but no fabricated PG inventory. Real listings should be added from verified source data before publishing property cards.
+The catalog contains photo-backed draft records only. Draft/photo-only records are excluded from published search results, listing pages, and the sitemap until property name, location and commercial details are verified. Do not publish fabricated property names, locations, prices, availability, reviews or amenities.
+
+## Validation
+The repository CI workflow runs `npm run typecheck` and `npm run build` on pushes and pull requests.
