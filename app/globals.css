@@ -105,7 +105,7 @@ h2 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -1.8px; margin: 8px 0 0;
 .location-card:hover { transform: translateY(-2px); border-color: #b8c9b4; box-shadow: 0 10px 25px rgba(0,0,0,.06); }
 .location-card > :nth-child(2), .workplace-item > div { min-width: 0; }
 .location-card h3, .workplace-item strong { overflow-wrap: anywhere; }
-.location-card h3 { margin: 0 0 5px; font-size: 16px; }
+.location-card h2, .location-card h3 { margin: 0 0 5px; font-size: 16px; line-height: 1.25; }
 .location-card p { margin: 0; color: var(--muted); font-size: 12px; }
 .pin { font-size: 20px; }
 .arrow { color: var(--green); font-size: 20px; }
