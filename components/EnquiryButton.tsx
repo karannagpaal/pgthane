@@ -72,7 +72,8 @@ export default function EnquiryButton({
       "Please share current verified availability and next steps."
     ].filter(Boolean);
 
-    const url = "https://wa.me/919930007113?text=" + encodeURIComponent(lines.join("\n"));
+    const url = "https://wa.me/919930007113?text=" + encodeURIComponent(lines.join("
+"));
     window.open(url, "_blank", "noopener,noreferrer");
     setSubmitted(true);
   }
