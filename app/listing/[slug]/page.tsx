@@ -48,8 +48,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
           <p className="listing-location large">📍 {listing.microlocation}, {listing.location}, Thane</p>
         </div>
         <div className="listing-detail-actions">
-          {listing.phone && <a className="header-cta" href={"tel:" + listing.phone}>Call</a>}
-          {listing.whatsapp && <a className="outline-cta" href={"https://wa.me/" + listing.whatsapp}>WhatsApp</a>}
+          <a className="header-cta" href="tel:9892336705">Call</a><a className="outline-cta" href="https://wa.me/919892336705">WhatsApp</a>
         </div>
       </div>
 
@@ -77,7 +76,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             {listing.availability && <div><dt>Availability</dt><dd>{listing.availability}</dd></div>}
           </dl>
           {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}>{a}</span>)}</div></div> : null}
-          {listing.phone && <a className="detail-enquire" href={"tel:" + listing.phone}>Enquire Now</a>}
+          <a className="detail-enquire" href="tel:9892336705">Enquire Now</a>
         </aside>
       </div>
 
