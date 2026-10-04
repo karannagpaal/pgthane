@@ -12,8 +12,9 @@ const locations = [
 const searchTypes = ["All", "Location", "Microlocation", "Workplace", "Keyword"] as const;
 type SearchType = typeof searchTypes[number];
 
-function slug(value: string) {
-  return value.toLowerCase().replaceAll(" ", "-");
+function locationHref(value: string) {
+  if (value === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
+  return "/discover-pg-in-thane/pg-in-" + value.toLowerCase().replaceAll(" ", "-") + "-thane";
 }
 
 export default function HomePage() {
@@ -29,7 +30,7 @@ export default function HomePage() {
 
     if (type === "All" || type === "Location" || type === "Keyword") {
       locations.filter(x => x.toLowerCase().includes(q)).slice(0, 6).forEach(x =>
-        result.push({ label: x, meta: "Location", href: "/discover-pg-in-thane/pg-in-" + slug(x) + "-thane" })
+        result.push({ label: x, meta: "Location", href: locationHref(x) })
       );
     }
 
@@ -124,7 +125,7 @@ export default function HomePage() {
       <section id="locations" className="section">
         <div className="section-heading"><div><div className="eyebrow">EXPLORE THANE</div><h2>Popular PG locations</h2></div><p>Choose a location to explore its microlocations and nearby workplaces.</p></div>
         <div className="location-grid">
-          {locations.map(location => <a className="location-card" key={location} href={"/discover-pg-in-thane/pg-in-" + slug(location) + "-thane"}><span className="pin">📍</span><div><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
+          {locations.map(location => <a className="location-card" key={location} href={locationHref(location)}><span className="pin">📍</span><div><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
         </div>
       </section>
 
