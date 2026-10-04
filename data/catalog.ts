@@ -749,15 +749,7 @@ export const locationIndex = [
   "Kolshet",
   "Vasant Vihar",
   "Pokhran Road"
-];
-
-export const verifiedWorkplaceIndex = [
-  { name: "TCS Olympus Centre", location: "Hiranandani Estate", kind: "Workplace" },
-  { name: "Bayer House", location: "Hiranandani Estate", kind: "Workplace" },
-  { name: "Hiranandani Business Park", location: "Hiranandani Estate", kind: "Business Park" },
-  { name: "Quantum", location: "Hiranandani Estate", kind: "Office Building" },
-  { name: "Centaurus", location: "Hiranandani Estate", kind: "Office Building" },
-  { name: "Solus", location: "Hiranandani Estate", kind: "Office Building" }
+,
   {
     id: "new-photo-01",
     name: "Inventory Photo 42",
@@ -1403,6 +1395,15 @@ export const verifiedWorkplaceIndex = [
     sourcePhoto: "43-WhatsApp Image 2024-07-20 at 11.18.22.jpeg",
     slug: "inventory-photo-84"
   }
+];
+
+export const verifiedWorkplaceIndex = [
+  { name: "TCS Olympus Centre", location: "Hiranandani Estate", kind: "Workplace" },
+  { name: "Bayer House", location: "Hiranandani Estate", kind: "Workplace" },
+  { name: "Hiranandani Business Park", location: "Hiranandani Estate", kind: "Business Park" },
+  { name: "Quantum", location: "Hiranandani Estate", kind: "Office Building" },
+  { name: "Centaurus", location: "Hiranandani Estate", kind: "Office Building" },
+  { name: "Solus", location: "Hiranandani Estate", kind: "Office Building" }
 ];
 
 export const verifiedMicrolocationIndex = [
