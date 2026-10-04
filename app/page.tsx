@@ -30,7 +30,8 @@ export default function HomePage() {
   const [type, setType] = useState<SearchType>("All");
   const [budget, setBudget] = useState("Any budget");
   const [focused, setFocused] = useState(false);
-  const [activeSuggestion, setActiveSuggestion] = useState(-1);\n  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSuggestion, setActiveSuggestion] = useState(-1);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
