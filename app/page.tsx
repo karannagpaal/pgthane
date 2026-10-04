@@ -143,8 +143,8 @@ export default function HomePage() {
 
       <section className="trust-strip">
         <div><strong>Location-first</strong><span>Search by where you live or work</span></div>
-        <div><strong>Real listings</strong><span>No invented property information</span></div>
-        <div><strong>Easy enquiry</strong><span>View details and contact directly</span></div>
+        <div><strong>Verification-first</strong><span>Real property information is published only after verification</span></div>
+        <div><strong>Easy enquiry</strong><span>Contact for current verified availability</span></div>
       </section>
 
       <section id="locations" className="section">
