@@ -36,10 +36,21 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const locations = locationIndex.filter(x => !q || x.toLowerCase().includes(q));
   const micros = verifiedMicrolocationIndex.filter(x => !q || (x.name + " " + x.location).toLowerCase().includes(q));
   const workplaces = verifiedWorkplaceIndex.filter(x => !q || (x.name + " " + x.location + " " + x.kind).toLowerCase().includes(q));
+  const filterQuery = new URLSearchParams();
+  if (budget !== "Any budget") filterQuery.set("budget", budget);
+  if (gender !== "Any") filterQuery.set("gender", gender);
+  if (sharing !== "Any") filterQuery.set("sharing", sharing);
+  if (food !== "Any") filterQuery.set("food", food);
+  if (room !== "Any") filterQuery.set("room", room);
+  if (amenity !== "Any") filterQuery.set("amenity", amenity);
+  const withCurrentFilters = (href: string) => {
+    const suffix = filterQuery.toString();
+    return suffix ? href + (href.includes("?") ? "&" : "?") + suffix : href;
+  };
   const keywordMatches = [
-    ...locations.map(x => ({ label: x, meta: "Location", href: locationHref(x) })),
-    ...micros.map(x => ({ label: x.name, meta: "Microlocation · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation" })),
-    ...workplaces.map(x => ({ label: x.name, meta: x.kind + " · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Workplace" }))
+    ...locations.map(x => ({ label: x, meta: "Location", href: withCurrentFilters(locationHref(x)) })),
+    ...micros.map(x => ({ label: x.name, meta: "Microlocation · " + x.location, href: withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation") })),
+    ...workplaces.map(x => ({ label: x.name, meta: x.kind + " · " + x.location, href: withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace") }))
   ];
   const directoryLocations = type === "All" || type === "Location" ? locations : [];
   const directoryMicros = type === "All" || type === "Microlocation" ? micros : [];
