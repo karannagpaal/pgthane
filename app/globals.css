@@ -178,3 +178,19 @@ footer small { opacity: .55; }
   .filter-panel{grid-template-columns:1fr 1fr}.filter-panel label:last-of-type{grid-column:1/-1}.clear-filter{grid-column:1/-1}
   .location-aside{margin-top:18px}
 }
+
+
+.listing-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:280px 1fr;max-width:850px}
+.listing-photo{min-height:230px;position:relative;background:#edf1e9;display:grid;place-items:center}
+.listing-photo img{width:100%;height:100%;object-fit:cover}
+.photo-placeholder{color:var(--muted);font-size:13px}
+.verified-badge{position:absolute;top:12px;left:12px;background:var(--green);color:#fff;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:800}
+.listing-body{padding:22px}.listing-kicker{font-size:11px;color:var(--brown);font-weight:900;text-transform:uppercase;letter-spacing:.7px}
+.listing-body h3{font-size:24px;margin:8px 0}.listing-location,.listing-amenities{color:var(--muted);font-size:14px;line-height:1.5}
+.listing-price{display:block;color:var(--green);margin:15px 0}
+.listing-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.listing-actions a{border:1px solid var(--green);color:var(--green);border-radius:8px;padding:9px 12px;font-size:13px;font-weight:800}
+.search-page-form{display:grid;grid-template-columns:1fr 190px 110px;gap:10px;margin:25px 0 50px}
+.search-page-form input,.search-page-form select{min-height:48px;border:1px solid var(--line);border-radius:9px;padding:0 13px;background:#fff}
+.search-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.search-groups section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.search-groups h2{font-size:24px;margin:0 0 15px}.search-result{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--green);font-weight:800}.search-result:last-child{border-bottom:0}.search-result small{color:var(--muted);font-weight:400}
+@media(max-width:760px){.listing-card{grid-template-columns:1fr}.listing-photo{min-height:190px}.search-page-form{grid-template-columns:1fr}.search-groups{grid-template-columns:1fr}}
