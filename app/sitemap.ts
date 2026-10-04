@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { listings, verifiedWorkplaceIndex } from "@/data/catalog";
 
+export const dynamic = "force-static";
+
 const locations = [
   "pg-in-wagle-estate-thane","pg-in-majiwada-thane","pg-in-kolshet-thane","pg-in-hiranandani-estate-thane",
   "pg-near-railway-station-thane","pg-in-panchpakhadi-thane","pg-in-louiswadi-thane","pg-in-teen-hath-naka-thane",
