@@ -489,3 +489,31 @@ footer small { opacity: .55; }
   .listing-actions a,.listing-enquire{font-size:12px;padding:11px 8px}
   .homepage-listings-intro{font-size:13px;margin-bottom:16px}
 }
+
+
+/* Search filter UX */
+.search-primary-fields{display:contents}
+.search-advanced{display:contents}
+.search-advanced summary{display:none}
+.search-advanced-grid{display:contents}
+@media(max-width:720px){
+  .search-page-form{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px;background:#fff;border:1px solid var(--line);border-radius:14px}
+  .search-primary-fields{display:contents}
+  .search-primary-fields input{grid-column:1/-1}
+  .search-primary-fields select{min-width:0}
+  .search-advanced{display:block;grid-column:1/-1;border:1px solid var(--line);border-radius:10px;background:#fafbf8}
+  .search-advanced summary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;padding:0 12px;color:var(--brown);font-size:12px;font-weight:800;cursor:pointer;list-style:none}
+  .search-advanced summary::-webkit-details-marker{display:none}
+  .search-advanced summary::after{content:"+";font-size:18px;color:var(--green)}
+  .search-advanced[open] summary::after{content:"−"}
+  .search-advanced summary span{margin-left:auto;color:var(--muted);font-weight:600;text-align:right}
+  .search-advanced-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 10px 10px}
+  .search-advanced-grid select{min-width:0;min-height:46px;border:1px solid var(--line);border-radius:9px;background:#fff;padding:0 9px;font-size:12px}
+  .search-page-form .search-button{grid-column:1/-1;min-height:48px}
+  .search-toolbar{margin:18px 0 20px}
+  .search-groups section{padding:14px;border-radius:12px}
+  .search-groups h2{font-size:17px}
+  .search-result{padding:11px 9px;gap:8px}
+  .search-result span{font-size:13px;line-height:1.35}
+  .search-result small{font-size:10px}
+}
