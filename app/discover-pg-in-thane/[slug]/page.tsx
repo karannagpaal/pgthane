@@ -30,6 +30,7 @@ export default async function LocationPage({ params, searchParams }: { params: P
     if (filters.gender && x.gender && x.gender !== filters.gender) return false;
     if (filters.food && x.food && x.food !== "Both" && x.food !== filters.food) return false;
     if (filters.room && x.roomType && x.roomType !== "Both" && x.roomType !== filters.room) return false;
+    if (filters.amenity && x.amenities && !x.amenities.some(a => a.toLowerCase().includes(filters.amenity!.toLowerCase()))) return false;
     if (filters.sharing && x.sharing && !x.sharing.includes(filters.sharing)) return false;
     if (filters.budget && x.priceFrom) {
       if (filters.budget === "Under ₹10,000" && x.priceFrom >= 10000) return false;
@@ -50,11 +51,11 @@ export default async function LocationPage({ params, searchParams }: { params: P
 
     <section className="location-main"><div className="location-content">
       <div className="section-heading compact"><div><div className="eyebrow">FIND YOUR STAY</div><h2>PG options in {name}</h2></div><p>Filter by budget, gender, sharing, food and room type.</p></div>
-      <Suspense fallback={<div className="filter-panel">Loading filters…</div>}><LocationControls /></Suspense>
+      <div id="filters"><Suspense fallback={<div className="filter-panel">Loading filters…</div>}><LocationControls /></Suspense></div>
       {nearbyMicros.length > 0 && <section className="directory-panel"><div className="eyebrow">MICROLOCATIONS</div><h3>Explore around {name}</h3><div className="chip-row">{nearbyMicros.map(x => <Link key={x.name} href={"/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation"} className="directory-chip">📍 {x.name}</Link>)}</div></section>}
       {nearbyWorkplaces.length > 0 && <section className="directory-panel"><div className="eyebrow">NEARBY WORKPLACES</div><h3>Workplaces around {name}</h3><div className="workplace-list">{nearbyWorkplaces.map(x => <Link key={x.name} href={"/search?q=" + encodeURIComponent(x.name) + "&type=Workplace"} className="workplace-item"><span>🏢</span><div><strong>{x.name}</strong><small>{x.kind}</small></div><span>→</span></Link>)}</div></section>}
-      {matchingListings.length > 0 ? <div className="listing-grid">{matchingListings.map(x => <ListingCard key={x.id} listing={x} />)}</div> : <div className="empty-listings"><div className="empty-icon">⌂</div><h3>Verified PG listings are being added</h3><p>No placeholder properties are shown. Real names, photos, pricing, availability and amenities will appear here only after verification.</p><a className="header-cta" href="tel:9892336705">Ask for available PGs</a></div>}
-    </div>
+      <div id="results">{matchingListings.length > 0 ? <div className="listing-grid">{matchingListings.map(x => <ListingCard key={x.id} listing={x} />)}</div> : <div className="empty-listings"><div className="empty-icon">⌂</div><h3>Verified PG listings are being added</h3><p>No placeholder properties are shown. Real names, photos, pricing, availability and amenities will appear here only after verification.</p><a className="header-cta" href="tel:9892336705">Ask for available PGs</a></div>}</div>
+    <div className="mobile-bottom-bar"><a href="#filters">Filters</a><a href="#results">Results</a><a href="tel:9892336705">Enquire Now</a></div>
     <aside className="location-aside"><div className="aside-card"><div className="eyebrow">SEARCH BY WORKPLACE</div><h3>Looking for a PG near your office?</h3><p>Search the directory by workplace or corporate location.</p><Link href="/search?type=Workplace">Search workplaces</Link></div><div className="aside-card"><div className="eyebrow">NEED HELP?</div><h3>Tell us where you work</h3><p>Call the PG Thane enquiry number for current availability.</p><a href="tel:9892336705">9892336705</a></div></aside>
     </section>
     <footer><div className="brand">PG<span>Thane</span></div><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane</small></footer>
