@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import { verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
+import { listings, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
 
 const locations = [
   "Thane Station","Wagle Estate","Panchpakhadi","Louiswadi","Teen Hath Naka",
@@ -46,6 +46,16 @@ export default function HomePage() {
       verifiedMicrolocationIndex.filter(x => x.name.toLowerCase().includes(q)).slice(0, 4).forEach(x =>
         result.push({ label: x.name, meta: "Microlocation · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation" })
       );
+    }
+
+    if (type === "All" || type === "Keyword") {
+      listings
+        .filter(x => x.published === true && !x.photoOnly)
+        .filter(x => [x.name, x.location, x.microlocation, x.type, ...(x.workplace || []), ...(x.amenities || [])].join(" ").toLowerCase().includes(q))
+        .slice(0, 6)
+        .forEach(x =>
+          result.push({ label: x.name, meta: "PG · " + x.location, href: "/listing/" + x.slug })
+        );
     }
 
     const seen = new Set<string>();
