@@ -36,6 +36,8 @@ export default async function LocationPage({ params, searchParams }: { params: P
   const filters = await searchParams;
   const nearbyMicros = verifiedMicrolocationIndex.filter(x => x.location === name || x.name === name);
   const nearbyWorkplaces = verifiedWorkplaceIndex.filter(x => x.location === name);
+  const locationInventoryCount = listings.filter(x => x.location.toLowerCase() === name.toLowerCase()).length;
+  const publishedCount = listings.filter(x => x.published === true && !x.photoOnly && x.location.toLowerCase() === name.toLowerCase()).length;
   const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && (() => {
     if (x.location.toLowerCase() !== name.toLowerCase()) return false;
     if (filters.gender && x.gender !== filters.gender) return false;
@@ -76,7 +78,7 @@ export default async function LocationPage({ params, searchParams }: { params: P
     </div></section>
 
     <section className="location-main"><div className="location-content">
-      <div className="section-heading compact"><div><div className="eyebrow">FIND YOUR STAY</div><h2>PG options in {name}</h2></div><p>Filter by budget, gender, sharing, food, room type and amenities.</p></div>
+      <div className="section-heading compact"><div><div className="eyebrow">FIND YOUR STAY</div><h2>PG options in {name}</h2></div><p>{publishedCount > 0 ? publishedCount + " verified PG options available" : "Verified PG options are being added"}{locationInventoryCount > 0 ? " · " + locationInventoryCount + " property photos staged for verification" : ""}. Filter by budget, gender, sharing, food, room type and amenities.</p></div>
       <div id="filters"><Suspense fallback={<div className="filter-panel">Loading filters…</div>}><LocationControls /></Suspense></div>
       {nearbyMicros.length > 0 && <section className="directory-panel"><div className="eyebrow">MICROLOCATIONS</div><h3>Explore around {name}</h3><div className="chip-row">{nearbyMicros.map(x => <Link key={x.name} href={"/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation"} className="directory-chip">📍 {x.name}</Link>)}</div></section>}
       {nearbyWorkplaces.length > 0 && <section className="directory-panel"><div className="eyebrow">NEARBY WORKPLACES</div><h3>Workplaces around {name}</h3><div className="workplace-list">{nearbyWorkplaces.map(x => <Link key={x.name} href={"/search?q=" + encodeURIComponent(x.name) + "&type=Workplace"} className="workplace-item"><span>🏢</span><div><strong>{x.name}</strong><small>{x.kind}</small></div><span>→</span></Link>)}</div></section>}
