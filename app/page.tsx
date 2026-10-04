@@ -72,7 +72,7 @@ export default function HomePage() {
           <h1>Find a PG in Thane that fits your <em>location</em> and workplace.</h1>
           <p className="hero-copy">Search PG, Paying Guest, Hostel and shared-room options by location, microlocation or workplace.</p>
 
-          <form id="search" className="search-panel" onSubmit={submit}>
+          <form id="search" className="search-panel" onSubmit={submit} role="search" aria-label="Search PGs in Thane">
             <div className="search-tabs" role="tablist" aria-label="Search category">
               {searchTypes.map(item => (
                 <button key={item} type="button" className={type === item ? "active" : ""} onClick={() => setType(item)}>{item}</button>
@@ -92,7 +92,7 @@ export default function HomePage() {
                   autoComplete="off"
                 />
                 {focused && query.trim() && (
-                  <div className="autocomplete" role="listbox">
+                  <div className="autocomplete" role="listbox" aria-label="Search suggestions">
                     {suggestions.map((item, i) => item.href ? (
                       <a key={item.label + i} href={item.href} className="autocomplete-item">
                         <span>📍</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
