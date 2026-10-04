@@ -38,7 +38,7 @@ export default function EnquiryButton({
   const [acPreference, setAcPreference] = useState("");
   const [requests, setRequests] = useState("");
 
-  const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
+  const today = useMemo(() => {\n    const now = new Date();\n    const offset = now.getTimezoneOffset();\n    return new Date(now.getTime() - offset * 60_000).toISOString().slice(0, 10);\n  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -105,7 +105,7 @@ export default function EnquiryButton({
 
             <div className="enquiry-tabs" role="tablist" aria-label="Enquiry type">
               <button type="button" className={mode === "visit" ? "active" : ""} onClick={() => setMode("visit")}>Schedule Free Visit</button>
-              <button type="button" className={mode === "reserve" ? "active" : ""} onClick={() => setMode("reserve")}>Instant Room Reserve</button>
+              <button type="button" className={mode === "reserve" ? "active" : ""} onClick={() => setMode("reserve")}>Room Enquiry</button>
             </div>
 
             {submitted ? (
