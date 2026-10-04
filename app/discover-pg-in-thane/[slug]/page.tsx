@@ -16,6 +16,8 @@ const locations: Record<string, string> = {
   "pg-near-railway-station-thane": "Thane Station","pg-in-vasant-vihar-thane": "Vasant Vihar","pg-in-pokhran-road-thane": "Pokhran Road"
 };
 
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() { return Object.keys(locations).map(slug => ({ slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
