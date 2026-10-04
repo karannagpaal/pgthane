@@ -103,6 +103,8 @@ h2 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -1.8px; margin: 8px 0 0;
   transition: .2s ease;
 }
 .location-card:hover { transform: translateY(-2px); border-color: #b8c9b4; box-shadow: 0 10px 25px rgba(0,0,0,.06); }
+.location-card > :nth-child(2), .workplace-item > div { min-width: 0; }
+.location-card h3, .workplace-item strong { overflow-wrap: anywhere; }
 .location-card h3 { margin: 0 0 5px; font-size: 16px; }
 .location-card p { margin: 0; color: var(--muted); font-size: 12px; }
 .pin { font-size: 20px; }
@@ -202,7 +204,7 @@ footer small { opacity: .55; }
 .autocomplete-empty{padding:14px 10px;color:var(--muted);font-size:13px}
 
 
-.search-page{padding-top:56px;padding-bottom:80px}.search-page h1{margin:8px 0 24px}.search-page-form{display:grid;grid-template-columns:minmax(0,1fr) 180px 120px;gap:10px;margin-bottom:28px}.search-page-form input,.search-page-form select{min-height:48px;border:1px solid var(--line);border-radius:10px;padding:0 14px;background:#fff}.search-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:10px 0 28px;color:var(--muted);font-size:13px}.clear-search{color:var(--brown);font-weight:700;text-decoration:none}.search-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.search-groups section{border:1px solid var(--line);border-radius:14px;background:#fff;padding:18px}.search-groups h2{font-size:18px;margin:0 0 12px}.search-result{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-decoration:none;color:var(--ink);padding:12px 10px;border-radius:9px;background:#fafbf8;margin-top:7px;border:1px solid transparent}.search-result:hover{border-color:#d8e4d4;background:#f3f7f0}.search-result small{display:block;color:var(--muted);font-size:11px;margin-left:auto}.search-empty{padding:18px 12px;border-radius:10px;background:#f8f9f6;color:var(--muted);font-size:14px}.search-count{font-weight:700;color:var(--green)}
+.search-page{padding-top:56px;padding-bottom:80px}.search-page h1{margin:8px 0 24px}.search-page-form{display:grid;grid-template-columns:minmax(0,1fr) 180px 120px;gap:10px;margin-bottom:28px}.search-page-form input,.search-page-form select{min-height:48px;border:1px solid var(--line);border-radius:10px;padding:0 14px;background:#fff}.search-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:10px 0 28px;color:var(--muted);font-size:13px}.clear-search{color:var(--brown);font-weight:700;text-decoration:none}.search-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.search-groups section{border:1px solid var(--line);border-radius:14px;background:#fff;padding:18px}.search-groups h2{font-size:18px;margin:0 0 12px}.search-result{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-decoration:none;color:var(--ink);padding:12px 10px;border-radius:9px;background:#fafbf8;margin-top:7px;border:1px solid transparent}.search-result:hover{border-color:#d8e4d4;background:#f3f7f0}.search-result > *{min-width:0}.search-result small{display:block;color:var(--muted);font-size:11px;margin-left:auto;overflow-wrap:anywhere}.search-empty{padding:18px 12px;border-radius:10px;background:#f8f9f6;color:var(--muted);font-size:14px}.search-count{font-weight:700;color:var(--green)}
 @media(max-width:720px){.search-page{padding-top:32px}.search-page-form{grid-template-columns:1fr 1fr}.search-page-form input{grid-column:1/-1}.search-page-form .search-button{grid-column:1/-1}.search-toolbar{align-items:flex-start}.search-groups{grid-template-columns:1fr}.search-result{min-height:48px}.search-result small{white-space:nowrap}}
 
 
@@ -230,7 +232,8 @@ footer small { opacity: .55; }
   .mobile-bottom-bar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:1fr 1fr 1.25fr;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 25px rgba(0,0,0,.08);padding:8px 10px calc(8px + env(safe-area-inset-bottom));gap:7px}
   .mobile-bottom-bar a{display:grid;place-items:center;min-height:44px;border-radius:8px;border:1px solid var(--green);color:var(--green);font-weight:800;font-size:13px}
   .mobile-bottom-bar a:last-child{background:var(--green);color:#fff}
-  .location-content{padding-bottom:76px}
+  .location-main{padding-bottom:110px}
+  .location-content{padding-bottom:0}
 }
 @media (min-width:761px){.mobile-bottom-bar{display:none}}
 
