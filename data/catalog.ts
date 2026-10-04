@@ -523,7 +523,7 @@ export const listings: Listing[] = [
     description: "AC PG accommodation in Hiranandani Estate, Thane, with an air-conditioned room shown in the supplied property photo. The listing is intended for people comparing PG accommodation in this part of Thane and looking for a room option within Hiranandani Estate.",
     seoTitle: "AC PG in Hiranandani Estate, Thane",
     seoDescription: "AC PG accommodation in Hiranandani Estate, Thane. View the supplied room photo and enquire for current room, sharing, pricing and availability details.",
-    photos: ["/inventory/pgthane-photos/Ac PG in Hiranandani estate Thane(1).JPG"],
+    photos: ["/inventory/pgthane-photos/PG in Hiranandani Estate Thane west(1).jpeg"],
     verified: true,
     published: true,
     photoOnly: false,
