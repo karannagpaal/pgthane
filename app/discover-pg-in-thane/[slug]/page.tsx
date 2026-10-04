@@ -87,7 +87,7 @@ export default async function LocationPage({ params, searchParams }: { params: P
 
   return <main>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-    <header className="topbar"><Link className="brand" href="/">PG<span>Thane</span></Link><nav><Link href="/#locations">Locations</Link><Link href="/#how-it-works">How it works</Link><Link href="/#contact">Contact</Link></nav><a className="header-cta" href="tel:9930007113">Call</a></header>
+    <header className="topbar"><Link className="brand" href="/" aria-label="PGThane.com home"><img src="/logo.svg" alt="PGThane.com" className="brand-logo" width={240} height={60} /></Link><nav><Link href="/#locations">Locations</Link><Link href="/#how-it-works">How it works</Link><Link href="/#contact">Contact</Link></nav><a className="header-cta" href="tel:9930007113">Call</a></header>
     <section className="location-hero"><div className="location-hero-inner">
       <div className="breadcrumb"><Link href="/">Home</Link><span>/</span><span>Thane</span><span>/</span><strong>{name}</strong></div>
       <div className="eyebrow">PG ACCOMMODATION IN THANE</div><h1>PG in {name}, Thane</h1><p>Paying Guest · Hostel · Shared Rooms</p>
