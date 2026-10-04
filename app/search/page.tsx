@@ -35,7 +35,13 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   ];
   const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && (() => {
     const text = [x.name, x.type, x.location, x.microlocation, ...x.workplace, ...(x.amenities || [])].join(" ").toLowerCase();
-    if (q && !text.includes(q)) return false;
+    if (q) {
+      if (type === "Location" && ![x.location, x.microlocation].join(" ").toLowerCase().includes(q)) return false;
+      if (type === "Microlocation" && !x.microlocation.toLowerCase().includes(q)) return false;
+      if (type === "Workplace" && !x.workplace.some(value => value.toLowerCase().includes(q))) return false;
+      if (type === "Keyword" && !text.includes(q)) return false;
+      if (type === "All" && !text.includes(q)) return false;
+    }
     if (gender !== "Any" && x.gender !== gender) return false;
     if (food !== "Any" && (!x.food || (x.food !== "Both" && x.food !== food))) return false;
     if (room !== "Any" && (!x.roomType || (x.roomType !== "Both" && x.roomType !== room))) return false;
