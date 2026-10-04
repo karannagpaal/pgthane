@@ -43,6 +43,11 @@ export default function EnquiryButton({
     if (!open) return;
     setSubmitted(false);
     document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") resetAndClose();
+    };
+    document.addEventListener("keydown", onKeyDown);
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
