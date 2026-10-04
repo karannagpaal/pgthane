@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import LocationControls from "@/components/LocationControls";
 
 const locations: Record<string, string> = {
@@ -60,7 +61,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       <section className="location-main">
         <div className="location-content">
           <div className="section-heading compact"><div><div className="eyebrow">FIND YOUR STAY</div><h2>PG options in {name}</h2></div><p>Filter by the things that matter before comparing available properties.</p></div>
-          <LocationControls />
+          <Suspense fallback={<div className="filter-panel">Loading filters…</div>}><LocationControls /></Suspense>
           <div className="empty-listings">
             <div className="empty-icon">⌂</div>
             <h3>Verified PG listings are being added</h3>
