@@ -80,7 +80,7 @@ export default function HomePage() {
       .slice(0, 8);
   }, [query, type, budget]);
 
-  useEffect(() => { setActiveSuggestion(-1); }, [query, type]);
+  useEffect(() => { setActiveSuggestion(-1); }, [query, type, budget]);
 
   function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
