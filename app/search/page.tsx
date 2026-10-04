@@ -54,7 +54,19 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
     return true;
   })());
 
-  const resultCount = type === "All" ? locations.length + micros.length + workplaces.length + matchingListings.length : type === "Location" ? locations.length : type === "Microlocation" ? micros.length : type === "Workplace" ? workplaces.length : keywordMatches.length + matchingListings.length;
+  // A typed search should surface the matching verified listings as well as the
+  // directory entity that matched. With no query, category browsing stays entity-only.
+  const showListingResults = matchingListings.length > 0 && (type === "All" || Boolean(q) || budget !== "Any budget" || gender !== "Any" || sharing !== "Any" || food !== "Any" || room !== "Any" || amenity !== "Any");
+  const resultCount =
+    type === "All"
+      ? locations.length + micros.length + workplaces.length + (showListingResults ? matchingListings.length : 0)
+      : type === "Location"
+        ? locations.length + (showListingResults ? matchingListings.length : 0)
+        : type === "Microlocation"
+          ? micros.length + (showListingResults ? matchingListings.length : 0)
+          : type === "Workplace"
+            ? workplaces.length + (showListingResults ? matchingListings.length : 0)
+            : keywordMatches.length + (showListingResults ? matchingListings.length : 0);
   const hasResults = resultCount > 0;
 
   return (
@@ -88,7 +100,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
           {(type === "All" || type === "Microlocation") && micros.length > 0 && <section><h2>Microlocations</h2>{micros.map(x => <Link key={x.name} className="search-result" href={"/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation"}><span>📍 {x.name}</span><small>{x.location}</small></Link>)}</section>}
           {(type === "All" || type === "Workplace") && workplaces.length > 0 && <section><h2>Workplaces</h2>{workplaces.map(x => <Link key={x.name} className="search-result" href={"/search?q=" + encodeURIComponent(x.name) + "&type=Workplace"}><span>🏢 {x.name}</span><small>{x.kind} · {x.location}</small></Link>)}</section>}
           {type === "Keyword" && keywordMatches.length > 0 && <section><h2>Keyword matches</h2>{keywordMatches.map(x => <Link key={x.label + x.meta} className="search-result" href={x.href}><span>{x.label}</span><small>{x.meta}</small></Link>)}</section>}
-          {(type === "All" || type === "Keyword") && matchingListings.length > 0 && <section><h2>Real PG listings</h2>{matchingListings.map(x => <Link key={x.id} className="search-result" href={"/listing/" + x.slug}><span>{x.name}</span><small>{x.type} · {x.location}</small></Link>)}</section>}
+          {showListingResults && <section><h2>Real PG listings</h2>{matchingListings.map(x => <Link key={x.id} className="search-result" href={"/listing/" + x.slug}><span>{x.name}</span><small>{x.type} · {x.location}</small></Link>)}</section>}
         </div>
       </section>
     </main>
