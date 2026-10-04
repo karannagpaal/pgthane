@@ -25,7 +25,7 @@ export default async function LocationPage({ params, searchParams }: { params: P
   const { slug } = await params; const filters = await searchParams; const name = locations[slug] || "Thane";
   const nearbyMicros = verifiedMicrolocationIndex.filter(x => x.location === name || x.name === name);
   const nearbyWorkplaces = verifiedWorkplaceIndex.filter(x => x.location === name);
-  const matchingListings = listings.filter(x => {
+  const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && (() => {
     if (x.location.toLowerCase() !== name.toLowerCase()) return false;
     if (filters.gender && x.gender && x.gender !== filters.gender) return false;
     if (filters.food && x.food && x.food !== "Both" && x.food !== filters.food) return false;
@@ -39,7 +39,7 @@ export default async function LocationPage({ params, searchParams }: { params: P
       if (filters.budget === "₹20,000+" && x.priceFrom < 20000) return false;
     }
     return true;
-  });
+  })());
 
   return <main>
     <header className="topbar"><Link className="brand" href="/">PG<span>Thane</span></Link><nav><Link href="/#locations">Locations</Link><Link href="/#how-it-works">How it works</Link><Link href="/#contact">Contact</Link></nav><a className="header-cta" href="tel:9892336705">Call</a></header>
