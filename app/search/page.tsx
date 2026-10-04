@@ -118,9 +118,9 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         {!hasResults && <div className="search-empty">No verified results match this search yet. Try a broader location, workplace or keyword. Real PG listings will appear here only after their information is verified.</div>}
 
         <div className="search-groups">
-          {directoryLocations.length > 0 && <section><h2>Locations</h2>{locations.map(x => <Link key={x} className="search-result" href={locationHref(x)}><span>📍 {x}</span><small>PG · Paying Guest · Hostel</small></Link>)}</section>}
-          {directoryMicros.length > 0 && <section><h2>Microlocations</h2>{micros.map(x => <Link key={x.name} className="search-result" href={"/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation"}><span>📍 {x.name}</span><small>{x.location}</small></Link>)}</section>}
-          {directoryWorkplaces.length > 0 && <section><h2>Workplaces</h2>{workplaces.map(x => <Link key={x.name} className="search-result" href={"/search?q=" + encodeURIComponent(x.name) + "&type=Workplace"}><span>🏢 {x.name}</span><small>{x.kind} · {x.location}</small></Link>)}</section>}
+          {directoryLocations.length > 0 && <section><h2>Locations</h2>{locations.map(x => <Link key={x} className="search-result" href={withCurrentFilters(locationHref(x))}><span>📍 {x}</span><small>PG · Paying Guest · Hostel</small></Link>)}</section>}
+          {directoryMicros.length > 0 && <section><h2>Microlocations</h2>{micros.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation")}><span>📍 {x.name}</span><small>{x.location}</small></Link>)}</section>}
+          {directoryWorkplaces.length > 0 && <section><h2>Workplaces</h2>{workplaces.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace")}><span>🏢 {x.name}</span><small>{x.kind} · {x.location}</small></Link>)}</section>}
           {type === "Keyword" && keywordMatches.length > 0 && <section><h2>Keyword matches</h2>{keywordMatches.map(x => <Link key={x.label + x.meta} className="search-result" href={x.href}><span>{x.label}</span><small>{x.meta}</small></Link>)}</section>}
           {showListingResults && <section><h2>Real PG listings</h2>{matchingListings.map(x => <Link key={x.id} className="search-result" href={"/listing/" + x.slug}><span>{x.name}</span><small>{x.type} · {x.location}</small></Link>)}</section>}
         </div>
