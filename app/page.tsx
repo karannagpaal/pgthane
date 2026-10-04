@@ -9,7 +9,7 @@ const locations = [
   "Kasarvadavali","Hiranandani Estate","Vartak Nagar","Lokmanya Nagar","Kolshet"
 ];
 
-const searchTypes = ["All", "Location", "Workplace", "Keyword"] as const;
+const searchTypes = ["All", "Location", "Microlocation", "Workplace", "Keyword"] as const;
 type SearchType = typeof searchTypes[number];
 
 function slug(value: string) {
@@ -27,19 +27,19 @@ export default function HomePage() {
     if (!q) return [];
     const result: { label: string; meta: string; href?: string }[] = [];
 
-    if (type === "All" || type === "Location") {
+    if (type === "All" || type === "Location" || type === "Keyword") {
       locations.filter(x => x.toLowerCase().includes(q)).slice(0, 6).forEach(x =>
         result.push({ label: x, meta: "Location", href: "/discover-pg-in-thane/pg-in-" + slug(x) + "-thane" })
       );
     }
 
-    if (type === "All" || type === "Workplace") {
+    if (type === "All" || type === "Workplace" || type === "Keyword") {
       verifiedWorkplaceIndex.filter(x => x.name.toLowerCase().includes(q)).slice(0, 6).forEach(x =>
         result.push({ label: x.name, meta: x.kind + " · " + x.location })
       );
     }
 
-    if (type === "All" || type === "Keyword") {
+    if (type === "All" || type === "Microlocation" || type === "Keyword") {
       verifiedMicrolocationIndex.filter(x => x.name.toLowerCase().includes(q)).slice(0, 4).forEach(x =>
         result.push({ label: x.name, meta: "Microlocation · " + x.location })
       );
