@@ -34,7 +34,7 @@ button, input, select { font: inherit; }
 }
 .brand { display:flex; align-items:center; line-height:0; gap:9px; flex-shrink:0; }
 .brand-logo { display:block; width:48px; height:48px; object-fit:contain; }
-.brand-wordmark { font-family:Georgia, "Times New Roman", serif; font-size:29px; font-weight:700; letter-spacing:-.8px; color:#1f5d3a; white-space:nowrap; }
+.brand-wordmark { font-family:Georgia, "Times New Roman", serif; font-size:29px; font-weight:700; letter-spacing:-.8px; color:var(--green); white-space:nowrap; }
 .brand-wordmark span { color:var(--brown); }
 .homepage-logo-wrap { display:flex; justify-content:center; margin:0 0 16px; }
 .homepage-logo { display:block; width:112px; height:112px; object-fit:contain; }
