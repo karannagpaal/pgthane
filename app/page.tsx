@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { listings, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
 import EnquiryButton from "@/components/EnquiryButton";
+import ListingCard from "@/components/ListingCard";
 
 const locations = [
   "Thane Station","Wagle Estate","Panchpakhadi","Louiswadi","Teen Hath Naka",
@@ -186,6 +187,22 @@ export default function HomePage() {
         <div><strong>Location-first</strong><span>Search by where you live or work</span></div>
         <div><strong>Verification-first</strong><span>Real property information is published only after verification</span></div>
         <div><strong>Easy enquiry</strong><span>Contact for current verified availability</span></div>
+      </section>
+
+      <section className="section homepage-listings-section">
+        <div className="section-heading">
+          <div>
+            <div className="eyebrow">VERIFIED PG LISTINGS</div>
+            <h2>Featured PG options</h2>
+          </div>
+          <a className="section-link" href="/listing">View All Listings →</a>
+        </div>
+        <p className="homepage-listings-intro">Browse the currently published PG options with real photos, pricing and enquiry details.</p>
+        <div className="listing-grid homepage-listing-grid">
+          {listings.filter(x => x.published === true && !x.photoOnly).slice(0, 3).map(listing => (
+            <ListingCard key={listing.id} listing={listing} />
+          ))}
+        </div>
       </section>
 
       <section id="locations" className="section">
