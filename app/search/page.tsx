@@ -93,7 +93,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
 
   return (
     <main>
-      <header className="topbar"><Link className="brand" href="/">PG<span>Thane</span></Link><nav><Link href="/#locations">Locations</Link><Link href="/#how-it-works">How it works</Link></nav><a className="header-cta" href="tel:9930007113">Call</a></header>
+      <header className="topbar"><Link className="brand" href="/" aria-label="PGThane.com home"><img src="/logo.svg" alt="PGThane.com" className="brand-logo" width={240} height={60} /></Link><nav><Link href="/#locations">Locations</Link><Link href="/#how-it-works">How it works</Link></nav><a className="header-cta" href="tel:9930007113">Call</a></header>
       <section className="section search-page">
         <div className="eyebrow">DIRECTORY SEARCH</div>
         <h1>Search PGs in Thane</h1>
