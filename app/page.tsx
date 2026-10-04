@@ -104,7 +104,7 @@ export default function HomePage() {
 
       <section className="hero">
         <div className="hero-inner">
-          <div className="homepage-logo-wrap"><img src="/favicon.svg" alt="PGThane" className="homepage-logo" width={112} height={112} /></div>
+          <div className="homepage-logo-wrap"><img src="/homepage-logo.png" alt="PGThane" className="homepage-logo" width={112} height={112} /></div>
           <div className="eyebrow">THANE PG DIRECTORY</div>
           <h1>Find a PG in Thane that fits your <em>location</em> and workplace.</h1>
           <p className="hero-copy">Search PG, Paying Guest, Hostel and shared-room options by location, microlocation or workplace.</p>
@@ -112,16 +112,7 @@ export default function HomePage() {
           <form id="search" className="search-panel" onSubmit={submit} role="search" aria-label="Search PGs in Thane">
             <div className="search-tabs" role="tablist" aria-label="Search category">
               {searchTypes.map(item => (
-                <button
-                  key={item}
-                  type="button"
-                  role="tab"
-                  aria-selected={type === item}
-                  className={type === item ? "active" : ""}
-                  onClick={() => setType(item)}
-                >
-                  {item}
-                </button>
+                <button key={item} type="button" role="tab" aria-selected={type === item} className={type === item ? "active" : ""} onClick={() => setType(item)}>{item}</button>
               ))}
             </div>
 
@@ -151,13 +142,7 @@ export default function HomePage() {
                   autoComplete="off"
                 />
                 {query && (
-                  <button
-                    type="button"
-                    className="search-clear"
-                    aria-label="Clear search"
-                    onMouseDown={(e) => e.preventDefault()}
-                    onClick={() => { setQuery(""); setFocused(true); }}
-                  >×</button>
+                  <button type="button" className="search-clear" aria-label="Clear search" onMouseDown={(e) => e.preventDefault()} onClick={() => { setQuery(""); setFocused(true); }}>×</button>
                 )}
                 {focused && query.trim() && (
                   <div id="search-suggestions" className="autocomplete" role="listbox" aria-label="Search suggestions">
@@ -192,17 +177,12 @@ export default function HomePage() {
 
       <section className="section homepage-listings-section">
         <div className="section-heading">
-          <div>
-            <div className="eyebrow">VERIFIED PG LISTINGS</div>
-            <h2>Featured PG options</h2>
-          </div>
+          <div><div className="eyebrow">VERIFIED PG LISTINGS</div><h2>Featured PG options</h2></div>
           <a className="section-link" href="/listing">View All Listings →</a>
         </div>
         <p className="homepage-listings-intro">Browse the currently published PG options with real photos, pricing and enquiry details.</p>
         <div className="listing-grid homepage-listing-grid">
-          {listings.filter(x => x.published === true && !x.photoOnly).slice(0, 3).map(listing => (
-            <ListingCard key={listing.id} listing={listing} />
-          ))}
+          {listings.filter(x => x.published === true && !x.photoOnly).slice(0, 3).map(listing => <ListingCard key={listing.id} listing={listing} />)}
         </div>
       </section>
 
