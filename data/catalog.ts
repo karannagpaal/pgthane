@@ -746,7 +746,9 @@ export const locationIndex = [
   "Hiranandani Estate",
   "Vartak Nagar",
   "Lokmanya Nagar",
-  "Kolshet"
+  "Kolshet",
+  "Vasant Vihar",
+  "Pokhran Road"
 ];
 
 export const verifiedWorkplaceIndex = [
