@@ -25,6 +25,6 @@ export default function LocationControls() {
 
   return <div className="filter-panel" aria-label="PG filters">
     {filters.map(([key, label, options]) => <label key={key}><span>{label}</span><select value={params.get(key) || options[0]} onChange={e => update(key, e.target.value)}>{options.map(option => <option key={option}>{option}</option>)}</select></label>)}
-    <button type="button" onClick={() => router.push("?")} className="clear-filter">Clear filters</button>
+    <button type="button" onClick={() => { router.push("?"); requestAnimationFrame(() => document.getElementById("results")?.scrollIntoView({ behavior: "smooth", block: "start" })); }} className="clear-filter">Clear filters</button>
   </div>;
 }
