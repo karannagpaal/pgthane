@@ -56,7 +56,7 @@ export default function HomePage() {
             microlocation or workplace.
           </p>
 
-          <div id="search" className="search-panel">
+          <form id="search" className="search-panel" action="/search">
             <div className="search-tabs">
               {searchTypes.map((item) => (
                 <button
@@ -88,7 +88,7 @@ export default function HomePage() {
                 <option>₹20,000+</option>
               </select>
 
-              <button className="search-button">Search</button>
+              <button className="search-button" type="submit">Search</button>
             </div>
 
             {query && (
@@ -105,7 +105,7 @@ export default function HomePage() {
               </div>
             )}
           </div>
-        </div>
+        </form>
       </section>
 
       <section className="trust-strip">
