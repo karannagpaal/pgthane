@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import LocationControls from "@/components/LocationControls";
-import ListingCard from "@/components/ListingCard";
+import ListingResults from "@/components/LocationResults";
 import { listings, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
 
 const locations: Record<string, string> = {
@@ -16,7 +16,6 @@ const locations: Record<string, string> = {
   "pg-near-railway-station-thane": "Thane Station","pg-in-vasant-vihar-thane": "Vasant Vihar","pg-in-pokhran-road-thane": "Pokhran Road"
 };
 
-export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() { return Object.keys(locations).map(slug => ({ slug })); }
 
@@ -31,49 +30,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function LocationPage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<Record<string, string | undefined>> }) {
+export default async function LocationPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const name = locations[slug];
   if (!name) notFound();
-  const rawFilters = await searchParams;
-  const allowed = {
-    gender: new Set(["Male", "Female", "Unisex"]),
-    food: new Set(["With food", "Without food"]),
-    room: new Set(["Private room", "Shared room"]),
-    amenity: new Set(["Wi-Fi", "Fully Furnished", "Housekeeping", "Washing Machine", "Parking"]),
-    sharing: new Set(["Single", "Double sharing", "Triple sharing", "4 Sharing+"]),
-    budget: new Set(["Under ₹10,000", "₹10,000 – ₹15,000", "₹15,000 – ₹20,000", "₹20,000+"])
-  };
-  const filters = {
-    gender: allowed.gender.has(rawFilters.gender || "") ? rawFilters.gender : undefined,
-    food: allowed.food.has(rawFilters.food || "") ? rawFilters.food : undefined,
-    room: allowed.room.has(rawFilters.room || "") ? rawFilters.room : undefined,
-    amenity: allowed.amenity.has(rawFilters.amenity || "") ? rawFilters.amenity : undefined,
-    sharing: allowed.sharing.has(rawFilters.sharing || "") ? rawFilters.sharing : undefined,
-    budget: allowed.budget.has(rawFilters.budget || "") ? rawFilters.budget : undefined
-  };
   const nearbyMicros = verifiedMicrolocationIndex.filter(x => x.location === name || x.name === name);
   const nearbyWorkplaces = verifiedWorkplaceIndex.filter(x => x.location === name);
-  const publishedCount = listings.filter(x => x.published === true && !x.photoOnly && x.location.toLowerCase() === name.toLowerCase()).length;
-  const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && (() => {
-    if (x.location.toLowerCase() !== name.toLowerCase()) return false;
-    if (filters.gender && x.gender !== filters.gender) return false;
-    if (filters.food && (!x.food || (x.food !== "Both" && x.food !== filters.food))) return false;
-    if (filters.room && (!x.roomType || (x.roomType !== "Both" && x.roomType !== filters.room))) return false;
-    if (filters.amenity && (!x.amenities || !x.amenities.some(a => a.toLowerCase().includes(filters.amenity!.toLowerCase())))) return false;
-    if (filters.sharing) {
-      const wanted = filters.sharing.toLowerCase().replace(" sharing", "");
-      if (!x.sharing || !x.sharing.some(value => value.toLowerCase().replace(" sharing", "") === wanted)) return false;
-    }
-    if (filters.budget && !x.priceFrom) return false;
-    if (filters.budget && x.priceFrom) {
-      if (filters.budget === "Under ₹10,000" && x.priceFrom >= 10000) return false;
-      if (filters.budget === "₹10,000 – ₹15,000" && (x.priceFrom < 10000 || x.priceFrom > 15000)) return false;
-      if (filters.budget === "₹15,000 – ₹20,000" && (x.priceFrom < 15000 || x.priceFrom > 20000)) return false;
-      if (filters.budget === "₹20,000+" && x.priceFrom < 20000) return false;
-    }
-    return true;
-  })());
+  const publishedListings = listings.filter(x => x.published === true && !x.photoOnly && x.location.toLowerCase() === name.toLowerCase());
+  const publishedCount = publishedListings.length;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -99,7 +63,7 @@ export default async function LocationPage({ params, searchParams }: { params: P
       <div id="filters"><Suspense fallback={<div className="filter-panel">Loading filters…</div>}><LocationControls /></Suspense></div>
       {nearbyMicros.length > 0 && <section className="directory-panel"><div className="eyebrow">MICROLOCATIONS</div><h3>Explore around {name}</h3><div className="chip-row">{nearbyMicros.map(x => <Link key={x.name} href={"/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation"} className="directory-chip">📍 {x.name}</Link>)}</div></section>}
       {nearbyWorkplaces.length > 0 && <section className="directory-panel"><div className="eyebrow">NEARBY WORKPLACES</div><h3>Workplaces around {name}</h3><div className="workplace-list">{nearbyWorkplaces.map(x => <Link key={x.name} href={"/search?q=" + encodeURIComponent(x.name) + "&type=Workplace"} className="workplace-item"><span>🏢</span><div><strong>{x.name}</strong><small>{x.kind}</small></div><span>→</span></Link>)}</div></section>}
-      <div id="results">{matchingListings.length > 0 ? <div className="listing-grid">{matchingListings.map(x => <ListingCard key={x.id} listing={x} />)}</div> : <div className="empty-listings"><div className="empty-icon">⌂</div><h3>Verified PG listings are being added</h3><p>No placeholder properties are shown. Real names, photos, pricing, availability and amenities will appear here only after verification.</p><a className="header-cta" href="tel:9930007113">Ask for available PGs</a></div>}</div>
+      <div id="results"><Suspense fallback={<div className="listing-grid" aria-busy="true">Loading verified PGs…</div>}><ListingResults listings={publishedListings} /></Suspense></div>
       <div className="mobile-bottom-bar"><a href="#filters">Filters</a><a href="#results">Results</a><a href="tel:9930007113">Enquire Now</a></div>
       </div><aside className="location-aside"><div className="aside-card"><div className="eyebrow">SEARCH BY WORKPLACE</div><h3>Looking for a PG near your office?</h3><p>Search the directory by workplace or corporate location.</p><Link href="/search?type=Workplace">Search workplaces</Link></div><div className="aside-card"><div className="eyebrow">NEED HELP?</div><h3>Tell us where you work</h3><p>Call the PG Thane enquiry number for current availability.</p><a href="tel:9930007113">9930007113</a></div></aside></section>
     <footer><div className="brand">PG<span>Thane</span></div><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane</small></footer>

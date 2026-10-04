@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { listings } from "@/data/catalog";
+
+export async function generateStaticParams() {
+  return listings.filter(x => x.published === true && !x.photoOnly).map(x => ({ slug: x.slug }));
+}
 import Link from "next/link";
 import EnquiryButton from "@/components/EnquiryButton";
 
