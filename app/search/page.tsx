@@ -13,12 +13,17 @@ function locationHref(value: string) {
 
 export const metadata: Metadata = { title: "Search PGs in Thane | PG Thane", description: "Search PG, Paying Guest, Hostel and shared-room options in Thane by location, microlocation and workplace.", robots: { index: false, follow: true } };
 
-export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string; type?: string; budget?: string }> }) {
+export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string; type?: string; budget?: string; gender?: string; sharing?: string; food?: string; room?: string; amenity?: string }> }) {
   const params = await searchParams;
   const rawQuery = (params.q || "").trim();
   const q = rawQuery.toLowerCase();
   const type = types.includes(params.type || "") ? (params.type || "All") : "All";
   const budget = params.budget || "Any budget";
+  const gender = params.gender || "Any";
+  const sharing = params.sharing || "Any";
+  const food = params.food || "Any";
+  const room = params.room || "Any";
+  const amenity = params.amenity || "Any";
 
   const locations = locationIndex.filter(x => !q || x.toLowerCase().includes(q));
   const micros = verifiedMicrolocationIndex.filter(x => !q || (x.name + " " + x.location).toLowerCase().includes(q));
@@ -31,6 +36,14 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && (() => {
     const text = [x.name, x.type, x.location, x.microlocation, ...x.workplace, ...(x.amenities || [])].join(" ").toLowerCase();
     if (q && !text.includes(q)) return false;
+    if (gender !== "Any" && x.gender !== gender) return false;
+    if (food !== "Any" && (!x.food || (x.food !== "Both" && x.food !== food))) return false;
+    if (room !== "Any" && (!x.roomType || (x.roomType !== "Both" && x.roomType !== room))) return false;
+    if (amenity !== "Any" && (!x.amenities || !x.amenities.some(a => a.toLowerCase().includes(amenity.toLowerCase())))) return false;
+    if (sharing !== "Any") {
+      const wanted = sharing.toLowerCase().replace(" sharing", "");
+      if (!x.sharing || !x.sharing.some(value => value.toLowerCase().replace(" sharing", "") === wanted)) return false;
+    }
     if (budget !== "Any budget") {
       if (x.priceFrom === undefined) return false;
       if (budget === "Under ₹10,000" && x.priceFrom >= 10000) return false;
@@ -55,12 +68,17 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
           <input name="q" defaultValue={rawQuery} placeholder="Location, microlocation, workplace or keyword" autoComplete="off" />
           <select name="type" defaultValue={type} aria-label="Search category">{types.map(x => <option key={x}>{x}</option>)}</select>
           <select name="budget" defaultValue={budget} aria-label="Budget"><option>Any budget</option><option>Under ₹10,000</option><option>₹10,000 – ₹15,000</option><option>₹15,000 – ₹20,000</option><option>₹20,000+</option></select>
+          <select name="gender" defaultValue={gender} aria-label="Gender"><option>Any</option><option>Male</option><option>Female</option><option>Unisex</option></select>
+          <select name="sharing" defaultValue={sharing} aria-label="Sharing"><option>Any</option><option>Single</option><option>Double sharing</option><option>Triple sharing</option><option>4 Sharing+</option></select>
+          <select name="food" defaultValue={food} aria-label="Food"><option>Any</option><option>With food</option><option>Without food</option></select>
+          <select name="room" defaultValue={room} aria-label="Room type"><option>Any</option><option>Private room</option><option>Shared room</option></select>
+          <select name="amenity" defaultValue={amenity} aria-label="Amenity"><option>Any</option><option>Wi-Fi</option><option>Fully Furnished</option><option>Housekeeping</option><option>Washing Machine</option><option>Parking</option></select>
           <button className="search-button" type="submit">Search</button>
         </form>
 
         <div className="search-toolbar">
           <span>{rawQuery ? <>Results for <strong>“{rawQuery}”</strong></> : <>Browse verified search categories</>} {hasResults && <span className="search-count"> · {resultCount} results</span>}</span>
-          {(rawQuery || type !== "All" || budget !== "Any budget") && <Link className="clear-search" href="/search">Clear all</Link>}
+          {(rawQuery || type !== "All" || budget !== "Any budget" || gender !== "Any" || sharing !== "Any" || food !== "Any" || room !== "Any" || amenity !== "Any") && <Link className="clear-search" href="/search">Clear all</Link>}
         </div>
 
         {!hasResults && <div className="search-empty">No verified results match this search yet. Try a broader location, workplace or keyword. Real PG listings will appear here only after their information is verified.</div>}
