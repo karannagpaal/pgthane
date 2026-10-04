@@ -99,15 +99,22 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         <h1>Search PGs in Thane</h1>
 
         <form className="search-page-form" role="search" aria-label="Search PGs in Thane">
-          <input name="q" defaultValue={rawQuery} placeholder="Location, microlocation, workplace or keyword" autoComplete="off" />
-          <select name="type" defaultValue={type} aria-label="Search category">{types.map(x => <option key={x}>{x}</option>)}</select>
-          <select name="budget" defaultValue={budget} aria-label="Budget"><option>Any budget</option><option>Under ₹10,000</option><option>₹10,000 – ₹15,000</option><option>₹15,000 – ₹20,000</option><option>₹20,000+</option></select>
-          <select name="gender" defaultValue={gender} aria-label="Gender"><option>Any</option><option>Male</option><option>Female</option><option>Unisex</option></select>
-          <select name="sharing" defaultValue={sharing} aria-label="Sharing"><option>Any</option><option>Single</option><option>Double sharing</option><option>Triple sharing</option><option>4 Sharing+</option></select>
-          <select name="food" defaultValue={food} aria-label="Food"><option>Any</option><option>With food</option><option>Without food</option></select>
-          <select name="room" defaultValue={room} aria-label="Room type"><option>Any</option><option>Private room</option><option>Shared room</option></select>
-          <select name="amenity" defaultValue={amenity} aria-label="Amenity"><option>Any</option><option>Wi-Fi</option><option>Fully Furnished</option><option>Housekeeping</option><option>Washing Machine</option><option>Parking</option></select>
-          <button className="search-button" type="submit">Search</button>
+          <div className="search-primary-fields">
+            <input name="q" defaultValue={rawQuery} placeholder="Location, microlocation, workplace or keyword" autoComplete="off" />
+            <select name="type" defaultValue={type} aria-label="Search category">{types.map(x => <option key={x}>{x}</option>)}</select>
+            <select name="budget" defaultValue={budget} aria-label="Budget"><option>Any budget</option><option>Under ₹10,000</option><option>₹10,000 – ₹15,000</option><option>₹15,000 – ₹20,000</option><option>₹20,000+</option></select>
+          </div>
+          <details className="search-advanced">
+            <summary>More filters <span>Gender · Sharing · Food · Room · Amenities</span></summary>
+            <div className="search-advanced-grid">
+              <select name="gender" defaultValue={gender} aria-label="Gender"><option>Any</option><option>Male</option><option>Female</option><option>Unisex</option></select>
+              <select name="sharing" defaultValue={sharing} aria-label="Sharing"><option>Any</option><option>Single</option><option>Double sharing</option><option>Triple sharing</option><option>4 Sharing+</option></select>
+              <select name="food" defaultValue={food} aria-label="Food"><option>Any</option><option>With food</option><option>Without food</option></select>
+              <select name="room" defaultValue={room} aria-label="Room type"><option>Any</option><option>Private room</option><option>Shared room</option></select>
+              <select name="amenity" defaultValue={amenity} aria-label="Amenity"><option>Any</option><option>Wi-Fi</option><option>Fully Furnished</option><option>Housekeeping</option><option>Washing Machine</option><option>Parking</option></select>
+            </div>
+          </details>
+          <button className="search-button" type="submit">Search PGs</button>
         </form>
 
         <div className="search-toolbar">
