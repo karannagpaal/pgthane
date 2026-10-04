@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 0.8
   }));
-  const listingUrls = listings.map(listing => ({
+  const listingUrls = listings.filter(listing => listing.published === true && !listing.photoOnly).map(listing => ({
     url: "https://www.pgthane.com/listing/" + listing.slug,
     changeFrequency: "daily" as const,
     priority: 0.7
