@@ -28,15 +28,13 @@ export default function ListingCard({ listing }: { listing: Listing }) {
 
       <div className="listing-side">
         <div className="listing-price-range">
-          <span>AC rent</span>
-          <strong>From ₹7,499/month</strong>
+          <span>AC rooms</span>
+          <strong>₹7,499 – ₹16,999/month</strong>
         </div>
-        {listing.priceFrom && (
-          <div className="listing-current-price">
-            <span>Listed option</span>
-            <strong>₹{listing.priceFrom.toLocaleString("en-IN")}/month</strong>
-          </div>
-        )}
+        <div className="listing-current-price">
+          <span>AC & Non-AC</span>
+          <strong>Male & Female</strong>
+        </div>
         <div className="listing-actions">
           <EnquiryButton listingName={listing.name} location={listing.location} label="Enquire" className="listing-enquire" />
           <a href={"/listing/" + listing.slug}>View Details →</a>
