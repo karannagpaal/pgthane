@@ -126,7 +126,7 @@ export default function HomePage() {
                         <span>{item.meta.startsWith("Microlocation") ? "📍" : "🏢"}</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
                       </button>
                     ))}
-                    {!suggestions.length && <div className="autocomplete-empty">No matching verified location or workplace.</div>}
+                    {!suggestions.length && <div className="autocomplete-empty">No matching location, microlocation or workplace.</div>}
                   </div>
                 )}
               </div>
