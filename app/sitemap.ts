@@ -6,7 +6,7 @@ const locations = [
   "pg-near-railway-station-thane","pg-in-panchpakhadi-thane","pg-in-louiswadi-thane","pg-in-teen-hath-naka-thane",
   "pg-in-naupada-thane","pg-in-khopat-thane","pg-in-castle-mill-thane","pg-in-kapurbawdi-thane",
   "pg-in-manpada-thane","pg-in-bhramand-thane","pg-in-kasarvadavali-thane","pg-in-vartak-nagar-thane",
-  "pg-in-lokmanya-nagar-thane","pg-near-railway-station-thane","pg-in-vasant-vihar-thane","pg-in-pokhran-road-thane"
+  "pg-in-lokmanya-nagar-thane","pg-in-vasant-vihar-thane","pg-in-pokhran-road-thane"
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
