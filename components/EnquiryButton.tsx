@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { listings } from "@/data/catalog";
 
 type Mode = "reserve" | "visit";
@@ -22,7 +22,7 @@ export default function EnquiryButton({
 }: EnquiryButtonProps) {
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState<Mode>("reserve");
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);\n  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const [property, setProperty] = useState(listingName || "");
   const [preferredLocation, setPreferredLocation] = useState(location || "");
@@ -48,7 +48,7 @@ export default function EnquiryButton({
       if (event.key === "Escape") resetAndClose();
     };
     document.addEventListener("keydown", onKeyDown);
-    return () => { document.body.style.overflow = ""; };
+    return () => {\n      document.body.style.overflow = "";\n      document.removeEventListener("keydown", onKeyDown);\n    };
   }, [open]);
 
   function resetAndClose() {
