@@ -18,7 +18,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
     ...micros.map(x => ({ label: x.name, meta: "Microlocation · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation" })),
     ...workplaces.map(x => ({ label: x.name, meta: x.kind + " · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Workplace" }))
   ];
-  const matchingListings = listings.filter(x => {
+  const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && (() => {
     const text = [x.name, x.type, x.location, x.microlocation, ...x.workplace, ...(x.amenities || [])].join(" ").toLowerCase();
     if (q && !text.includes(q)) return false;
     if (budget !== "Any budget" && x.priceFrom) {
@@ -28,7 +28,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
       if (budget === "₹20,000+" && x.priceFrom < 20000) return false;
     }
     return true;
-  });
+  })());
 
   const resultCount = type === "All" ? locations.length + micros.length + workplaces.length + matchingListings.length : type === "Location" ? locations.length : type === "Microlocation" ? micros.length : type === "Workplace" ? workplaces.length : keywordMatches.length + matchingListings.length;
   const hasResults = resultCount > 0;
