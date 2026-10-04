@@ -565,3 +565,5 @@ footer small { opacity: .55; }
   .filter-panel select{width:100%;min-width:0;padding:0 7px;font-size:12px}
   .clear-filter{grid-column:1/-1}
 }
+
+/* Vercel production sync marker */
