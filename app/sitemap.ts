@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { listings } from "@/data/catalog";
+import { listings, verifiedWorkplaceIndex } from "@/data/catalog";
 
 const locations = [
   "pg-in-wagle-estate-thane","pg-in-majiwada-thane","pg-in-kolshet-thane","pg-in-hiranandani-estate-thane",
@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 0.8
   }));
+  const workplaceUrls = verifiedWorkplaceIndex.map(workplace => ({ url: "https://www.pgthane.com/discover-pg-in-thane/workplace/" + workplace.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""), changeFrequency: "weekly" as const, priority: 0.75 }));
   const listingUrls = listings
     .filter(listing => listing.published === true && !listing.photoOnly)
     .map(listing => ({
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://www.pgthane.com/", changeFrequency: "weekly", priority: 1 },
     { url: "https://www.pgthane.com/discover-pg-in-thane", changeFrequency: "weekly", priority: 0.9 },
     ...locationUrls,
+    ...workplaceUrls,
     ...listingUrls
   ];
 }
