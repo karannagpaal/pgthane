@@ -97,7 +97,7 @@ export default function HomePage() {
                   {matches.length} location{matches.length === 1 ? "" : "s"} matching “{query}”
                 </div>
                 {matches.map((location) => (
-                  <a key={location} href={`/pg-in-${location.toLowerCase().replaceAll(" ", "-")}`}>
+                  <a key={location} href={`/discover-pg-in-thane/pg-in-${location.toLowerCase().replaceAll(" ", "-")}-thane`}>
                     <span>📍</span>{location}
                   </a>
                 ))}
@@ -128,7 +128,7 @@ export default function HomePage() {
             <a
               className="location-card"
               key={location}
-              href={`/pg-in-${location.toLowerCase().replaceAll(" ", "-")}`}
+              href={`/discover-pg-in-thane/pg-in-${location.toLowerCase().replaceAll(" ", "-")}-thane`}
             >
               <span className="pin">📍</span>
               <div>
