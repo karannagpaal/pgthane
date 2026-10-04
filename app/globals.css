@@ -259,3 +259,5 @@ footer small { opacity: .55; }
   .search-page{padding-left:28px;padding-right:28px}
   .directory-panel{padding:16px}
 }
+
+/* Production deployment refresh: keep PGThane branding assets served without layout changes. */
