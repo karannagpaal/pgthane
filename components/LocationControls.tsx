@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 const filters = [
   ["budget", "Budget", ["Any budget", "Under ₹10,000", "₹10,000 – ₹15,000", "₹15,000 – ₹20,000", "₹20,000+"]],
   ["gender", "Gender", ["Any", "Male", "Female", "Unisex"]],
-  ["sharing", "Sharing", ["Any", "Single", "Double", "Triple", "4 Sharing+"]],
+  ["sharing", "Sharing", ["Any", "Single", "Double sharing", "Triple sharing", "4 Sharing+"]],
   ["food", "Food", ["Any", "With food", "Without food"]],
   ["room", "Room type", ["Any", "Private room", "Shared room"]],
   ["amenity", "Amenity", ["Any", "Wi-Fi", "Fully Furnished", "Housekeeping", "Washing Machine", "Parking"]]
