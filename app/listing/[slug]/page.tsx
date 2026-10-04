@@ -36,7 +36,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
 
   return <main>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-    <header className="topbar"><Link className="brand" href="/">PG<span>Thane</span></Link><nav><Link href="/#locations">Locations</Link><Link href="/search">Search</Link></nav><a className="header-cta" href="tel:9892336705">Call</a></header>
+    <header className="topbar"><Link className="brand" href="/">PG<span>Thane</span></Link><nav><Link href="/#locations">Locations</Link><Link href="/search">Search</Link></nav><a className="header-cta" href="tel:9930007113">Call</a></header>
 
     <section className="section listing-detail">
       <div className="breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/discover-pg-in-thane">PG in Thane</Link><span>/</span><strong>{listing.name}</strong></div>
@@ -48,7 +48,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
           <p className="listing-location large">📍 {listing.microlocation}, {listing.location}, Thane</p>
         </div>
         <div className="listing-detail-actions">
-          <a className="header-cta" href="tel:9892336705">Call</a><a className="outline-cta" href="https://wa.me/919892336705">WhatsApp</a>
+          <a className="header-cta" href="tel:9930007113">Call</a><a className="outline-cta" href="https://wa.me/919930007113">WhatsApp</a>
         </div>
       </div>
 
@@ -76,7 +76,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             {listing.availability && <div><dt>Availability</dt><dd>{listing.availability}</dd></div>}
           </dl>
           {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}>{a}</span>)}</div></div> : null}
-          <a className="detail-enquire" href="tel:9892336705">Enquire Now</a>
+          <a className="detail-enquire" href="tel:9930007113">Enquire Now</a>
         </aside>
       </div>
 
