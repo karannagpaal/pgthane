@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { listings } from "@/data/catalog";
 import Link from "next/link";
+import EnquiryButton from "@/components/EnquiryButton";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -76,7 +77,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             {listing.availability && <div><dt>Availability</dt><dd>{listing.availability}</dd></div>}
           </dl>
           {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}>{a}</span>)}</div></div> : null}
-          <a className="detail-enquire" href="tel:9930007113">Enquire Now</a>
+          <EnquiryButton listingName={listing.name} location={listing.location} label="Enquire Now" className="detail-enquire" />
         </aside>
       </div>
 
