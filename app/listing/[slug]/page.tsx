@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const listing = listings.find(x => x.slug === slug);
+  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly);
   if (!listing) return { title: "PG Listing | PG Thane" };
   return {
     title: listing.name + " | PG in " + listing.location + ", Thane",
