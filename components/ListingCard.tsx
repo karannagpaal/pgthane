@@ -11,9 +11,9 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         {listing.verified && <span className="verified-badge">Verified listing</span>}
       </div>
       <div className="listing-body">
-        <div className="listing-kicker">{listing.type} · {listing.gender || "Gender not specified"}</div>
+        <div className="listing-kicker">{listing.type}</div>
         <h3>{listing.name}</h3>
-        <p className="listing-location">📍 {listing.microlocation}, {listing.location}</p>
+        <p className="listing-location">📍 {listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation + ", " + listing.location : listing.location}</p>
         {listing.amenities?.length ? <p className="listing-amenities">{listing.amenities.slice(0, 4).join(" · ")}</p> : null}
       </div>
       <div className="listing-side">
