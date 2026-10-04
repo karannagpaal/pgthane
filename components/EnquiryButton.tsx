@@ -38,7 +38,11 @@ export default function EnquiryButton({
   const [acPreference, setAcPreference] = useState("");
   const [requests, setRequests] = useState("");
 
-  const today = useMemo(() => {\n    const now = new Date();\n    const offset = now.getTimezoneOffset();\n    return new Date(now.getTime() - offset * 60_000).toISOString().slice(0, 10);\n  }, []);
+  const today = useMemo(() => {
+    const now = new Date();
+    const offset = now.getTimezoneOffset();
+    return new Date(now.getTime() - offset * 60_000).toISOString().slice(0, 10);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
