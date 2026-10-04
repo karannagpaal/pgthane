@@ -26,7 +26,9 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
       <div className="breadcrumb"><Link href="/">Home</Link><span>/</span><Link href={"/discover-pg-in-thane/pg-in-" + listing.location.toLowerCase().replaceAll(" ", "-") + "-thane"}>{listing.location}</Link><span>/</span><strong>{listing.name}</strong></div>
       <div className="eyebrow">PG LISTING</div>
       <h1>{listing.name}</h1>
-      <p className="listing-detail-intro">{listing.type} in {listing.microlocation}, {listing.location}, Thane.</p>
+      {listing.description ? <div className="listing-description"><p>{listing.description}</p></div> : (
+        <p className="listing-detail-intro">{listing.type} in {listing.microlocation}, {listing.location}, Thane.</p>
+      )}
       <ListingCard listing={listing} />
       <Link className="back-directory" href={"/discover-pg-in-thane/pg-in-" + listing.location.toLowerCase().replaceAll(" ", "-") + "-thane"}>← Back to {listing.location} PGs</Link>
     </section>
