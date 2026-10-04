@@ -75,7 +75,16 @@ export default function HomePage() {
           <form id="search" className="search-panel" onSubmit={submit} role="search" aria-label="Search PGs in Thane">
             <div className="search-tabs" role="tablist" aria-label="Search category">
               {searchTypes.map(item => (
-                <button key={item} type="button" className={type === item ? "active" : ""} onClick={() => setType(item)}>{item}</button>
+                <button
+                  key={item}
+                  type="button"
+                  role="tab"
+                  aria-selected={type === item}
+                  className={type === item ? "active" : ""}
+                  onClick={() => setType(item)}
+                >
+                  {item}
+                </button>
               ))}
             </div>
 
