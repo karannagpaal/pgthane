@@ -49,6 +49,8 @@ export default function HomePage() {
     return result.slice(0, 8);
   }, [query, type]);
 
+  useEffect(() => { setActiveSuggestion(-1); }, [query, type]);
+
   function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const params = new URLSearchParams();
@@ -96,6 +98,18 @@ export default function HomePage() {
                   onChange={e => setQuery(e.target.value)}
                   onFocus={() => setFocused(true)}
                   onBlur={() => setTimeout(() => setFocused(false), 150)}
+                  onKeyDown={e => {
+                    if (!suggestions.length) return;
+                    if (e.key === "ArrowDown") { e.preventDefault(); setActiveSuggestion(i => (i + 1) % suggestions.length); }
+                    else if (e.key === "ArrowUp") { e.preventDefault(); setActiveSuggestion(i => (i - 1 + suggestions.length) % suggestions.length); }
+                    else if (e.key === "Enter" && activeSuggestion >= 0) {
+                      e.preventDefault();
+                      const item = suggestions[activeSuggestion];
+                      if (item.href) window.location.href = item.href;
+                      else { setQuery(item.label); setFocused(true); setActiveSuggestion(-1); }
+                    } else if (e.key === "Escape") { setFocused(false); setActiveSuggestion(-1); }
+                  }}
+                  aria-activedescendant={activeSuggestion >= 0 ? "suggestion-" + activeSuggestion : undefined}
                   placeholder="Search location, workplace or keyword"
                   aria-label="Search PGs"
                   autoComplete="off"
@@ -103,11 +117,11 @@ export default function HomePage() {
                 {focused && query.trim() && (
                   <div className="autocomplete" role="listbox" aria-label="Search suggestions">
                     {suggestions.map((item, i) => item.href ? (
-                      <a key={item.label + i} href={item.href} className="autocomplete-item">
+                      <a id={"suggestion-" + i} key={item.label + i} href={item.href} className="autocomplete-item" aria-selected={activeSuggestion === i}>
                         <span>📍</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
                       </a>
                     ) : (
-                      <button type="button" key={item.label + i} className="autocomplete-item" onMouseDown={() => { setQuery(item.label); setFocused(true); }}>
+                      <button id={"suggestion-" + i} type="button" key={item.label + i} className="autocomplete-item" aria-selected={activeSuggestion === i} onMouseDown={() => { setQuery(item.label); setFocused(true); setActiveSuggestion(-1); }}>
                         <span>{item.meta.startsWith("Microlocation") ? "📍" : "🏢"}</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
                       </button>
                     ))}
