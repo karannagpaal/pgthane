@@ -9,15 +9,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly);
   if (!listing) return { title: "PG Listing | PG Thane" };
   return {
-    title: listing.name + " | PG in " + listing.location + ", Thane",
-    description: [listing.type, listing.microlocation, listing.location, listing.amenities?.join(", ")].filter(Boolean).join(" · "),
+    title: listing.seoTitle || (listing.name + " | PG in " + listing.location + ", Thane"),
+    description: listing.seoDescription || [listing.type, listing.microlocation, listing.location, listing.amenities?.join(", ")].filter(Boolean).join(" · "),
     alternates: { canonical: "https://www.pgthane.com/listing/" + listing.slug }
   };
 }
 
 export default async function ListingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const listing = listings.find(x => x.slug === slug);
+  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly);
   if (!listing) notFound();
 
   return <main>
