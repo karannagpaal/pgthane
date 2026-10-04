@@ -400,3 +400,92 @@ footer small { opacity: .55; }
   .enquiry-tabs button{padding:11px 7px;font-size:13px}
   .listing-enquire{padding:10px 12px}
 }
+
+
+/* Mobile-first polish — Option 1 */
+.menu-toggle{
+  display:none;
+  width:42px;
+  height:42px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--white);
+  padding:9px;
+  cursor:pointer;
+}
+.menu-toggle span{display:block;height:2px;background:var(--brown);margin:5px 0;border-radius:2px}
+.mobile-nav{display:flex}
+@media(max-width:760px){
+  .topbar{gap:8px}
+  .brand-logo{width:150px}
+  .header-cta{padding:10px 11px;font-size:12px}
+  .menu-toggle{display:block;flex:0 0 auto}
+  .mobile-nav{
+    display:none;
+    position:absolute;
+    left:12px;
+    right:12px;
+    top:58px;
+    padding:8px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:12px;
+    box-shadow:0 16px 36px rgba(24,32,22,.14);
+    z-index:30;
+    flex-direction:column;
+    gap:2px;
+  }
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:13px 12px;border-radius:8px;font-weight:800}
+  .mobile-nav a:active,.mobile-nav a:hover{background:#f1f5ed;color:var(--green)}
+  .hero{padding-top:34px}
+  h1{font-size:36px;line-height:1.02;letter-spacing:-1.5px}
+  .homepage-logo{width:68px;height:68px}
+  .hero-copy{line-height:1.5}
+  .search-panel{margin-top:24px}
+  .search-tabs{padding:0 4px;scrollbar-width:none}
+  .search-tabs::-webkit-scrollbar{display:none}
+  .search-tabs button{font-size:12px;padding:13px 11px}
+  .search-row{padding:10px}
+  .search-field input{font-size:14px}
+  .trust-strip{gap:8px}
+  .section{padding:42px 18px}
+  .section-heading{margin-bottom:20px}
+  h2{font-size:30px;letter-spacing:-1px}
+  .location-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:12px;
+    margin-right:-18px;
+    padding:2px 18px 12px 0;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+  .location-grid::-webkit-scrollbar{display:none}
+  .location-card{
+    flex:0 0 78vw;
+    min-height:94px;
+    scroll-snap-align:start;
+    padding:16px;
+    grid-template-columns:30px 1fr 18px;
+  }
+  .location-card h3{font-size:15px}
+  .location-card p{font-size:11px;line-height:1.35}
+  .listing-card{border-radius:14px}
+  .listing-photo,.listing-photo img{height:190px!important;min-height:190px!important}
+  .listing-body{padding:17px}
+  .listing-body h3{font-size:19px}
+  .listing-location{font-size:13px}
+  .listing-feature-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px 12px;
+    margin-top:16px;
+  }
+  .listing-feature-grid span{font-size:11px}
+  .listing-side{padding:15px}
+  .listing-price-range{margin-bottom:10px}
+  .listing-price-range strong{font-size:14px}
+  .listing-actions{grid-template-columns:1fr 1fr}
+  .listing-actions a,.listing-enquire{font-size:12px;padding:11px 8px}
+  .homepage-listings-intro{font-size:13px;margin-bottom:16px}
+}
