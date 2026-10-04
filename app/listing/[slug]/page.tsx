@@ -46,7 +46,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         <div>
           <div className="eyebrow">{listing.type.toUpperCase()} LISTING</div>
           <h1>{listing.name}</h1>
-          <p className="listing-location large">📍 {listing.microlocation}, {listing.location}, Thane</p>
+          <p className="listing-location large">📍 {listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation + ", " + listing.location + ", Thane" : listing.location + ", Thane"}</p>
         </div>
         <div className="listing-detail-actions">
           <a className="header-cta" href="tel:9930007113">Call</a><a className="outline-cta" href="https://wa.me/919930007113">WhatsApp</a>
