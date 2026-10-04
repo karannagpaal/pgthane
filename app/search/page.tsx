@@ -4,6 +4,13 @@ import { listings, locationIndex, verifiedMicrolocationIndex, verifiedWorkplaceI
 
 const types = ["All", "Location", "Microlocation", "Workplace", "Keyword"];
 
+function locationHref(value: string) {
+  if (value === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
+  return "/discover-pg-in-thane/pg-in-" + value.toLowerCase().replaceAll(" ", "-") + "-thane";
+}
+
+
+
 export const metadata: Metadata = { title: "Search PGs in Thane | PG Thane", description: "Search PG, Paying Guest, Hostel and shared-room options in Thane by location, microlocation and workplace.", robots: { index: false, follow: true } };
 
 export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string; type?: string; budget?: string }> }) {
@@ -17,7 +24,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const micros = verifiedMicrolocationIndex.filter(x => !q || (x.name + " " + x.location).toLowerCase().includes(q));
   const workplaces = verifiedWorkplaceIndex.filter(x => !q || (x.name + " " + x.location + " " + x.kind).toLowerCase().includes(q));
   const keywordMatches = [
-    ...locations.map(x => ({ label: x, meta: "Location", href: "/discover-pg-in-thane/pg-in-" + x.toLowerCase().replaceAll(" ", "-") + "-thane" })),
+    ...locations.map(x => ({ label: x, meta: "Location", href: locationHref(x) })),
     ...micros.map(x => ({ label: x.name, meta: "Microlocation · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation" })),
     ...workplaces.map(x => ({ label: x.name, meta: x.kind + " · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Workplace" }))
   ];
