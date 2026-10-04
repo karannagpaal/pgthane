@@ -119,7 +119,7 @@ export default function HomePage() {
                 {focused && query.trim() && (
                   <div className="autocomplete" role="listbox" aria-label="Search suggestions">
                     {suggestions.map((item, i) => item.href ? (
-                      <a id={"suggestion-" + i} key={item.label + i} href={item.href} className="autocomplete-item" aria-selected={activeSuggestion === i}>
+                      <a id={"suggestion-" + i} key={item.label + i} href={item.href} className="autocomplete-item" role="option" aria-selected={activeSuggestion === i}>
                         <span>📍</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
                       </a>
                     ) : (
