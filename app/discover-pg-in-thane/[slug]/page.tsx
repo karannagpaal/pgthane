@@ -42,7 +42,10 @@ export default async function LocationPage({ params, searchParams }: { params: P
     if (filters.food && (!x.food || (x.food !== "Both" && x.food !== filters.food))) return false;
     if (filters.room && (!x.roomType || (x.roomType !== "Both" && x.roomType !== filters.room))) return false;
     if (filters.amenity && (!x.amenities || !x.amenities.some(a => a.toLowerCase().includes(filters.amenity!.toLowerCase())))) return false;
-    if (filters.sharing && (!x.sharing || !x.sharing.includes(filters.sharing))) return false;
+    if (filters.sharing) {
+      const wanted = filters.sharing.toLowerCase().replace(" sharing", "");
+      if (!x.sharing || !x.sharing.some(value => value.toLowerCase().replace(" sharing", "") === wanted)) return false;
+    }
     if (filters.budget && !x.priceFrom) return false;
     if (filters.budget && x.priceFrom) {
       if (filters.budget === "Under ₹10,000" && x.priceFrom >= 10000) return false;
