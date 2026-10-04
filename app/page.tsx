@@ -6,7 +6,8 @@ import { verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catal
 const locations = [
   "Thane Station","Wagle Estate","Panchpakhadi","Louiswadi","Teen Hath Naka",
   "Naupada","Khopat","Majiwada","Castle Mill","Kapurbawdi","Manpada","Bhramand",
-  "Kasarvadavali","Hiranandani Estate","Vartak Nagar","Lokmanya Nagar","Kolshet"
+  "Kasarvadavali","Hiranandani Estate","Vartak Nagar","Lokmanya Nagar","Kolshet",
+  "Vasant Vihar","Pokhran Road"
 ];
 
 const searchTypes = ["All", "Location", "Microlocation", "Workplace", "Keyword"] as const;
