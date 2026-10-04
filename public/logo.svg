@@ -1,1 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="t d"><title id="t">PGThane.com</title><desc id="d">PGThane.com verified PG and accommodation logo</desc><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4C21A"/><stop offset=".5" stop-color="#FFD83D"/><stop offset="1" stop-color="#E5A900"/></linearGradient><linearGradient id="gr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#006400"/><stop offset="1" stop-color="#1C8B27"/></linearGradient><linearGradient id="br" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5A2C12"/><stop offset="1" stop-color="#8A451A"/></linearGradient></defs><g transform="translate(18 18)"><path d="M205 22C120 44 58 105 35 184c36-20 75-25 112-13-13-57 10-111 58-149Z" fill="url(#g)"/><path d="M218 31C145 75 112 127 113 190c1 58 31 92 77 107-26-39-30-79-13-120 20-47 48-83 91-111Z" fill="url(#br)"/><path d="M274 42C221 71 181 116 168 162c-14 51 4 95 49 124l63-57c-43-19-60-47-55-83 5-39 29-73 66-104Z" fill="url(#gr)"/><path d="M83 184c47 6 91 28 128 66l-51 32c-25-31-53-47-91-55Z" fill="url(#br)"/><path d="M149 201c51 9 93 27 132 61l-46 34c-29-31-58-48-99-57Z" fill="url(#gr)"/><path d="M46 177c54-13 104-2 149 31-42-2-77 7-106 27-12-19-26-38-43-58Z" fill="url(#g)"/><text x="86" y="155" font-family="Georgia,Times New Roman,serif" font-size="118" font-weight="700" fill="url(#br)">P</text><text x="166" y="155" font-family="Georgia,Times New Roman,serif" font-size="118" font-weight="700" fill="url(#gr)">G</text></g><text x="330" y="162" font-family="Arial,Helvetica,sans-serif" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#br)">PG</text><text x="505" y="162" font-family="Arial,Helvetica,sans-serif" font-size="104" font-weight="800" letter-spacing="-4" fill="#006400">Thane</text><circle cx="865" cy="126" r="13" fill="#F4C21A"/><text x="895" y="162" font-family="Arial,Helvetica,sans-serif" font-size="104" font-weight="800" letter-spacing="-4" fill="#006400">com</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 316" role="img" aria-labelledby="t d">
+<title id="t">PGThane.com</title><desc id="d">PGThane.com Verified PG and Accommodation in Thane</desc>
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4C21A"/><stop offset=".55" stop-color="#FFD83D"/><stop offset="1" stop-color="#E5A900"/></linearGradient>
+<linearGradient id="gr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#006400"/><stop offset="1" stop-color="#1C8B27"/></linearGradient>
+<linearGradient id="br" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5A2C12"/><stop offset="1" stop-color="#8A451A"/></linearGradient>
+</defs>
+<g transform="translate(4 8)">
+<path d="M205 10C120 32 58 93 35 172c36-20 75-25 112-13-13-57 10-111 58-149Z" fill="url(#g)"/>
+<path d="M218 19C145 63 112 115 113 178c1 58 31 92 77 107-26-39-30-79-13-120 20-47 48-83 91-111Z" fill="url(#br)"/>
+<path d="M274 30C221 59 181 104 168 150c-14 51 4 95 49 124l63-57c-43-19-60-47-55-83 5-39 29-73 66-104Z" fill="url(#gr)"/>
+<path d="M83 172c47 6 91 28 128 66l-51 32c-25-31-53-47-91-55Z" fill="url(#br)"/>
+<path d="M149 189c51 9 93 27 132 61l-46 34c-29-31-58-48-99-57Z" fill="url(#gr)"/>
+<path d="M46 165c54-13 104-2 149 31-42-2-77 7-106 27-12-19-26-38-43-58Z" fill="url(#g)"/>
+<text x="86" y="143" font-family="Georgia,Times New Roman,serif" font-size="118" font-weight="700" fill="url(#br)">P</text>
+<text x="166" y="143" font-family="Georgia,Times New Roman,serif" font-size="118" font-weight="700" fill="url(#gr)">G</text>
+</g>
+<text x="330" y="150" font-family="Arial,Helvetica,sans-serif" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#br)">PG</text>
+<text x="505" y="150" font-family="Arial,Helvetica,sans-serif" font-size="104" font-weight="800" letter-spacing="-4" fill="#006400">Thane</text>
+<circle cx="865" cy="114" r="13" fill="#F4C21A"/>
+<text x="895" y="150" font-family="Arial,Helvetica,sans-serif" font-size="104" font-weight="800" letter-spacing="-4" fill="#006400">com</text>
+<g transform="translate(505 188)">
+<rect x="0" y="17" width="55" height="4" rx="2" fill="#F4C21A"/>
+<text x="66" y="25" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#5A2C12">Verified PG &amp; Accommodation in Thane</text>
+<rect x="820" y="17" width="55" height="4" rx="2" fill="#F4C21A"/>
+</g>
+</svg>
