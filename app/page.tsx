@@ -126,11 +126,20 @@ export default function HomePage() {
                     } else if (e.key === "Escape") { setFocused(false); setActiveSuggestion(-1); }
                   }}
                   aria-activedescendant={activeSuggestion >= 0 ? "suggestion-" + activeSuggestion : undefined}
-                  placeholder="Search location, workplace or keyword"
+                  placeholder={type === "Location" ? "Search a Thane location" : type === "Microlocation" ? "Search a microlocation" : type === "Workplace" ? "Search a workplace or business park" : type === "Keyword" ? "Search by PG keyword" : "Search location, workplace or keyword"}
                   inputMode="search"
                   aria-label="Search PGs"
                   autoComplete="off"
                 />
+                {query && (
+                  <button
+                    type="button"
+                    className="search-clear"
+                    aria-label="Clear search"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => { setQuery(""); setFocused(true); }}
+                  >×</button>
+                )}
                 {focused && query.trim() && (
                   <div className="autocomplete" role="listbox" aria-label="Search suggestions">
                     {suggestions.map((item, i) => item.href ? (
