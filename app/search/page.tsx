@@ -31,7 +31,8 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && (() => {
     const text = [x.name, x.type, x.location, x.microlocation, ...x.workplace, ...(x.amenities || [])].join(" ").toLowerCase();
     if (q && !text.includes(q)) return false;
-    if (budget !== "Any budget" && x.priceFrom) {
+    if (budget !== "Any budget") {
+      if (x.priceFrom === undefined) return false;
       if (budget === "Under ₹10,000" && x.priceFrom >= 10000) return false;
       if (budget === "₹10,000 – ₹15,000" && (x.priceFrom < 10000 || x.priceFrom > 15000)) return false;
       if (budget === "₹15,000 – ₹20,000" && (x.priceFrom < 15000 || x.priceFrom > 20000)) return false;
