@@ -33,7 +33,7 @@ button, input, select { font: inherit; }
   z-index: 20;
 }
 .brand { display:flex; align-items:center; line-height:0; }
-.brand-logo { display:block; width:188px; height:auto; max-height:58px; object-fit:contain; object-position:left center; }
+.brand-logo { display:block; width:188px; height:58px; max-height:none; object-fit:cover; object-position:center center; }
 .homepage-logo-wrap { display:flex; justify-content:center; margin:0 0 16px; }
 .homepage-logo { display:block; width:112px; height:112px; object-fit:contain; }
 .footer-logo { display:flex; align-items:center; margin-bottom:8px; }
@@ -136,7 +136,7 @@ footer small { opacity: .55; }
 
 @media (max-width: 760px) {
   .topbar { height: 64px; padding: 0 18px; }
-  .brand-logo { width:148px; max-height:48px; }
+  .brand-logo { width:148px; height:48px; max-height:none; object-fit:cover; object-position:center center; }
   .homepage-logo-wrap { margin-bottom:12px; }
   .homepage-logo { width:82px; height:82px; }
   .topbar nav { display: none; }
