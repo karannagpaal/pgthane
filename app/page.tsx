@@ -104,7 +104,6 @@ export default function HomePage() {
                 {!matches.length && <p>No matching location found.</p>}
               </div>
             )}
-          </div>
         </form>
       </section>
 
