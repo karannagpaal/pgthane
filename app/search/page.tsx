@@ -18,12 +18,20 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const rawQuery = (params.q || "").trim();
   const q = rawQuery.toLowerCase();
   const type = types.includes(params.type || "") ? (params.type || "All") : "All";
-  const budget = params.budget || "Any budget";
-  const gender = params.gender || "Any";
-  const sharing = params.sharing || "Any";
-  const food = params.food || "Any";
-  const room = params.room || "Any";
-  const amenity = params.amenity || "Any";
+  const allowed = {
+    budget: new Set(["Any budget", "Under ₹10,000", "₹10,000 – ₹15,000", "₹15,000 – ₹20,000", "₹20,000+"]),
+    gender: new Set(["Any", "Male", "Female", "Unisex"]),
+    sharing: new Set(["Any", "Single", "Double sharing", "Triple sharing", "4 Sharing+"]),
+    food: new Set(["Any", "With food", "Without food"]),
+    room: new Set(["Any", "Private room", "Shared room"]),
+    amenity: new Set(["Any", "Wi-Fi", "Fully Furnished", "Housekeeping", "Washing Machine", "Parking"])
+  };
+  const budget = allowed.budget.has(params.budget || "") ? params.budget! : "Any budget";
+  const gender = allowed.gender.has(params.gender || "") ? params.gender! : "Any";
+  const sharing = allowed.sharing.has(params.sharing || "") ? params.sharing! : "Any";
+  const food = allowed.food.has(params.food || "") ? params.food! : "Any";
+  const room = allowed.room.has(params.room || "") ? params.room! : "Any";
+  const amenity = allowed.amenity.has(params.amenity || "") ? params.amenity! : "Any";
 
   const locations = locationIndex.filter(x => !q || x.toLowerCase().includes(q));
   const micros = verifiedMicrolocationIndex.filter(x => !q || (x.name + " " + x.location).toLowerCase().includes(q));
