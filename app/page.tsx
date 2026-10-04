@@ -18,6 +18,11 @@ function locationHref(value: string) {
   return "/discover-pg-in-thane/pg-in-" + value.toLowerCase().replaceAll(" ", "-") + "-thane";
 }
 
+function withBudget(href: string, budget: string) {
+  if (budget === "Any budget") return href;
+  return href + (href.includes("?") ? "&" : "?") + "budget=" + encodeURIComponent(budget);
+}
+
 export default function HomePage() {
   const [query, setQuery] = useState("");
   const [type, setType] = useState<SearchType>("All");
@@ -32,19 +37,19 @@ export default function HomePage() {
 
     if (type === "All" || type === "Location" || type === "Keyword") {
       locations.filter(x => x.toLowerCase().includes(q)).slice(0, 6).forEach(x =>
-        result.push({ label: x, meta: "Location", href: locationHref(x) })
+        result.push({ label: x, meta: "Location", href: withBudget(locationHref(x), budget) })
       );
     }
 
     if (type === "All" || type === "Workplace" || type === "Keyword") {
       verifiedWorkplaceIndex.filter(x => x.name.toLowerCase().includes(q)).slice(0, 6).forEach(x =>
-        result.push({ label: x.name, meta: x.kind + " · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Workplace" })
+        result.push({ label: x.name, meta: x.kind + " · " + x.location, href: withBudget("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace", budget) })
       );
     }
 
     if (type === "All" || type === "Microlocation" || type === "Keyword") {
       verifiedMicrolocationIndex.filter(x => x.name.toLowerCase().includes(q)).slice(0, 4).forEach(x =>
-        result.push({ label: x.name, meta: "Microlocation · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation" })
+        result.push({ label: x.name, meta: "Microlocation · " + x.location, href: withBudget("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation", budget) })
       );
     }
 
@@ -54,7 +59,7 @@ export default function HomePage() {
         .filter(x => [x.name, x.location, x.microlocation, x.type, ...(x.workplace || []), ...(x.amenities || [])].join(" ").toLowerCase().includes(q))
         .slice(0, 6)
         .forEach(x =>
-          result.push({ label: x.name, meta: "PG · " + x.location, href: "/listing/" + x.slug })
+          result.push({ label: x.name, meta: "PG · " + x.location, href: withBudget("/listing/" + x.slug, budget) })
         );
     }
 
@@ -138,7 +143,7 @@ export default function HomePage() {
                   aria-activedescendant={activeSuggestion >= 0 ? "suggestion-" + activeSuggestion : undefined}
                   placeholder={type === "Location" ? "Search a Thane location" : type === "Microlocation" ? "Search a microlocation" : type === "Workplace" ? "Search a workplace or business park" : type === "Keyword" ? "Search by PG keyword" : "Search location, workplace or keyword"}
                   inputMode="search"
-                  aria-label="Search PGs"
+                  aria-controls="search-suggestions" aria-label="Search PGs"
                   autoComplete="off"
                 />
                 {query && (
@@ -151,13 +156,13 @@ export default function HomePage() {
                   >×</button>
                 )}
                 {focused && query.trim() && (
-                  <div className="autocomplete" role="listbox" aria-label="Search suggestions">
+                  <div id="search-suggestions" className="autocomplete" role="listbox" aria-label="Search suggestions">
                     {suggestions.map((item, i) => item.href ? (
                       <a id={"suggestion-" + i} key={item.label + i} href={item.href} className="autocomplete-item" role="option" aria-selected={activeSuggestion === i}>
                         <span>📍</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
                       </a>
                     ) : (
-                      <button id={"suggestion-" + i} type="button" key={item.label + i} className="autocomplete-item" aria-selected={activeSuggestion === i} onMouseDown={() => { setQuery(item.label); setFocused(true); setActiveSuggestion(-1); }}>
+                      <button id={"suggestion-" + i} type="button" key={item.label + i} className="autocomplete-item" role="option" aria-selected={activeSuggestion === i} onMouseDown={() => { setQuery(item.label); setFocused(true); setActiveSuggestion(-1); }}>
                         <span>{item.meta.startsWith("Microlocation") ? "📍" : "🏢"}</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
                       </button>
                     ))}
