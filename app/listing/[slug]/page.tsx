@@ -86,6 +86,11 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
       {listing.workplace?.length ? <section className="listing-workplaces"><div className="eyebrow">NEARBY WORKPLACES</div><div className="workplace-tags">{listing.workplace.map(x => <span key={x}>🏢 {x}</span>)}</div></section> : null}
 
       <Link className="back-directory" href={locationHref(listing.location)}>← Back to {listing.location} PGs</Link>
+      <div className="listing-mobile-cta" aria-label="Listing enquiry actions">
+        <a href="tel:9930007113">Call</a>
+        <a href="https://wa.me/919930007113">WhatsApp</a>
+        <EnquiryButton listingName={listing.name} location={listing.location} label="Enquire" className="listing-mobile-enquire" />
+      </div>
     </section>
   </main>;
 }
