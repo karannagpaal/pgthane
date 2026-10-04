@@ -1,4 +1,7 @@
+"use client";
+
 import type { Listing } from "@/data/catalog";
+import EnquiryButton from "@/components/EnquiryButton";
 
 export default function ListingCard({ listing }: { listing: Listing }) {
   return (
@@ -15,8 +18,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         {listing.amenities?.length ? <p className="listing-amenities">{listing.amenities.slice(0, 4).join(" · ")}</p> : null}
         <div className="listing-actions">
           <a href={"/listing/" + listing.slug}>View Details</a>
-          {listing.phone && <a href={"tel:" + listing.phone}>Call</a>}
-          {listing.whatsapp && <a href={"https://wa.me/" + listing.whatsapp}>WhatsApp</a>}
+          <EnquiryButton listingName={listing.name} location={listing.location} label="Enquire" className="listing-enquire" />
         </div>
       </div>
     </article>
