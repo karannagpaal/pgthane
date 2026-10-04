@@ -78,7 +78,7 @@ export default function HomePage() {
         return ap - bp || a.label.localeCompare(b.label);
       })
       .slice(0, 8);
-  }, [query, type]);
+  }, [query, type, budget]);
 
   useEffect(() => { setActiveSuggestion(-1); }, [query, type]);
 
@@ -189,7 +189,7 @@ export default function HomePage() {
       <section id="locations" className="section">
         <div className="section-heading"><div><div className="eyebrow">EXPLORE THANE</div><h2>Popular PG locations</h2></div><p>Choose a location to explore its microlocations and nearby workplaces.</p></div>
         <div className="location-grid">
-          {locations.map(location => <a className="location-card" key={location} href={locationHref(location)}><span className="pin">📍</span><div><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
+          {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><span className="pin">📍</span><div><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
         </div>
       </section>
 
