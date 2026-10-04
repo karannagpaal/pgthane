@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { listings, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
+import EnquiryButton from "@/components/EnquiryButton";
 
 const locations = [
   "Thane Station","Wagle Estate","Panchpakhadi","Louiswadi","Teen Hath Naka",
@@ -199,7 +200,7 @@ export default function HomePage() {
         <div className="steps"><article><b>01</b><h3>Choose a location</h3><p>Start with a Thane neighbourhood or station.</p></article><article><b>02</b><h3>Refine by workplace</h3><p>Find accommodation around the office or business park you need.</p></article><article><b>03</b><h3>Compare real listings</h3><p>Review verified information before contacting the property.</p></article></div>
       </section>
 
-      <section id="contact" className="contact-section"><div><div className="eyebrow">NEED HELP?</div><h2>Looking for a PG in a specific part of Thane?</h2><p>Tell us your location or workplace and we can help you narrow the search.</p></div><a className="contact-button" href="tel:9930007113">Call 9930007113</a></section>
+      <section id="contact" className="contact-section"><div><div className="eyebrow">NEED HELP?</div><h2>Looking for a PG in a specific part of Thane?</h2><p>Tell us your location or workplace and we can help you narrow the search.</p></div><EnquiryButton label="Start an Enquiry" className="contact-button" /></section>
       <footer><div className="footer-logo"><img src="/homepage-logo.png" alt="" className="footer-brand-logo" width={52} height={52} /><span className="footer-wordmark">PGThane<span>.com</span></span></div><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane</small></footer>
     </main>
   );
