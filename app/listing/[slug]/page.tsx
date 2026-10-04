@@ -37,7 +37,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
 
   return <main>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-    <header className="topbar"><Link className="brand" href="/">PG<span>Thane</span></Link><nav><Link href="/#locations">Locations</Link><Link href="/search">Search</Link></nav><a className="header-cta" href="tel:9930007113">Call</a></header>
+    <header className="topbar"><Link className="brand" href="/" aria-label="PGThane.com home"><img src="/logo.svg" alt="PGThane.com" className="brand-logo" width={240} height={60} /></Link><nav><Link href="/#locations">Locations</Link><Link href="/search">Search</Link></nav><a className="header-cta" href="tel:9930007113">Call</a></header>
 
     <section className="section listing-detail">
       <div className="breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/discover-pg-in-thane">PG in Thane</Link><span>/</span><strong>{listing.name}</strong></div>
