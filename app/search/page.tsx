@@ -50,7 +50,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         <div className="eyebrow">DIRECTORY SEARCH</div>
         <h1>Search PGs in Thane</h1>
 
-        <form className="search-page-form">
+        <form className="search-page-form" role="search" aria-label="Search PGs in Thane">
           <input name="q" defaultValue={rawQuery} placeholder="Location, microlocation, workplace or keyword" autoComplete="off" />
           <select name="type" defaultValue={type} aria-label="Search category">{types.map(x => <option key={x}>{x}</option>)}</select>
           <select name="budget" defaultValue={budget} aria-label="Budget"><option>Any budget</option><option>Under ₹10,000</option><option>₹10,000 – ₹15,000</option><option>₹15,000 – ₹20,000</option><option>₹20,000+</option></select>
