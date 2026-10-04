@@ -20,6 +20,7 @@ export default function LocationControls() {
     if (value === "Any" || value === "Any budget") next.delete(key); else next.set(key, value);
     const query = next.toString();
     router.push(query ? "?" + query : "?", { scroll: false });
+    requestAnimationFrame(() => document.getElementById("results")?.scrollIntoView({ behavior: "smooth", block: "start" }));
   }
 
   return <div className="filter-panel" aria-label="PG filters">
