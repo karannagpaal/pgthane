@@ -48,7 +48,21 @@ export default function HomePage() {
       );
     }
 
-    return result.slice(0, 8);
+    const seen = new Set<string>();
+    const ql = q;
+    return result
+      .filter(item => {
+        const key = item.label.toLowerCase() + "|" + item.meta.toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .sort((a, b) => {
+        const ap = a.label.toLowerCase().startsWith(ql) ? 0 : 1;
+        const bp = b.label.toLowerCase().startsWith(ql) ? 0 : 1;
+        return ap - bp || a.label.localeCompare(b.label);
+      })
+      .slice(0, 8);
   }, [query, type]);
 
   useEffect(() => { setActiveSuggestion(-1); }, [query, type]);
@@ -113,6 +127,7 @@ export default function HomePage() {
                   }}
                   aria-activedescendant={activeSuggestion >= 0 ? "suggestion-" + activeSuggestion : undefined}
                   placeholder="Search location, workplace or keyword"
+                  inputMode="search"
                   aria-label="Search PGs"
                   autoComplete="off"
                 />
