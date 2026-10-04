@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 function locationHref(location: string) {
+  if (location === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
   return "/discover-pg-in-thane/pg-in-" + location.toLowerCase().replaceAll(" ", "-") + "-thane";
 }
 
