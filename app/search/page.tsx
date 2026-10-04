@@ -13,6 +13,11 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   const locations = locationIndex.filter(x => !q || x.toLowerCase().includes(q));
   const micros = verifiedMicrolocationIndex.filter(x => !q || (x.name + " " + x.location).toLowerCase().includes(q));
   const workplaces = verifiedWorkplaceIndex.filter(x => !q || (x.name + " " + x.location + " " + x.kind).toLowerCase().includes(q));
+  const keywordMatches = [
+    ...locations.map(x => ({ label: x, meta: "Location", href: "/discover-pg-in-thane/pg-in-" + x.toLowerCase().replaceAll(" ", "-") + "-thane" })),
+    ...micros.map(x => ({ label: x.name, meta: "Microlocation · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation" })),
+    ...workplaces.map(x => ({ label: x.name, meta: x.kind + " · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Workplace" }))
+  ];
   const matchingListings = listings.filter(x => {
     const text = [x.name, x.type, x.location, x.microlocation, ...x.workplace, ...(x.amenities || [])].join(" ").toLowerCase();
     if (q && !text.includes(q)) return false;
@@ -25,7 +30,8 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
     return true;
   });
 
-  const hasResults = (type === "All" ? locations.length + micros.length + workplaces.length + matchingListings.length : type === "Location" ? locations.length : type === "Microlocation" ? micros.length : type === "Workplace" ? workplaces.length : matchingListings.length) > 0;
+  const resultCount = type === "All" ? locations.length + micros.length + workplaces.length + matchingListings.length : type === "Location" ? locations.length : type === "Microlocation" ? micros.length : type === "Workplace" ? workplaces.length : keywordMatches.length + matchingListings.length;
+  const hasResults = resultCount > 0;
 
   return (
     <main>
@@ -42,7 +48,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         </form>
 
         <div className="search-toolbar">
-          <span>{rawQuery ? <>Results for <strong>“{rawQuery}”</strong></> : <>Browse verified search categories</>} {hasResults && <span className="search-count"> · {type === "All" ? locations.length + micros.length + workplaces.length + matchingListings.length : type === "Location" ? locations.length : type === "Microlocation" ? micros.length : type === "Workplace" ? workplaces.length : matchingListings.length} results</span>}</span>
+          <span>{rawQuery ? <>Results for <strong>“{rawQuery}”</strong></> : <>Browse verified search categories</>} {hasResults && <span className="search-count"> · {resultCount} results</span>}</span>
           {(rawQuery || type !== "All" || budget !== "Any budget") && <Link className="clear-search" href="/search">Clear all</Link>}
         </div>
 
@@ -52,6 +58,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
           {(type === "All" || type === "Location") && locations.length > 0 && <section><h2>Locations</h2>{locations.map(x => <Link key={x} className="search-result" href={"/discover-pg-in-thane/pg-in-" + x.toLowerCase().replaceAll(" ", "-") + "-thane"}><span>📍 {x}</span><small>PG · Paying Guest · Hostel</small></Link>)}</section>}
           {(type === "All" || type === "Microlocation") && micros.length > 0 && <section><h2>Microlocations</h2>{micros.map(x => <Link key={x.name} className="search-result" href={"/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation"}><span>📍 {x.name}</span><small>{x.location}</small></Link>)}</section>}
           {(type === "All" || type === "Workplace") && workplaces.length > 0 && <section><h2>Workplaces</h2>{workplaces.map(x => <Link key={x.name} className="search-result" href={"/search?q=" + encodeURIComponent(x.name) + "&type=Workplace"}><span>🏢 {x.name}</span><small>{x.kind} · {x.location}</small></Link>)}</section>}
+          {type === "Keyword" && keywordMatches.length > 0 && <section><h2>Keyword matches</h2>{keywordMatches.map(x => <Link key={x.label + x.meta} className="search-result" href={x.href}><span>{x.label}</span><small>{x.meta}</small></Link>)}</section>}
           {(type === "All" || type === "Keyword") && matchingListings.length > 0 && <section><h2>Real PG listings</h2>{matchingListings.map(x => <Link key={x.id} className="search-result" href={"/listing/" + x.slug}><span>{x.name}</span><small>{x.type} · {x.location}</small></Link>)}</section>}
         </div>
       </section>
