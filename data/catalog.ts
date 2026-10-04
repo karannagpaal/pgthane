@@ -22,8 +22,8 @@ export type Listing = {
   sourcePhoto?: string;
 };
 
-// Real inventory is intentionally empty until verified property data is supplied.
-// Never populate this with invented names, prices, photos or availability.
+// Photo-backed inventory records are staged from the user's supplied photos.
+// Keep records unpublished until the property name, location and commercial details are verified.
 export const listings: Listing[] = [
   {
     id: "photo-01",
