@@ -22,7 +22,8 @@ export default function EnquiryButton({
 }: EnquiryButtonProps) {
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState<Mode>("reserve");
-  const [submitted, setSubmitted] = useState(false);\n  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const [property, setProperty] = useState(listingName || "");
   const [preferredLocation, setPreferredLocation] = useState(location || "");
@@ -48,7 +49,10 @@ export default function EnquiryButton({
       if (event.key === "Escape") resetAndClose();
     };
     document.addEventListener("keydown", onKeyDown);
-    return () => {\n      document.body.style.overflow = "";\n      document.removeEventListener("keydown", onKeyDown);\n    };
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKeyDown);
+    };
   }, [open]);
 
   function resetAndClose() {
@@ -77,8 +81,7 @@ export default function EnquiryButton({
       "Please share current verified availability and next steps."
     ].filter(Boolean);
 
-    const url = "https://wa.me/919930007113?text=" + encodeURIComponent(lines.join("
-"));
+    const url = "https://wa.me/919930007113?text=" + encodeURIComponent(lines.join("\n"));
     window.open(url, "_blank", "noopener,noreferrer");
     setSubmitted(true);
   }
