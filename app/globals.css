@@ -210,7 +210,6 @@ footer small { opacity: .55; }
 
 
 .mobile-bottom-bar{display:none}
-@media(max-width:720px){.mobile-bottom-bar{position:fixed;display:grid;grid-template-columns:1fr 1fr 1.3fr;left:10px;right:10px;bottom:10px;z-index:60;background:#fff;border:1px solid #dfe6dc;border-radius:14px;box-shadow:0 10px 30px rgba(25,40,20,.16);overflow:hidden}.mobile-bottom-bar a{padding:13px 8px;text-align:center;text-decoration:none;color:var(--green);font-weight:800;font-size:12px;border-right:1px solid #e6ebe3}.mobile-bottom-bar a:last-child{border-right:0;background:var(--green);color:#fff}.location-main{padding-bottom:90px}}
 
 
 .listing-detail{padding-top:42px;padding-bottom:80px}.listing-detail-intro{color:var(--muted);margin:-10px 0 22px}.listing-detail .listing-card{max-width:760px}.back-directory{display:inline-block;margin-top:18px;color:var(--green);font-weight:800;text-decoration:none}
