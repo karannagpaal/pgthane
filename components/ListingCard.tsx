@@ -49,13 +49,6 @@ export default function ListingCard({ listing }: { listing: Listing }) {
           <span className="feature-wifi"><span className="card-emoji" aria-hidden="true">📶</span> Free High-Speed Wi-Fi</span>
           <span className="feature-furnished"><span className="card-emoji" aria-hidden="true">🛋️</span> Fully Furnished</span>
         </div>
-
-        {listing.phone && (
-          <div className="listing-contact-row">
-            <span><SiteIcon name="phone" size={15} /> Contact No.</span>
-            <strong>{listing.phone}</strong>
-          </div>
-        )}
       </div>
 
       <div className="listing-side">
