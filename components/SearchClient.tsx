@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { listings, locationIndex, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 const types = ["All", "Location", "Microlocation", "Workplace", "Keyword"];
 
@@ -96,17 +98,15 @@ export default function SearchClient() {
 
   const hasResults = data.resultCount > 0;
   const withCurrentFilters = data.withCurrentFilters;
-
   const clearHref = "/search";
   const isFiltered = Boolean(rawQuery) || type !== "All" || budget !== "Any budget" || gender !== "Any" || sharing !== "Any" || food !== "Any" || room !== "Any" || amenity !== "Any";
 
   return (
     <main>
-      <header className="topbar"><Link className="brand" href="/" aria-label="PGThane.com home"><img src="/logo.svg" alt="PGThane.com" className="brand-logo" width={240} height={60} /></Link><nav><Link href="/#locations">Locations</Link><Link href="/#how-it-works">How it works</Link></nav><a className="header-cta" href="tel:9930007113">Call</a></header>
+      <SiteHeader />
       <section className="section search-page">
         <div className="eyebrow">DIRECTORY SEARCH</div>
         <h1>Search PGs in Thane</h1>
-
         <form className="search-page-form" role="search" aria-label="Search PGs in Thane">
           <div className="search-primary-fields">
             <input name="q" defaultValue={rawQuery} placeholder="Location, microlocation, workplace or keyword" autoComplete="off" />
@@ -119,20 +119,17 @@ export default function SearchClient() {
               <select name="gender" defaultValue={gender} aria-label="Gender"><option>Any</option><option>Male</option><option>Female</option><option>Unisex</option></select>
               <select name="sharing" defaultValue={sharing} aria-label="Sharing"><option>Any</option><option>Single</option><option>Double sharing</option><option>Triple sharing</option><option>4 Sharing+</option></select>
               <select name="food" defaultValue={food} aria-label="Food"><option>Any</option><option>With food</option><option>Without food</option></select>
-              <select name="room" defaultValue={room} aria-label="Room type"><option>Any</option><option>Private room</option><option>Shared room</option></select>
+              <select name="room" defaultValue={room} aria-label="Room type"><option>Any</option><option>Private room</option><option>Shared room</option><option>Any</option></select>
               <select name="amenity" defaultValue={amenity} aria-label="Amenity"><option>Any</option><option>Wi-Fi</option><option>Fully Furnished</option><option>Housekeeping</option><option>Washing Machine</option><option>Parking</option></select>
             </div>
           </details>
           <button className="search-button" type="submit">Search PGs</button>
         </form>
-
         <div className="search-toolbar">
-          <span>{rawQuery ? <>Results for <strong>“{rawQuery}”</strong></> : <>Browse verified search categories</>} {hasResults && <span className="search-count"> · {data.resultCount} results</span>}</span>
+          <span>{rawQuery ? <>Results for <strong>“{rawQuery}”</strong></> : <>Browse search categories</>} {hasResults && <span className="search-count"> · {data.resultCount} results</span>}</span>
           {isFiltered && <Link className="clear-search" href={clearHref}>Clear all</Link>}
         </div>
-
-        {!hasResults && <div className="search-empty">No verified results match this search yet. Try a broader location, workplace or keyword. Real PG listings will appear here only after their information is verified.</div>}
-
+        {!hasResults && <div className="search-empty">No results match this search yet. Try a broader location, workplace or keyword.</div>}
         <div className="search-groups">
           {data.directoryLocations.length > 0 && <section><h2>Locations</h2>{data.locations.map(x => <Link key={x} className="search-result" href={withCurrentFilters(locationHref(x))}><span>📍 {x}</span><small>PG · Paying Guest · Hostel</small></Link>)}</section>}
           {data.directoryMicros.length > 0 && <section><h2>Microlocations</h2>{data.micros.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation")}><span>📍 {x.name}</span><small>{x.location}</small></Link>)}</section>}
@@ -141,6 +138,7 @@ export default function SearchClient() {
           {data.showListingResults && <section><h2>Real PG listings</h2>{data.matchingListings.map(x => <Link key={x.id} className="search-result" href={"/listing/" + x.slug}><span>{x.name}</span><small>{x.type} · {x.location}</small></Link>)}</section>}
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }
