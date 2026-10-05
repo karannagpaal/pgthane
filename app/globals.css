@@ -1107,28 +1107,6 @@ footer .footer-full-logo{
   object-fit:cover;
   display:block;
 }
-.location-card-pin{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  z-index:2;
-  font-size:25px;
-  line-height:1;
-  filter:drop-shadow(0 2px 3px rgba(0,0,0,.22));
-}
-.location-card-copy{
-  min-width:0;
-}
-.location-card-copy h3{
-  margin:0 0 5px;
-}
-.location-card-copy p{
-  margin:0;
-}
-.location-card .arrow{
-  align-self:center;
-}
 @media(max-width:760px){
   .location-card{
     grid-template-columns:66px 1fr 18px;
@@ -1138,8 +1116,5 @@ footer .footer-full-logo{
   }
   .location-card-visual{
     min-height:80px;
-  }
-  .location-card-pin{
-    font-size:21px;
   }
   }
