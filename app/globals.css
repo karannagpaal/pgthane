@@ -1129,18 +1129,18 @@ footer .footer-full-logo{
   }
 
 
-/* Final listing photo fit — show the complete source photo without distortion */
+/* Final listing photo fit — fill the card cleanly without changing the site theme */
 .listing-photo{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#f4f4ef;
+  background:#edf1e9;
   overflow:hidden;
 }
 .listing-photo img{
   width:100%;
   height:100%;
-  object-fit:contain!important;
+  object-fit:cover!important;
   object-position:center center;
   display:block;
 }
@@ -1151,7 +1151,7 @@ footer .footer-full-logo{
     min-height:190px!important;
   }
   .listing-photo img{
-    object-fit:contain!important;
+    object-fit:cover!important;
     object-position:center center;
   }
 }
