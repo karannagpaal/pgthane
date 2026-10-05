@@ -97,7 +97,7 @@ export default function HomePage() {
   return (
     <main>
       <header className="topbar">
-        <a className="brand" href="/" aria-label="PGThane.com home"><img src="/pgthane-logo-glossy.webp" alt="PGThane.com" className="brand-logo" width={240} height={80} /></a>
+        <a className="brand" href="/" aria-label="PGThane.com home"><img src="/pgthane-logo-4k.png" alt="PGThane.com" className="brand-logo" width={240} height={80} /></a>
         <nav><a href="#locations">Locations</a><a href="#how-it-works">How it works</a><a href="#contact">Contact</a></nav>
         <a className="header-cta" href="#search">Find a PG</a>
       </header>
@@ -199,7 +199,7 @@ export default function HomePage() {
       </section>
 
       <section id="contact" className="contact-section"><div><div className="eyebrow">NEED HELP?</div><h2>Looking for a PG in a specific part of Thane?</h2><p>Tell us your location or workplace and we can help you narrow the search.</p></div><EnquiryButton label="Start an Enquiry" className="contact-button" /></section>
-      <footer><div className="footer-logo"><img src="/pgthane-logo-glossy.webp" alt="PGThane.com" className="footer-full-logo" width={260} height={87} /></div><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane</small></footer>
+      <footer><div className="footer-logo"><img src="/pgthane-logo-4k.png" alt="PGThane.com" className="footer-full-logo" width={260} height={87} /></div><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane</small></footer>
     </main>
   );
 }
