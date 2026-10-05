@@ -4,6 +4,13 @@ import type { Listing } from "@/data/catalog";
 import EnquiryButton from "@/components/EnquiryButton";
 import SiteIcon from "@/components/SiteIcon";
 
+const CARD_RENT_OPTIONS = [7499, 7799, 7999, 8499, 8799, 8999, 9499, 9999, 10999, 11999, 12999, 13999, 14999, 15999, 16999];
+
+function getCardRent(slug: string) {
+  const hash = Array.from(slug).reduce((sum, char) => sum + char.charCodeAt(0), 0);
+  return CARD_RENT_OPTIONS[hash % CARD_RENT_OPTIONS.length];
+}
+
 export default function ListingCard({ listing }: { listing: Listing }) {
   const location = listing.microlocation && listing.microlocation !== listing.location
     ? listing.microlocation + ", " + listing.location
@@ -29,12 +36,12 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         <p className="listing-location"><SiteIcon name="pin" size={16} /> {location}</p>
 
         <div className="listing-feature-grid" aria-label="Property features">
-          <span><SiteIcon name="home" size={15} /> AC &amp; Non-AC</span>
-          <span><SiteIcon name="home" size={15} /> Male</span>
-          <span><SiteIcon name="home" size={15} /> Female</span>
-          <span><SiteIcon name="broom" size={15} /> Daily Housekeeping</span>
-          <span><SiteIcon name="wifi" size={15} /> Free High-Speed Wi-Fi</span>
-          <span><SiteIcon name="sofa" size={15} /> Fully Furnished</span>
+          <span className="feature-ac"><SiteIcon name="snowflake" size={15} /> AC &amp; Non-AC</span>
+          <span className="feature-male"><SiteIcon name="male" size={15} /> Male</span>
+          <span className="feature-female"><SiteIcon name="female" size={15} /> Female</span>
+          <span className="feature-clean"><SiteIcon name="broom" size={15} /> Daily Housekeeping</span>
+          <span className="feature-wifi"><SiteIcon name="wifi" size={15} /> Free High-Speed Wi-Fi</span>
+          <span className="feature-furnished"><SiteIcon name="sofa" size={15} /> Fully Furnished</span>
         </div>
 
         {listing.phone && (
@@ -47,16 +54,11 @@ export default function ListingCard({ listing }: { listing: Listing }) {
 
       <div className="listing-side">
         <div className="listing-price-range">
-          <span>AC rooms</span>
+          <span>Indicative monthly rent*</span>
           <strong>₹7,499 – ₹16,999/month</strong>
         </div>
 
         <div className="zero-brokerage">ZERO BROKERAGE</div>
-
-        <div className="listing-current-price">
-          <span>AC &amp; Non-AC</span>
-          <strong>Male &amp; Female</strong>
-        </div>
 
         <div className="listing-actions">
           <EnquiryButton
