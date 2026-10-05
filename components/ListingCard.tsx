@@ -2,6 +2,7 @@
 
 import type { Listing } from "@/data/catalog";
 import EnquiryButton from "@/components/EnquiryButton";
+import SiteIcon from "@/components/SiteIcon";
 
 function formatPrice(value?: number) {
   if (!value) return "Price on enquiry";
@@ -24,17 +25,17 @@ export default function ListingCard({ listing }: { listing: Listing }) {
       <div className="listing-body">
         <div className="listing-kicker">{listing.type}</div>
         <h3>{listing.name}</h3>
-        <p className="listing-location">📍 {location}</p>
+        <p className="listing-location"><SiteIcon name="pin" size={16} /> {location}</p>
 
         <div className="listing-feature-grid" aria-label="Property features">
-          <span>📶 Wi-Fi</span>
-          <span>🛋️ Fully Furnished</span>
-          <span>🧹 Daily Housekeeping</span>
+          <span><SiteIcon name="wifi" size={15} /> Wi-Fi</span>
+          <span><SiteIcon name="sofa" size={15} /> Fully Furnished</span>
+          <span><SiteIcon name="broom" size={15} /> Daily Housekeeping</span>
         </div>
 
         {listing.phone && (
           <div className="listing-contact-row">
-            <span>☎ Contact No.</span>
+            <span><SiteIcon name="phone" size={15} /> Contact No.</span>
             <strong>{listing.phone}</strong>
           </div>
         )}
