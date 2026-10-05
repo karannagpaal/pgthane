@@ -1370,7 +1370,7 @@ export const listings: Listing[] = [
     photoOnly: true,
     sourcePhoto: "43-WhatsApp Image 2024-07-20 at 11.18.22.jpeg",
     slug: "inventory-photo-84"
-  }
+  },
 
   {
     id: "seo-listing-01",
