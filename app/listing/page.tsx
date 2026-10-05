@@ -15,7 +15,7 @@ export default function ListingsPage() {
   return (
     <main>
       <header className="topbar">
-        <a className="brand" href="/" aria-label="PGThane.com home"><img src="/logo.svg" alt="PGThane.com" className="brand-logo" width={240} height={60} /></a>
+        <a className="brand" href="/" aria-label="PGThane.com home"><img src="/logo.png" alt="PGThane.com" className="brand-logo" width={240} height={80} /></a>
         <nav><a href="/discover-pg-in-thane">Locations</a><a href="/#how-it-works">How it works</a><a href="/#contact">Contact</a></nav>
         <a className="header-cta" href="/search">Find a PG</a>
       </header>
