@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { ReactNode, SVGProps } from "react";
 
 export type SiteIconName = "pin" | "search" | "building" | "wifi" | "sofa" | "broom" | "phone" | "arrow" | "check" | "home";
 
@@ -9,7 +9,7 @@ export default function SiteIcon({ name, size = 18, className = "" }: { name: Si
     "aria-hidden": true, className
   };
 
-  const paths: Record<SiteIconName, React.ReactNode> = {
+  const paths: Record<SiteIconName, ReactNode> = {
     pin: <><path d="M20 10.5c0 5.1-8 11-8 11s-8-5.9-8-11a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.5" r="2.5"/></>,
     search: <><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></>,
     building: <><path d="M4 21V5.5L13 3v18M13 8h7v13M7 8h2M7 12h2M7 16h2M16 11h2M16 15h2M16 19h2"/></>,
