@@ -15,7 +15,7 @@ const locations: Record<string, string> = {
   "pg-in-panchpakhadi-thane": "Panchpakhadi","pg-in-louiswadi-thane": "Louiswadi","pg-in-teen-hath-naka-thane": "Teen Hath Naka",
   "pg-in-naupada-thane": "Naupada","pg-in-khopat-thane": "Khopat","pg-in-castle-mill-thane": "Castle Mill",
   "pg-in-kapurbawdi-thane": "Kapurbawdi","pg-in-manpada-thane": "Manpada","pg-in-bhramand-thane": "Bhramand",
-  "pg-in-kasarvadavali-thane": "Kasarvadavali","pg-in-vartak-nagar-thane": "Vartak Nagar","pg-in-lokmanya-nagar-thane": "Lokmanya Nagar",
+  "pg-in-kasarvadavali-thane": "Kasarvadavali","pg-in-vartak-nagar-thane": "Vartak Nagar","pg-in-balkum-thane": "Balkum","pg-in-ghodbunder-road-thane": "Ghodbunder Road","pg-in-lokmanya-nagar-thane": "Lokmanya Nagar",
   "pg-near-railway-station-thane": "Thane Station","pg-in-vasant-vihar-thane": "Vasant Vihar","pg-in-pokhran-road-thane": "Pokhran Road"
 };
 
