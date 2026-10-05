@@ -33,9 +33,9 @@ button, input, select { font: inherit; }
   z-index: 20;
 }
 .brand { display:flex; align-items:center; line-height:0; flex-shrink:0; }
-.brand-logo { display:block; width:240px; height:auto; object-fit:contain; object-position:left center; }
+.brand-logo { display:block; width:280px; height:auto; max-height:92px; object-fit:contain; object-position:left center; }
 .homepage-logo-wrap { display:flex; justify-content:center; margin:0 0 16px; }
-.homepage-logo { display:block; width:112px; height:112px; object-fit:contain; }
+.homepage-logo { display:block; width:136px; height:136px; object-fit:contain; }
 .footer-logo { display:flex; align-items:center; margin-bottom:8px; }
 .footer-full-logo { display:block; width:260px; height:auto; max-width:100%; object-fit:contain; object-position:left center; }
 .topbar nav { display: flex; gap: 26px; margin-left: auto; font-size: 14px; }
