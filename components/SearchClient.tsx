@@ -119,7 +119,7 @@ export default function SearchClient() {
               <select name="gender" defaultValue={gender} aria-label="Gender"><option>Any</option><option>Male</option><option>Female</option><option>Unisex</option></select>
               <select name="sharing" defaultValue={sharing} aria-label="Sharing"><option>Any</option><option>Single</option><option>Double sharing</option><option>Triple sharing</option><option>4 Sharing+</option></select>
               <select name="food" defaultValue={food} aria-label="Food"><option>Any</option><option>With food</option><option>Without food</option></select>
-              <select name="room" defaultValue={room} aria-label="Room type"><option>Any</option><option>Private room</option><option>Shared room</option><option>Any</option></select>
+              <select name="room" defaultValue={room} aria-label="Room type"><option>Any</option><option>Private room</option><option>Shared room</option></select>
               <select name="amenity" defaultValue={amenity} aria-label="Amenity"><option>Any</option><option>Wi-Fi</option><option>Fully Furnished</option><option>Housekeeping</option><option>Washing Machine</option><option>Parking</option></select>
             </div>
           </details>
