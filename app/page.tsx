@@ -23,6 +23,41 @@ function withBudget(href: string, budget: string) {
   return href + (href.includes("?") ? "&" : "?") + "budget=" + encodeURIComponent(budget);
 }
 
+const homepageFaqs = [
+  {
+    question: "Where can I find PG accommodation in Thane?",
+    answer: "PGThane.com helps you explore PG and shared-room options across Thane, including Hiranandani Estate, Wagle Estate, Majiwada, Kolshet, Kasarvadavali, Manpada and near Thane Station.",
+  },
+  {
+    question: "How can I find a PG near my workplace in Thane?",
+    answer: "Use the homepage search to look for a workplace, business park, location or microlocation. You can then open the relevant PG listing or location page and compare the available options.",
+  },
+  {
+    question: "What types of PG accommodation are available in Thane?",
+    answer: "Listings can include shared PG accommodation and private or single-room options, depending on the property. Check each listing for its current sharing options, facilities and enquiry details.",
+  },
+  {
+    question: "What is the monthly rent for a PG in Thane?",
+    answer: "PG rents vary by location, room type, sharing and facilities. PGThane.com displays indicative monthly rent ranges on listings; confirm the current rent and availability directly through the enquiry option.",
+  },
+  {
+    question: "Are PG listings on PGThane.com verified?",
+    answer: "PGThane.com follows a verification-first approach and publishes real property information after verification. Listing details and availability can change, so confirm the latest information before moving in.",
+  },
+  {
+    question: "Do PG listings on PGThane.com charge brokerage?",
+    answer: "Listings marked Zero brokerage are intended to indicate that no brokerage is charged for that listing. Always confirm the current terms with the property before proceeding.",
+  },
+  {
+    question: "Are AC and non-AC PG rooms available in Thane?",
+    answer: "Some listings offer AC and non-AC accommodation. Check the facilities shown on the individual listing and confirm the exact room option and current availability when enquiring.",
+  },
+  {
+    question: "How do I enquire about a PG in Thane?",
+    answer: "Open a listing and use the Enquire option to share your requirements. You can also search by location or workplace first and then contact the relevant property for current availability.",
+  },
+];
+
 function homepageListings() {
   const pool = listings.filter(x => x.published === true && !x.photoOnly);
   const score = (slug: string) => Array.from(slug).reduce((sum, char) => sum * 31 + char.charCodeAt(0), 7);
