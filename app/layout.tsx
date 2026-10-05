@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Find PG, Paying Guest, Hostel and shared room accommodation across Thane by location, microlocation and workplace.",
   metadataBase: new URL("https://www.pgthane.com"),
-  icons: { icon: "/pgthane-favicon.png", apple: "/pgthane-favicon.png" }
+  icons: { icon: "/pgthane-favicon.svg", apple: "/pgthane-favicon.svg" }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
