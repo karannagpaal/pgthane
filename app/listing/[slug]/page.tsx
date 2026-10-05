@@ -7,6 +7,53 @@ export async function generateStaticParams() {
 }
 import Link from "next/link";
 import EnquiryButton from "@/components/EnquiryButton";
+import SiteIcon from "@/components/SiteIcon";
+import SiteHeader from "@/components/SiteHeader";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly);
+  if (!listing) return { title: "PG Listing | PG Thane", robots: { index: false, follow: true } };
+  return {
+    title: listing.seoTitle || (listing.name + " | PG in " + listing.location + ", Thane"),
+    description: listing.seoDescription || [listing.type, listing.microlocation, listing.location, listing.amenities?.join(", ")].filter(Boolean).join(" · "),
+    alternates: { canonical: "https://www.pgthane.com/listing/" + listing.slug }
+  };
+}
+
+function locationHref(location: string) {
+  if (location === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
+  return "/discover-pg-in-thane/pg-in-" + location.toLowerCase().replaceAll(" ", "-") + "-thane";
+}
+
+export default async function ListingPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly);
+  if (!listing) notFound();
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "PG Thane", item: "https://www.pgthane.com/" },
+      { "@type": "ListItem", position: 2, name: "PG in Thane", item: "https://www.pgthane.com/discover-pg-in-thane" },
+      { "@type": "ListItem", position: 3, name: listing.name, item: "https://www.pgthane.com/listing/" + listing.slug }
+    ]
+  };
+
+  return <main>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+    <SiteHeader />{ Metadata } from "next";
+import { notFound } from "next/navigation";
+import { listings } from "@/data/catalog";
+
+export async function generateStaticParams() {
+  return listings.filter(x => x.published === true && !x.photoOnly).map(x => ({ slug: x.slug }));
+}
+import Link from "next/link";
+import EnquiryButton from "@/components/EnquiryButton";
+import SiteIcon from "@/components/SiteIcon";
+import SiteHeader from "@/components/SiteHeader";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -50,7 +97,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         <div>
           <div className="eyebrow">{listing.type.toUpperCase()} LISTING</div>
           <h1>{listing.name}</h1>
-          <p className="listing-location large">📍 {listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation + ", " + listing.location + ", Thane" : listing.location + ", Thane"}</p>
+          <p className="listing-location large"><SiteIcon name="pin" size={18} /> {listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation + ", " + listing.location + ", Thane" : listing.location + ", Thane"}</p>
         </div>
         <div className="listing-detail-actions">
           <a className="header-cta" href="tel:9930007113">Call</a><a className="outline-cta" href="https://wa.me/919930007113">WhatsApp</a>
@@ -62,7 +109,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
           <div className="listing-gallery">
             <div className="listing-main-photo">
               {listing.photos[0] ? <img src={listing.photos[0]} alt={listing.imageAlt || listing.name} /> : <div className="photo-placeholder">Photo pending</div>}
-              {listing.verified && <span className="verified-badge">✓ Verified Listing</span>}
+              {listing.verified && <span className="verified-badge"><SiteIcon name="check" size={15} /> Verified Listing</span>}
             </div>
             {listing.photos.length > 1 && <div className="listing-thumbs">{listing.photos.map((photo, i) => <img key={photo} src={photo} alt={(listing.imageAlt || listing.name) + " photo " + (i + 1)} />)}</div>}
           </div>
@@ -87,9 +134,9 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
 
       {listing.description && <section className="listing-description detail-description"><div className="eyebrow">ABOUT THIS PG</div><p>{listing.description}</p></section>}
 
-      {listing.workplace?.length ? <section className="listing-workplaces"><div className="eyebrow">NEARBY WORKPLACES</div><div className="workplace-tags">{listing.workplace.map(x => <span key={x}>🏢 {x}</span>)}</div></section> : null}
+      {listing.workplace?.length ? <section className="listing-workplaces"><div className="eyebrow">NEARBY WORKPLACES</div><div className="workplace-tags">{listing.workplace.map(x => <span key={x}><SiteIcon name="building" size={16} /> {x}</span>)}</div></section> : null}
 
-      <Link className="back-directory" href={locationHref(listing.location)}>← Back to {listing.location} PGs</Link>
+      <Link className="back-directory" href={locationHref(listing.location)}><SiteIcon name="arrow" size={16} className="back-arrow" /> Back to {listing.location} PGs</Link>
       <div className="listing-mobile-cta" aria-label="Listing enquiry actions">
         <a href="tel:9930007113">Call</a>
         <a href="https://wa.me/919930007113">WhatsApp</a>
