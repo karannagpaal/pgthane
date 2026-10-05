@@ -1684,7 +1684,7 @@ export const seoLocationListings: Listing[] = [
     photos: ["/inventory/pgthane-photos/59499.jpg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "paying-guest-new-job-relocation-vartak-nagar"
-  }
+  },
 
   {
     id: "kolshet-seo-1",
