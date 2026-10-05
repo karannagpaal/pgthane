@@ -6,6 +6,7 @@ import { useMemo } from "react";
 import { listings, locationIndex, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
 import SiteIcon from "@/components/SiteIcon";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 const types = ["All", "Location", "Microlocation", "Workplace", "Keyword"];
 
@@ -249,6 +250,7 @@ export default function SearchClient() {
           {data.showListingResults && <section><h2>Real PG listings</h2>{data.matchingListings.map(x => <Link key={x.id} className="search-result" href={"/listing/" + x.slug}><span>{x.name}</span><small>{x.type} · {x.location}</small></Link>)}</section>}
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }
