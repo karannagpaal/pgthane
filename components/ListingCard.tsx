@@ -28,12 +28,6 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         {listing.photos[0]
           ? <img src={listing.photos[0]} alt={listing.imageAlt || listing.name} loading="lazy" />
           : <div className="photo-placeholder">Photo pending</div>}
-        {listing.verified && (
-          <span className="verified-badge">
-            <SiteIcon name="check" size={14} />
-            Verified Listing
-          </span>
-        )}
       </div>
 
       <div className="listing-body">
