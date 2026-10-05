@@ -601,3 +601,20 @@ footer small{color:var(--muted);opacity:1}
 
 /* Requested listing card emoji icons */
 .listing-feature-grid .card-emoji{display:inline-flex!important;align-items:center;justify-content:center;width:18px!important;height:18px!important;min-width:18px!important;flex:0 0 18px!important;font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:15px!important;line-height:18px!important;vertical-align:middle}
+
+
+/* Final header logo sizing — keep the uploaded transparent logo fully visible */
+.topbar .brand-logo{
+  width:230px;
+  height:auto;
+  max-height:64px;
+  object-fit:contain;
+  object-position:left center;
+}
+@media(max-width:760px){
+  .topbar .brand-logo{
+    width:150px;
+    height:auto;
+    max-height:50px;
+  }
+}
