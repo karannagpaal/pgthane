@@ -1080,3 +1080,85 @@ footer .footer-full-logo{
     line-height:1.6;
   }
 }
+
+
+/* Homepage location card visual treatment */
+.location-card{
+  position:relative;
+  grid-template-columns:74px 1fr 20px;
+  min-height:112px;
+  padding:10px;
+  gap:12px;
+  overflow:hidden;
+}
+.location-card-visual{
+  position:relative;
+  min-height:90px;
+  border-radius:9px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  overflow:hidden;
+  background:
+    linear-gradient(145deg, rgba(0,100,0,.95), rgba(0,100,0,.72)),
+    repeating-linear-gradient(135deg, rgba(244,194,26,.22) 0 8px, transparent 8px 16px);
+  border:1px solid rgba(0,100,0,.18);
+}
+.location-card-visual::after{
+  content:"";
+  position:absolute;
+  width:70px;
+  height:24px;
+  left:50%;
+  bottom:-7px;
+  transform:translateX(-50%);
+  border-radius:50% 50% 0 0;
+  background:rgba(244,194,26,.28);
+}
+.location-card-pin{
+  position:relative;
+  z-index:1;
+  font-size:24px;
+  line-height:1;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.18));
+}
+.location-card-label{
+  position:relative;
+  z-index:1;
+  color:#fff;
+  font-size:8px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:1.2px;
+}
+.location-card-copy{
+  min-width:0;
+}
+.location-card-copy h3{
+  margin:0 0 5px;
+}
+.location-card-copy p{
+  margin:0;
+}
+.location-card .arrow{
+  align-self:center;
+}
+@media(max-width:760px){
+  .location-card{
+    grid-template-columns:66px 1fr 18px;
+    min-height:98px;
+    padding:9px;
+    gap:10px;
+  }
+  .location-card-visual{
+    min-height:80px;
+  }
+  .location-card-pin{
+    font-size:21px;
+  }
+  .location-card-label{
+    font-size:7px;
+  }
+}
