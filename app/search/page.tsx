@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import SearchClient from "@/components/SearchClient";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Search PGs in Thane | PG Thane",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function SearchPage() {
   return (
-    <Suspense fallback={<main><section className="section search-page"><div className="eyebrow">DIRECTORY SEARCH</div><h1>Search PGs in Thane</h1></section></main>}>
+    <Suspense fallback={<main><section className="section search-page"><div className="eyebrow">DIRECTORY SEARCH</div><h1>Search PGs in Thane</h1></section><SiteFooter /></main>}>
       <SearchClient />
     </Suspense>
   );
