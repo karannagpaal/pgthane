@@ -968,3 +968,41 @@ footer .footer-full-logo{
 .listing-card .listing-location svg{
   color:var(--brown)!important;
 }
+
+
+/* Homepage listings CTA */
+.homepage-listings-cta{
+  display:flex;
+  justify-content:center;
+  margin:24px 0 4px;
+}
+.homepage-listings-cta a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:44px;
+  padding:10px 22px;
+  border-radius:9px;
+  background:var(--green);
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:800;
+  box-shadow:0 5px 14px rgba(0,100,0,.12);
+}
+.homepage-listings-cta a:hover{
+  transform:translateY(-1px);
+}
+.homepage-listings-cta a span{
+  font-size:16px;
+  line-height:1;
+}
+@media(max-width:760px){
+  .homepage-listings-cta{margin:18px 0 2px}
+  .homepage-listings-cta a{
+    width:100%;
+    min-height:44px;
+    padding:10px 18px;
+  }
+}
