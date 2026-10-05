@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 520" role="img" aria-label="Stylized Thane location map">
+<rect width="740" height="520" fill="#dce8d4"/>
+<path d="M0 96 C150 38 230 146 360 88 S570 40 740 108" fill="none" stroke="#f7f4e9" stroke-width="42"/>
+<path d="M-30 392 C120 326 190 454 330 366 S550 290 770 368" fill="none" stroke="#f7f4e9" stroke-width="34"/>
+<path d="M118 -20 C160 96 105 164 168 270 S244 390 222 550" fill="none" stroke="#f7f4e9" stroke-width="28"/>
+<path d="M536 -20 C480 100 572 174 512 284 S448 412 492 550" fill="none" stroke="#f7f4e9" stroke-width="24"/>
+<path d="M-20 238 C132 190 232 258 370 214 S590 176 760 232" fill="none" stroke="#b8cfac" stroke-width="7"/>
+<path d="M42 0 L310 520 M318 -20 L742 392 M-20 318 L730 42" fill="none" stroke="#b8cfac" stroke-width="5" opacity=".8"/>
+<path d="M0 130 L740 470 M0 470 L740 122" fill="none" stroke="#c7d9bd" stroke-width="3"/>
+<circle cx="370" cy="258" r="54" fill="#fff" opacity=".16"/>
+<path d="M370 188 C340 188 316 212 316 242 C316 282 370 334 370 334 C370 334 424 282 424 242 C424 212 400 188 370 188Z" fill="#d91f26" stroke="#8e171b" stroke-width="6"/>
+<circle cx="370" cy="242" r="17" fill="#fff"/>
+</svg>
