@@ -116,6 +116,15 @@ h2 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -1.8px; margin: 8px 0 0;
 .pin { font-size: 20px; }
 .arrow { color: var(--green); font-size: 20px; }
 
+.location-card h2, .location-card h3 { color: var(--green); }
+.location-card p { color: var(--brown); }
+.location-card .arrow { color: var(--gold); font-weight: 900; }
+.location-card { border-color: rgba(0,100,0,.18); }
+.process > h2 { color: var(--brown); }
+.steps article { border-color: rgba(0,100,0,.16); }
+.steps article h3 { color: var(--green); }
+.steps article p { color: var(--brown); }
+.steps b { color: var(--gold); }
 .process { padding-top: 10px; }
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
 .steps article { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 25px; }
