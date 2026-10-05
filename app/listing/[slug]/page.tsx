@@ -9,6 +9,7 @@ import Link from "next/link";
 import EnquiryButton from "@/components/EnquiryButton";
 import SiteIcon from "@/components/SiteIcon";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -143,5 +144,6 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         <EnquiryButton listingName={listing.name} location={listing.location} label="Enquire" className="listing-mobile-enquire" />
       </div>
     </section>
+    <SiteFooter />
   </main>;
 }
