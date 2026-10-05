@@ -32,12 +32,6 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y imagemagick
-
-      - name: Create transparent PGThane logo
-        run: magick public/pgthane-logo-4k.png -alpha on -fuzz 5% -transparent white public/pgthane-logo-transparent.png
-
       - name: Build static site
         run: npm run build
 
