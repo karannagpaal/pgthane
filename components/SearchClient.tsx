@@ -4,9 +4,6 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { listings, locationIndex, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
-import SiteIcon from "@/components/SiteIcon";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
 
 const types = ["All", "Location", "Microlocation", "Workplace", "Keyword"];
 
@@ -105,7 +102,7 @@ export default function SearchClient() {
 
   return (
     <main>
-      <SiteHeader />
+      <header className="topbar"><Link className="brand" href="/" aria-label="PGThane.com home"><img src="/logo.svg" alt="PGThane.com" className="brand-logo" width={240} height={60} /></Link><nav><Link href="/#locations">Locations</Link><Link href="/#how-it-works">How it works</Link></nav><a className="header-cta" href="tel:9930007113">Call</a></header>
       <section className="section search-page">
         <div className="eyebrow">DIRECTORY SEARCH</div>
         <h1>Search PGs in Thane</h1>
@@ -137,14 +134,13 @@ export default function SearchClient() {
         {!hasResults && <div className="search-empty">No verified results match this search yet. Try a broader location, workplace or keyword. Real PG listings will appear here only after their information is verified.</div>}
 
         <div className="search-groups">
-          {data.directoryLocations.length > 0 && <section><h2>Locations</h2>{data.locations.map(x => <Link key={x} className="search-result" href={withCurrentFilters(locationHref(x))}><span><SiteIcon name="pin" size={16} /> {x}</span><small>PG · Paying Guest · Hostel</small></Link>)}</section>}
-          {data.directoryMicros.length > 0 && <section><h2>Microlocations</h2>{data.micros.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation")}><span><SiteIcon name="pin" size={16} /> {x.name}</span><small>{x.location}</small></Link>)}</section>}
-          {data.directoryWorkplaces.length > 0 && <section><h2>Workplaces</h2>{data.workplaces.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace")}><span><SiteIcon name="building" size={16} /> {x.name}</span><small>{x.kind} · {x.location}</small></Link>)}</section>}
+          {data.directoryLocations.length > 0 && <section><h2>Locations</h2>{data.locations.map(x => <Link key={x} className="search-result" href={withCurrentFilters(locationHref(x))}><span>📍 {x}</span><small>PG · Paying Guest · Hostel</small></Link>)}</section>}
+          {data.directoryMicros.length > 0 && <section><h2>Microlocations</h2>{data.micros.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation")}><span>📍 {x.name}</span><small>{x.location}</small></Link>)}</section>}
+          {data.directoryWorkplaces.length > 0 && <section><h2>Workplaces</h2>{data.workplaces.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace")}><span>🏢 {x.name}</span><small>{x.kind} · {x.location}</small></Link>)}</section>}
           {type === "Keyword" && data.keywordMatches.length > 0 && <section><h2>Keyword matches</h2>{data.keywordMatches.map(x => <Link key={x.label + x.meta} className="search-result" href={x.href}><span>{x.label}</span><small>{x.meta}</small></Link>)}</section>}
           {data.showListingResults && <section><h2>Real PG listings</h2>{data.matchingListings.map(x => <Link key={x.id} className="search-result" href={"/listing/" + x.slug}><span>{x.name}</span><small>{x.type} · {x.location}</small></Link>)}</section>}
         </div>
       </section>
-      <SiteFooter />
     </main>
   );
 }
