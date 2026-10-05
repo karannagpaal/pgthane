@@ -1,3 +1,5 @@
+import { seoLocationListings } from "./seo-location-listings";
+
 export type Listing = {
   id: string;
   name: string;
@@ -397,8 +399,7 @@ export const listings: Listing[] = [
     photoOnly: true,
     sourcePhoto: "59521.jpg",
     slug: "pg-photo-listing-23-23"
-  },
-  {
+  },  {
     id: "photo-24",
     name: "PG Photo Listing 24",
     type: "PG",
@@ -797,8 +798,7 @@ export const listings: Listing[] = [
     imageAlt: "PG accommodation photo",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/05-5.jpeg"],
     verified: false,
-    published: false,
-    photoOnly: true,
+    published: false,    photoOnly: true,
     sourcePhoto: "05-5.jpeg",
     slug: "inventory-photo-46"
   },
@@ -1197,8 +1197,7 @@ export const listings: Listing[] = [
     name: "Inventory Photo 73",
     type: "PG",
     location: "Vartak Nagar",
-    microlocation: "Vartak Nagar",
-    workplace: [],
+    microlocation: "Vartak Nagar",    workplace: [],
     imageAlt: "PG accommodation photo",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/32-PG in Vartak Nagar Thane(1).jpeg"],
     verified: false,
@@ -1597,8 +1596,7 @@ export const listings: Listing[] = [
     type: "PG",
     location: "Wagle Estate",
     microlocation: "Wagle Estate",
-    workplace: ["Ashar IT Park", "Centrum IT Park", "Lodha Supremus"],
-    priceFrom: 7299,
+    workplace: ["Ashar IT Park", "Centrum IT Park", "Lodha Supremus"],    priceFrom: 7299,
     sharing: ["Triple sharing"],
     roomType: "Shared room",
     gender: "Unisex",
@@ -1663,6 +1661,7 @@ export const listings: Listing[] = [
     whatsapp: "919930007113",
     slug: "pg-near-ashar-it-park-wagle-estate-thane-west"
   },
+  ...seoLocationListings,
 ];
 
 export const locationIndex = [
