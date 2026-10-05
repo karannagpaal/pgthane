@@ -813,3 +813,25 @@ footer .footer-full-logo{
     text-wrap:balance;
   }
 }
+
+
+/* Final mobile card title cleanup */
+@media(max-width:760px){
+  .listing-card .listing-body h3{
+    font-size:17px;
+    line-height:1.3;
+    font-weight:750;
+    letter-spacing:0;
+    margin:0 0 8px;
+    min-height:0;
+    max-width:100%;
+    text-wrap:normal;
+    color:var(--green);
+  }
+  .listing-card .listing-location{
+    font-size:12px;
+    line-height:1.35;
+    font-weight:750;
+    margin:0;
+  }
+}
