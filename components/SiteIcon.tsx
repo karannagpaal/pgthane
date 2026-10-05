@@ -1,6 +1,6 @@
 import type { ReactNode, SVGProps } from "react";
 
-export type SiteIconName = "pin" | "search" | "building" | "wifi" | "sofa" | "broom" | "phone" | "arrow" | "check" | "home";
+export type SiteIconName = "pin" | "search" | "building" | "wifi" | "sofa" | "broom" | "phone" | "arrow" | "check" | "home" | "snowflake" | "male" | "female";
 
 export default function SiteIcon({ name, size = 18, className = "" }: { name: SiteIconName; size?: number; className?: string }) {
   const common: SVGProps<SVGSVGElement> = {
@@ -19,7 +19,10 @@ export default function SiteIcon({ name, size = 18, className = "" }: { name: Si
     phone: <><path d="M6.5 3.5 9 3l2 5-2.2 1.5a14.5 14.5 0 0 0 5.2 5.2l1.5-2.2 5 2 .5 2.5c.2 1.1-.7 2.1-1.8 2.2C10.2 19.8 4.2 13.8 3.3 5.8 3.2 4.7 4.4 3.7 6.5 3.5Z"/></>,
     arrow: <><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></>,
     check: <path d="m5 12 4 4L19 6"/>,
-    home: <><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></>
+    home: <><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></>,
+    snowflake: <><path d="M12 2v20M4.9 6.1l14.2 11.8M19.1 6.1 4.9 17.9"/><path d="m12 2 2 3M12 2 10 5M12 22l2-3M12 22l-2-3M4.9 6.1l3.6.2M4.9 6.1l1.4 3.3M19.1 6.1l-3.6.2M19.1 6.1l-1.4 3.3M4.9 17.9l3.6-.2M4.9 17.9l1.4-3.3M19.1 17.9l-3.6-.2M19.1 17.9l-1.4-3.3"/></>,
+    male: <><circle cx="10" cy="9" r="3"/><path d="M4.5 20a5.5 5.5 0 0 1 11 0M16 5h5v5M18 7l-5 5"/></>,
+    female: <><circle cx="12" cy="8" r="4"/><path d="M12 12v8M9 17h6M6 21a6 6 0 0 1 12 0"/></>
   };
 
   return <svg {...common}>{paths[name]}</svg>;
