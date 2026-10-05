@@ -98,7 +98,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         <div className="workplace-tags">
           <Link href={locationHref(listing.location)}><SiteIcon name="pin" size={16} /> More PGs in {listing.location}</Link>
           <Link href="/discover-pg-in-thane"><SiteIcon name="building" size={16} /> Browse PGs by location</Link>
-          <Link href="/search?q=" + encodeURIComponent(listing.microlocation) + "&type=Microlocation"><SiteIcon name="search" size={16} /> Search {listing.microlocation}</Link>
+          <Link href={"/search?q=" + encodeURIComponent(listing.microlocation) + "&type=Microlocation"}><SiteIcon name="search" size={16} /> Search {listing.microlocation}</Link>
         </div>
       </section>
 
