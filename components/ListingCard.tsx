@@ -4,6 +4,13 @@ import type { Listing } from "@/data/catalog";
 import EnquiryButton from "@/components/EnquiryButton";
 import SiteIcon from "@/components/SiteIcon";
 
+const CARD_RENT_OPTIONS = [7499, 7799, 7999, 8499, 8799, 8999, 9499, 9999, 10999, 11999, 12999, 13999, 14999, 15999, 16999];
+
+function getCardRent(slug: string) {
+  const hash = Array.from(slug).reduce((sum, char) => sum + char.charCodeAt(0), 0);
+  return CARD_RENT_OPTIONS[hash % CARD_RENT_OPTIONS.length];
+}
+
 export default function ListingCard({ listing }: { listing: Listing }) {
   const location = listing.microlocation && listing.microlocation !== listing.location
     ? listing.microlocation + ", " + listing.location
