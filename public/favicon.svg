@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="t">
+<title id="t">PGThane</title>
+<circle cx="256" cy="256" r="244" fill="#fff" stroke="#006400" stroke-width="14"/>
+<circle cx="256" cy="256" r="226" fill="none" stroke="#F4C21A" stroke-width="10"/>
+<path d="M245 55C165 80 108 140 86 218c35-19 70-23 103-12-12-55 9-107 56-151Z" fill="#F4C21A"/>
+<path d="M256 65c-66 39-98 92-97 150 1 52 29 85 72 99-25-37-28-73-12-112 18-43 45-76 82-103Z" fill="#5A2C12"/>
+<path d="M307 78c-50 27-86 69-99 112-13 46 3 85 44 112l58-51c-40-18-55-44-50-77 5-35 26-67 60-96Z" fill="#006400"/>
+<text x="163" y="290" font-family="Georgia,Times New Roman,serif" font-size="150" font-weight="700" fill="#5A2C12">P</text>
+<text x="252" y="290" font-family="Georgia,Times New Roman,serif" font-size="150" font-weight="700" fill="#006400">G</text>
+<path d="M112 300c57 3 104 22 145 58l-48 34c-29-29-60-44-99-50Z" fill="#F4C21A"/>
+<path d="M167 324c45 6 83 20 118 48l-42 31c-27-26-54-39-91-46Z" fill="#006400"/>
+</svg>

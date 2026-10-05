@@ -1,7 +1,9 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import { verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
+import { listings, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
+import EnquiryButton from "@/components/EnquiryButton";
+import ListingCard from "@/components/ListingCard";
 
 const locations = [
   "Thane Station","Wagle Estate","Panchpakhadi","Louiswadi","Teen Hath Naka",
@@ -18,12 +20,18 @@ function locationHref(value: string) {
   return "/discover-pg-in-thane/pg-in-" + value.toLowerCase().replaceAll(" ", "-") + "-thane";
 }
 
+function withBudget(href: string, budget: string) {
+  if (budget === "Any budget") return href;
+  return href + (href.includes("?") ? "&" : "?") + "budget=" + encodeURIComponent(budget);
+}
+
 export default function HomePage() {
   const [query, setQuery] = useState("");
   const [type, setType] = useState<SearchType>("All");
   const [budget, setBudget] = useState("Any budget");
   const [focused, setFocused] = useState(false);
   const [activeSuggestion, setActiveSuggestion] = useState(-1);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -32,26 +40,50 @@ export default function HomePage() {
 
     if (type === "All" || type === "Location" || type === "Keyword") {
       locations.filter(x => x.toLowerCase().includes(q)).slice(0, 6).forEach(x =>
-        result.push({ label: x, meta: "Location", href: locationHref(x) })
+        result.push({ label: x, meta: "Location", href: withBudget(locationHref(x), budget) })
       );
     }
 
     if (type === "All" || type === "Workplace" || type === "Keyword") {
       verifiedWorkplaceIndex.filter(x => x.name.toLowerCase().includes(q)).slice(0, 6).forEach(x =>
-        result.push({ label: x.name, meta: x.kind + " · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Workplace" })
+        result.push({ label: x.name, meta: x.kind + " · " + x.location, href: withBudget("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace", budget) })
       );
     }
 
     if (type === "All" || type === "Microlocation" || type === "Keyword") {
       verifiedMicrolocationIndex.filter(x => x.name.toLowerCase().includes(q)).slice(0, 4).forEach(x =>
-        result.push({ label: x.name, meta: "Microlocation · " + x.location, href: "/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation" })
+        result.push({ label: x.name, meta: "Microlocation · " + x.location, href: withBudget("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation", budget) })
       );
     }
 
-    return result.slice(0, 8);
-  }, [query, type]);
+    if (type === "All" || type === "Keyword") {
+      listings
+        .filter(x => x.published === true && !x.photoOnly)
+        .filter(x => [x.name, x.location, x.microlocation, x.type, ...(x.workplace || []), ...(x.amenities || [])].join(" ").toLowerCase().includes(q))
+        .slice(0, 6)
+        .forEach(x =>
+          result.push({ label: x.name, meta: "PG · " + x.location, href: withBudget("/listing/" + x.slug, budget) })
+        );
+    }
 
-  useEffect(() => { setActiveSuggestion(-1); }, [query, type]);
+    const seen = new Set<string>();
+    const ql = q;
+    return result
+      .filter(item => {
+        const key = item.label.toLowerCase() + "|" + item.meta.toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .sort((a, b) => {
+        const ap = a.label.toLowerCase().startsWith(ql) ? 0 : 1;
+        const bp = b.label.toLowerCase().startsWith(ql) ? 0 : 1;
+        return ap - bp || a.label.localeCompare(b.label);
+      })
+      .slice(0, 8);
+  }, [query, type, budget]);
+
+  useEffect(() => { setActiveSuggestion(-1); }, [query, type, budget]);
 
   function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -65,13 +97,14 @@ export default function HomePage() {
   return (
     <main>
       <header className="topbar">
-        <a className="brand" href="/">PG<span>Thane</span></a>
+        <a className="brand" href="/" aria-label="PGThane.com home"><img src="/pgthane-exact-logo-4k.svg" alt="PGThane.com" className="brand-logo" width={240} height={80} /></a>
         <nav><a href="#locations">Locations</a><a href="#how-it-works">How it works</a><a href="#contact">Contact</a></nav>
         <a className="header-cta" href="#search">Find a PG</a>
       </header>
 
       <section className="hero">
         <div className="hero-inner">
+          <div className="homepage-logo-wrap"><img src="/logo.png" alt="PGThane" className="homepage-logo" width={112} height={112} /></div>
           <div className="eyebrow">THANE PG DIRECTORY</div>
           <h1>Find a PG in Thane that fits your <em>location</em> and workplace.</h1>
           <p className="hero-copy">Search PG, Paying Guest, Hostel and shared-room options by location, microlocation or workplace.</p>
@@ -79,16 +112,7 @@ export default function HomePage() {
           <form id="search" className="search-panel" onSubmit={submit} role="search" aria-label="Search PGs in Thane">
             <div className="search-tabs" role="tablist" aria-label="Search category">
               {searchTypes.map(item => (
-                <button
-                  key={item}
-                  type="button"
-                  role="tab"
-                  aria-selected={type === item}
-                  className={type === item ? "active" : ""}
-                  onClick={() => setType(item)}
-                >
-                  {item}
-                </button>
+                <button key={item} type="button" role="tab" aria-selected={type === item} className={type === item ? "active" : ""} onClick={() => setType(item)}>{item}</button>
               ))}
             </div>
 
@@ -112,18 +136,22 @@ export default function HomePage() {
                     } else if (e.key === "Escape") { setFocused(false); setActiveSuggestion(-1); }
                   }}
                   aria-activedescendant={activeSuggestion >= 0 ? "suggestion-" + activeSuggestion : undefined}
-                  placeholder="Search location, workplace or keyword"
-                  aria-label="Search PGs"
+                  placeholder={type === "Location" ? "Search a Thane location" : type === "Microlocation" ? "Search a microlocation" : type === "Workplace" ? "Search a workplace or business park" : type === "Keyword" ? "Search by PG keyword" : "Search location, workplace or keyword"}
+                  inputMode="search"
+                  aria-controls="search-suggestions" aria-label="Search PGs"
                   autoComplete="off"
                 />
+                {query && (
+                  <button type="button" className="search-clear" aria-label="Clear search" onMouseDown={(e) => e.preventDefault()} onClick={() => { setQuery(""); setFocused(true); }}>×</button>
+                )}
                 {focused && query.trim() && (
-                  <div className="autocomplete" role="listbox" aria-label="Search suggestions">
+                  <div id="search-suggestions" className="autocomplete" role="listbox" aria-label="Search suggestions">
                     {suggestions.map((item, i) => item.href ? (
                       <a id={"suggestion-" + i} key={item.label + i} href={item.href} className="autocomplete-item" role="option" aria-selected={activeSuggestion === i}>
                         <span>📍</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
                       </a>
                     ) : (
-                      <button id={"suggestion-" + i} type="button" key={item.label + i} className="autocomplete-item" aria-selected={activeSuggestion === i} onMouseDown={() => { setQuery(item.label); setFocused(true); setActiveSuggestion(-1); }}>
+                      <button id={"suggestion-" + i} type="button" key={item.label + i} className="autocomplete-item" role="option" aria-selected={activeSuggestion === i} onMouseDown={() => { setQuery(item.label); setFocused(true); setActiveSuggestion(-1); }}>
                         <span>{item.meta.startsWith("Microlocation") ? "📍" : "🏢"}</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
                       </button>
                     ))}
@@ -143,14 +171,25 @@ export default function HomePage() {
 
       <section className="trust-strip">
         <div><strong>Location-first</strong><span>Search by where you live or work</span></div>
-        <div><strong>Real listings</strong><span>No invented property information</span></div>
-        <div><strong>Easy enquiry</strong><span>View details and contact directly</span></div>
+        <div><strong>Verification-first</strong><span>Real property information is published only after verification</span></div>
+        <div><strong>Easy enquiry</strong><span>Contact for current verified availability</span></div>
+      </section>
+
+      <section className="section homepage-listings-section">
+        <div className="section-heading">
+          <div><div className="eyebrow">VERIFIED PG LISTINGS</div><h2>Featured PG options</h2></div>
+          <a className="section-link" href="/listing">View All Listings →</a>
+        </div>
+        <p className="homepage-listings-intro">Browse the currently published PG options with real photos, pricing and enquiry details.</p>
+        <div className="listing-grid homepage-listing-grid">
+          {listings.filter(x => x.published === true && !x.photoOnly).slice(0, 3).map(listing => <ListingCard key={listing.id} listing={listing} />)}
+        </div>
       </section>
 
       <section id="locations" className="section">
         <div className="section-heading"><div><div className="eyebrow">EXPLORE THANE</div><h2>Popular PG locations</h2></div><p>Choose a location to explore its microlocations and nearby workplaces.</p></div>
         <div className="location-grid">
-          {locations.map(location => <a className="location-card" key={location} href={locationHref(location)}><span className="pin">📍</span><div><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
+          {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><span className="pin">📍</span><div><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
         </div>
       </section>
 
@@ -159,8 +198,8 @@ export default function HomePage() {
         <div className="steps"><article><b>01</b><h3>Choose a location</h3><p>Start with a Thane neighbourhood or station.</p></article><article><b>02</b><h3>Refine by workplace</h3><p>Find accommodation around the office or business park you need.</p></article><article><b>03</b><h3>Compare real listings</h3><p>Review verified information before contacting the property.</p></article></div>
       </section>
 
-      <section id="contact" className="contact-section"><div><div className="eyebrow">NEED HELP?</div><h2>Looking for a PG in a specific part of Thane?</h2><p>Tell us your location or workplace and we can help you narrow the search.</p></div><a className="contact-button" href="tel:9892336705">Call 9892336705</a></section>
-      <footer><div className="brand">PG<span>Thane</span></div><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane</small></footer>
+      <section id="contact" className="contact-section"><div><div className="eyebrow">NEED HELP?</div><h2>Looking for a PG in a specific part of Thane?</h2><p>Tell us your location or workplace and we can help you narrow the search.</p></div><EnquiryButton label="Start an Enquiry" className="contact-button" /></section>
+      <footer><div className="footer-logo"><img src="/pgthane-exact-logo-4k.svg" alt="PGThane.com" className="footer-full-logo" width={260} height={87} /></div><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane</small></footer>
     </main>
   );
 }

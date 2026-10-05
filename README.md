@@ -23,5 +23,8 @@ The 41 source photos belong under `public/inventory/` so Next.js can serve them 
 
 The repository connector currently supports Git blobs as text/base64 but does not provide a local-file upload bridge or release-asset upload. Do not replace the real photos with placeholders. When a binary upload bridge is available, upload the original 41 files into `public/inventory/` and verify the resulting paths before publishing any listing.
 
+## Production validation
+The `main` branch is the production source of truth; validate the Vercel deployment after each production change.
+
 ## Validation
 The repository CI workflow runs `npm run typecheck` and `npm run build` on pushes and pull requests.

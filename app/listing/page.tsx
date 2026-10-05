@@ -15,7 +15,7 @@ export default function ListingsPage() {
   return (
     <main>
       <header className="topbar">
-        <a className="brand" href="/">PG<span>Thane</span></a>
+        <a className="brand" href="/" aria-label="PGThane.com home"><img src="/logo.svg" alt="PGThane.com" className="brand-logo" width={240} height={60} /></a>
         <nav><a href="/discover-pg-in-thane">Locations</a><a href="/#how-it-works">How it works</a><a href="/#contact">Contact</a></nav>
         <a className="header-cta" href="/search">Find a PG</a>
       </header>
@@ -35,7 +35,7 @@ export default function ListingsPage() {
             <p>We are adding property details only after the name, location, pricing and other important information are verified. We do not publish placeholder properties.</p>
             <div className="empty-actions">
               <Link className="primary-button" href="/search">Search PGs</Link>
-              <a className="secondary-button" href="tel:9892336705">Ask for available PGs</a>
+              <a className="secondary-button" href="tel:9930007113">Ask for available PGs</a>
             </div>
           </div>
         )}
