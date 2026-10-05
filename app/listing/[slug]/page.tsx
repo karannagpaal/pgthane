@@ -84,13 +84,23 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             {listing.availability && <div><dt>Availability</dt><dd>{listing.availability}</dd></div>}
           </dl>
           {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}>{a}</span>)}</div></div> : null}
+          {listing.phone && <div className="listing-contact-detail"><strong>PGThane enquiry</strong><a href={"tel:" + listing.phone}>{listing.phone}</a></div>}
           <EnquiryButton listingName={listing.name} location={listing.location} label="Enquire Now" className="detail-enquire" />
         </aside>
       </div>
 
       {listing.description && <section className="listing-description detail-description"><div className="eyebrow">ABOUT THIS PG</div><p>{listing.description}</p></section>}
 
-      {listing.workplace?.length ? <section className="listing-workplaces"><div className="eyebrow">NEARBY WORKPLACES</div><div className="workplace-tags">{listing.workplace.map(x => <span key={x}><SiteIcon name="building" size={16} /> {x}</span>)}</div></section> : null}
+      {listing.workplace?.length ? <section className="listing-workplaces"><div className="eyebrow">WORKPLACE SEARCH</div><div className="workplace-tags">{listing.workplace.map(x => <Link key={x} href={"/search?q=" + encodeURIComponent(x) + "&type=Workplace"}><SiteIcon name="building" size={16} /> {x}</Link>)}</div></section> : null}
+
+      <section className="listing-related-links">
+        <div className="eyebrow">EXPLORE MORE IN THANE</div>
+        <div className="workplace-tags">
+          <Link href={locationHref(listing.location)}><SiteIcon name="pin" size={16} /> More PGs in {listing.location}</Link>
+          <Link href="/discover-pg-in-thane"><SiteIcon name="building" size={16} /> Browse PGs by location</Link>
+          <Link href="/search?q=" + encodeURIComponent(listing.microlocation) + "&type=Microlocation"><SiteIcon name="search" size={16} /> Search {listing.microlocation}</Link>
+        </div>
+      </section>
 
       <Link className="back-directory" href={locationHref(listing.location)}><SiteIcon name="arrow" size={16} /> Back to {listing.location} PGs</Link>
       <div className="listing-mobile-cta" aria-label="Listing enquiry actions">
