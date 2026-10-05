@@ -597,3 +597,7 @@ footer small{color:var(--muted);opacity:1}
 .listing-feature-grid .feature-clean{color:#006400;background:#F1F8E9;border-color:#B8D7A8}.listing-feature-grid .feature-clean svg{color:#006400}
 .listing-feature-grid .feature-wifi{color:#5A2C12;background:#FFF8E1;border-color:#E2C45A}.listing-feature-grid .feature-wifi svg{color:#5A2C12}
 .listing-feature-grid .feature-furnished{color:#006400;background:#EAF5E7;border-color:#9CC796}.listing-feature-grid .feature-furnished svg{color:#006400}
+
+
+/* Requested listing card emoji icons */
+.listing-feature-grid .card-emoji{display:inline-flex!important;align-items:center;justify-content:center;width:18px!important;height:18px!important;min-width:18px!important;flex:0 0 18px!important;font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;font-size:15px!important;line-height:18px!important;vertical-align:middle}
