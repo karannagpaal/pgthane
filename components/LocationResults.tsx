@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Listing } from "@/data/catalog";
 import ListingCard from "@/components/ListingCard";
+import SiteIcon from "@/components/SiteIcon";
 
 export default function LocationResults({ listings }: { listings: Listing[] }) {
   const params = useSearchParams();
@@ -35,7 +36,7 @@ export default function LocationResults({ listings }: { listings: Listing[] }) {
   }), [listings, params]);
 
   if (filtered.length === 0) {
-    return <div className="empty-listings"><div className="empty-icon">⌂</div><h3>No PG matches these filters</h3><p>Try clearing one or more filters to see the verified PG listings available in this location.</p></div>;
+    return <div className="empty-listings"><div className="empty-icon"><SiteIcon name="home" size={28} /></div><h3>No PG matches these filters</h3><p>Try clearing one or more filters to see the verified PG listings available in this location.</p></div>;
   }
 
   return <div className="listing-grid">{filtered.map(x => <ListingCard key={x.id} listing={x} />)}</div>;
