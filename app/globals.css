@@ -586,3 +586,14 @@ footer small { opacity: .55; }
 footer{background:var(--cream);color:var(--brown);border-top:1px solid var(--line)}
 footer p{color:var(--muted);opacity:1}
 footer small{color:var(--muted);opacity:1}
+
+
+/* Final colourful PG card feature icons — approved theme only */
+.listing-feature-grid span{position:relative;transition:transform .15s ease,box-shadow .15s ease}.listing-feature-grid span:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(90,44,18,.08)}
+.listing-feature-grid span svg{width:15px;height:15px;stroke-width:2.2}
+.listing-feature-grid .feature-ac{color:#5A2C12;background:#FFF7D6;border-color:#F4C21A}.listing-feature-grid .feature-ac svg{color:#5A2C12}
+.listing-feature-grid .feature-male{color:#006400;background:#EDF7ED;border-color:#9BC79B}.listing-feature-grid .feature-male svg{color:#006400}
+.listing-feature-grid .feature-female{color:#5A2C12;background:#FFF1D8;border-color:#E8B86A}.listing-feature-grid .feature-female svg{color:#5A2C12}
+.listing-feature-grid .feature-clean{color:#006400;background:#F1F8E9;border-color:#B8D7A8}.listing-feature-grid .feature-clean svg{color:#006400}
+.listing-feature-grid .feature-wifi{color:#5A2C12;background:#FFF8E1;border-color:#E2C45A}.listing-feature-grid .feature-wifi svg{color:#5A2C12}
+.listing-feature-grid .feature-furnished{color:#006400;background:#EAF5E7;border-color:#9CC796}.listing-feature-grid .feature-furnished svg{color:#006400}
