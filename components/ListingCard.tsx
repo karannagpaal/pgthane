@@ -4,11 +4,6 @@ import type { Listing } from "@/data/catalog";
 import EnquiryButton from "@/components/EnquiryButton";
 import SiteIcon from "@/components/SiteIcon";
 
-function formatPrice(value?: number) {
-  if (!value) return "Price on enquiry";
-  return "₹" + value.toLocaleString("en-IN") + "/month*";
-}
-
 export default function ListingCard({ listing }: { listing: Listing }) {
   const location = listing.microlocation && listing.microlocation !== listing.location
     ? listing.microlocation + ", " + listing.location
@@ -20,6 +15,12 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         {listing.photos[0]
           ? <img src={listing.photos[0]} alt={listing.imageAlt || listing.name} loading="lazy" />
           : <div className="photo-placeholder">Photo pending</div>}
+        {listing.verified && (
+          <span className="verified-badge">
+            <SiteIcon name="check" size={14} />
+            Verified Listing
+          </span>
+        )}
       </div>
 
       <div className="listing-body">
@@ -28,9 +29,12 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         <p className="listing-location"><SiteIcon name="pin" size={16} /> {location}</p>
 
         <div className="listing-feature-grid" aria-label="Property features">
-          <span><SiteIcon name="wifi" size={15} /> Wi-Fi</span>
-          <span><SiteIcon name="sofa" size={15} /> Fully Furnished</span>
+          <span><SiteIcon name="home" size={15} /> AC &amp; Non-AC</span>
+          <span><SiteIcon name="home" size={15} /> Male</span>
+          <span><SiteIcon name="home" size={15} /> Female</span>
           <span><SiteIcon name="broom" size={15} /> Daily Housekeeping</span>
+          <span><SiteIcon name="wifi" size={15} /> Free High-Speed Wi-Fi</span>
+          <span><SiteIcon name="sofa" size={15} /> Fully Furnished</span>
         </div>
 
         {listing.phone && (
@@ -43,15 +47,15 @@ export default function ListingCard({ listing }: { listing: Listing }) {
 
       <div className="listing-side">
         <div className="listing-price-range">
-          <span>Indicative monthly rent*</span>
-          <strong>From {formatPrice(listing.priceFrom ?? listing.draftPriceFrom)}</strong>
+          <span>AC rooms</span>
+          <strong>₹7,499 – ₹16,999/month</strong>
         </div>
 
         <div className="zero-brokerage">ZERO BROKERAGE</div>
 
         <div className="listing-current-price">
-          <span>Availability</span>
-          <strong>{listing.gender || "Check with property"}</strong>
+          <span>AC &amp; Non-AC</span>
+          <strong>Male &amp; Female</strong>
         </div>
 
         <div className="listing-actions">
