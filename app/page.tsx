@@ -211,7 +211,7 @@ export default function HomePage() {
       </section>
 
       <section id="contact" className="contact-section"><div><div className="eyebrow">NEED HELP?</div><h2>Looking for a PG in a specific part of Thane?</h2><p>Tell us your location or workplace and we can help you narrow the search.</p></div><EnquiryButton label="Start an Enquiry" className="contact-button" /></section>
-      <footer><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane</small></footer>
+      <footer><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane. All rights reserved.</small></footer>
     </main>
   );
 }
