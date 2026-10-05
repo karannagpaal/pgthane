@@ -781,3 +781,35 @@ footer .footer-full-logo{
     border-radius:9px;
   }
 }
+
+
+/* Listing card title refinement — cleaner hierarchy and easier scanning */
+.listing-card .listing-body h3{
+  color:var(--green);
+  font-size:20px;
+  line-height:1.24;
+  font-weight:850;
+  letter-spacing:-.15px;
+  margin:0 0 7px;
+  max-width:34ch;
+  text-wrap:balance;
+  overflow-wrap:break-word;
+}
+@media(max-width:1100px){
+  .listing-card .listing-body h3{
+    font-size:19px;
+    max-width:36ch;
+  }
+}
+@media(max-width:760px){
+  .listing-card .listing-body h3{
+    font-size:18px;
+    line-height:1.22;
+    font-weight:850;
+    letter-spacing:-.15px;
+    margin:0 0 7px;
+    max-width:none;
+    min-height:44px;
+    text-wrap:balance;
+  }
+}
