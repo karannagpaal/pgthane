@@ -4,9 +4,6 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import { listings, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
 import EnquiryButton from "@/components/EnquiryButton";
 import ListingCard from "@/components/ListingCard";
-import SiteIcon from "@/components/SiteIcon";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
 
 const locations = [
   "Thane Station","Wagle Estate","Panchpakhadi","Louiswadi","Teen Hath Naka",
@@ -121,7 +118,7 @@ export default function HomePage() {
 
             <div className="search-row">
               <div className="search-field search-field-wrap">
-                <span className="search-icon"><SiteIcon name="search" size={20} /></span>
+                <span>⌕</span>
                 <input
                   value={query}
                   onChange={e => setQuery(e.target.value)}
@@ -151,11 +148,11 @@ export default function HomePage() {
                   <div id="search-suggestions" className="autocomplete" role="listbox" aria-label="Search suggestions">
                     {suggestions.map((item, i) => item.href ? (
                       <a id={"suggestion-" + i} key={item.label + i} href={item.href} className="autocomplete-item" role="option" aria-selected={activeSuggestion === i}>
-                        <span className="suggestion-icon"><SiteIcon name="pin" size={17} /></span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
+                        <span>📍</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
                       </a>
                     ) : (
                       <button id={"suggestion-" + i} type="button" key={item.label + i} className="autocomplete-item" role="option" aria-selected={activeSuggestion === i} onMouseDown={() => { setQuery(item.label); setFocused(true); setActiveSuggestion(-1); }}>
-                        <span className="suggestion-icon"><SiteIcon name={item.meta.startsWith("Microlocation") ? "pin" : "building"} size={17} /></span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
+                        <span>{item.meta.startsWith("Microlocation") ? "📍" : "🏢"}</span><div><strong>{item.label}</strong><small>{item.meta}</small></div>
                       </button>
                     ))}
                     {!suggestions.length && <div className="autocomplete-empty">No matching location, microlocation or workplace.</div>}
@@ -192,7 +189,7 @@ export default function HomePage() {
       <section id="locations" className="section">
         <div className="section-heading"><div><div className="eyebrow">EXPLORE THANE</div><h2>Popular PG locations</h2></div><p>Choose a location to explore its microlocations and nearby workplaces.</p></div>
         <div className="location-grid">
-          {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><span className="pin"><SiteIcon name="pin" size={20} /></span><div><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
+          {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><span className="pin">📍</span><div><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
         </div>
       </section>
 
