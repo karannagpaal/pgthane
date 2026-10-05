@@ -248,6 +248,21 @@ export default function HomePage() {
       </section>
 
       <section id="contact" className="contact-section"><div><div className="eyebrow">NEED HELP?</div><h2>Looking for a PG in a specific part of Thane?</h2><p>Tell us your location or workplace and we can help you narrow the search.</p></div><EnquiryButton label="Start an Enquiry" className="contact-button" /></section>
+
+      <section className="faq-section section" aria-labelledby="faq-heading">
+        <div className="section-heading">
+          <div><div className="eyebrow">PG THANE FAQ</div><h2 id="faq-heading">Frequently asked questions about PGs in Thane</h2></div>
+          <p>Useful answers about PG locations, rent, facilities, verification and enquiries.</p>
+        </div>
+        <div className="faq-list">
+          {homepageFaqs.map((item) => (
+            <details className="faq-item" key={item.question}>
+              <summary>{item.question}<span aria-hidden="true">+</span></summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
       <footer><p>PG · Paying Guest · Hostel · Shared Rooms in Thane</p><small>© {new Date().getFullYear()} PG Thane. All rights reserved.</small></footer>
     </main>
   );
