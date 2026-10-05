@@ -962,3 +962,9 @@ footer .footer-full-logo{
     font-weight:800;
   }
 }
+
+
+/* Listing card location pin only */
+.listing-card .listing-location svg{
+  color:var(--brown)!important;
+}
