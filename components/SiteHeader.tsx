@@ -9,7 +9,7 @@ export default function SiteHeader({ ctaLabel = "Call", ctaHref = "tel:993000711
   return (
     <header className="topbar">
       <Link className="brand" href="/" aria-label="PGThane.com home">
-        <img src="/logo.svg" alt="PGThane.com" className="brand-logo" width={260} height={86} />
+        <img src="/logo.png" alt="PGThane.com" className="brand-logo" width={260} height={86} />
       </Link>
       <nav aria-label="Primary navigation">
         <Link href="/discover-pg-in-thane">Locations</Link>
