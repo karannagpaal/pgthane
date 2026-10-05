@@ -190,11 +190,13 @@ export default function HomePage() {
       <section className="section homepage-listings-section">
         <div className="section-heading">
           <div><div className="eyebrow">PG LISTINGS ACROSS THANE</div><h2>Featured PG options</h2></div>
-          <a className="section-link" href="/listing">View All Listings →</a>
         </div>
         <p className="homepage-listings-intro">Explore PG options from different Thane locations with real photos, pricing and enquiry details.</p>
         <div className="listing-grid homepage-listing-grid">
           {homepageListings().map(listing => <ListingCard key={listing.id} listing={listing} />)}
+        </div>
+        <div className="homepage-listings-cta">
+          <a href="/listing">View all listings <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
