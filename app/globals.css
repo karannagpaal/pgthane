@@ -34,8 +34,8 @@ button, input, select { font: inherit; }
 }
 .brand { display:flex; align-items:center; line-height:0; flex-shrink:0; }
 .brand-logo { display:block; width:280px; height:auto; max-height:92px; object-fit:contain; object-position:left center; }
-.homepage-logo-wrap { display:flex; justify-content:center; margin:0 0 16px; }
-.homepage-logo { display:block; width:136px; height:136px; object-fit:contain; }
+.homepage-logo-wrap { display:flex; justify-content:center; margin:0 0 10px; }
+.homepage-logo { display:block; width:104px; height:104px; object-fit:contain; }
 .footer-logo { display:flex; align-items:center; margin-bottom:8px; }
 .footer-full-logo { display:block; width:260px; height:auto; max-width:100%; object-fit:contain; object-position:left center; }
 .topbar nav { display: flex; gap: 26px; margin-left: auto; font-size: 14px; }
@@ -53,7 +53,7 @@ button, input, select { font: inherit; }
   background:
     radial-gradient(circle at 80% 20%, rgba(244,194,26,.2), transparent 30%),
     linear-gradient(135deg, #f3f6eb 0%, #fff 65%);
-  padding: 76px 5vw 70px;
+  padding: 38px 5vw 58px;
 }
 .hero-inner { max-width: 1180px; margin: auto; }
 .eyebrow { color: var(--brown); font-weight: 900; font-size: 12px; letter-spacing: 1.6px; }
