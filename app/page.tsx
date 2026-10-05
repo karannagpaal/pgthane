@@ -187,13 +187,6 @@ export default function HomePage() {
         <div><strong>Easy enquiry</strong><span>Contact for current verified availability</span></div>
       </section>
 
-      <section id="locations" className="section">
-        <div className="section-heading"><div><div className="eyebrow">EXPLORE THANE</div><h2>Popular PG locations</h2></div><p>Choose a location to explore its microlocations and nearby workplaces.</p></div>
-        <div className="location-grid">
-          {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><span className="pin">📍</span><div><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
-        </div>
-      </section>
-
       <section className="section homepage-listings-section">
         <div className="section-heading">
           <div><div className="eyebrow">PG LISTINGS ACROSS THANE</div><h2>Featured PG options</h2></div>
@@ -202,6 +195,13 @@ export default function HomePage() {
         <p className="homepage-listings-intro">Explore PG options from different Thane locations with real photos, pricing and enquiry details.</p>
         <div className="listing-grid homepage-listing-grid">
           {homepageListings().map(listing => <ListingCard key={listing.id} listing={listing} />)}
+        </div>
+      </section>
+
+      <section id="locations" className="section">
+        <div className="section-heading"><div><div className="eyebrow">EXPLORE THANE</div><h2>Popular PG locations</h2></div><p>Choose a location to explore its microlocations and nearby workplaces.</p></div>
+        <div className="location-grid">
+          {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><span className="pin">📍</span><div><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
         </div>
       </section>
 
