@@ -47,11 +47,11 @@ export default function ListingCard({ listing }: { listing: Listing }) {
 
       <div className="listing-side">
         <div className="listing-price-range">
-          <span>Indicative monthly rent*</span>
+          <span>Monthly rent*</span>
           <strong>{getApprovedPricePattern(listing)}</strong>
         </div>
 
-        <div className="zero-brokerage">ZERO BROKERAGE</div>
+        <div className="zero-brokerage">Zero brokerage</div>
 
         <div className="listing-actions">
           <EnquiryButton
@@ -60,7 +60,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
             label="Enquire"
             className="listing-enquire"
           />
-          <a href={"/listing/" + listing.slug}>View Details →</a>
+          <a href={"/listing/" + listing.slug}>View details →</a>
         </div>
       </div>
     </article>
