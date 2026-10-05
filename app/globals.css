@@ -569,7 +569,7 @@ footer small { opacity: .55; }
 
 
 /* Brand + icon consistency */
-.brand-logo{width:260px;height:auto;max-height:86px;object-fit:contain;object-position:left center;display:block;mix-blend-mode:multiply}
+.brand-logo{width:260px;height:auto;max-height:86px;object-fit:contain;object-position:left center;display:block;}
 .footer-brand{display:inline-flex;align-items:center;line-height:0;margin-bottom:10px}
 .footer-full-logo{width:280px;height:auto;max-width:min(100%,280px);display:block;object-fit:contain;object-position:left center;mix-blend-mode:multiply}
 .search-icon,.suggestion-icon,.pin,.listing-location,.listing-feature-grid span,.listing-contact-row span,.verified-badge,.workplace-tags span,.directory-chip,.workplace-item>span{display:inline-flex;align-items:center;gap:7px}
