@@ -569,3 +569,23 @@ footer small { opacity: .55; }
 }
 
 /* Vercel production sync marker */
+
+
+/* Brand + icon consistency */
+.brand-logo{width:260px;height:auto;max-height:86px;object-fit:contain;object-position:left center;display:block}
+.footer-brand{display:inline-flex;align-items:center;line-height:0;margin-bottom:10px}
+.footer-full-logo{width:280px;height:auto;max-width:min(100%,280px);display:block;object-fit:contain;object-position:left center}
+.search-icon,.suggestion-icon,.pin,.listing-location,.listing-feature-grid span,.listing-contact-row span,.verified-badge,.workplace-tags span,.directory-chip,.workplace-item>span{display:inline-flex;align-items:center;gap:7px}
+.search-icon{color:var(--green);flex:0 0 auto}
+.listing-location svg,.pin svg,.listing-feature-grid svg,.listing-contact-row svg,.verified-badge svg,.workplace-tags svg,.directory-chip svg,.workplace-item svg{flex:0 0 auto}
+.listing-feature-grid span{white-space:nowrap}
+.verified-badge{gap:6px}
+.workplace-tags span{gap:7px}
+.search-result span{display:inline-flex;align-items:center;gap:7px}
+@media(max-width:760px){
+  .brand-logo{width:170px;max-height:58px}
+  .footer-full-logo{width:230px;max-width:100%}
+}
+footer{background:var(--cream);color:var(--brown);border-top:1px solid var(--line)}
+footer p{color:var(--muted);opacity:1}
+footer small{color:var(--muted);opacity:1}
