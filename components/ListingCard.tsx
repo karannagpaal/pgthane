@@ -4,11 +4,17 @@ import type { Listing } from "@/data/catalog";
 import EnquiryButton from "@/components/EnquiryButton";
 import SiteIcon from "@/components/SiteIcon";
 
-const CARD_RENT_OPTIONS = [7499, 7799, 7999, 8499, 8799, 8999, 9499, 9999, 10999, 11999, 12999, 13999, 14999, 15999, 16999];
+function getApprovedPricePattern(listing: Listing) {
+  const sharing = listing.sharing || [];
+  const hasTriple = sharing.some(x => x.toLowerCase().includes("triple"));
+  const hasDouble = sharing.some(x => x.toLowerCase().includes("double"));
+  const hasSingle = sharing.some(x => x.toLowerCase().includes("single") || x.toLowerCase().includes("private"));
 
-function getCardRent(slug: string) {
-  const hash = Array.from(slug).reduce((sum, char) => sum + char.charCodeAt(0), 0);
-  return CARD_RENT_OPTIONS[hash % CARD_RENT_OPTIONS.length];
+  if (hasSingle && !hasDouble && !hasTriple) return "₹12,000 – ₹30,000/month";
+  if (hasDouble && !hasSingle && !hasTriple) return "From ₹7,500/month";
+  if (hasTriple && !hasSingle && !hasDouble) return "₹7,000 – ₹12,000/month";
+  if (hasSingle || (hasDouble && hasTriple)) return "₹7,000 – ₹30,000/month";
+  return "From ₹7,000/month";
 }
 
 export default function ListingCard({ listing }: { listing: Listing }) {
@@ -55,7 +61,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
       <div className="listing-side">
         <div className="listing-price-range">
           <span>Indicative monthly rent*</span>
-          <strong>₹7,499 – ₹16,999/month</strong>
+          <strong>{getApprovedPricePattern(listing)}</strong>
         </div>
 
         <div className="zero-brokerage">ZERO BROKERAGE</div>
