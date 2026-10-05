@@ -618,3 +618,21 @@ footer small{color:var(--muted);opacity:1}
     max-height:50px;
   }
 }
+
+
+/* Final footer logo sizing — keep the uploaded transparent logo fully visible */
+footer .footer-full-logo{
+  width:230px;
+  height:auto;
+  max-width:100%;
+  max-height:72px;
+  object-fit:contain;
+  object-position:left center;
+}
+@media(max-width:760px){
+  footer .footer-full-logo{
+    width:190px;
+    max-width:100%;
+    max-height:60px;
+  }
+}
