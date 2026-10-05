@@ -19,25 +19,12 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         {listing.photos[0]
           ? <img src={listing.photos[0]} alt={listing.imageAlt || listing.name} loading="lazy" />
           : <div className="photo-placeholder">Photo pending</div>}
-        {listing.verified && (
-          <span className="verified-badge">
-            <span className="google-g" aria-hidden="true">G</span>
-            Google Verified Listing
-          </span>
-        )}
       </div>
 
       <div className="listing-body">
         <div className="listing-kicker">{listing.type}</div>
         <h3>{listing.name}</h3>
         <p className="listing-location">📍 {location}</p>
-
-        {listing.verified && (
-          <div className="card-verification">
-            <span className="google-g" aria-hidden="true">G</span>
-            <span>Google Verified Listing</span>
-          </div>
-        )}
 
         <div className="listing-feature-grid" aria-label="Property features">
           <span>📶 Wi-Fi</span>
