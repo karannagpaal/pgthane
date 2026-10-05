@@ -54,16 +54,11 @@ export default function ListingCard({ listing }: { listing: Listing }) {
 
       <div className="listing-side">
         <div className="listing-price-range">
-          <span>AC rooms</span>
+          <span>Indicative monthly rent*</span>
           <strong>₹7,499 – ₹16,999/month</strong>
         </div>
 
         <div className="zero-brokerage">ZERO BROKERAGE</div>
-
-        <div className="listing-current-price">
-          <span>AC &amp; Non-AC</span>
-          <strong>Male &amp; Female</strong>
-        </div>
 
         <div className="listing-actions">
           <EnquiryButton
