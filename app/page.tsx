@@ -104,7 +104,6 @@ export default function HomePage() {
 
       <section className="hero">
         <div className="hero-inner">
-          <div className="homepage-logo-wrap"><img src="/logo.png" alt="PGThane" className="homepage-logo" width={112} height={112} /></div>
           <div className="eyebrow">THANE PG DIRECTORY</div>
           <h1>Find a PG in Thane that fits your <em>location</em> and workplace.</h1>
           <p className="hero-copy">Search PG, Paying Guest, Hostel and shared-room options by location, microlocation or workplace.</p>
