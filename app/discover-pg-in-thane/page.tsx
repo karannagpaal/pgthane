@@ -18,6 +18,8 @@ const locations = [
   ["Kasarvadavali","pg-in-kasarvadavali-thane"],
   ["Hiranandani Estate","pg-in-hiranandani-estate-thane"],
   ["Vartak Nagar","pg-in-vartak-nagar-thane"],
+  ["Balkum","pg-in-balkum-thane"],
+  ["Ghodbunder Road","pg-in-ghodbunder-road-thane"],
   ["Lokmanya Nagar","pg-in-lokmanya-nagar-thane"],
   ["Kolshet","pg-in-kolshet-thane"],
   ["Vasant Vihar","pg-in-vasant-vihar-thane"],
