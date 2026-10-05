@@ -6,10 +6,8 @@ import EnquiryButton from "@/components/EnquiryButton";
 import ListingCard from "@/components/ListingCard";
 
 const locations = [
-  "Thane Station","Wagle Estate","Panchpakhadi","Louiswadi","Teen Hath Naka",
-  "Naupada","Khopat","Majiwada","Castle Mill","Kapurbawdi","Manpada","Bhramand",
-  "Kasarvadavali","Hiranandani Estate","Vartak Nagar","Lokmanya Nagar","Kolshet",
-  "Vasant Vihar","Pokhran Road"
+  "Hiranandani Estate","Wagle Estate","Majiwada","Kolshet",
+  "Kasarvadavali","Manpada","Thane Station"
 ];
 
 const searchTypes = ["All", "Location", "Microlocation", "Workplace", "Keyword"] as const;
