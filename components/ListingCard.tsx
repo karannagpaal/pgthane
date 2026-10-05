@@ -36,12 +36,12 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         <p className="listing-location"><SiteIcon name="pin" size={16} /> {location}</p>
 
         <div className="listing-feature-grid" aria-label="Property features">
-          <span className="feature-ac"><SiteIcon name="snowflake" size={15} /> AC &amp; Non-AC</span>
-          <span className="feature-male"><SiteIcon name="male" size={15} /> Male</span>
-          <span className="feature-female"><SiteIcon name="female" size={15} /> Female</span>
-          <span className="feature-clean"><SiteIcon name="broom" size={15} /> Daily Housekeeping</span>
-          <span className="feature-wifi"><SiteIcon name="wifi" size={15} /> Free High-Speed Wi-Fi</span>
-          <span className="feature-furnished"><SiteIcon name="sofa" size={15} /> Fully Furnished</span>
+          <span className="feature-ac"><span className="card-emoji" aria-hidden="true">❄️</span> AC &amp; Non-AC</span>
+          <span className="feature-male"><span className="card-emoji" aria-hidden="true">👨</span> Male</span>
+          <span className="feature-female"><span className="card-emoji" aria-hidden="true">👩</span> Female</span>
+          <span className="feature-clean"><span className="card-emoji" aria-hidden="true">🧹</span> Daily Housekeeping</span>
+          <span className="feature-wifi"><span className="card-emoji" aria-hidden="true">📶</span> Free High-Speed Wi-Fi</span>
+          <span className="feature-furnished"><span className="card-emoji" aria-hidden="true">🛋️</span> Fully Furnished</span>
         </div>
 
         {listing.phone && (
