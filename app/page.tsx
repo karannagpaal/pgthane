@@ -118,7 +118,7 @@ export default function HomePage() {
 
       <section className="hero">
         <div className="hero-inner">
-          <div className="eyebrow">THANE PG DIRECTORY</div>
+          <div className="eyebrow">FIND YOUR NEXT PG</div>
           <h1>Find a PG in Thane that fits your <em>location</em> and workplace.</h1>
           <p className="hero-copy">Search PG, Paying Guest, Hostel and shared-room options by location, microlocation or workplace.</p>
 
