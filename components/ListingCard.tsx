@@ -31,7 +31,6 @@ export default function ListingCard({ listing }: { listing: Listing }) {
       </div>
 
       <div className="listing-body">
-        <div className="listing-kicker">{listing.type}</div>
         <h3>{listing.name}</h3>
         <p className="listing-location"><SiteIcon name="pin" size={16} /> {location}</p>
 
