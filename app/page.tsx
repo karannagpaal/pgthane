@@ -24,6 +24,21 @@ function withBudget(href: string, budget: string) {
   if (budget === "Any budget") return href;
   return href + (href.includes("?") ? "&" : "?") + "budget=" + encodeURIComponent(budget);
 }
+\nfunction homepageListings() {
+  const pool = listings.filter(x => x.published === true && !x.photoOnly);
+  const score = (slug: string) => Array.from(slug).reduce((sum, char) => sum * 31 + char.charCodeAt(0), 7);
+  const shuffled = [...pool].sort((a, b) => score(a.slug) - score(b.slug));
+  const seenLocations = new Set<string>();
+  const diverse = shuffled.filter(x => {
+    const key = (x.location || "").toLowerCase();
+    if (!key || seenLocations.has(key)) return false;
+    seenLocations.add(key);
+    return true;
+  }).slice(0, 6);
+  if (diverse.length >= 6) return diverse;
+  return shuffled.slice(0, 6);
+}
+
 
 export default function HomePage() {
   const [query, setQuery] = useState("");
@@ -176,12 +191,12 @@ export default function HomePage() {
 
       <section className="section homepage-listings-section">
         <div className="section-heading">
-          <div><div className="eyebrow">VERIFIED PG LISTINGS</div><h2>Featured PG options</h2></div>
+          <div><div className="eyebrow">PG LISTINGS ACROSS THANE</div><h2>Featured PG options</h2></div>
           <a className="section-link" href="/listing">View All Listings →</a>
         </div>
-        <p className="homepage-listings-intro">Browse the currently published PG options with real photos, pricing and enquiry details.</p>
+        <p className="homepage-listings-intro">Explore PG options from different Thane locations with real photos, pricing and enquiry details.</p>
         <div className="listing-grid homepage-listing-grid">
-          {listings.filter(x => x.published === true && !x.photoOnly).slice(0, 3).map(listing => <ListingCard key={listing.id} listing={listing} />)}
+          {homepageListings().map(listing => <ListingCard key={listing.id} listing={listing} />)}
         </div>
       </section>
 
