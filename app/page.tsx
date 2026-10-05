@@ -238,7 +238,7 @@ export default function HomePage() {
       <section id="locations" className="section">
         <div className="section-heading"><div><div className="eyebrow">EXPLORE THANE</div><h2>Popular PG locations</h2></div><p>Choose a location to explore its microlocations and nearby workplaces.</p></div>
         <div className="location-grid">
-          {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><div className="location-card-visual"><span className="location-card-pin">📍</span><span className="location-card-label">THANE</span></div><div className="location-card-copy"><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
+          {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><div className="location-card-visual"><img src="/location-map-card.svg" alt="" loading="lazy" /><span className="location-card-pin" aria-hidden="true">📍</span></div><div className="location-card-copy"><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
         </div>
       </section>
 
