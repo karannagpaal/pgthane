@@ -16,7 +16,7 @@ function locationHref(value: string) {
 
 const allowed = {
   budget: new Set(["Any budget", "Under ₹10,000", "₹10,000 – ₹15,000", "₹15,000 – ₹20,000", "₹20,000+"]),
-  gender: new Set(["Any", "Male", "Female", "Unisex"]),
+  gender: new Set(["Any", "Male", "Female", "Male & Female"]),
   sharing: new Set(["Any", "Single", "Double sharing", "Triple sharing", "4 Sharing+"]),
   room: new Set(["Any", "Private room", "Shared room"]),
   amenity: new Set(["Any", "Wi-Fi", "Fully Furnished", "Housekeeping", "Washing Machine", "Parking"])
@@ -40,7 +40,7 @@ export default function SearchClient() {
 
     const filterQuery = new URLSearchParams();
     if (budget !== "Any budget") filterQuery.set("budget", budget);
-    if (gender !== "Any") filterQuery.set("gender", gender);
+    if (gender !== "Any") filterQuery.set("gender", gender === "Male & Female" ? "Unisex" : gender);
     if (sharing !== "Any") filterQuery.set("sharing", sharing);
     if (room !== "Any") filterQuery.set("room", room);
     if (amenity !== "Any") filterQuery.set("amenity", amenity);
@@ -69,7 +69,7 @@ export default function SearchClient() {
         if (type === "Keyword" && !text.includes(q)) return false;
         if (type === "All" && !text.includes(q)) return false;
       }
-      if (gender !== "Any" && x.gender !== gender) return false;
+      if (gender !== "Any" && x.gender !== (gender === "Male & Female" ? "Unisex" : gender)) return false;
       if (room !== "Any" && (!x.roomType || (x.roomType !== "Both" && x.roomType !== room))) return false;
       if (amenity !== "Any" && (!x.amenities || !x.amenities.some(a => a.toLowerCase().includes(amenity.toLowerCase())))) return false;
       if (sharing !== "Any") {
@@ -112,7 +112,7 @@ export default function SearchClient() {
           <details className="search-advanced">
             <summary>More filters <span>Gender · Sharing · Room · Amenities</span></summary>
             <div className="search-advanced-grid">
-              <select name="gender" defaultValue={gender} aria-label="Gender"><option>Any</option><option>Male</option><option>Female</option><option>Unisex</option></select>
+              <select name="gender" defaultValue={gender === "Unisex" ? "Male & Female" : gender} aria-label="Gender"><option>Any</option><option>Male</option><option>Female</option><option>Male & Female</option></select>
               <select name="sharing" defaultValue={sharing} aria-label="Sharing"><option>Any</option><option>Single</option><option>Double sharing</option><option>Triple sharing</option><option>4 Sharing+</option></select>
               <select name="room" defaultValue={room} aria-label="Room type"><option>Any</option><option>Private room</option><option>Shared room</option></select>
               <select name="amenity" defaultValue={amenity} aria-label="Amenity"><option>Any</option><option>Wi-Fi</option><option>Fully Furnished</option><option>Housekeeping</option><option>Washing Machine</option><option>Parking</option></select>
