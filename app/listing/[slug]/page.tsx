@@ -80,11 +80,11 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             {listing.sharing?.length && <div><dt>Sharing</dt><dd>{listing.sharing.join(" / ")}</dd></div>}
             {listing.roomType && <div><dt>Room type</dt><dd>{listing.roomType}</dd></div>}
             {listing.food && <div><dt>Food</dt><dd>{listing.food}</dd></div>}
-            {listing.gender && <div><dt>Gender</dt><dd>{listing.gender}</dd></div>}
+            {listing.gender && <div><dt>Gender</dt><dd>{listing.gender === "Unisex" ? "Male & Female" : listing.gender}</dd></div>}
             {listing.availability && <div><dt>Availability</dt><dd>{listing.availability}</dd></div>}
           </dl>
           {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}>{a}</span>)}</div></div> : null}
-          {listing.phone && <div className="listing-contact-detail"><strong>PGThane enquiry</strong><a href={"tel:" + listing.phone}>{listing.phone}</a></div>}
+          {listing.phone && <div className="listing-contact-detail"><strong>PGThane Enquiry</strong><a href={"tel:" + listing.phone}>{listing.phone}</a></div>}
           <EnquiryButton listingName={listing.name} location={listing.location} label="Enquire Now" className="detail-enquire" />
         </aside>
       </div>
