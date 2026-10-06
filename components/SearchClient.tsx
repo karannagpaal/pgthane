@@ -16,7 +16,7 @@ function locationHref(value: string) {
 
 const allowed = {
   budget: new Set(["Any budget", "Under ₹10,000", "₹10,000 – ₹15,000", "₹15,000 – ₹20,000", "₹20,000+"]),
-  gender: new Set(["Any", "Male", "Female", "Male & Female"]),
+  gender: new Set(["Any", "Male", "Female", "Unisex", "Male & Female"]),
   sharing: new Set(["Any", "Single", "Double sharing", "Triple sharing", "4 Sharing+"]),
   room: new Set(["Any", "Private room", "Shared room"]),
   amenity: new Set(["Any", "Wi-Fi", "Fully Furnished", "Housekeeping", "Washing Machine", "Parking"])
