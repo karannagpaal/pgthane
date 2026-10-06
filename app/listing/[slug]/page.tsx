@@ -84,7 +84,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             {listing.availability && <div><dt>Availability</dt><dd>{listing.availability}</dd></div>}
           </dl>
           {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}>{a}</span>)}</div></div> : null}
-          {listing.phone && <div className="listing-contact-detail"><strong>PGThane Enquiry</strong><a href={"tel:" + listing.phone}>{listing.phone}</a></div>}
+          {listing.phone && <div className="listing-contact-detail"><strong>PGThane Enquiry</strong><a className="listing-contact-number" href={"tel:" + listing.phone}>{listing.phone}</a></div>}
           <EnquiryButton listingName={listing.name} location={listing.location} label="Enquire Now" className="detail-enquire" />
         </aside>
       </div>
