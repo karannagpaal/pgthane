@@ -1825,3 +1825,111 @@ footer .footer-full-logo{
     padding:7px 6px;
   }
 }
+
+
+/* Clean listing title/header — mobile first */
+.listing-detail .listing-title-block{
+  align-items:flex-end;
+  gap:28px;
+  margin-top:22px;
+  margin-bottom:34px;
+}
+.listing-detail .listing-title-copy{
+  min-width:0;
+  flex:1;
+}
+.listing-detail .listing-title-copy h1{
+  position:relative;
+  margin:0;
+  max-width:850px;
+  padding-left:18px;
+  color:#5A2C12;
+  font-size:clamp(34px,4.2vw,54px);
+  line-height:1.08;
+  letter-spacing:-1.5px;
+  font-weight:900;
+  text-wrap:balance;
+}
+.listing-detail .listing-title-copy h1::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.14em;
+  bottom:.14em;
+  width:5px;
+  border-radius:999px;
+  background:#006400;
+}
+.listing-detail .listing-title-copy .listing-location.large{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin:17px 0 0 18px;
+  padding:7px 12px 7px 9px;
+  border:1px solid #ead9a8;
+  border-radius:999px;
+  background:#fff9e8;
+  color:#5A2C12;
+  font-size:15px;
+  line-height:1.2;
+  font-weight:850;
+}
+.title-location-icon{
+  width:27px;
+  height:27px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#006400;
+  color:#fff;
+  flex:0 0 27px;
+}
+.listing-detail .listing-detail-actions{
+  flex:0 0 auto;
+  align-self:center;
+}
+.listing-detail .breadcrumb{
+  font-size:13px;
+  color:#81786f;
+}
+.listing-detail .breadcrumb strong{
+  color:#5A2C12;
+  font-weight:800;
+}
+@media(max-width:760px){
+  .listing-detail .listing-title-block{
+    display:block;
+    margin-top:18px;
+    margin-bottom:27px;
+  }
+  .listing-detail .listing-title-copy h1{
+    max-width:none;
+    padding-left:14px;
+    font-size:clamp(31px,8.2vw,39px);
+    line-height:1.1;
+    letter-spacing:-.8px;
+  }
+  .listing-detail .listing-title-copy h1::before{
+    width:4px;
+    top:.1em;
+    bottom:.1em;
+  }
+  .listing-detail .listing-title-copy .listing-location.large{
+    margin:13px 0 0 14px;
+    padding:6px 10px 6px 7px;
+    font-size:13px;
+  }
+  .title-location-icon{
+    width:25px;
+    height:25px;
+    flex-basis:25px;
+  }
+  .listing-detail .listing-detail-actions{
+    display:none;
+  }
+  .listing-detail .breadcrumb{
+    font-size:12px;
+    line-height:1.45;
+  }
+}
