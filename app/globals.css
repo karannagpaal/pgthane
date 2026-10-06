@@ -1935,34 +1935,31 @@ footer .footer-full-logo{
 }
 
 
-/* Final listing-card photo framing: balanced room view on mobile */
+/* Final listing-card photo framing — compact mobile, room-focused */
 .listing-photo img{
-  object-fit:cover;
-  object-position:center center;
+  width:100%;
+  height:100%;
+  object-fit:cover!important;
+  object-position:center 78%!important;
+  display:block;
 }
 
-/* Keep the complete room composition visible on smaller screens. */
 @media(max-width:760px){
-  .listing-photo,
-  .listing-photo img{
-    height:210px!important;
-    min-height:210px!important;
-    max-height:210px!important;
+  .homepage-listing-grid .listing-photo,
+  .homepage-listing-grid .listing-photo img{
+    height:190px!important;
+    min-height:190px!important;
+    max-height:190px!important;
   }
-  .listing-photo img{
-    object-fit:contain!important;
-    object-position:center center!important;
-    background:#edf1e9;
+
+  .homepage-listing-grid .listing-photo img{
+    object-fit:cover!important;
+    object-position:center 78%!important;
   }
 }
 
-/* Apply balanced framing to listing-detail hero photos */
+/* Listing-detail hero remains balanced and room-focused */
 .listing-main-photo img{
   object-fit:cover;
-  object-position:center center;
-}
-@media(max-width:760px){
-  .listing-main-photo img{
-    object-position:center center;
-  }
+  object-position:center 68%;
 }
