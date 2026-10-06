@@ -1155,3 +1155,31 @@ footer .footer-full-logo{
     object-position:center center;
   }
 }
+
+
+/* Mobile homepage listing-card visual fix */
+@media(max-width:760px){
+  .homepage-listing-grid .listing-card{
+    display:grid;
+    grid-template-columns:1fr;
+    width:100%;
+    height:auto!important;
+    min-height:0!important;
+    overflow:hidden;
+  }
+  .homepage-listing-grid .listing-photo,
+  .homepage-listing-grid .listing-photo img{
+    width:100%!important;
+    height:190px!important;
+    min-height:190px!important;
+    max-height:190px!important;
+  }
+  .homepage-listing-grid .listing-photo img{
+    display:block!important;
+    object-fit:cover!important;
+    object-position:center center!important;
+  }
+  .homepage-listing-grid .listing-body{
+    min-height:0!important;
+  }
+}
