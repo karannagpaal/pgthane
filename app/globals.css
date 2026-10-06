@@ -1379,3 +1379,175 @@ footer .footer-full-logo{
     line-height:1.35;
   }
 }
+
+
+/* Final mobile listing-detail typography and spacing polish */
+@media (max-width:760px){
+  .listing-detail{
+    padding:22px 16px 94px;
+  }
+
+  .listing-detail .breadcrumb{
+    font-size:11px;
+    line-height:1.3;
+    margin-bottom:18px;
+    gap:6px;
+  }
+
+  .listing-detail .listing-detail-head h1{
+    font-size:30px !important;
+    line-height:1.14 !important;
+    letter-spacing:-0.45px !important;
+    font-weight:800 !important;
+    color:var(--brown) !important;
+    margin:5px 0 8px !important;
+    max-width:100%;
+    text-wrap:normal;
+  }
+
+  .listing-detail .listing-detail-head .eyebrow{
+    font-size:10px;
+    letter-spacing:1.25px;
+    line-height:1.3;
+    color:var(--brown);
+  }
+
+  .listing-detail .listing-location.large{
+    font-size:14px !important;
+    line-height:1.45 !important;
+    font-weight:700;
+    color:var(--brown);
+    margin:0;
+  }
+
+  .listing-main-photo{
+    height:230px !important;
+  }
+
+  .listing-quick{
+    margin-top:14px;
+    padding:17px !important;
+    border-radius:16px !important;
+  }
+
+  .listing-quick > .eyebrow{
+    font-size:11px;
+    letter-spacing:1.25px;
+    margin-bottom:2px;
+  }
+
+  .quick-price{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+    font-size:21px !important;
+    line-height:1.25;
+    font-weight:850;
+    padding:10px 12px;
+    margin:9px 0 14px;
+    border-radius:11px;
+  }
+
+  .listing-quick dl>div{
+    grid-template-columns:88px minmax(0,1fr);
+    gap:10px;
+    padding:11px 0;
+  }
+
+  .listing-quick dt{
+    font-size:12px;
+    line-height:1.35;
+    color:#7a7068;
+  }
+
+  .listing-quick dd{
+    font-size:13px;
+    line-height:1.4;
+    color:#25211e;
+    font-weight:750;
+  }
+
+  .quick-amenities{
+    padding-top:15px;
+    margin-top:3px;
+  }
+
+  .quick-amenities strong{
+    font-size:13px;
+    color:var(--brown);
+  }
+
+  .quick-amenities div{
+    gap:6px;
+    margin-top:9px;
+  }
+
+  .quick-amenities span{
+    font-size:10px;
+    padding:7px 9px;
+  }
+
+  .detail-description{
+    margin-top:22px !important;
+    max-width:100%;
+  }
+
+  .detail-description .eyebrow,
+  .listing-workplaces .eyebrow,
+  .listing-related-links .eyebrow{
+    font-size:11px;
+    letter-spacing:1.2px;
+    color:var(--brown);
+  }
+
+  .listing-description{
+    font-size:14px !important;
+    line-height:1.68 !important;
+    color:var(--brown) !important;
+  }
+
+  .listing-description p{
+    margin:0;
+  }
+
+  .listing-workplaces,
+  .listing-related-links{
+    margin-top:22px;
+  }
+
+  .workplace-tags{
+    gap:7px;
+    margin-top:9px;
+  }
+
+  .workplace-tags a{
+    font-size:13px;
+    line-height:1.35;
+  }
+
+  .back-directory{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:18px;
+    font-size:14px;
+    line-height:1.35;
+    color:var(--green);
+  }
+
+  .listing-mobile-cta{
+    left:8px;
+    right:8px;
+    bottom:8px;
+    gap:6px;
+    padding:6px;
+    border-radius:14px;
+  }
+
+  .listing-mobile-cta a,
+  .listing-mobile-enquire{
+    min-height:46px;
+    font-size:12px;
+    border-radius:9px;
+  }
+}
