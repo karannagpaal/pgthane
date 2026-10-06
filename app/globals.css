@@ -1963,3 +1963,25 @@ footer .footer-full-logo{
   object-fit:cover;
   object-position:center 68%;
 }
+
+
+/* Mobile listing cards: show the complete original photo without cropping */
+@media(max-width:760px){
+  .homepage-listing-grid .listing-card .listing-photo{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    aspect-ratio:auto!important;
+    background:#edf1e9;
+  }
+
+  .homepage-listing-grid .listing-card .listing-photo img{
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    object-fit:contain!important;
+    object-position:center center!important;
+    display:block!important;
+  }
+}
