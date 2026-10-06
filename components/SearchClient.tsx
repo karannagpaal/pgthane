@@ -18,7 +18,6 @@ const allowed = {
   budget: new Set(["Any budget", "Under ₹10,000", "₹10,000 – ₹15,000", "₹15,000 – ₹20,000", "₹20,000+"]),
   gender: new Set(["Any", "Male", "Female", "Unisex"]),
   sharing: new Set(["Any", "Single", "Double sharing", "Triple sharing", "4 Sharing+"]),
-  food: new Set(["Any", "With food", "Without food"]),
   room: new Set(["Any", "Private room", "Shared room"]),
   amenity: new Set(["Any", "Wi-Fi", "Fully Furnished", "Housekeeping", "Washing Machine", "Parking"])
 };
@@ -31,7 +30,6 @@ export default function SearchClient() {
   const budget = allowed.budget.has(params.get("budget") || "") ? params.get("budget")! : "Any budget";
   const gender = allowed.gender.has(params.get("gender") || "") ? params.get("gender")! : "Any";
   const sharing = allowed.sharing.has(params.get("sharing") || "") ? params.get("sharing")! : "Any";
-  const food = allowed.food.has(params.get("food") || "") ? params.get("food")! : "Any";
   const room = allowed.room.has(params.get("room") || "") ? params.get("room")! : "Any";
   const amenity = allowed.amenity.has(params.get("amenity") || "") ? params.get("amenity")! : "Any";
 
@@ -44,7 +42,6 @@ export default function SearchClient() {
     if (budget !== "Any budget") filterQuery.set("budget", budget);
     if (gender !== "Any") filterQuery.set("gender", gender);
     if (sharing !== "Any") filterQuery.set("sharing", sharing);
-    if (food !== "Any") filterQuery.set("food", food);
     if (room !== "Any") filterQuery.set("room", room);
     if (amenity !== "Any") filterQuery.set("amenity", amenity);
 
@@ -73,7 +70,6 @@ export default function SearchClient() {
         if (type === "All" && !text.includes(q)) return false;
       }
       if (gender !== "Any" && x.gender !== gender) return false;
-      if (food !== "Any" && (!x.food || (x.food !== "Both" && x.food !== food))) return false;
       if (room !== "Any" && (!x.roomType || (x.roomType !== "Both" && x.roomType !== room))) return false;
       if (amenity !== "Any" && (!x.amenities || !x.amenities.some(a => a.toLowerCase().includes(amenity.toLowerCase())))) return false;
       if (sharing !== "Any") {
@@ -90,16 +86,16 @@ export default function SearchClient() {
       return true;
     })());
 
-    const showListingResults = matchingListings.length > 0 && (type === "All" || Boolean(q) || budget !== "Any budget" || gender !== "Any" || sharing !== "Any" || food !== "Any" || room !== "Any" || amenity !== "Any");
+    const showListingResults = matchingListings.length > 0 && (type === "All" || Boolean(q) || budget !== "Any budget" || gender !== "Any" || sharing !== "Any" || room !== "Any" || amenity !== "Any");
     const resultCount = directoryLocations.length + directoryMicros.length + directoryWorkplaces.length + (type === "Keyword" ? keywordMatches.length : 0) + (showListingResults ? matchingListings.length : 0);
 
     return { locations, micros, workplaces, keywordMatches, directoryLocations, directoryMicros, directoryWorkplaces, matchingListings, showListingResults, resultCount, withCurrentFilters };
-  }, [q, type, budget, gender, sharing, food, room, amenity]);
+  }, [q, type, budget, gender, sharing, room, amenity]);
 
   const hasResults = data.resultCount > 0;
   const withCurrentFilters = data.withCurrentFilters;
   const clearHref = "/search";
-  const isFiltered = Boolean(rawQuery) || type !== "All" || budget !== "Any budget" || gender !== "Any" || sharing !== "Any" || food !== "Any" || room !== "Any" || amenity !== "Any";
+  const isFiltered = Boolean(rawQuery) || type !== "All" || budget !== "Any budget" || gender !== "Any" || sharing !== "Any" || room !== "Any" || amenity !== "Any";
 
   return (
     <main>
@@ -114,11 +110,10 @@ export default function SearchClient() {
             <select name="budget" defaultValue={budget} aria-label="Budget"><option>Any budget</option><option>Under ₹10,000</option><option>₹10,000 – ₹15,000</option><option>₹15,000 – ₹20,000</option><option>₹20,000+</option></select>
           </div>
           <details className="search-advanced">
-            <summary>More filters <span>Gender · Sharing · Food · Room · Amenities</span></summary>
+            <summary>More filters <span>Gender · Sharing · Room · Amenities</span></summary>
             <div className="search-advanced-grid">
               <select name="gender" defaultValue={gender} aria-label="Gender"><option>Any</option><option>Male</option><option>Female</option><option>Unisex</option></select>
               <select name="sharing" defaultValue={sharing} aria-label="Sharing"><option>Any</option><option>Single</option><option>Double sharing</option><option>Triple sharing</option><option>4 Sharing+</option></select>
-              <select name="food" defaultValue={food} aria-label="Food"><option>Any</option><option>With food</option><option>Without food</option></select>
               <select name="room" defaultValue={room} aria-label="Room type"><option>Any</option><option>Private room</option><option>Shared room</option></select>
               <select name="amenity" defaultValue={amenity} aria-label="Amenity"><option>Any</option><option>Wi-Fi</option><option>Fully Furnished</option><option>Housekeeping</option><option>Washing Machine</option><option>Parking</option></select>
             </div>
