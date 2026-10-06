@@ -1933,3 +1933,25 @@ footer .footer-full-logo{
     line-height:1.45;
   }
 }
+
+
+/* Room-photo framing: keep beds/room sleeping area in focus across listing cards */
+.listing-photo img{
+  object-fit:cover;
+  object-position:center 68%;
+}
+@media(max-width:760px){
+  .listing-photo img{
+    object-position:center 70%;
+  }
+}
+/* Apply the same room-focused framing to listing detail hero photos */
+.listing-main-photo img{
+  object-fit:cover;
+  object-position:center 68%;
+}
+@media(max-width:760px){
+  .listing-main-photo img{
+    object-position:center 70%;
+  }
+}
