@@ -74,14 +74,14 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         <aside className="listing-quick">
           <div className="eyebrow">QUICK DETAILS</div>
           {listing.priceFrom && <div className="quick-price">From ₹{listing.priceFrom.toLocaleString("en-IN")} / month</div>}
-          <dl>
-            <div><dt>Location</dt><dd>{listing.location}, Thane</dd></div>
-            {listing.microlocation && <div><dt>Microlocation</dt><dd>{listing.microlocation}</dd></div>}
-            {listing.sharing?.length && <div><dt>Sharing</dt><dd>{listing.sharing.join(" / ")}</dd></div>}
-            {listing.roomType && <div><dt>Room type</dt><dd>{listing.roomType}</dd></div>}
-            {listing.food && <div><dt>Food</dt><dd>{listing.food}</dd></div>}
-            {listing.gender && <div><dt>Gender</dt><dd>{listing.gender === "Unisex" ? "Male & Female" : listing.gender}</dd></div>}
-            {listing.availability && <div><dt>Availability</dt><dd>{listing.availability}</dd></div>}
+          <dl className="quick-details-list">
+            <div><span className="quick-detail-icon"><SiteIcon name="pin" size={20} /></span><dt>Location</dt><dd>{listing.location}, Thane</dd></div>
+            {listing.microlocation && <div><span className="quick-detail-icon"><SiteIcon name="building" size={20} /></span><dt>Microlocation</dt><dd>{listing.microlocation}</dd></div>}
+            {listing.sharing?.length && <div><span className="quick-detail-icon"><SiteIcon name="sofa" size={20} /></span><dt>Sharing</dt><dd>{listing.sharing.join(" / ")}</dd></div>}
+            {listing.roomType && <div><span className="quick-detail-icon"><SiteIcon name="home" size={20} /></span><dt>Room type</dt><dd>{listing.roomType}</dd></div>}
+            {listing.food && <div><span className="quick-detail-icon"><SiteIcon name="home" size={20} /></span><dt>Food</dt><dd>{listing.food}</dd></div>}
+            {listing.gender && <div><span className="quick-detail-icon"><SiteIcon name={listing.gender === "Female" ? "female" : "male"} size={20} /></span><dt>Gender</dt><dd>{listing.gender === "Unisex" ? "Male & Female" : listing.gender}</dd></div>}
+            {listing.availability && <div><span className="quick-detail-icon"><SiteIcon name="check" size={20} /></span><dt>Availability</dt><dd>{listing.availability}</dd></div>}
           </dl>
           {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}>{a}</span>)}</div></div> : null}
           {listing.phone && <div className="listing-contact-detail"><strong>PGThane Enquiry</strong><a className="listing-contact-number" href={"tel:" + listing.phone}>{listing.phone}</a></div>}
