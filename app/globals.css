@@ -1993,12 +1993,12 @@ footer .footer-full-logo{
   position: absolute !important;
   right: 10px !important;
   bottom: 10px !important;
-  width: 32px !important;
-  height: 32px !important;
-  min-width: 32px !important;
-  min-height: 32px !important;
-  max-width: 32px !important;
-  max-height: 32px !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
   object-fit: contain;
   opacity: 0.28;
   pointer-events: none;
@@ -2008,8 +2008,8 @@ footer .footer-full-logo{
 }
 @media (max-width: 640px) {
   .listing-photo-watermark {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     right: 8px;
     bottom: 8px;
     opacity: 0.30;
