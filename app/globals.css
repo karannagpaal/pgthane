@@ -1313,3 +1313,29 @@ footer .footer-full-logo{
     font-size:14px;
   }
 }
+
+/* PGThane enquiry number — keep label and number clearly separated */
+.listing-quick .listing-contact-detail{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  gap:4px !important;
+  line-height:1.25;
+}
+.listing-quick .listing-contact-detail strong{
+  display:block !important;
+  margin:0 !important;
+  font-size:12px !important;
+  line-height:1.2 !important;
+  color:#5A2C12 !important;
+}
+.listing-quick .listing-contact-detail .listing-contact-number{
+  display:block !important;
+  margin:0 !important;
+  color:#006400 !important;
+  font-size:18px !important;
+  font-weight:850 !important;
+  line-height:1.3 !important;
+  white-space:nowrap;
+  text-decoration:none;
+}
