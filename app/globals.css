@@ -2,8 +2,8 @@
   --green: #006400;
   --brown: #5a2c12;
   --gold: #f4c21a;
-  --ink: #182016;
-  --muted: #687064;
+  --ink: #5A2C12;
+  --muted: #5A2C12;
   --cream: #fbfaf5;
   --white: #fff;
   --line: #e5e4dc;
@@ -1226,13 +1226,13 @@ footer .footer-full-logo{
   align-items:center;
 }
 .listing-quick dt{
-  color:#7a7068;
+  color:#5A2C12;
   font-size:12px;
   font-weight:650;
 }
 .listing-quick dd{
   margin:0;
-  color:#25211e;
+  color:#5A2C12;
   font-size:14px;
   font-weight:800;
 }
@@ -1457,13 +1457,13 @@ footer .footer-full-logo{
   .listing-quick dt{
     font-size:12px;
     line-height:1.35;
-    color:#7a7068;
+    color:#5A2C12;
   }
 
   .listing-quick dd{
     font-size:13px;
     line-height:1.4;
-    color:#25211e;
+    color:#5A2C12;
     font-weight:750;
   }
 
@@ -1711,7 +1711,7 @@ footer .footer-full-logo{
   color:var(--brown);
 }
 .listing-quick .quick-details-list dt{
-  color:#756c65;
+  color:#5A2C12;
   font-size:12px;
   line-height:1.3;
   font-weight:750;
@@ -1891,7 +1891,7 @@ footer .footer-full-logo{
 }
 .listing-detail .breadcrumb{
   font-size:13px;
-  color:#81786f;
+  color:#5A2C12;
 }
 .listing-detail .breadcrumb strong{
   color:#5A2C12;
