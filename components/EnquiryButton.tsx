@@ -29,7 +29,7 @@ export default function EnquiryButton({
   const [preferredLocation, setPreferredLocation] = useState(location || "");
   const [sharing, setSharing] = useState("");
   const [name, setName] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [moveInDate, setMoveInDate] = useState("");
@@ -75,7 +75,7 @@ export default function EnquiryButton({
       preferredLocation ? "Location: " + preferredLocation : "",
       sharing ? "Sharing / room preference: " + sharing : "",
       "Name: " + name,
-      "WhatsApp: " + whatsapp,
+      "Phone: " + phone,
       email ? "Email: " + email : "",
       company ? "College / Company: " + company : "",
       mode === "reserve" ? "Target move-in date: " + (moveInDate || "Not specified") : "Preferred visit date: " + (visitDate || "Not specified"),
@@ -154,8 +154,8 @@ export default function EnquiryButton({
                   </label>
 
                   <label>
-                    WhatsApp number
-                    <input value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} required inputMode="tel" placeholder="10-digit WhatsApp number" pattern="[0-9 +()-]{10,}" />
+                    Phone number
+                    <input value={phone} onChange={(e) => setPhone(e.target.value)} required inputMode="tel" placeholder="10-digit phone number" pattern="[0-9 +()-]{10,}" />
                   </label>
 
                   <label>
