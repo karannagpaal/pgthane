@@ -1985,3 +1985,29 @@ footer .footer-full-logo{
     display:block!important;
   }
 }
+
+
+/* PGThane branding watermark on listing-card photos */
+.listing-photo { position: relative; overflow: hidden; }
+.listing-photo-watermark {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  opacity: 0.28;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  filter: drop-shadow(0 1px 2px rgba(255,255,255,0.65));
+}
+@media (max-width: 640px) {
+  .listing-photo-watermark {
+    width: 48px;
+    height: 48px;
+    right: 8px;
+    bottom: 8px;
+    opacity: 0.30;
+  }
+}
