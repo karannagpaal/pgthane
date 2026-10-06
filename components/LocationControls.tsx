@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 const filters = [
   ["budget", "Budget", ["Any budget", "Under ₹10,000", "₹10,000 – ₹15,000", "₹15,000 – ₹20,000", "₹20,000+"]],
-  ["gender", "Gender", ["Any", "Male", "Female", "Unisex"]],
+  ["gender", "Gender", ["Any", "Male", "Female", "Male & Female"]],
   ["sharing", "Sharing", ["Any", "Single", "Double sharing", "Triple sharing", "4 Sharing+"]],
   ["food", "Food", ["Any", "With food", "Without food"]],
   ["room", "Room type", ["Any", "Private room", "Shared room"]],
@@ -17,7 +17,7 @@ export default function LocationControls() {
 
   function update(key: string, value: string) {
     const next = new URLSearchParams(params.toString());
-    if (value === "Any" || value === "Any budget") next.delete(key); else next.set(key, value);
+    if (value === "Any" || value === "Any budget") next.delete(key); else next.set(key, key === "gender" && value === "Male & Female" ? "Unisex" : value);
     const query = next.toString();
     router.push(query ? "?" + query : "?", { scroll: false });
     requestAnimationFrame(() => document.getElementById("results")?.scrollIntoView({ behavior: "smooth", block: "start" }));
