@@ -26,6 +26,11 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install supplied PG photos
+        run: |
+          mkdir -p public/inventory/pgthane-photos/user-uploaded-58
+          unzip -o "PGThane_58_uploaded_images.zip" -d public/inventory/pgthane-photos/user-uploaded-58
+
       - name: Install dependencies
         run: npm install
 
