@@ -1168,7 +1168,7 @@ footer .footer-full-logo{
     overflow:hidden;
   }
   .homepage-listing-grid .listing-photo,
-  .homepage-listing-grid .listing-photo img{
+  .homepage-listing-grid .listing-photo > img:not(.listing-photo-watermark){
     width:100%!important;
     height:190px!important;
     min-height:190px!important;
@@ -1936,7 +1936,7 @@ footer .footer-full-logo{
 
 
 /* Final listing-card photo framing — compact mobile, room-focused */
-.listing-photo img{
+.listing-photo > img:not(.listing-photo-watermark){
   width:100%;
   height:100%;
   object-fit:cover!important;
@@ -1952,7 +1952,7 @@ footer .footer-full-logo{
     max-height:190px!important;
   }
 
-  .homepage-listing-grid .listing-photo img{
+  .homepage-listing-grid .listing-photo > img:not(.listing-photo-watermark){
     object-fit:cover!important;
     object-position:center 64%!important;
   }
@@ -1975,7 +1975,7 @@ footer .footer-full-logo{
     background:#edf1e9;
   }
 
-  .homepage-listing-grid .listing-card .listing-photo img{
+  .homepage-listing-grid .listing-card .listing-photo > img:not(.listing-photo-watermark){
     width:100%!important;
     height:auto!important;
     min-height:0!important;
@@ -1990,11 +1990,15 @@ footer .footer-full-logo{
 /* PGThane branding watermark on listing-card photos */
 .listing-photo { position: relative; overflow: hidden; }
 .listing-photo-watermark {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  width: 38px;
-  height: 38px;
+  position: absolute !important;
+  right: 10px !important;
+  bottom: 10px !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
   object-fit: contain;
   opacity: 0.28;
   pointer-events: none;
