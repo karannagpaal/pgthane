@@ -27,7 +27,7 @@ export default function LocationControls() {
 
   return <div className="filter-panel" aria-label="PG filters">
     <div className="filter-panel-heading"><strong>Filter PGs</strong><span>{activeCount ? activeCount + " active" : "All options"}</span></div>
-    {filters.map(([key, label, options]) => <label key={key}><span>{label}</span><select value={params.get(key) || options[0]} onChange={e => update(key, e.target.value)}>{options.map(option => <option key={option}>{option}</option>)}</select></label>)}
+    {filters.map(([key, label, options]) => <label key={key}><span>{label}</span><select value={key === "gender" && params.get(key) === "Unisex" ? "Male & Female" : (params.get(key) || options[0])} onChange={e => update(key, e.target.value)}>{options.map(option => <option key={option}>{option}</option>)}</select></label>)}
     <button type="button" onClick={() => { router.push("?"); requestAnimationFrame(() => document.getElementById("results")?.scrollIntoView({ behavior: "smooth", block: "start" })); }} className="clear-filter" disabled={!activeCount}>Clear filters</button>
   </div>;
 }
