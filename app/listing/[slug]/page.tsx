@@ -49,11 +49,10 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
     <section className="section listing-detail">
       <div className="breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/discover-pg-in-thane">PG in Thane</Link><span>/</span><strong>{listing.name}</strong></div>
 
-      <div className="listing-detail-head">
-        <div>
-          <div className="eyebrow">{listing.type.toUpperCase()} LISTING</div>
+      <div className="listing-detail-head listing-title-block">
+        <div className="listing-title-copy">
           <h1>{listing.name}</h1>
-          <p className="listing-location large">📍 {listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation + ", " + listing.location + ", Thane" : listing.location + ", Thane"}</p>
+          <p className="listing-location large"><span className="title-location-icon"><SiteIcon name="pin" size={17} /></span><span>{listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation + ", " + listing.location + ", Thane" : listing.location + ", Thane"}</span></p>
         </div>
         <div className="listing-detail-actions">
           <a className="header-cta" href="tel:9930007113">Call</a><a className="outline-cta" href="https://wa.me/919930007113">WhatsApp</a>
