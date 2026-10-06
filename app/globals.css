@@ -622,9 +622,9 @@ footer small{color:var(--muted);opacity:1}
 }
 @media(max-width:760px){
   .topbar .brand-logo{
-    width:150px;
+    width:200px;
     height:auto;
-    max-height:50px;
+    max-height:58px;
   }
 }
 
