@@ -1551,3 +1551,92 @@ footer .footer-full-logo{
     border-radius:9px;
   }
 }
+
+
+/* Final mobile layout pass: touch targets, safe-area spacing and cleaner link chips */
+@media (max-width:760px){
+  .listing-detail{
+    overflow-x:clip;
+    padding-bottom:calc(108px + env(safe-area-inset-bottom));
+  }
+
+  .listing-gallery{
+    border-radius:16px;
+    box-shadow:0 5px 18px rgba(90,44,18,.05);
+  }
+
+  .listing-main-photo{
+    height:220px !important;
+  }
+
+  .listing-thumbs{
+    padding:8px;
+    gap:7px;
+  }
+
+  .listing-thumbs img{
+    width:70px;
+    height:56px;
+    border-radius:7px;
+  }
+
+  .listing-quick{
+    margin-top:14px;
+  }
+
+  .listing-contact-detail .listing-contact-number{
+    font-size:17px !important;
+    letter-spacing:.1px;
+  }
+
+  .detail-enquire{
+    min-height:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:16px;
+  }
+
+  .workplace-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .workplace-tags a{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    min-height:38px;
+    box-sizing:border-box;
+    padding:8px 10px;
+    border:1px solid #d8e4d4;
+    border-radius:10px;
+    background:#f7faf5;
+    color:#006400;
+    font-size:12px;
+    font-weight:750;
+    text-decoration:none;
+  }
+
+  .listing-related-links{
+    margin-top:24px;
+  }
+
+  .listing-related-links .workplace-tags a{
+    background:#fff;
+    border-color:#e4ded6;
+    color:#5A2C12;
+  }
+
+  .listing-mobile-cta{
+    bottom:calc(8px + env(safe-area-inset-bottom));
+    padding:6px;
+    border-radius:14px;
+  }
+
+  .listing-mobile-cta a,
+  .listing-mobile-enquire{
+    min-height:46px;
+  }
+}
