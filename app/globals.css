@@ -1935,23 +1935,34 @@ footer .footer-full-logo{
 }
 
 
-/* Room-photo framing: keep beds/room sleeping area in focus across listing cards */
+/* Final listing-card photo framing: balanced room view on mobile */
 .listing-photo img{
   object-fit:cover;
-  object-position:center 68%;
+  object-position:center center;
 }
+
+/* Keep the complete room composition visible on smaller screens. */
 @media(max-width:760px){
+  .listing-photo,
   .listing-photo img{
-    object-position:center 70%;
+    height:210px!important;
+    min-height:210px!important;
+    max-height:210px!important;
+  }
+  .listing-photo img{
+    object-fit:contain!important;
+    object-position:center center!important;
+    background:#edf1e9;
   }
 }
-/* Apply the same room-focused framing to listing detail hero photos */
+
+/* Apply balanced framing to listing-detail hero photos */
 .listing-main-photo img{
   object-fit:cover;
-  object-position:center 68%;
+  object-position:center center;
 }
 @media(max-width:760px){
   .listing-main-photo img{
-    object-position:center 70%;
+    object-position:center center;
   }
 }
