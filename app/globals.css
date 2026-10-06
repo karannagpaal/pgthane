@@ -1183,3 +1183,133 @@ footer .footer-full-logo{
     min-height:0!important;
   }
 }
+
+
+/* Refined listing quick-details card */
+.listing-quick{
+  background:#fff;
+  border:1px solid #e4ded6;
+  border-radius:20px;
+  padding:24px;
+  position:sticky;
+  top:18px;
+  box-shadow:0 8px 28px rgba(90,44,18,.07);
+}
+.listing-quick > .eyebrow{
+  color:#5A2C12;
+  letter-spacing:.12em;
+  font-size:12px;
+  font-weight:850;
+  margin-bottom:4px;
+}
+.quick-price{
+  display:inline-block;
+  font-size:25px;
+  line-height:1.2;
+  font-weight:900;
+  color:#006400;
+  background:#f4f8f1;
+  border:1px solid #dce8d8;
+  border-radius:12px;
+  padding:12px 14px;
+  margin:10px 0 18px;
+}
+.listing-quick dl{
+  margin:0;
+}
+.listing-quick dl>div{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:14px;
+  padding:13px 0;
+  border-top:1px solid #ece7e1;
+  align-items:center;
+}
+.listing-quick dt{
+  color:#7a7068;
+  font-size:12px;
+  font-weight:650;
+}
+.listing-quick dd{
+  margin:0;
+  color:#25211e;
+  font-size:14px;
+  font-weight:800;
+}
+.quick-amenities{
+  border-top:1px solid #ece7e1;
+  padding-top:18px;
+  margin-top:5px;
+}
+.quick-amenities strong{
+  color:#5A2C12;
+  font-size:14px;
+  font-weight:850;
+}
+.quick-amenities div{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:11px;
+}
+.quick-amenities span{
+  border:1px solid #dce8d8;
+  border-radius:999px;
+  padding:8px 11px;
+  background:#f7faf5;
+  color:#006400;
+  font-size:11px;
+  font-weight:750;
+}
+.listing-contact-detail{
+  border-top:1px solid #ece7e1;
+  margin-top:18px;
+  padding-top:16px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.listing-contact-detail strong{
+  font-size:12px;
+  color:#5A2C12;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.listing-contact-detail a{
+  display:inline-block;
+  color:#006400;
+  font-size:17px;
+  font-weight:850;
+  text-decoration:none;
+}
+.detail-enquire{
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  background:#006400;
+  color:#fff;
+  border-radius:10px;
+  padding:13px;
+  font-weight:850;
+  text-decoration:none;
+}
+@media(max-width:760px){
+  .listing-quick{
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 6px 22px rgba(90,44,18,.06);
+  }
+  .quick-price{
+    font-size:23px;
+    padding:11px 13px;
+    margin-bottom:16px;
+  }
+  .listing-quick dl>div{
+    grid-template-columns:92px 1fr;
+    gap:12px;
+    padding:12px 0;
+  }
+  .listing-quick dd{
+    font-size:14px;
+  }
+}
