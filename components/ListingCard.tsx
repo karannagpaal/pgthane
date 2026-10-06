@@ -28,12 +28,6 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         {listing.photos[0]
           ? <>
               <img src={listing.photos[0]} alt={listing.imageAlt || listing.name} loading="lazy" />
-              <img
-                className="listing-photo-watermark"
-                src="/homepage-logo.png"
-                alt=""
-                aria-hidden="true"
-              />
             </>
           : <div className="photo-placeholder">Photo pending</div>}
       </div>
