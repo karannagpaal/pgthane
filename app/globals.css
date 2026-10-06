@@ -1991,8 +1991,11 @@ footer .footer-full-logo{
 .listing-photo { position: relative; overflow: hidden; }
 .listing-photo-watermark {
   position: absolute !important;
-  right: 10px !important;
-  bottom: 10px !important;
+  left: 50% !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
   width: 28px !important;
   height: 28px !important;
   min-width: 28px !important;
@@ -2010,8 +2013,11 @@ footer .footer-full-logo{
   .listing-photo-watermark {
     width: 24px;
     height: 24px;
-    right: 8px;
-    bottom: 8px;
+    left: 50%;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
     opacity: 0.30;
   }
 }
