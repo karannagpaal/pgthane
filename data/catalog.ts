@@ -23,6 +23,7 @@ export type Listing = {
   availability?: string;
   phone?: string;
   whatsapp?: string;
+  zeroBrokerage?: boolean;
   slug: string;
   published?: boolean;
   photoOnly?: boolean;

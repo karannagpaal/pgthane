@@ -28,7 +28,8 @@ const locations = [
 
 export const metadata = {
   title: "PG in Thane | Paying Guest, Hostel & Shared Rooms",
-  description: "Browse PG, Paying Guest, Hostel and shared-room accommodation locations across Thane."
+  description: "Browse PG, Paying Guest, Hostel and shared-room accommodation locations across Thane.",
+  alternates: { canonical: "https://www.pgthane.com/discover-pg-in-thane/" }
 };
 
 export default function DirectoryPage() {
