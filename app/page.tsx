@@ -240,6 +240,9 @@ export default function HomePage() {
         <div className="location-grid">
           {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><div className="location-card-visual"><img src="/location-map-card.svg" alt="" loading="lazy" /></div><div className="location-card-copy"><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
         </div>
+        <div className="homepage-listings-cta">
+          <a href="/discover-pg-in-thane/">View all locations <span aria-hidden="true">→</span></a>
+        </div>
       </section>
 
       <section id="how-it-works" className="process section">
