@@ -31,6 +31,17 @@ export const metadata = {
   description: "Browse PG, Paying Guest, Hostel and shared-room accommodation locations across Thane."
 };
 
+function LocationBuildingIcon() {
+  return (
+    <span className="directory-location-icon" aria-hidden="true">
+      <svg viewBox="0 0 32 32" focusable="false">
+        <path d="M5 28V9.5A2.5 2.5 0 0 1 7.5 7H17v21M17 13h7.5a2.5 2.5 0 0 1 2.5 2.5V28M2.5 28h27" />
+        <path d="M10 11h3M10 15h3M10 19h3M10 23h3M20 17h3M20 21h3M20 25h3" />
+      </svg>
+    </span>
+  );
+}
+
 export default function DirectoryPage() {
   return (
     <main>
@@ -40,10 +51,15 @@ export default function DirectoryPage() {
         <h1>PG in Thane</h1>
         <div className="directory-actions"><Link className="header-cta" href="/search">Search PGs</Link></div>
         <p className="hero-copy">Browse PG, Paying Guest, Hostel and shared-room locations across Thane. Property-level listings are shown only when their information is verified.</p>
-        <div className="location-grid">
+        <div className="location-grid directory-location-grid">
           {locations.map(([name, slug]) => (
-            <Link className="location-card" key={slug} href={"/discover-pg-in-thane/" + slug}>
-              <h2>{name}</h2><p>PG · Paying Guest · Hostel</p>
+            <Link className="location-card directory-location-card" key={slug} href={"/discover-pg-in-thane/" + slug}>
+              <LocationBuildingIcon />
+              <span className="directory-location-copy">
+                <span className="directory-location-name">{name}</span>
+                <span className="directory-location-category">PG · Paying Guest · Hostel</span>
+              </span>
+              <span className="directory-location-arrow" aria-hidden="true">›</span>
             </Link>
           ))}
         </div>

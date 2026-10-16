@@ -2021,3 +2021,134 @@ footer .footer-full-logo{
     opacity: 0.30;
   }
 }
+
+
+/* Scoped styling for the discover-PG location directory only. */
+.directory-landing {
+  max-width: 1440px;
+  padding: 54px clamp(18px, 4vw, 56px) 64px;
+}
+.directory-landing > .eyebrow {
+  color: #5A2C12;
+  text-align: center;
+}
+.directory-landing > h1 {
+  color: #006400;
+  text-align: center;
+  max-width: none;
+  margin: 8px 0 14px;
+  font-size: clamp(32px, 4.2vw, 54px);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+}
+.directory-landing > .directory-actions {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 14px;
+}
+.directory-landing > .hero-copy {
+  max-width: 760px;
+  margin: 0 auto 30px;
+  text-align: center;
+  color: #5A2C12;
+  line-height: 1.55;
+}
+.directory-location-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 16px;
+  align-items: stretch;
+}
+.directory-location-card {
+  grid-template-columns: 68px minmax(0, 1fr) 18px;
+  gap: 16px;
+  min-width: 0;
+  min-height: 104px;
+  padding: 16px;
+  border: 1px solid rgba(0, 100, 0, .18);
+  border-radius: 13px;
+  background: #fff;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(0, 100, 0, .025);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.directory-location-card:hover,
+.directory-location-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: #006400;
+  box-shadow: 0 7px 18px rgba(0, 100, 0, .09);
+  outline: none;
+}
+.directory-location-icon {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #fff;
+  color: #006400;
+  flex: 0 0 auto;
+}
+.directory-location-icon svg {
+  display: block;
+  width: 36px;
+  height: 36px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.directory-location-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+}
+.directory-location-name {
+  color: #006400;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+}
+.directory-location-category {
+  color: #5A2C12;
+  font-size: 13px;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+.directory-location-arrow {
+  color: #F4C21A;
+  font-size: 32px;
+  line-height: 1;
+  justify-self: end;
+  align-self: center;
+}
+@media (max-width: 900px) {
+  .directory-location-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .directory-location-card { grid-template-columns: 56px minmax(0, 1fr) 16px; gap: 12px; }
+  .directory-location-icon { width: 56px; height: 56px; }
+  .directory-location-icon svg { width: 30px; height: 30px; }
+  .directory-location-name { font-size: 17px; }
+}
+@media (max-width: 600px) {
+  .directory-landing { padding: 38px 18px 46px; }
+  .directory-landing > h1 { font-size: clamp(30px, 8vw, 38px); letter-spacing: -1px; }
+  .directory-landing > .hero-copy { margin-bottom: 22px; font-size: 15px; }
+  .directory-location-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .directory-location-card {
+    min-height: 84px;
+    grid-template-columns: 52px minmax(0, 1fr) 16px;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .directory-location-icon { width: 52px; height: 52px; }
+  .directory-location-icon svg { width: 28px; height: 28px; }
+  .directory-location-name { font-size: 16px; }
+  .directory-location-category { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .directory-location-card { transition: none; }
+}
