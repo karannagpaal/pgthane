@@ -2252,16 +2252,35 @@ footer .footer-full-logo{
 .microlocation-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media(max-width:600px){.directory-location-grid{grid-template-columns:minmax(0,1fr);gap:9px}.directory-area-card{grid-template-columns:40px minmax(0,1fr) auto;padding:12px;gap:10px;border-radius:13px;min-height:74px}.directory-area-symbol{width:38px;height:38px;border-radius:11px}.directory-area-symbol .directory-location-icon{width:38px;height:38px}.directory-area-copy strong{font-size:14px}.directory-area-action{font-size:10px}.microlocation-card-grid{grid-template-columns:minmax(0,1fr)}}
 
-/* iOS Safari search focus: prevent automatic zoom and horizontal page shift. */
+/* Mobile homepage search: evenly aligned category tabs and stable input width. */
 @media (max-width: 760px) {
   .hero, .hero-inner, .search-panel, .search-row, .search-field-wrap, .search-field { min-width: 0; max-width: 100%; }
   .search-panel { width: 100%; }
+  .search-tabs {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    padding: 0 6px;
+    overflow: hidden;
+  }
+  .search-tabs button {
+    min-width: 0;
+    width: 100%;
+    padding: 14px 2px;
+    white-space: nowrap;
+    text-align: center;
+    font-size: clamp(10px, 2.7vw, 13px);
+    letter-spacing: -.2px;
+  }
   .search-row { grid-template-columns: minmax(0, 1fr); }
-  .search-field input { min-width: 0; font-size: 16px; }
+  .search-field { min-width: 0; }
+  .search-field input { min-width: 0; width: 100%; font-size: 16px; }
   .search-row select { width: 100%; min-width: 0; font-size: 16px; }
-  .search-tabs { max-width: 100%; overscroll-behavior-x: contain; }
-  .search-tabs button { flex-shrink: 0; }
   .search-page-form input, .search-page-form select { font-size: 16px; }
+}
+@media (max-width: 380px) {
+  .search-tabs { padding: 0 2px; }
+  .search-tabs button { font-size: 10px; padding-left: 1px; padding-right: 1px; }
 }
 
 
