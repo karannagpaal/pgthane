@@ -94,6 +94,18 @@ export default function HomePage() {
   const [focused, setFocused] = useState(false);
   const [activeSuggestion, setActiveSuggestion] = useState(-1);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [animateWelcomeLogo, setAnimateWelcomeLogo] = useState(false);
+
+  useEffect(() => {
+    try {
+      if (!window.sessionStorage.getItem("pgthane-welcome-seen")) {
+        setAnimateWelcomeLogo(true);
+        window.sessionStorage.setItem("pgthane-welcome-seen", "1");
+      }
+    } catch {
+      // Keep the homepage usable when browser storage is unavailable.
+    }
+  }, []);
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -159,7 +171,7 @@ export default function HomePage() {
   return (
     <main>
       <header className="topbar">
-        <a className="brand" href="/" aria-label="PGThane.com home"><img src="/logo.png" alt="PGThane.com" className="brand-logo" width={240} height={80} /></a>
+        <a className="brand" href="/" aria-label="PGThane.com home"><img src="/logo.png" alt="PGThane.com" className={animateWelcomeLogo ? "brand-logo welcome-logo-reveal" : "brand-logo"} width={240} height={80} /></a>
         <nav><a href="#locations">Locations</a><a href="#how-it-works">How it works</a><a href="#contact">Contact</a></nav>
         <a className="header-cta" href="#search">Find a PG</a>
       </header>
