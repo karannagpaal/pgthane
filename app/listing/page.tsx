@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function ListingsPage() {
-  const publishedListings = listings.filter(x => x.published === true && !x.photoOnly);
+  const publishedListings = listings.filter(x => x.published === true && !x.photoOnly && x.verified === true);
 
   return (
     <main>
