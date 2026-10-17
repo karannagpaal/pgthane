@@ -10,7 +10,7 @@ const locations = [
   "Kasarvadavali","Manpada","Thane Station"
 ];
 
-const searchTypes = ["All", "Location", "Workplace", "Keyword"] as const;
+const searchTypes = ["All", "Location", "Room Type", "Workplace", "Keyword"] as const;
 type SearchType = typeof searchTypes[number] | "Microlocation";
 
 function locationHref(value: string) {
@@ -118,10 +118,10 @@ export default function HomePage() {
       );
     }
 
-    if (type === "All" || type === "Keyword") {
+    if (type === "All" || type === "Keyword" || type === "Room Type") {
       listings
         .filter(x => x.published === true && !x.photoOnly)
-        .filter(x => [x.name, x.location, x.microlocation, x.type, ...(x.workplace || []), ...(x.amenities || [])].join(" ").toLowerCase().includes(q))
+        .filter(x => (type === "Room Type" ? [...(x.sharing || []), x.roomType || ""].join(" ") : [x.name, x.location, x.microlocation, x.type, ...(x.workplace || []), ...(x.amenities || [])].join(" ")).toLowerCase().includes(q))
         .slice(0, 6)
         .forEach(x =>
           result.push({ label: x.name, meta: "PG · " + x.location, href: withBudget("/listing/" + x.slug, budget) })
