@@ -59,7 +59,7 @@ const homepageFaqs = [
 ];
 
 function homepageListings() {
-  const pool = listings.filter(x => x.published === true && !x.photoOnly);
+  const pool = listings.filter(x => x.published === true && !x.photoOnly && x.verified === true);
   const score = (slug: string) => Array.from(slug).reduce((sum, char) => sum * 31 + char.charCodeAt(0), 7);
   const shuffled = [...pool].sort((a, b) => score(a.slug) - score(b.slug));
   const seenLocations = new Set<string>();
