@@ -60,6 +60,10 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         </div>
       </div>
 
+      {listing.verified !== true && <div className="listing-verification-note" role="note">
+        <strong>Listing details not independently verified yet.</strong> Before visiting or paying, confirm the exact property address, room, current rent, availability, facilities and any applicable charges directly.
+      </div>}
+
       <div className="listing-detail-grid">
         <div>
           <div className="listing-gallery">
