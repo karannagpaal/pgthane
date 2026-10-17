@@ -86,11 +86,11 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
           <div className="quick-price"><span>Rent range</span><strong>₹6,999–₹30,000 <em>/ month</em></strong></div>
           <dl className="quick-details-list">
             <div><span className="quick-detail-icon"><SiteIcon name="pin" size={20} /></span><dt>Location</dt><dd>{listing.location}, Thane</dd></div>
-            {listing.sharing?.length && <div><span className="quick-detail-icon"><SiteIcon name="sofa" size={20} /></span><dt>Sharing</dt><dd>{listing.sharing.join(" / ")}</dd></div>}
-            {listing.roomType && <div><span className="quick-detail-icon"><SiteIcon name="home" size={20} /></span><dt>Room type</dt><dd>{listing.roomType}</dd></div>}
-            {listing.food && <div><span className="quick-detail-icon"><SiteIcon name="utensils" size={20} /></span><dt>Food</dt><dd>{listing.food}</dd></div>}
-            {listing.gender && <div><span className="quick-detail-icon"><SiteIcon name={listing.gender === "Female" ? "female" : "male"} size={20} /></span><dt>Gender</dt><dd>{listing.gender === "Unisex" ? "Male & Female" : listing.gender}</dd></div>}
-            {listing.availability && <div><span className="quick-detail-icon"><SiteIcon name="check" size={20} /></span><dt>Availability</dt><dd>{listing.availability}</dd></div>}
+            <div><span className="quick-detail-icon"><SiteIcon name="sofa" size={20} /></span><dt>Sharing</dt><dd>{listing.sharing?.length ? listing.sharing.join(" / ") : "Please enquire"}</dd></div>
+            <div><span className="quick-detail-icon"><SiteIcon name="home" size={20} /></span><dt>Room type</dt><dd>{listing.roomType || "Please enquire"}</dd></div>
+            <div><span className="quick-detail-icon"><SiteIcon name="utensils" size={20} /></span><dt>Food</dt><dd>{listing.food || "Please enquire"}</dd></div>
+            <div><span className="quick-detail-icon"><SiteIcon name={listing.gender === "Female" ? "female" : "male"} size={20} /></span><dt>Gender</dt><dd>{listing.gender === "Unisex" ? "Male & Female" : listing.gender || "Please enquire"}</dd></div>
+            <div><span className="quick-detail-icon"><SiteIcon name="check" size={20} /></span><dt>Availability</dt><dd>{listing.availability || "Please enquire"}</dd></div>
           </dl>
           {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}><SiteIcon name={amenityIcon(a)} size={15} /> {a}</span>)}</div></div> : null}
           {listing.phone && <div className="listing-contact-detail"><strong>PGThane Enquiry</strong><a className="listing-contact-number" href={"tel:" + listing.phone}>{listing.phone}</a></div>}
