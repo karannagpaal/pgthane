@@ -62,7 +62,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
       <div className="listing-detail-head listing-title-block">
         <div className="listing-title-copy">
           <h1>{listing.name}</h1>
-          <p className="listing-location large"><span className="title-location-icon"><SiteIcon name="pin" size={17} /></span><span>{listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation + ", " + listing.location + ", Thane" : listing.location + ", Thane"}</span></p>
+          <p className="listing-location large"><span className="title-location-icon"><SiteIcon name="pin" size={17} /></span><span>{listing.location + ", Thane"}</span></p>
         </div>
         <div className="listing-detail-actions">
           <a className="header-cta" href={"tel:" + (listing.phone || "9930007113")}><SiteIcon name="phone" size={16} /> Call</a>
@@ -86,7 +86,6 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
           {listing.priceFrom && <div className="quick-price"><span>From</span><strong>₹{listing.priceFrom.toLocaleString("en-IN")} <em>/ month</em></strong></div>}
           <dl className="quick-details-list">
             <div><span className="quick-detail-icon"><SiteIcon name="pin" size={20} /></span><dt>Location</dt><dd>{listing.location}, Thane</dd></div>
-            {listing.microlocation && <div><span className="quick-detail-icon"><SiteIcon name="building" size={20} /></span><dt>Microlocation</dt><dd>{listing.microlocation}</dd></div>}
             {listing.sharing?.length && <div><span className="quick-detail-icon"><SiteIcon name="sofa" size={20} /></span><dt>Sharing</dt><dd>{listing.sharing.join(" / ")}</dd></div>}
             {listing.roomType && <div><span className="quick-detail-icon"><SiteIcon name="home" size={20} /></span><dt>Room type</dt><dd>{listing.roomType}</dd></div>}
             {listing.food && <div><span className="quick-detail-icon"><SiteIcon name="utensils" size={20} /></span><dt>Food</dt><dd>{listing.food}</dd></div>}
@@ -99,7 +98,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         </aside>
       </div>
 
-      <section className="listing-description detail-description"><div className="eyebrow">ABOUT THIS PG</div><p>{listing.description || `Explore this ${listing.type} option in ${listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation + ", " : ""}${listing.location}, Thane. Confirm the current room configuration, rent, deposit, included facilities and availability directly before making a decision.`}</p></section>
+      <section className="listing-description detail-description"><div className="eyebrow">ABOUT THIS PG</div><p>{listing.description || `Explore this ${listing.type} option in ${listing.location}, Thane. Confirm the current room configuration, rent, deposit, included facilities and availability directly before making a decision.`}</p></section>
 
       {listing.workplace?.length ? <section className="listing-workplaces"><div className="eyebrow">WORKPLACE SEARCH</div><div className="workplace-tags">{listing.workplace.map(x => <Link key={x} href={"/search?q=" + encodeURIComponent(x) + "&type=Workplace"}><SiteIcon name="building" size={16} /> {x}</Link>)}</div></section> : null}
 
@@ -108,7 +107,6 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         <div className="workplace-tags">
           <Link href={locationHref(listing.location)}><SiteIcon name="pin" size={16} /> More PGs in {listing.location}</Link>
           <Link href="/discover-pg-in-thane"><SiteIcon name="building" size={16} /> Browse PGs by location</Link>
-          <Link href={"/search?q=" + encodeURIComponent(listing.microlocation) + "&type=Microlocation"}><SiteIcon name="search" size={16} /> Search {listing.microlocation}</Link>
         </div>
       </section>
 
