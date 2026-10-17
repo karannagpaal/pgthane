@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 function locationHref(location: string) {
-  if (location === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
-  return "/discover-pg-in-thane/pg-in-" + location.toLowerCase().replaceAll(" ", "-") + "-thane";
+  if (location === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane/";
+  return "/discover-pg-in-thane/pg-in-" + location.toLowerCase().replaceAll(" ", "-") + "-thane/";
 }
 
 export default async function ListingPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -48,7 +48,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
     <SiteHeader />
 
     <section className="section listing-detail">
-      <div className="breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/discover-pg-in-thane">PG in Thane</Link><span>/</span><strong>{listing.name}</strong></div>
+      <div className="breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/discover-pg-in-thane/">PG in Thane</Link><span>/</span><strong>{listing.name}</strong></div>
 
       <div className="listing-detail-head listing-title-block">
         <div className="listing-title-copy">
@@ -97,7 +97,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         <div className="eyebrow">EXPLORE MORE IN THANE</div>
         <div className="workplace-tags">
           <Link href={locationHref(listing.location)}><SiteIcon name="pin" size={16} /> More PGs in {listing.location}</Link>
-          <Link href="/discover-pg-in-thane"><SiteIcon name="building" size={16} /> Browse PGs by location</Link>
+          <Link href="/discover-pg-in-thane/"><SiteIcon name="building" size={16} /> Browse PGs by location</Link>
           <Link href={"/search?q=" + encodeURIComponent(listing.microlocation) + "&type=Microlocation"}><SiteIcon name="search" size={16} /> Search {listing.microlocation}</Link>
         </div>
       </section>
