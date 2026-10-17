@@ -525,7 +525,7 @@ export const listings: Listing[] = [
     description: "This PG listing is in Hiranandani Estate, Thane, and records air conditioning as an amenity. The listed starting rent is ₹13,999 per month. Confirm the exact address, room arrangement, current rent and availability before booking.",
     seoTitle: "AC PG in Hiranandani Estate, Thane",
     seoDescription: "AC PG accommodation in Hiranandani Estate, Thane. View the supplied room photo and enquire for current room, sharing, pricing and availability details.",
-    photos: ["/inventory/pgthane-photos/Double sharing PG in Hiranandani Estate(1).jpeg"],
+    photos: ["/inventory/pgthane-photos/Ac PG in Hiranandani estate Thane(1).JPG"],
     verified: true,
     published: true,
     photoOnly: false,
