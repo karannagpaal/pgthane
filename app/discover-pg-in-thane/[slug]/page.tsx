@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: "PG in " + name + ", Thane | Paying Guest & Hostel",
     description: "Explore PG, Paying Guest, Hostel and shared-room accommodation options in " + name + ", Thane.",
-    alternates: { canonical: "https://www.pgthane.com/discover-pg-in-thane/" + slug }
+    alternates: { canonical: "https://www.pgthane.com/discover-pg-in-thane/" + slug + "/" }
   };
 }
 
@@ -47,8 +47,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "PG Thane", item: "https://www.pgthane.com/" },
-      { "@type": "ListItem", position: 2, name: "PG in Thane", item: "https://www.pgthane.com/discover-pg-in-thane" },
-      { "@type": "ListItem", position: 3, name: "PG in " + name + ", Thane", item: "https://www.pgthane.com/discover-pg-in-thane/" + slug }
+      { "@type": "ListItem", position: 2, name: "PG in Thane", item: "https://www.pgthane.com/discover-pg-in-thane/" },
+      { "@type": "ListItem", position: 3, name: "PG in " + name + ", Thane", item: "https://www.pgthane.com/discover-pg-in-thane/" + slug + "/" }
     ]
   };
 
