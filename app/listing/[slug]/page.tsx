@@ -83,7 +83,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
 
         <aside className="listing-quick">
           <div className="eyebrow">QUICK DETAILS</div>
-          {listing.priceFrom && <div className="quick-price"><span>From</span><strong>₹{listing.priceFrom.toLocaleString("en-IN")} <em>/ month</em></strong></div>}
+          <div className="quick-price"><span>Rent range</span><strong>₹6,999–₹30,000 <em>/ month</em></strong></div>
           <dl className="quick-details-list">
             <div><span className="quick-detail-icon"><SiteIcon name="pin" size={20} /></span><dt>Location</dt><dd>{listing.location}, Thane</dd></div>
             {listing.sharing?.length && <div><span className="quick-detail-icon"><SiteIcon name="sofa" size={20} /></span><dt>Sharing</dt><dd>{listing.sharing.join(" / ")}</dd></div>}
