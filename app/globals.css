@@ -2190,3 +2190,19 @@ footer .footer-full-logo{
 
 /* Shared rent range guide on listing detail pages */
 .rent-range-panel{margin:12px 0 18px;padding:13px;border:1px solid var(--line);border-radius:13px;background:#fffdf6}.rent-range-heading{font-size:12px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;color:var(--brown);margin-bottom:5px}.rent-range-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.rent-range-row:last-of-type{border-bottom:0}.rent-range-row>span{display:flex;flex-direction:column;gap:3px;min-width:0}.rent-range-row strong{font-size:13px;color:var(--brown)}.rent-range-row small{font-size:11px;color:var(--muted)}.rent-range-row b{font-size:12px;color:var(--green);text-align:right;white-space:nowrap}.rent-range-note{font-size:10px;line-height:1.45;color:var(--muted);margin:7px 0 0}@media(max-width:380px){.rent-range-panel{padding:10px}.rent-range-row{gap:6px}.rent-range-row b{font-size:11px}}
+
+
+/* Colourful homepage-style icons for all listing detail cards */
+.listing-quick .quick-details-list .quick-detail-icon{border-radius:12px;background:#fff7d9;color:#5A2C12;box-shadow:inset 0 0 0 1px rgba(90,44,18,.06)}
+.listing-quick .quick-details-list>div:nth-child(1) .quick-detail-icon{background:#e5f4e5;color:#006400}
+.listing-quick .quick-details-list>div:nth-child(2) .quick-detail-icon{background:#fff0c2;color:#8a5b00}
+.listing-quick .quick-details-list>div:nth-child(3) .quick-detail-icon{background:#f6e8dc;color:#8b451f}
+.listing-quick .quick-details-list>div:nth-child(4) .quick-detail-icon{background:#e2f3fa;color:#176b8b}
+.listing-quick .quick-details-list>div:nth-child(5) .quick-detail-icon{background:#f2e8ff;color:#7040a0}
+.listing-quick .quick-details-list>div:nth-child(6) .quick-detail-icon{background:#e6f5ee;color:#16704b}
+.listing-quick .quick-details-list .gender-options{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.gender-chip{display:inline-flex;align-items:center;gap:4px;padding:6px 8px;border-radius:999px;font-size:11px;font-weight:800;white-space:nowrap;background:#f3f3f3;color:#777;border:1px solid #e6e6e6}
+.gender-male.is-available{background:#e4f2ff;color:#155a9a;border-color:#c6e2ff}
+.gender-female.is-available{background:#ffebf2;color:#a52d61;border-color:#ffd0e2}
+.gender-options small{flex-basis:100%;font-size:10px;font-weight:600;color:var(--muted);margin-top:1px}
+@media(max-width:480px){.listing-quick .quick-details-list .gender-options{gap:4px}.gender-chip{padding:5px 6px;font-size:10px}}
