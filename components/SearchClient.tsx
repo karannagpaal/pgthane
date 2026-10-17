@@ -7,7 +7,7 @@ import { listings, locationIndex, verifiedMicrolocationIndex, verifiedWorkplaceI
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-const types = ["All", "Location", "Workplace", "Keyword"];
+const types = ["All", "Location", "Room Type", "Workplace", "Keyword"];
 
 function locationHref(value: string) {
   if (value === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
@@ -67,6 +67,7 @@ export default function SearchClient() {
         if (type === "Microlocation" && !x.microlocation.toLowerCase().includes(q)) return false;
         if (type === "Workplace" && !x.workplace.some(value => value.toLowerCase().includes(q))) return false;
         if (type === "Keyword" && !text.includes(q)) return false;
+        if (type === "Room Type" && ![...(x.sharing || []), x.roomType || ""].join(" ").toLowerCase().includes(q)) return false;
         if (type === "All" && !text.includes(q)) return false;
       }
       if (gender !== "Any" && x.gender !== (gender === "Male & Female" ? "Unisex" : gender)) return false;
