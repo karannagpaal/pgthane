@@ -106,6 +106,12 @@ export default function HomePage() {
       );
     }
 
+    if (type === "All" || type === "Keyword") {
+      verifiedMicrolocationIndex.filter(x => x.name.toLowerCase().includes(q)).slice(0, 4).forEach(x =>
+        result.push({ label: x.name, meta: "Microlocation · " + x.location, href: withBudget("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation", budget) })
+      );
+    }
+
     if (type === "All" || type === "Workplace" || type === "Keyword") {
       verifiedWorkplaceIndex.filter(x => x.name.toLowerCase().includes(q)).slice(0, 6).forEach(x =>
         result.push({ label: x.name, meta: x.kind + " · " + x.location, href: withBudget("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace", budget) })
