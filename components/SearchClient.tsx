@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
-import { listings, locationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
+import { listings, locationIndex, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -26,7 +26,8 @@ export default function SearchClient() {
   const params = useSearchParams();
   const rawQuery = (params.get("q") || "").trim();
   const q = rawQuery.toLowerCase();
-  const type = types.includes(params.get("type") || "") ? (params.get("type") || "All") : "All";
+  const requestedType = params.get("type") || "All";
+  const type = [...types, "Microlocation"].includes(requestedType) ? requestedType : "All";
   const budget = allowed.budget.has(params.get("budget") || "") ? params.get("budget")! : "Any budget";
   const gender = allowed.gender.has(params.get("gender") || "") ? params.get("gender")! : "Any";
   const sharing = allowed.sharing.has(params.get("sharing") || "") ? params.get("sharing")! : "Any";
@@ -35,6 +36,7 @@ export default function SearchClient() {
 
   const data = useMemo(() => {
     const locations = locationIndex.filter(x => !q || x.toLowerCase().includes(q));
+    const micros = verifiedMicrolocationIndex.filter(x => !q || (x.name + " " + x.location).toLowerCase().includes(q));
     const workplaces = verifiedWorkplaceIndex.filter(x => !q || (x.name + " " + x.location + " " + x.kind).toLowerCase().includes(q));
 
     const filterQuery = new URLSearchParams();
@@ -51,6 +53,7 @@ export default function SearchClient() {
 
     const keywordMatches = [
       ...locations.map(x => ({ label: x, meta: "Location", href: withCurrentFilters(locationHref(x)) })),
+      ...micros.map(x => ({ label: x.name, meta: "Microlocation · " + x.location, href: withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation") })),
       ...workplaces.map(x => ({ label: x.name, meta: x.kind + " · " + x.location, href: withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace") }))
     ];
 
@@ -61,6 +64,7 @@ export default function SearchClient() {
       const text = [x.name, x.type, x.location, x.microlocation, ...x.workplace, ...(x.amenities || [])].join(" ").toLowerCase();
       if (q) {
         if (type === "Location" && ![x.location, x.microlocation].join(" ").toLowerCase().includes(q)) return false;
+        if (type === "Microlocation" && !x.microlocation.toLowerCase().includes(q)) return false;
         if (type === "Workplace" && !x.workplace.some(value => value.toLowerCase().includes(q))) return false;
         if (type === "Keyword" && !text.includes(q)) return false;
         if (type === "All" && !text.includes(q)) return false;
@@ -85,7 +89,7 @@ export default function SearchClient() {
     const showListingResults = matchingListings.length > 0 && (type === "All" || Boolean(q) || budget !== "Any budget" || gender !== "Any" || sharing !== "Any" || room !== "Any" || amenity !== "Any");
     const resultCount = directoryLocations.length + directoryWorkplaces.length + (type === "Keyword" ? keywordMatches.length : 0) + (showListingResults ? matchingListings.length : 0);
 
-    return { locations, workplaces, keywordMatches, directoryLocations, directoryWorkplaces, matchingListings, showListingResults, resultCount, withCurrentFilters };
+    return { locations, micros, workplaces, keywordMatches, directoryLocations, directoryWorkplaces, matchingListings, showListingResults, resultCount, withCurrentFilters };
   }, [q, type, budget, gender, sharing, room, amenity]);
 
   const hasResults = data.resultCount > 0;
