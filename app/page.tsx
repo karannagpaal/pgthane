@@ -14,8 +14,8 @@ const searchTypes = ["All", "Location", "Microlocation", "Workplace", "Keyword"]
 type SearchType = typeof searchTypes[number];
 
 function locationHref(value: string) {
-  if (value === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
-  return "/discover-pg-in-thane/pg-in-" + value.toLowerCase().replaceAll(" ", "-") + "-thane";
+  if (value === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane/";
+  return "/discover-pg-in-thane/pg-in-" + value.toLowerCase().replaceAll(" ", "-") + "-thane/";
 }
 
 function withBudget(href: string, budget: string) {
@@ -107,11 +107,11 @@ export default function HomePage() {
 
     if (type === "All" || type === "Keyword") {
       listings
-        .filter(x => x.published === true && !x.photoOnly)
+        .filter(x => x.published === true && !x.photoOnly && x.verified === true)
         .filter(x => [x.name, x.location, x.microlocation, x.type, ...(x.workplace || []), ...(x.amenities || [])].join(" ").toLowerCase().includes(q))
         .slice(0, 6)
         .forEach(x =>
-          result.push({ label: x.name, meta: "PG · " + x.location, href: withBudget("/listing/" + x.slug, budget) })
+          result.push({ label: x.name, meta: "PG · " + x.location, href: withBudget("/listing/" + x.slug + "/", budget) })
         );
     }
 
