@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
   const workplaceUrls = verifiedWorkplaceIndex.map(workplace => ({ url: "https://www.pgthane.com/discover-pg-in-thane/workplace/" + workplace.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + "/", changeFrequency: "weekly" as const, priority: 0.75 }));
   const listingUrls = listings
-    .filter(listing => listing.published === true && !listing.photoOnly)
+    .filter(listing => listing.published === true && !listing.photoOnly && listing.verified === true)
     .map(listing => ({
       url: "https://www.pgthane.com/listing/" + listing.slug + "/",
       changeFrequency: "weekly" as const,
