@@ -48,7 +48,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
     ? listing.microlocation + ", " + listing.location
     : listing.location;
   const areaSuffix = locationAreas[listing.location] || "Thane";
-  const location = /\\bThane(?: West)?\\b/i.test(baseLocation) || baseLocation === "Location pending"
+  const location = /\bThane(?: West)?\b/i.test(baseLocation) || baseLocation === "Location pending"
     ? baseLocation
     : baseLocation + ", " + areaSuffix;
 
