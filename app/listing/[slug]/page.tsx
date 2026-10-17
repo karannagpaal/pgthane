@@ -83,7 +83,13 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
 
         <aside className="listing-quick">
           <div className="eyebrow">QUICK DETAILS</div>
-          <div className="quick-price"><span>Rent range</span><strong>₹6,999–₹30,000 <em>/ month</em></strong></div>
+          <div className="rent-range-panel">
+            <div className="rent-range-heading">Typical monthly rent</div>
+            <div className="rent-range-row"><span><strong>Triple sharing</strong><small>Non-AC</small></span><b>₹7,000–₹12,000</b></div>
+            <div className="rent-range-row"><span><strong>Double sharing</strong><small>AC</small></span><b>₹7,500–₹22,000</b></div>
+            <div className="rent-range-row"><span><strong>Single room</strong><small>Private room</small></span><b>₹12,000–₹30,000</b></div>
+            <p className="rent-range-note">Actual rent depends on room, facilities and availability. Please enquire to confirm.</p>
+          </div>
           <dl className="quick-details-list">
             <div><span className="quick-detail-icon"><SiteIcon name="pin" size={20} /></span><dt>Location</dt><dd>{listing.location}, Thane</dd></div>
             <div><span className="quick-detail-icon"><SiteIcon name="sofa" size={20} /></span><dt>Sharing</dt><dd>{listing.sharing?.length ? listing.sharing.join(" / ") : "Please enquire"}</dd></div>
