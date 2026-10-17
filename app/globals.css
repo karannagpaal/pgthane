@@ -2215,3 +2215,23 @@ footer .footer-full-logo{
 .listing-quick .quick-details-list .gender-detail-row{align-items:center;}
 .listing-quick .quick-details-list .gender-options{justify-content:flex-start;}
 @media(max-width:480px){.listing-quick .quick-details-list > div{grid-template-columns:36px minmax(68px,.75fr) minmax(0,1.25fr);gap:8px;padding:12px 0;}.listing-quick .quick-details-list dd{overflow-wrap:anywhere;}}
+
+
+/* Directory landing: clear location cards first, distinct microlocation cards below */
+.directory-section{margin-top:30px}
+.directory-section-heading{margin:0 0 18px}
+.directory-section-heading .eyebrow{color:#5A2C12;text-align:left;margin-bottom:6px}
+.directory-section-heading h2{color:#006400;font-size:clamp(22px,3vw,30px);line-height:1.2;margin:0 0 7px;letter-spacing:-.4px}
+.directory-section-heading p{color:#5A2C12;font-size:14px;line-height:1.5;margin:0;max-width:700px}
+.directory-microlocations{margin-top:38px;padding-top:28px;border-top:1px solid rgba(90,44,18,.16)}
+.microlocation-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.microlocation-directory-card{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:12px;padding:14px;border:1px solid rgba(244,194,26,.65);border-radius:16px;background:#fffaf0;text-decoration:none;min-width:0;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.microlocation-directory-card:hover,.microlocation-directory-card:focus-visible{transform:translateY(-2px);border-color:#006400;box-shadow:0 6px 16px rgba(0,100,0,.08);outline:none}
+.microlocation-card-symbol{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#f4c21a;color:#5A2C12;font-size:25px;font-weight:800}
+.microlocation-card-copy{display:flex;flex-direction:column;gap:4px;min-width:0}
+.microlocation-card-copy strong{font-size:15px;color:#006400;line-height:1.3;overflow-wrap:anywhere}
+.microlocation-card-copy small{font-size:11px;color:#5A2C12;line-height:1.35}
+.microlocation-card-action{font-size:11px;font-weight:800;color:#5A2C12;white-space:nowrap}
+.workplace-directory-card{background:#f1f8ef;border-color:rgba(0,100,0,.25)}
+.workplace-symbol{background:#006400;color:#fff}
+@media(max-width:600px){.directory-section{margin-top:24px}.directory-section-heading{margin-bottom:14px}.directory-section-heading p{font-size:13px}.directory-microlocations{margin-top:30px;padding-top:23px}.microlocation-card-grid{grid-template-columns:minmax(0,1fr);gap:9px}.microlocation-directory-card{grid-template-columns:40px minmax(0,1fr) auto;padding:12px;gap:10px;border-radius:13px}.microlocation-card-symbol{width:38px;height:38px;border-radius:11px}.microlocation-card-copy strong{font-size:14px}.microlocation-card-action{font-size:10px}}
