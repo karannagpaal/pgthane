@@ -18,9 +18,13 @@ function getApprovedPricePattern(listing: Listing) {
 }
 
 export default function ListingCard({ listing }: { listing: Listing }) {
-  const location = listing.microlocation && listing.microlocation !== listing.location
-    ? listing.microlocation + ", " + listing.location
-    : listing.location;
+  const locationParts = [
+    listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation : null,
+    listing.location,
+    "Thane West",
+    "Thane",
+  ].filter((value, index, all): value is string => Boolean(value) && all.findIndex(x => x?.toLowerCase() === value?.toLowerCase()) === index);
+  const location = locationParts.join(", ");
 
   return (
     <article className="listing-card">
