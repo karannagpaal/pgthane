@@ -11,7 +11,7 @@ const locations = [
 ];
 
 const searchTypes = ["All", "Location", "Workplace", "Keyword"] as const;
-type SearchType = typeof searchTypes[number];
+type SearchType = typeof searchTypes[number] | "Microlocation";
 
 function locationHref(value: string) {
   if (value === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
