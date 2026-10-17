@@ -17,10 +17,40 @@ function getApprovedPricePattern(listing: Listing) {
   return "From ₹7,000/month";
 }
 
+const locationAreas: Record<string, string> = {
+  "Hiranandani Estate": "Thane West",
+  "Hiranandani Business Park": "Thane West",
+  "Wagle Estate": "Thane West",
+  "Majiwada": "Thane West",
+  "Balkum": "Thane West",
+  "Ghodbunder Road": "Thane West",
+  "Kasarvadavali": "Thane West",
+  "Manpada": "Thane West",
+  "Vartak Nagar": "Thane West",
+  "Kolshet": "Thane West",
+  "Kolshet Road": "Thane West",
+  "Kapurbawdi": "Thane West",
+  "Pokhran Road": "Thane West",
+  "Vasant Vihar": "Thane West",
+  "Bhramand": "Thane West",
+  "Lokmanya Nagar": "Thane West",
+  "Thane Station": "Thane",
+  "Panchpakhadi": "Thane",
+  "Louiswadi": "Thane",
+  "Teen Hath Naka": "Thane",
+  "Naupada": "Thane",
+  "Khopat": "Thane",
+  "Castle Mill": "Thane"
+};
+
 export default function ListingCard({ listing }: { listing: Listing }) {
-  const location = listing.microlocation && listing.microlocation !== listing.location
+  const baseLocation = listing.microlocation && listing.microlocation !== listing.location
     ? listing.microlocation + ", " + listing.location
     : listing.location;
+  const areaSuffix = locationAreas[listing.location] || "Thane";
+  const location = /\\bThane(?: West)?\\b/i.test(baseLocation) || baseLocation === "Location pending"
+    ? baseLocation
+    : baseLocation + ", " + areaSuffix;
 
   return (
     <article className="listing-card">
