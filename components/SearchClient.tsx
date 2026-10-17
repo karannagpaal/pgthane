@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
-import { listings, locationIndex, verifiedMicrolocationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
+import { listings, locationIndex, verifiedWorkplaceIndex } from "@/data/catalog";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
-const types = ["All", "Location", "Microlocation", "Workplace", "Keyword"];
+const types = ["All", "Location", "Workplace", "Keyword"];
 
 function locationHref(value: string) {
   if (value === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
@@ -35,7 +35,6 @@ export default function SearchClient() {
 
   const data = useMemo(() => {
     const locations = locationIndex.filter(x => !q || x.toLowerCase().includes(q));
-    const micros = verifiedMicrolocationIndex.filter(x => !q || (x.name + " " + x.location).toLowerCase().includes(q));
     const workplaces = verifiedWorkplaceIndex.filter(x => !q || (x.name + " " + x.location + " " + x.kind).toLowerCase().includes(q));
 
     const filterQuery = new URLSearchParams();
@@ -52,19 +51,16 @@ export default function SearchClient() {
 
     const keywordMatches = [
       ...locations.map(x => ({ label: x, meta: "Location", href: withCurrentFilters(locationHref(x)) })),
-      ...micros.map(x => ({ label: x.name, meta: "Microlocation · " + x.location, href: withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation") })),
       ...workplaces.map(x => ({ label: x.name, meta: x.kind + " · " + x.location, href: withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace") }))
     ];
 
     const directoryLocations = type === "All" || type === "Location" ? locations : [];
-    const directoryMicros = type === "All" || type === "Microlocation" ? micros : [];
     const directoryWorkplaces = type === "All" || type === "Workplace" ? workplaces : [];
 
     const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && (() => {
       const text = [x.name, x.type, x.location, x.microlocation, ...x.workplace, ...(x.amenities || [])].join(" ").toLowerCase();
       if (q) {
         if (type === "Location" && ![x.location, x.microlocation].join(" ").toLowerCase().includes(q)) return false;
-        if (type === "Microlocation" && !x.microlocation.toLowerCase().includes(q)) return false;
         if (type === "Workplace" && !x.workplace.some(value => value.toLowerCase().includes(q))) return false;
         if (type === "Keyword" && !text.includes(q)) return false;
         if (type === "All" && !text.includes(q)) return false;
@@ -87,9 +83,9 @@ export default function SearchClient() {
     })());
 
     const showListingResults = matchingListings.length > 0 && (type === "All" || Boolean(q) || budget !== "Any budget" || gender !== "Any" || sharing !== "Any" || room !== "Any" || amenity !== "Any");
-    const resultCount = directoryLocations.length + directoryMicros.length + directoryWorkplaces.length + (type === "Keyword" ? keywordMatches.length : 0) + (showListingResults ? matchingListings.length : 0);
+    const resultCount = directoryLocations.length + directoryWorkplaces.length + (type === "Keyword" ? keywordMatches.length : 0) + (showListingResults ? matchingListings.length : 0);
 
-    return { locations, micros, workplaces, keywordMatches, directoryLocations, directoryMicros, directoryWorkplaces, matchingListings, showListingResults, resultCount, withCurrentFilters };
+    return { locations, workplaces, keywordMatches, directoryLocations, directoryWorkplaces, matchingListings, showListingResults, resultCount, withCurrentFilters };
   }, [q, type, budget, gender, sharing, room, amenity]);
 
   const hasResults = data.resultCount > 0;
@@ -105,7 +101,7 @@ export default function SearchClient() {
         <h1>Search PGs in Thane</h1>
         <form className="search-page-form" role="search" aria-label="Search PGs in Thane">
           <div className="search-primary-fields">
-            <input name="q" defaultValue={rawQuery} placeholder="Location, microlocation, workplace or keyword" autoComplete="off" />
+            <input name="q" defaultValue={rawQuery} placeholder="Location, workplace or keyword" autoComplete="off" />
             <select name="type" defaultValue={type} aria-label="Search category">{types.map(x => <option key={x}>{x}</option>)}</select>
             <select name="budget" defaultValue={budget} aria-label="Budget"><option>Any budget</option><option>Under ₹10,000</option><option>₹10,000 – ₹15,000</option><option>₹15,000 – ₹20,000</option><option>₹20,000+</option></select>
           </div>
@@ -127,7 +123,6 @@ export default function SearchClient() {
         {!hasResults && <div className="search-empty">No results match this search yet. Try a broader location, workplace or keyword.</div>}
         <div className="search-groups">
           {data.directoryLocations.length > 0 && <section><h2>Locations</h2>{data.locations.map(x => <Link key={x} className="search-result" href={withCurrentFilters(locationHref(x))}><span>📍 {x}</span><small>PG · Paying Guest · Hostel</small></Link>)}</section>}
-          {data.directoryMicros.length > 0 && <section><h2>Microlocations</h2>{data.micros.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation")}><span>📍 {x.name}</span><small>{x.location}</small></Link>)}</section>}
           {data.directoryWorkplaces.length > 0 && <section><h2>Workplaces</h2>{data.workplaces.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace")}><span>🏢 {x.name}</span><small>{x.kind} · {x.location}</small></Link>)}</section>}
           {type === "Keyword" && data.keywordMatches.length > 0 && <section><h2>Keyword matches</h2>{data.keywordMatches.map(x => <Link key={x.label + x.meta} className="search-result" href={x.href}><span>{x.label}</span><small>{x.meta}</small></Link>)}</section>}
           {data.showListingResults && <section><h2>Real PG listings</h2>{data.matchingListings.map(x => <Link key={x.id} className="search-result" href={"/listing/" + x.slug}><span>{x.name}</span><small>{x.type} · {x.location}</small></Link>)}</section>}
