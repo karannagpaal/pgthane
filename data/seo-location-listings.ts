@@ -400,7 +400,7 @@ export const seoLocationListings: Listing[] = [
     imageAlt: "Furnished PG in Majiwada",
     seoTitle: "Furnished PG in Majiwada",
     seoDescription: "Furnished PG in Majiwada. Triple sharing. listed from ₹8,499/month. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/59499.jpg"],
+    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/28-PG in Majiwada Thane near Lodha IThink(1).jpeg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "furnished-pg-lodha-ithink-professionals-majiwada"
   },
@@ -609,7 +609,7 @@ export const seoLocationListings: Listing[] = [
     imageAlt: "Furnished PG in Kasarvadavali",
     seoTitle: "Furnished PG in Kasarvadavali",
     seoDescription: "Furnished PG in Kasarvadavali. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/59499.jpg"],
+    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/26-PG in Kasarvadavali Thane(1).jpeg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "furnished-pg-kasarvadavali-kasarvadavali"
   },
@@ -1046,7 +1046,7 @@ export const seoLocationListings: Listing[] = [
     imageAlt: "Furnished PG in Balkum",
     seoTitle: "Furnished PG in Balkum",
     seoDescription: "Furnished PG in Balkum. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/59499.jpg"],
+    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/22-PG in Balkum Thane.jpeg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-balkum"
   },
@@ -1141,7 +1141,7 @@ export const seoLocationListings: Listing[] = [
     imageAlt: "Furnished PG in Ghodbunder Road",
     seoTitle: "Furnished PG in Ghodbunder Road",
     seoDescription: "Furnished PG in Ghodbunder Road. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/59499.jpg"],
+    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/23-PG in Ghodbunder Road Thane.jpg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-ghodbunder-road"
   },
@@ -1236,7 +1236,7 @@ export const seoLocationListings: Listing[] = [
     imageAlt: "Furnished PG in Louiswadi",
     seoTitle: "Furnished PG in Louiswadi",
     seoDescription: "Furnished PG in Louiswadi. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/59499.jpg"],
+    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/27-PG in Louiswadi Thane.jpeg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-louiswadi"
   },
@@ -1331,7 +1331,7 @@ export const seoLocationListings: Listing[] = [
     imageAlt: "Furnished PG in Manpada",
     seoTitle: "Furnished PG in Manpada",
     seoDescription: "Furnished PG in Manpada. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/59499.jpg"],
+    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/30-PG in manpada thane(1).jpeg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-manpada"
   },
@@ -1426,7 +1426,7 @@ export const seoLocationListings: Listing[] = [
     imageAlt: "Furnished PG in Teen Hath Naka",
     seoTitle: "Furnished PG in Teen Hath Naka",
     seoDescription: "Furnished PG in Teen Hath Naka. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/59499.jpg"],
+    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/31-PG in Teen Hath naka Thane(1).jpg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-teen-hath-naka"
   },
@@ -1521,7 +1521,7 @@ export const seoLocationListings: Listing[] = [
     imageAlt: "Furnished PG in Vartak Nagar",
     seoTitle: "Furnished PG in Vartak Nagar",
     seoDescription: "Furnished PG in Vartak Nagar. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/59499.jpg"],
+    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/32-PG in Vartak Nagar Thane(1).jpeg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-vartak-nagar"
   },
