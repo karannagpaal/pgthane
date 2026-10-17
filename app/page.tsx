@@ -10,7 +10,7 @@ const locations = [
   "Kasarvadavali","Manpada","Thane Station"
 ];
 
-const searchTypes = ["All", "Location", "Microlocation", "Workplace", "Keyword"] as const;
+const searchTypes = ["All", "Location", "Workplace", "Keyword"] as const;
 type SearchType = typeof searchTypes[number];
 
 function locationHref(value: string) {
@@ -112,12 +112,6 @@ export default function HomePage() {
       );
     }
 
-    if (type === "All" || type === "Microlocation" || type === "Keyword") {
-      verifiedMicrolocationIndex.filter(x => x.name.toLowerCase().includes(q)).slice(0, 4).forEach(x =>
-        result.push({ label: x.name, meta: "Microlocation · " + x.location, href: withBudget("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation", budget) })
-      );
-    }
-
     if (type === "All" || type === "Keyword") {
       listings
         .filter(x => x.published === true && !x.photoOnly)
@@ -167,7 +161,7 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-inner">
           <h1>Find a PG in Thane that fits your <em>location</em> and workplace.</h1>
-          <p className="hero-copy">Search PG, Paying Guest, Hostel and shared-room options by location, microlocation or workplace.</p>
+          <p className="hero-copy">Search PG, Paying Guest, Hostel and shared-room options by location or workplace.</p>
 
           <form id="search" className="search-panel" onSubmit={submit} role="search" aria-label="Search PGs in Thane">
             <div className="search-tabs" role="tablist" aria-label="Search category">
