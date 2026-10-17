@@ -20,7 +20,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Hiranandani Estate for Office Professionals",
     seoDescription: "Furnished PG in Hiranandani Estate for Office Professionals. Triple sharing. from ₹7,999/month. Workplace: TCS Olympus Centre. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/18-Paying Guest in Hiranandani Estate Thane.jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-hiranandani-estate-office-professionals"
   },
   {
@@ -39,7 +39,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Hiranandani Estate near TCS Olympus",
     seoDescription: "Double Sharing PG in Hiranandani Estate near TCS Olympus. Double sharing. listed from ₹9,499/month. Workplace references: TCS Olympus Centre. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/24-PG in Hiranandani Estate near Business Park.jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "double-sharing-pg-hiranandani-estate-near-tcs-olympus"
   },
   {
@@ -58,7 +58,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG Rooms in Hiranandani Estate for New Job Relocations",
     seoDescription: "PG Rooms in Hiranandani Estate for New Job Relocations. Double sharing / Triple sharing. from ₹8,799/month. Workplace: TCS Olympus Centre. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/25-PG in Hiranandani Thane.jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-rooms-hiranandani-estate-new-job-relocations"
   },
   {
@@ -77,7 +77,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG near Hiranandani Business Park for Working Professionals",
     seoDescription: "PG near Hiranandani Business Park for Working Professionals. Double sharing. from ₹10,999/month. Workplace: Hiranandani Business Park. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/12-Furnished PG Rooms in Hiranandani Estate Thane(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-near-hiranandani-business-park-working-professionals"
   },
   {
@@ -96,7 +96,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Hiranandani Estate, Thane",
     seoDescription: "Shared PG Accommodation in Hiranandani Estate, Thane. Triple sharing. listed from ₹7,499/month. Workplace references: TCS Olympus Centre, Bayer House. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/34-PG near Cetaurus Hiranandani estate Thane(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-accommodation-hiranandani-estate-thane"
   },
   {
@@ -115,7 +115,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG for Corporate Employees in Hiranandani Estate",
     seoDescription: "PG for Corporate Employees in Hiranandani Estate. Double sharing. from ₹9,999/month. Workplace: TCS Olympus Centre. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/Ac PG in Hiranandani estate(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-corporate-employees-hiranandani-estate"
   },
   {
@@ -134,7 +134,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG with Housekeeping in Hiranandani Estate, Thane",
     seoDescription: "PG with Housekeeping in Hiranandani Estate, Thane. Double sharing / Triple sharing. from ₹8,999/month. Workplace: TCS Olympus Centre. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/Double Sharing PG near TCS Olympus Hiranandani Estate(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-housekeeping-hiranandani-estate-thane"
   },
   {
@@ -153,7 +153,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "AC and Non-AC PG Options in Hiranandani Estate",
     seoDescription: "AC and Non-AC PG Options in Hiranandani Estate. Double sharing. listed from ₹11,999/month. AC & Non-AC. Workplace references: TCS Olympus Centre, Centaurus. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/Double sharing PG in Hiranandani Estate(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "ac-non-ac-pg-options-hiranandani-estate"
   },
   {
@@ -172,7 +172,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget Shared PG in Hiranandani Estate, Thane",
     seoDescription: "Budget Shared PG in Hiranandani Estate, Thane. Triple sharing. listed from ₹6,999/month. Workplace references: TCS Olympus Centre, Hiranandani Business Park. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PG in Hiranandani Estate Thane west(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "budget-shared-pg-hiranandani-estate"
   },
   {
@@ -191,7 +191,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Working Professionals PG in Hiranandani Estate Thane West",
     seoDescription: "Working Professionals PG in Hiranandani Estate Thane West. Double sharing. from ₹12,999/month. Workplace: TCS Olympus Centre. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/Single room pg in hiranandani estate.jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "working-professionals-pg-hiranandani-estate-thane-west"
   },
 
@@ -211,7 +211,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Wagle Estate for Office Employees",
     seoDescription: "Furnished PG in Wagle Estate for Office Employees. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Ashar IT Park, Centura Square. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/19-Paying Guest in Wagle Estate Thane.jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-wagle-estate-office-employees"
   },
   {
@@ -230,7 +230,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Wagle Estate near Ashar IT Park",
     seoDescription: "Double Sharing PG in Wagle Estate near Ashar IT Park. Double sharing. listed from ₹8,999/month. Workplace references: Ashar IT Park. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/20-PG Accommodation in Wagle Estate Thane(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "double-sharing-pg-wagle-estate-near-ashar-it-park"
   },
   {
@@ -249,7 +249,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG for Corporate Employees in Wagle Estate, Thane",
     seoDescription: "PG for Corporate Employees in Wagle Estate, Thane. Double sharing. listed from ₹9,999/month. AC & Non-AC. Workplace references: Ashar IT Park, Centrum IT Park. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/33-PG near Ashar IT Park Thane(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-corporate-employees-wagle-estate-thane"
   },
   {
@@ -268,7 +268,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG in Wagle Estate near Centura Square",
     seoDescription: "Shared PG in Wagle Estate near Centura Square. Triple sharing. listed from ₹7,499/month. Workplace references: Centura Square, Ashar IT Park. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/03-3(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-wagle-estate-near-centura-square"
   },
   {
@@ -287,7 +287,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG Rooms in Wagle Estate for IT Professionals",
     seoDescription: "PG Rooms in Wagle Estate for IT Professionals. Double sharing / Triple sharing. listed from ₹8,499/month. Workplace references: Centrum IT Park, Ashar IT Park. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/05-5.jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-rooms-wagle-estate-it-professionals"
   },
   {
@@ -306,7 +306,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Paying Guest in Wagle Estate for New Job Relocation",
     seoDescription: "Paying Guest in Wagle Estate for New Job Relocation. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Ashar IT Park, Centura Square. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/07-7(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "paying-guest-wagle-estate-new-job-relocation"
   },
   {
@@ -325,7 +325,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG with Wi-Fi and Housekeeping near Ashar IT Park, Wagle Estate",
     seoDescription: "PG with Wi-Fi and Housekeeping near Ashar IT Park, Wagle Estate. Double sharing from ₹8,799/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/09-Best PG in Wagle Estate.jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-wifi-housekeeping-wagle-estate"
   },
   {
@@ -344,7 +344,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "AC and Non-AC PG in Wagle Estate Thane West",
     seoDescription: "AC and Non-AC PG in Wagle Estate Thane West. Double sharing. listed from ₹10,999/month. AC & Non-AC. Workplace references: Ashar IT Park, Centrum IT Park. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/11-Furnished PG in Wagle Estate Thane(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "ac-non-ac-pg-wagle-estate-thane-west"
   },
   {
@@ -363,7 +363,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget Shared PG in Wagle Estate, Thane",
     seoDescription: "Budget Shared PG in Wagle Estate, Thane. Triple sharing. listed from ₹6,999/month. Workplace references: Ashar IT Park, Centura Square. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PG in Wagle Estate(2).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "budget-shared-pg-wagle-estate-thane"
   },
   {
@@ -382,7 +382,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Working Professionals PG in Wagle Estate Thane West",
     seoDescription: "Working Professionals PG in Wagle Estate Thane West. Double sharing. listed from ₹12,999/month. AC & Non-AC. Workplace references: Ashar IT Park, Centrum IT Park. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/12-Furnished PG Rooms in Hiranandani Estate Thane(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "working-professionals-pg-wagle-estate-thane-west"
   },
   {
@@ -401,7 +401,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Majiwada",
     seoDescription: "Furnished PG in Majiwada. Triple sharing. listed from ₹8,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/28-PG in Majiwada Thane near Lodha IThink(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-lodha-ithink-professionals-majiwada"
   },
   {
@@ -420,7 +420,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Working Professionals PG in Majiwada",
     seoDescription: "Working Professionals PG in Majiwada. Double sharing. listed from ₹9,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "working-professionals-pg-majiwada-business-district-majiwada"
   },
   {
@@ -439,7 +439,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG near Lodha iThink in Majiwada",
     seoDescription: "Shared PG near Lodha iThink in Majiwada. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-near-lodha-ithink-office-employees-majiwada"
   },
   {
@@ -458,7 +458,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG Rooms in Majiwada",
     seoDescription: "PG Rooms in Majiwada. Double sharing. listed from ₹9,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-rooms-majiwada-office-relocation-majiwada"
   },
   {
@@ -477,7 +477,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Paying Guest in Majiwada",
     seoDescription: "Paying Guest in Majiwada. Triple sharing. listed from ₹7,299/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "paying-guest-majiwada-new-job-relocation-majiwada"
   },
   {
@@ -496,7 +496,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG with Wi-Fi and Housekeeping in Majiwada",
     seoDescription: "PG with Wi-Fi and Housekeeping in Majiwada. Double sharing. listed from ₹8,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59504.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-with-wi-fi-and-housekeeping-majiwada-majiwada"
   },
   {
@@ -515,7 +515,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "AC and Non-AC PG in Majiwada",
     seoDescription: "AC and Non-AC PG in Majiwada. Double sharing. listed from ₹10,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59505.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "ac-and-non-ac-pg-majiwada-majiwada"
   },
   {
@@ -534,7 +534,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget Shared PG in Majiwada",
     seoDescription: "Budget Shared PG in Majiwada. Triple sharing. listed from ₹6,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59506.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "budget-shared-pg-majiwada-majiwada"
   },
   {
@@ -553,7 +553,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished Shared PG in Majiwada",
     seoDescription: "Furnished Shared PG in Majiwada. Double sharing. listed from ₹8,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59507.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-shared-pg-majiwada-professionals-majiwada"
   },
   {
@@ -572,7 +572,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Corporate Employee PG in Majiwada",
     seoDescription: "Corporate Employee PG in Majiwada. Double sharing. listed from ₹10,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59508.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "corporate-employee-pg-majiwada-majiwada"
   },
   {
@@ -591,7 +591,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Relocation-Friendly PG in Majiwada",
     seoDescription: "Relocation-Friendly PG in Majiwada. Triple sharing. listed from ₹7,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59509.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "relocation-friendly-pg-majiwada-majiwada"
   },
   {
@@ -610,7 +610,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Kasarvadavali",
     seoDescription: "Furnished PG in Kasarvadavali. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/26-PG in Kasarvadavali Thane(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-kasarvadavali-kasarvadavali"
   },
   {
@@ -629,7 +629,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Working Professionals PG in Kasarvadavali",
     seoDescription: "Working Professionals PG in Kasarvadavali. Double sharing. listed from ₹8,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "working-professionals-pg-kasarvadavali-kasarvadavali"
   },
   {
@@ -648,7 +648,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Kasarvadavali",
     seoDescription: "Shared PG Accommodation in Kasarvadavali. Triple sharing. listed from ₹7,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-accommodation-kasarvadavali-kasarvadavali"
   },
   {
@@ -667,7 +667,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG Rooms in Kasarvadavali",
     seoDescription: "PG Rooms in Kasarvadavali. Double sharing. listed from ₹9,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-rooms-kasarvadavali-office-relocation-kasarvadavali"
   },
   {
@@ -686,7 +686,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Paying Guest in Kasarvadavali",
     seoDescription: "Paying Guest in Kasarvadavali. Triple sharing. listed from ₹7,299/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "paying-guest-kasarvadavali-new-job-relocation-kasarvadavali"
   },
   {
@@ -705,7 +705,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget Shared PG in Kasarvadavali",
     seoDescription: "Budget Shared PG in Kasarvadavali. Triple sharing. listed from ₹6,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59504.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "budget-shared-pg-kasarvadavali-kasarvadavali"
   },
   {
@@ -724,7 +724,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG with Wi-Fi in Kasarvadavali",
     seoDescription: "PG with Wi-Fi in Kasarvadavali. Double sharing. listed from ₹8,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59505.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-with-wi-fi-kasarvadavali-kasarvadavali"
   },
   {
@@ -743,7 +743,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG with Housekeeping in Kasarvadavali",
     seoDescription: "PG with Housekeeping in Kasarvadavali. Double sharing. listed from ₹8,799/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59506.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-with-housekeeping-kasarvadavali-kasarvadavali"
   },
   {
@@ -762,7 +762,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "AC and Non-AC PG in Kasarvadavali",
     seoDescription: "AC and Non-AC PG in Kasarvadavali. Double sharing. listed from ₹9,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59507.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "ac-and-non-ac-pg-kasarvadavali-kasarvadavali"
   },
   {
@@ -781,7 +781,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Corporate Employee PG in Kasarvadavali",
     seoDescription: "Corporate Employee PG in Kasarvadavali. Double sharing. listed from ₹10,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59508.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "corporate-employee-pg-kasarvadavali-kasarvadavali"
   },
   {
@@ -800,7 +800,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished Shared Room PG in Kasarvadavali",
     seoDescription: "Furnished Shared Room PG in Kasarvadavali. Double sharing. listed from ₹8,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59509.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-shared-room-pg-kasarvadavali-kasarvadavali"
   },
   {
@@ -819,7 +819,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Relocation-Friendly PG in Kasarvadavali",
     seoDescription: "Relocation-Friendly PG in Kasarvadavali. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59510.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "relocation-friendly-pg-kasarvadavali-kasarvadavali"
   },
   {
@@ -838,7 +838,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared Accommodation in Kasarvadavali",
     seoDescription: "Shared Accommodation in Kasarvadavali. Triple sharing. listed from ₹7,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59511.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-accommodation-kasarvadavali-kasarvadavali"
   },
   {
@@ -857,7 +857,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Corporate PG in Hiranandani Estate office professionals",
     seoDescription: "Corporate PG in Hiranandani Estate office professionals. Double sharing. listed from ₹10,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/Triple Sharing PG in Hiranandani Estate(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "corporate-pg-hiranandani-estate-office-professionals"
   },
   {
@@ -876,7 +876,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG near Hiranandani Business Park in working professionals",
     seoDescription: "PG near Hiranandani Business Park in working professionals. Double sharing. listed from ₹9,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/Triple Sharing room in Hiranandani estate(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-near-hiranandani-business-park-working-professionals-2"
   },
   {
@@ -895,7 +895,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget Shared PG in Hiranandani Estate",
     seoDescription: "Budget Shared PG in Hiranandani Estate. Triple sharing. listed from ₹6,999/month. Workplace references: TCS Olympus Centre. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/03-3(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "budget-shared-pg-hiranandani-estate-2"
   },
   {
@@ -914,7 +914,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG with Wi-Fi and Housekeeping in Hiranandani Estate",
     seoDescription: "PG with Wi-Fi and Housekeeping in Hiranandani Estate. Double sharing. listed from ₹8,799/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/05-5.jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-with-wi-fi-and-housekeeping-hiranandani-estate"
   },
   {
@@ -933,7 +933,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "AC and Non-AC PG in Hiranandani Estate",
     seoDescription: "AC and Non-AC PG in Hiranandani Estate. Double sharing. listed from ₹11,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/07-7(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "ac-and-non-ac-pg-hiranandani-estate"
   },
   {
@@ -952,7 +952,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Corporate PG in Wagle Estate office professionals",
     seoDescription: "Corporate PG in Wagle Estate office professionals. Double sharing. listed from ₹10,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/34-PG near Cetaurus Hiranandani estate Thane(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "corporate-pg-wagle-estate-office-professionals"
   },
   {
@@ -971,7 +971,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG near Centura Square in working professionals",
     seoDescription: "PG near Centura Square in working professionals. Double sharing. listed from ₹9,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/Ac PG in Hiranandani estate(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-near-centura-square-working-professionals"
   },
   {
@@ -990,7 +990,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget Shared PG in Wagle Estate",
     seoDescription: "Budget Shared PG in Wagle Estate. Triple sharing. listed from ₹6,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/Double Sharing PG near TCS Olympus Hiranandani Estate(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "budget-shared-pg-wagle-estate"
   },
   {
@@ -1009,7 +1009,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG with Wi-Fi and Housekeeping in Wagle Estate",
     seoDescription: "PG with Wi-Fi and Housekeeping in Wagle Estate. Double sharing. listed from ₹8,799/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/Double sharing PG in Hiranandani Estate(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-with-wi-fi-and-housekeeping-wagle-estate"
   },
   {
@@ -1028,7 +1028,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "AC and Non-AC PG in Wagle Estate",
     seoDescription: "AC and Non-AC PG in Wagle Estate. Double sharing. listed from ₹10,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PG in Hiranandani Estate Thane west(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "ac-and-non-ac-pg-wagle-estate"
   },
   {
@@ -1047,7 +1047,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Balkum",
     seoDescription: "Furnished PG in Balkum. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/22-PG in Balkum Thane.jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-balkum"
   },
   {
@@ -1066,7 +1066,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Working Professionals PG in Balkum",
     seoDescription: "Working Professionals PG in Balkum. Double sharing. listed from ₹8,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "working-professionals-pg-daily-office-commute-balkum"
   },
   {
@@ -1085,7 +1085,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Balkum",
     seoDescription: "Shared PG Accommodation in Balkum. Triple sharing. listed from ₹7,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-accommodation-new-job-relocation-balkum"
   },
   {
@@ -1104,7 +1104,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG Rooms in Balkum",
     seoDescription: "PG Rooms in Balkum. Double sharing. listed from ₹9,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-rooms-room-comparison-balkum"
   },
   {
@@ -1123,7 +1123,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Paying Guest in Balkum",
     seoDescription: "Paying Guest in Balkum. Triple sharing. listed from ₹7,299/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "paying-guest-new-job-relocation-balkum"
   },
   {
@@ -1142,7 +1142,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Ghodbunder Road",
     seoDescription: "Furnished PG in Ghodbunder Road. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/23-PG in Ghodbunder Road Thane.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-ghodbunder-road"
   },
   {
@@ -1161,7 +1161,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Working Professionals PG in Ghodbunder Road",
     seoDescription: "Working Professionals PG in Ghodbunder Road. Double sharing. listed from ₹8,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "working-professionals-pg-daily-office-commute-ghodbunder-road"
   },
   {
@@ -1180,7 +1180,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Ghodbunder Road",
     seoDescription: "Shared PG Accommodation in Ghodbunder Road. Triple sharing. listed from ₹7,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-accommodation-new-job-relocation-ghodbunder-road"
   },
   {
@@ -1199,7 +1199,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG Rooms in Ghodbunder Road",
     seoDescription: "PG Rooms in Ghodbunder Road. Double sharing. listed from ₹9,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-rooms-room-comparison-ghodbunder-road"
   },
   {
@@ -1218,7 +1218,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Paying Guest in Ghodbunder Road",
     seoDescription: "Paying Guest in Ghodbunder Road. Triple sharing. listed from ₹7,299/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "paying-guest-new-job-relocation-ghodbunder-road"
   },
   {
@@ -1237,7 +1237,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Louiswadi",
     seoDescription: "Furnished PG in Louiswadi. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/27-PG in Louiswadi Thane.jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-louiswadi"
   },
   {
@@ -1256,7 +1256,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Working Professionals PG in Louiswadi",
     seoDescription: "Working Professionals PG in Louiswadi. Double sharing. listed from ₹8,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "working-professionals-pg-daily-office-commute-louiswadi"
   },
   {
@@ -1275,7 +1275,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Louiswadi",
     seoDescription: "Shared PG Accommodation in Louiswadi. Triple sharing. listed from ₹7,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-accommodation-new-job-relocation-louiswadi"
   },
   {
@@ -1294,7 +1294,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG Rooms in Louiswadi",
     seoDescription: "PG Rooms in Louiswadi. Double sharing. listed from ₹9,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-rooms-room-comparison-louiswadi"
   },
   {
@@ -1313,7 +1313,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Paying Guest in Louiswadi",
     seoDescription: "Paying Guest in Louiswadi. Triple sharing. listed from ₹7,299/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "paying-guest-new-job-relocation-louiswadi"
   },
   {
@@ -1332,7 +1332,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Manpada",
     seoDescription: "Furnished PG in Manpada. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/30-PG in manpada thane(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-manpada"
   },
   {
@@ -1351,7 +1351,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Working Professionals PG in Manpada",
     seoDescription: "Working Professionals PG in Manpada. Double sharing. listed from ₹8,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "working-professionals-pg-daily-office-commute-manpada"
   },
   {
@@ -1370,7 +1370,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Manpada",
     seoDescription: "Shared PG Accommodation in Manpada. Triple sharing. listed from ₹7,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-accommodation-new-job-relocation-manpada"
   },
   {
@@ -1389,7 +1389,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG Rooms in Manpada",
     seoDescription: "PG Rooms in Manpada. Double sharing. listed from ₹9,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-rooms-room-comparison-manpada"
   },
   {
@@ -1408,7 +1408,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Paying Guest in Manpada",
     seoDescription: "Paying Guest in Manpada. Triple sharing. listed from ₹7,299/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "paying-guest-new-job-relocation-manpada"
   },
   {
@@ -1427,7 +1427,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Teen Hath Naka",
     seoDescription: "Furnished PG in Teen Hath Naka. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/31-PG in Teen Hath naka Thane(1).jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-teen-hath-naka"
   },
   {
@@ -1446,7 +1446,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Working Professionals PG in Teen Hath Naka",
     seoDescription: "Working Professionals PG in Teen Hath Naka. Double sharing. listed from ₹8,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "working-professionals-pg-daily-office-commute-teen-hath-naka"
   },
   {
@@ -1465,7 +1465,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Teen Hath Naka",
     seoDescription: "Shared PG Accommodation in Teen Hath Naka. Triple sharing. listed from ₹7,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-accommodation-new-job-relocation-teen-hath-naka"
   },
   {
@@ -1484,7 +1484,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG Rooms in Teen Hath Naka",
     seoDescription: "PG Rooms in Teen Hath Naka. Double sharing. listed from ₹9,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-rooms-room-comparison-teen-hath-naka"
   },
   {
@@ -1503,7 +1503,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Paying Guest in Teen Hath Naka",
     seoDescription: "Paying Guest in Teen Hath Naka. Triple sharing. listed from ₹7,299/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "paying-guest-new-job-relocation-teen-hath-naka"
   },
   {
@@ -1522,7 +1522,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Vartak Nagar",
     seoDescription: "Furnished PG in Vartak Nagar. Triple sharing. listed from ₹7,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/32-PG in Vartak Nagar Thane(1).jpeg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-office-professionals-vartak-nagar"
   },
   {
@@ -1541,7 +1541,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Working Professionals PG in Vartak Nagar",
     seoDescription: "Working Professionals PG in Vartak Nagar. Double sharing. listed from ₹8,999/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "working-professionals-pg-daily-office-commute-vartak-nagar"
   },
   {
@@ -1560,7 +1560,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Vartak Nagar",
     seoDescription: "Shared PG Accommodation in Vartak Nagar. Triple sharing. listed from ₹7,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-accommodation-new-job-relocation-vartak-nagar"
   },
   {
@@ -1579,7 +1579,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG Rooms in Vartak Nagar",
     seoDescription: "PG Rooms in Vartak Nagar. Double sharing. listed from ₹9,499/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-rooms-room-comparison-vartak-nagar"
   },
   {
@@ -1598,7 +1598,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Paying Guest in Vartak Nagar",
     seoDescription: "Paying Guest in Vartak Nagar. Triple sharing. listed from ₹7,299/month. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "paying-guest-new-job-relocation-vartak-nagar"
   },
 
@@ -1618,7 +1618,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG near Deloitte, Kolshet for Working Professionals",
     seoDescription: "PG near Deloitte, Kolshet for Working Professionals. Triple sharing. from ₹9,299/month. Workplace: Deloitte. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-near-deloitte-kolshet-working-professionals"
   },
   {
@@ -1637,7 +1637,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Kolshet Road, Thane West",
     seoDescription: "Furnished PG in Kolshet Road, Thane West. Double sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Deloitte. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "furnished-pg-kolshet-road-thane-west"
   },
   {
@@ -1656,7 +1656,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Kolshet near Corporate Offices",
     seoDescription: "Double Sharing PG in Kolshet near Corporate Offices. Double sharing. listed from ₹10,499/month. Workplace references: Deloitte. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "double-sharing-pg-kolshet-corporate-offices"
   },
   {
@@ -1675,7 +1675,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Kolshet, Thane West",
     seoDescription: "Shared PG Accommodation in Kolshet, Thane West. Single / Double sharing. listed from ₹10,999/month. AC & Non-AC. Workplace references: Deloitte. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "shared-pg-accommodation-kolshet-thane-west"
   },
   {
@@ -1694,7 +1694,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Kolshet Road for Office Professionals",
     seoDescription: "Budget PG in Kolshet Road for Office Professionals. Triple sharing. listed from ₹9,299/month. Workplace references: Deloitte. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "budget-pg-kolshet-road-office-professionals"
   },
   {
@@ -1713,7 +1713,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG in Thane Station for Working Professionals",
     seoDescription: "PG in Thane Station for Working Professionals. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Thane Railway Station. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-thane-station-working-professionals-thane"
   },
   {
@@ -1732,7 +1732,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Thane Station for New Job Relocation",
     seoDescription: "Furnished PG in Thane Station for New Job Relocation. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Thane Railway Station. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-thane-station-new-job-relocation-thane"
   },
   {
@@ -1751,7 +1751,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Thane Station for Office Professionals",
     seoDescription: "Double Sharing PG in Thane Station for Office Professionals. Double sharing. listed from ₹8,799/month. AC & Non-AC. Workplace references: Thane Railway Station. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-thane-station-double-sharing-thane"
   },
   {
@@ -1770,7 +1770,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Thane Station for Working Professionals",
     seoDescription: "Shared PG Accommodation in Thane Station for Working Professionals. Single / Double. from ₹9,499/month. Workplace: Thane Railway Station. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-thane-station-furnished-rooms-thane"
   },
   {
@@ -1789,7 +1789,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Thane Station for Office Professionals",
     seoDescription: "Budget PG in Thane Station for Office Professionals. Triple sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Thane Railway Station. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-thane-station-office-professionals-thane"
   },
   {
@@ -1808,7 +1808,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG in Panchpakhadi for Working Professionals",
     seoDescription: "PG in Panchpakhadi for Working Professionals. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-panchpakhadi-working-professionals-thane"
   },
   {
@@ -1827,7 +1827,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Panchpakhadi for New Job Relocation",
     seoDescription: "Furnished PG in Panchpakhadi for New Job Relocation. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-panchpakhadi-new-job-relocation-thane"
   },
   {
@@ -1846,7 +1846,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Panchpakhadi for Office Professionals",
     seoDescription: "Double Sharing PG in Panchpakhadi for Office Professionals. Double sharing. from ₹8,799/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-panchpakhadi-double-sharing-thane"
   },
   {
@@ -1865,7 +1865,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Panchpakhadi for Working Professionals",
     seoDescription: "Shared PG Accommodation in Panchpakhadi for Working Professionals. Single / Double. from ₹9,499/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-panchpakhadi-furnished-rooms-thane"
   },
   {
@@ -1884,7 +1884,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Panchpakhadi for Office Professionals",
     seoDescription: "Budget PG in Panchpakhadi for Office Professionals. Triple sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-panchpakhadi-office-professionals-thane"
   },
   {
@@ -1903,7 +1903,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG in Naupada for Working Professionals",
     seoDescription: "PG in Naupada for Working Professionals. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-naupada-working-professionals-thane"
   },
   {
@@ -1922,7 +1922,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Naupada for New Job Relocation",
     seoDescription: "Furnished PG in Naupada for New Job Relocation. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-naupada-new-job-relocation-thane"
   },
   {
@@ -1941,7 +1941,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Naupada for Office Professionals",
     seoDescription: "Double Sharing PG in Naupada for Office Professionals. Double sharing. listed from ₹8,799/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-naupada-double-sharing-thane"
   },
   {
@@ -1960,7 +1960,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Naupada for Working Professionals",
     seoDescription: "Shared PG Accommodation in Naupada for Working Professionals. Single / Double. from ₹9,499/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-naupada-furnished-rooms-thane"
   },
   {
@@ -1979,7 +1979,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Naupada for Office Professionals",
     seoDescription: "Budget PG in Naupada for Office Professionals. Triple sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-naupada-office-professionals-thane"
   },
   {
@@ -1998,7 +1998,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG in Khopat for Working Professionals",
     seoDescription: "PG in Khopat for Working Professionals. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-khopat-working-professionals-thane"
   },
   {
@@ -2017,7 +2017,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Khopat for New Job Relocation",
     seoDescription: "Furnished PG in Khopat for New Job Relocation. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-khopat-new-job-relocation-thane"
   },
   {
@@ -2036,7 +2036,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Khopat for Office Professionals",
     seoDescription: "Double Sharing PG in Khopat for Office Professionals. Double sharing. listed from ₹8,799/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-khopat-double-sharing-thane"
   },
   {
@@ -2055,7 +2055,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Khopat for Working Professionals",
     seoDescription: "Shared PG Accommodation in Khopat for Working Professionals. Single / Double. from ₹9,499/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-khopat-furnished-rooms-thane"
   },
   {
@@ -2074,7 +2074,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Khopat for Office Professionals",
     seoDescription: "Budget PG in Khopat for Office Professionals. Triple sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-khopat-office-professionals-thane"
   },
   {
@@ -2093,7 +2093,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG in Castle Mill for Working Professionals",
     seoDescription: "PG in Castle Mill for Working Professionals. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-castle-mill-working-professionals-thane"
   },
   {
@@ -2112,7 +2112,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Castle Mill for New Job Relocation",
     seoDescription: "Furnished PG in Castle Mill for New Job Relocation. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-castle-mill-new-job-relocation-thane"
   },
   {
@@ -2131,7 +2131,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Castle Mill for Office Professionals",
     seoDescription: "Double Sharing PG in Castle Mill for Office Professionals. Double sharing. from ₹8,799/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-castle-mill-double-sharing-thane"
   },
   {
@@ -2150,7 +2150,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Castle Mill for Working Professionals",
     seoDescription: "Shared PG Accommodation in Castle Mill for Working Professionals. Single / Double. from ₹9,499/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-castle-mill-furnished-rooms-thane"
   },
   {
@@ -2169,7 +2169,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Castle Mill for Office Professionals",
     seoDescription: "Budget PG in Castle Mill for Office Professionals. Triple sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-castle-mill-office-professionals-thane"
   },
   {
@@ -2188,7 +2188,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG in Kapurbawdi for Working Professionals",
     seoDescription: "PG in Kapurbawdi for Working Professionals. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-kapurbawdi-working-professionals-thane"
   },
   {
@@ -2207,7 +2207,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Kapurbawdi for New Job Relocation",
     seoDescription: "Furnished PG in Kapurbawdi for New Job Relocation. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-kapurbawdi-new-job-relocation-thane"
   },
   {
@@ -2226,7 +2226,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Kapurbawdi for Office Professionals",
     seoDescription: "Double Sharing PG in Kapurbawdi for Office Professionals. Double sharing. listed from ₹8,799/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-kapurbawdi-double-sharing-thane"
   },
   {
@@ -2245,7 +2245,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Kapurbawdi for Working Professionals",
     seoDescription: "Shared PG Accommodation in Kapurbawdi for Working Professionals. Single / Double. from ₹9,499/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-kapurbawdi-furnished-rooms-thane"
   },
   {
@@ -2264,7 +2264,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Kapurbawdi for Office Professionals",
     seoDescription: "Budget PG in Kapurbawdi for Office Professionals. Triple sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-kapurbawdi-office-professionals-thane"
   },
   {
@@ -2283,7 +2283,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG in Bhramand for Working Professionals",
     seoDescription: "PG in Bhramand for Working Professionals. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-bhramand-working-professionals-thane"
   },
   {
@@ -2302,7 +2302,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Bhramand for New Job Relocation",
     seoDescription: "Furnished PG in Bhramand for New Job Relocation. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-bhramand-new-job-relocation-thane"
   },
   {
@@ -2321,7 +2321,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Bhramand for Office Professionals",
     seoDescription: "Double Sharing PG in Bhramand for Office Professionals. Double sharing. listed from ₹8,799/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-bhramand-double-sharing-thane"
   },
   {
@@ -2340,7 +2340,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Bhramand for Working Professionals",
     seoDescription: "Shared PG Accommodation in Bhramand for Working Professionals. Single / Double. from ₹9,499/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-bhramand-furnished-rooms-thane"
   },
   {
@@ -2359,7 +2359,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Bhramand for Office Professionals",
     seoDescription: "Budget PG in Bhramand for Office Professionals. Triple sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-bhramand-office-professionals-thane"
   },
   {
@@ -2378,7 +2378,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG in Lokmanya Nagar for Working Professionals",
     seoDescription: "PG in Lokmanya Nagar for Working Professionals. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-lokmanya-nagar-working-professionals-thane"
   },
   {
@@ -2397,7 +2397,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Lokmanya Nagar for New Job Relocation",
     seoDescription: "Furnished PG in Lokmanya Nagar for New Job Relocation. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-lokmanya-nagar-new-job-relocation-thane"
   },
   {
@@ -2416,7 +2416,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Lokmanya Nagar for Office Professionals",
     seoDescription: "Double Sharing PG in Lokmanya Nagar for Office Professionals. Double sharing. from ₹8,799/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-lokmanya-nagar-double-sharing-thane"
   },
   {
@@ -2435,7 +2435,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Lokmanya Nagar for Working Professionals",
     seoDescription: "Shared PG Accommodation in Lokmanya Nagar for Working Professionals. Single / Double. from ₹9,499/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-lokmanya-nagar-furnished-rooms-thane"
   },
   {
@@ -2454,7 +2454,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Lokmanya Nagar for Office Professionals",
     seoDescription: "Budget PG in Lokmanya Nagar for Office Professionals. Triple sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-lokmanya-nagar-office-professionals-thane"
   },
   {
@@ -2473,7 +2473,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG in Vasant Vihar for Working Professionals",
     seoDescription: "PG in Vasant Vihar for Working Professionals. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-vasant-vihar-working-professionals-thane"
   },
   {
@@ -2492,7 +2492,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Vasant Vihar for New Job Relocation",
     seoDescription: "Furnished PG in Vasant Vihar for New Job Relocation. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-vasant-vihar-new-job-relocation-thane"
   },
   {
@@ -2511,7 +2511,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Vasant Vihar for Office Professionals",
     seoDescription: "Double Sharing PG in Vasant Vihar for Office Professionals. Double sharing. from ₹8,799/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-vasant-vihar-double-sharing-thane"
   },
   {
@@ -2530,7 +2530,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Vasant Vihar for Working Professionals",
     seoDescription: "Shared PG Accommodation in Vasant Vihar for Working Professionals. Single / Double. from ₹9,499/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-vasant-vihar-furnished-rooms-thane"
   },
   {
@@ -2549,7 +2549,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Vasant Vihar for Office Professionals",
     seoDescription: "Budget PG in Vasant Vihar for Office Professionals. Triple sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-vasant-vihar-office-professionals-thane"
   },
   {
@@ -2568,7 +2568,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "PG in Pokhran Road for Working Professionals",
     seoDescription: "PG in Pokhran Road for Working Professionals. Triple sharing. listed from ₹7,299/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59499.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-pokhran-road-working-professionals-thane"
   },
   {
@@ -2587,7 +2587,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Furnished PG in Pokhran Road for New Job Relocation",
     seoDescription: "Furnished PG in Pokhran Road for New Job Relocation. Triple sharing. listed from ₹7,999/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59500.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-pokhran-road-new-job-relocation-thane"
   },
   {
@@ -2606,7 +2606,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Double Sharing PG in Pokhran Road for Office Professionals",
     seoDescription: "Double Sharing PG in Pokhran Road for Office Professionals. Double sharing. from ₹8,799/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59501.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-pokhran-road-double-sharing-thane"
   },
   {
@@ -2625,7 +2625,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Shared PG Accommodation in Pokhran Road for Working Professionals",
     seoDescription: "Shared PG Accommodation in Pokhran Road for Working Professionals. Single / Double. from ₹9,499/month. Workplace: Nearby offices and workplaces. Confirm current details before booking.",
     photos: ["/inventory/pgthane-photos/59502.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-pokhran-road-furnished-rooms-thane"
   },
   {
@@ -2645,7 +2645,7 @@ export const seoLocationListings: Listing[] = [
     seoTitle: "Budget PG in Pokhran Road for Office Professionals",
     seoDescription: "Budget PG in Pokhran Road for Office Professionals. Triple sharing. listed from ₹10,499/month. AC & Non-AC. Workplace references: Nearby offices and workplaces. Confirm the current room, rent and exact address before booking.",
     photos: ["/inventory/pgthane-photos/59503.jpg"],
-    verified: false, published: true, photoOnly: false, ...enquiry,
+    verified: false, published: false, photoOnly: false, ...enquiry,
     slug: "pg-pokhran-road-office-professionals-thane"
   }
 ];
