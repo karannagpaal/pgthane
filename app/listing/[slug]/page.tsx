@@ -95,7 +95,11 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             <div><span className="quick-detail-icon"><SiteIcon name="sofa" size={20} /></span><dt>Sharing</dt><dd>{listing.sharing?.length ? listing.sharing.join(" / ") : "Please enquire"}</dd></div>
             <div><span className="quick-detail-icon"><SiteIcon name="home" size={20} /></span><dt>Room type</dt><dd>{listing.roomType || "Please enquire"}</dd></div>
             <div><span className="quick-detail-icon"><SiteIcon name="utensils" size={20} /></span><dt>Food</dt><dd>{listing.food || "Please enquire"}</dd></div>
-            <div><span className="quick-detail-icon"><SiteIcon name={listing.gender === "Female" ? "female" : "male"} size={20} /></span><dt>Gender</dt><dd>{listing.gender === "Unisex" ? "Male & Female" : listing.gender || "Please enquire"}</dd></div>
+            <div className="gender-detail-row"><span className="quick-detail-icon gender-main-icon"><SiteIcon name="male" size={20} /></span><dt>Gender</dt><dd className="gender-options">
+              <span className={listing.gender === "Male" || listing.gender === "Unisex" ? "gender-chip gender-male is-available" : "gender-chip gender-male"}><SiteIcon name="male" size={15} /> Male</span>
+              <span className={listing.gender === "Female" || listing.gender === "Unisex" ? "gender-chip gender-female is-available" : "gender-chip gender-female"}><SiteIcon name="female" size={15} /> Female</span>
+              {(!listing.gender || listing.gender === "Unisex") && <small>{listing.gender === "Unisex" ? "Both options" : "Confirm availability"}</small>}
+            </dd></div>
             <div><span className="quick-detail-icon"><SiteIcon name="check" size={20} /></span><dt>Availability</dt><dd>{listing.availability || "Please enquire"}</dd></div>
           </dl>
           {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}><SiteIcon name={amenityIcon(a)} size={15} /> {a}</span>)}</div></div> : null}
