@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { verifiedMicrolocationIndex } from "@/data/catalog";
 
 const locations = [
   ["Thane Station","pg-near-railway-station-thane"],
@@ -51,18 +52,52 @@ export default function DirectoryPage() {
         <h1>PG in Thane</h1>
         <div className="directory-actions"><Link className="header-cta" href="/search">Search PGs</Link></div>
         <p className="hero-copy">Browse PG, Paying Guest, Hostel and shared-room locations across Thane. Property-level listings are shown only when their information is verified.</p>
-        <div className="location-grid directory-location-grid">
-          {locations.map(([name, slug]) => (
-            <Link className="location-card directory-location-card" key={slug} href={"/discover-pg-in-thane/" + slug}>
-              <LocationBuildingIcon />
-              <span className="directory-location-copy">
-                <span className="directory-location-name">{name}</span>
-                <span className="directory-location-category">PG · Paying Guest · Hostel</span>
+        <section className="directory-section" aria-labelledby="directory-locations-title">
+          <div className="directory-section-heading">
+            <div className="eyebrow">EXPLORE BY AREA</div>
+            <h2 id="directory-locations-title">PG locations in Thane</h2>
+            <p>Choose a locality to explore PG and shared-room options in that area.</p>
+          </div>
+          <div className="location-grid directory-location-grid">
+            {locations.map(([name, slug]) => (
+              <Link className="location-card directory-location-card" key={slug} href={"/discover-pg-in-thane/" + slug}>
+                <LocationBuildingIcon />
+                <span className="directory-location-copy">
+                  <span className="directory-location-name">{name}</span>
+                  <span className="directory-location-category">PG · Paying Guest · Hostel</span>
+                </span>
+                <span className="directory-location-arrow" aria-hidden="true">›</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+        <section className="directory-microlocations" aria-labelledby="directory-microlocations-title">
+          <div className="directory-section-heading">
+            <div className="eyebrow">MORE PRECISE SEARCH</div>
+            <h2 id="directory-microlocations-title">Browse by microlocation & workplace</h2>
+            <p>Explore specific roads and business areas separately from the main locality cards.</p>
+          </div>
+          <div className="microlocation-card-grid">
+            {verifiedMicrolocationIndex.filter(item => item.name.trim().toLowerCase() !== item.location.trim().toLowerCase()).map(item => (
+              <Link className="microlocation-directory-card" key={item.name} href={"/search?q=" + encodeURIComponent(item.name) + "&type=Microlocation"}>
+                <span className="microlocation-card-symbol" aria-hidden="true">⌖</span>
+                <span className="microlocation-card-copy">
+                  <strong>{item.name}</strong>
+                  <small>Area: {item.location}</small>
+                </span>
+                <span className="microlocation-card-action" aria-hidden="true">Explore ↗</span>
+              </Link>
+            ))}
+            <Link className="microlocation-directory-card workplace-directory-card" href="/search?type=Workplace">
+              <span className="microlocation-card-symbol workplace-symbol" aria-hidden="true">▦</span>
+              <span className="microlocation-card-copy">
+                <strong>IT parks & workplaces</strong>
+                <small>Search by office or business park</small>
               </span>
-              <span className="directory-location-arrow" aria-hidden="true">›</span>
+              <span className="microlocation-card-action" aria-hidden="true">Explore ↗</span>
             </Link>
-          ))}
-        </div>
+          </div>
+        </section>
       </section>
       <SiteFooter />
     </main>
