@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: listing.seoTitle || (listing.name + " | PG in " + listing.location + ", Thane"),
     description: listing.seoDescription || [listing.type, listing.microlocation, listing.location, listing.amenities?.join(", ")].filter(Boolean).join(" · "),
-    alternates: { canonical: "https://www.pgthane.com/listing/" + listing.slug }
+    alternates: { canonical: "https://www.pgthane.com/listing/" + listing.slug + "/" }
   };
 }
 
