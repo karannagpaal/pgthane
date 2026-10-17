@@ -60,7 +60,7 @@ export default function DirectoryPage() {
           </div>
           <div className="location-grid directory-location-grid">
             {locations.map(([name, slug]) => (
-              <Link className="location-card directory-location-card" key={slug} href={"/discover-pg-in-thane/" + slug}>
+              <Link className="directory-area-card" key={slug} href={"/discover-pg-in-thane/" + slug}>
                 <LocationBuildingIcon />
                 <span className="directory-location-copy">
                   <span className="directory-location-name">{name}</span>
@@ -73,9 +73,9 @@ export default function DirectoryPage() {
         </section>
         <section className="directory-microlocations" aria-labelledby="directory-microlocations-title">
           <div className="directory-section-heading">
-            <div className="eyebrow">MORE PRECISE SEARCH</div>
-            <h2 id="directory-microlocations-title">Browse by microlocation</h2>
-            <p>Explore specific areas separately from the main locality cards.</p>
+            <div className="eyebrow">EXPLORE NEARBY POCKETS</div>
+            <h2 id="directory-microlocations-title">Explore microlocations</h2>
+            <p>Choose a specific neighbourhood or business-area pocket to narrow your PG search.</p>
           </div>
           <div className="microlocation-card-grid">
             {verifiedMicrolocationIndex.filter(item => item.name.trim().toLowerCase() !== item.location.trim().toLowerCase()).map(item => (
