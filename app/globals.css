@@ -2206,3 +2206,12 @@ footer .footer-full-logo{
 .gender-female.is-available{background:#ffebf2;color:#a52d61;border-color:#ffd0e2}
 .gender-options small{flex-basis:100%;font-size:10px;font-weight:600;color:var(--muted);margin-top:1px}
 @media(max-width:480px){.listing-quick .quick-details-list .gender-options{gap:4px}.gender-chip{padding:5px 6px;font-size:10px}}
+
+
+/* Align listing detail rows cleanly after removing Food */
+.listing-quick .quick-details-list > div{grid-template-columns:42px minmax(90px,.8fr) minmax(0,1.4fr);align-items:center;}
+.listing-quick .quick-details-list dt{align-self:center;margin:0;}
+.listing-quick .quick-details-list dd{align-self:center;min-width:0;}
+.listing-quick .quick-details-list .gender-detail-row{align-items:center;}
+.listing-quick .quick-details-list .gender-options{justify-content:flex-start;}
+@media(max-width:480px){.listing-quick .quick-details-list > div{grid-template-columns:36px minmax(68px,.75fr) minmax(0,1.25fr);gap:8px;padding:12px 0;}.listing-quick .quick-details-list dd{overflow-wrap:anywhere;}}
