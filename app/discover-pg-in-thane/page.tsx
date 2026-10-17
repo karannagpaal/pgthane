@@ -51,7 +51,7 @@ export default function DirectoryPage() {
         <div className="eyebrow">THANE PG DIRECTORY</div>
         <h1>PG in Thane</h1>
         <div className="directory-actions"><Link className="header-cta" href="/search">Search PGs</Link></div>
-        <p className="hero-copy">Browse PG, Paying Guest, Hostel and shared-room locations across Thane. Property-level listings are shown only when their information is verified.</p>
+        <p className="hero-copy">Browse PG, Paying Guest, Hostel and shared-room locations across Thane. Listing details and verification status can vary; confirm the exact property, rent and availability before booking.</p>
         <div className="location-grid directory-location-grid">
           {locations.map(([name, slug]) => (
             <Link className="location-card directory-location-card" key={slug} href={"/discover-pg-in-thane/" + slug}>
