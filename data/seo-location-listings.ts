@@ -323,8 +323,8 @@ export const seoLocationListings: Listing[] = [
     amenities: [...sharedAmenities],
     imageAlt: "PG with Wi-Fi and housekeeping in Wagle Estate",
     seoTitle: "PG with Wi-Fi and Housekeeping near Ashar IT Park, Wagle Estate",
-    seoDescription: "PG with Wi-Fi and Housekeeping in Wagle Estate. Double sharing. listed from ₹8,799/month. Workplace references: Ashar IT Park, Lodha Supremus. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/18-Paying Guest in Hiranandani Estate Thane.jpeg"],
+    seoDescription: "PG with Wi-Fi and Housekeeping near Ashar IT Park, Wagle Estate. Double sharing from ₹8,799/month. Confirm the current room, rent and exact address before booking.",
+    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/09-Best PG in Wagle Estate.jpeg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "pg-wifi-housekeeping-wagle-estate"
   },
@@ -343,7 +343,7 @@ export const seoLocationListings: Listing[] = [
     imageAlt: "AC and non-AC PG in Wagle Estate Thane West",
     seoTitle: "AC and Non-AC PG in Wagle Estate Thane West",
     seoDescription: "AC and Non-AC PG in Wagle Estate Thane West. Double sharing. listed from ₹10,999/month. AC & Non-AC. Workplace references: Ashar IT Park, Centrum IT Park. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/24-PG in Hiranandani Estate near Business Park.jpeg"],
+    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/11-Furnished PG in Wagle Estate Thane(1).jpeg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "ac-non-ac-pg-wagle-estate-thane-west"
   },
@@ -362,7 +362,7 @@ export const seoLocationListings: Listing[] = [
     imageAlt: "Budget shared PG in Wagle Estate",
     seoTitle: "Budget Shared PG in Wagle Estate, Thane",
     seoDescription: "Budget Shared PG in Wagle Estate, Thane. Triple sharing. listed from ₹6,999/month. Workplace references: Ashar IT Park, Centura Square. Confirm the current room, rent and exact address before booking.",
-    photos: ["/inventory/pgthane-photos/PGInThane_All_Shared_Images/25-PG in Hiranandani Thane.jpeg"],
+    photos: ["/inventory/pgthane-photos/PG in Wagle Estate(2).jpeg"],
     verified: false, published: true, photoOnly: false, ...enquiry,
     slug: "budget-shared-pg-wagle-estate-thane"
   },
