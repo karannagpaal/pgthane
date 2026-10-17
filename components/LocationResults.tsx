@@ -1,65 +1,43 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import type { Listing } from "@/data/catalog";
 import ListingCard from "@/components/ListingCard";
 import SiteIcon from "@/components/SiteIcon";
 
-function matchesFilters(listing: Listing, params: URLSearchParams) {
-  const gender = params.get("gender");
-  const food = params.get("food");
-  const room = params.get("room");
-  const amenity = params.get("amenity");
-  const sharing = params.get("sharing");
-  const budget = params.get("budget");
-
-  if (gender && listing.gender !== gender) return false;
-  if (food && food !== "Any" && (!listing.food || (listing.food !== "Both" && listing.food !== food))) return false;
-  if (room && room !== "Any" && (!listing.roomType || (listing.roomType !== "Both" && listing.roomType !== room))) return false;
-  if (amenity && amenity !== "Any" && (!listing.amenities || !listing.amenities.some(value => value.toLowerCase().includes(amenity.toLowerCase())))) return false;
-  if (sharing) {
-    const wanted = sharing.toLowerCase().replace(" sharing", "");
-    if (!listing.sharing || !listing.sharing.some(value => value.toLowerCase().replace(" sharing", "") === wanted)) return false;
-  }
-  if (budget) {
-    if (listing.priceFrom === undefined) return false;
-    if (budget === "Under ₹10,000" && listing.priceFrom >= 10000) return false;
-    if (budget === "₹10,000 – ₹15,000" && (listing.priceFrom < 10000 || listing.priceFrom > 15000)) return false;
-    if (budget === "₹15,000 – ₹20,000" && (listing.priceFrom < 15000 || listing.priceFrom > 20000)) return false;
-    if (budget === "₹20,000+" && listing.priceFrom < 20000) return false;
-  }
-  return true;
-}
-
 export default function LocationResults({ listings }: { listings: Listing[] }) {
-  // Render real listing cards in the initial static HTML for search crawlers.
-  // Query-string filters are applied after hydration and remain interactive.
-  const [filterSearch, setFilterSearch] = useState<string | null>(null);
+  const params = useSearchParams();
 
-  useEffect(() => {
-    const syncFromUrl = () => setFilterSearch(window.location.search.replace(/^\?/, ""));
-    const onFiltersUpdated = (event: Event) => {
-      const customEvent = event as CustomEvent<string>;
-      setFilterSearch(customEvent.detail || "");
-    };
+  const filtered = useMemo(() => listings.filter(x => {
+    const gender = params.get("gender");
+    const food = params.get("food");
+    const room = params.get("room");
+    const amenity = params.get("amenity");
+    const sharing = params.get("sharing");
+    const budget = params.get("budget");
 
-    syncFromUrl();
-    window.addEventListener("popstate", syncFromUrl);
-    window.addEventListener("pgthane:filters-updated", onFiltersUpdated);
-    return () => {
-      window.removeEventListener("popstate", syncFromUrl);
-      window.removeEventListener("pgthane:filters-updated", onFiltersUpdated);
-    };
-  }, []);
-
-  const filtered = useMemo(() => {
-    if (filterSearch === null || !filterSearch) return listings;
-    return listings.filter(listing => matchesFilters(listing, new URLSearchParams(filterSearch)));
-  }, [listings, filterSearch]);
+    if (gender && x.gender !== gender) return false;
+    if (food && food !== "Any" && (!x.food || (x.food !== "Both" && x.food !== food))) return false;
+    if (room && room !== "Any" && (!x.roomType || (x.roomType !== "Both" && x.roomType !== room))) return false;
+    if (amenity && amenity !== "Any" && (!x.amenities || !x.amenities.some(a => a.toLowerCase().includes(amenity.toLowerCase())))) return false;
+    if (sharing) {
+      const wanted = sharing.toLowerCase().replace(" sharing", "");
+      if (!x.sharing || !x.sharing.some(value => value.toLowerCase().replace(" sharing", "") === wanted)) return false;
+    }
+    if (budget) {
+      if (x.priceFrom === undefined) return false;
+      if (budget === "Under ₹10,000" && x.priceFrom >= 10000) return false;
+      if (budget === "₹10,000 – ₹15,000" && (x.priceFrom < 10000 || x.priceFrom > 15000)) return false;
+      if (budget === "₹15,000 – ₹20,000" && (x.priceFrom < 15000 || x.priceFrom > 20000)) return false;
+      if (budget === "₹20,000+" && x.priceFrom < 20000) return false;
+    }
+    return true;
+  }), [listings, params]);
 
   if (filtered.length === 0) {
     return <div className="empty-listings"><div className="empty-icon"><SiteIcon name="home" size={28} /></div><h3>No PG matches these filters</h3><p>Try clearing one or more filters to see the verified PG listings available in this location.</p></div>;
   }
 
-  return <div className="listing-grid">{filtered.map(listing => <ListingCard key={listing.id} listing={listing} />)}</div>;
+  return <div className="listing-grid">{filtered.map(x => <ListingCard key={x.id} listing={x} />)}</div>;
 }

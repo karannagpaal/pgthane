@@ -29,8 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: "PG in " + name + ", Thane | Paying Guest & Hostel",
     description: "Explore PG, Paying Guest, Hostel and shared-room accommodation options in " + name + ", Thane.",
-    alternates: { canonical: "https://www.pgthane.com/discover-pg-in-thane/" + slug + "/" },
-    ...(!listings.some(x => x.published === true && !x.photoOnly && x.verified === true && x.location.toLowerCase() === name.toLowerCase()) ? { robots: { index: false, follow: true } } : {})
+    alternates: { canonical: "https://www.pgthane.com/discover-pg-in-thane/" + slug }
   };
 }
 
@@ -40,7 +39,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
   if (!name) notFound();
   const nearbyMicros = verifiedMicrolocationIndex.filter(x => x.location === name || x.name === name);
   const nearbyWorkplaces = verifiedWorkplaceIndex.filter(x => x.location === name);
-  const publishedListings = listings.filter(x => x.published === true && !x.photoOnly && x.verified === true && x.location.toLowerCase() === name.toLowerCase());
+  const publishedListings = listings.filter(x => x.published === true && !x.photoOnly && x.location.toLowerCase() === name.toLowerCase());
   const publishedCount = publishedListings.length;
 
   const breadcrumbSchema = {
@@ -48,8 +47,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "PG Thane", item: "https://www.pgthane.com/" },
-      { "@type": "ListItem", position: 2, name: "PG in Thane", item: "https://www.pgthane.com/discover-pg-in-thane/" },
-      { "@type": "ListItem", position: 3, name: "PG in " + name + ", Thane", item: "https://www.pgthane.com/discover-pg-in-thane/" + slug + "/" }
+      { "@type": "ListItem", position: 2, name: "PG in Thane", item: "https://www.pgthane.com/discover-pg-in-thane" },
+      { "@type": "ListItem", position: 3, name: "PG in " + name + ", Thane", item: "https://www.pgthane.com/discover-pg-in-thane/" + slug }
     ]
   };
 
@@ -63,11 +62,11 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     </div></section>
 
     <section className="location-main"><div className="location-content">
-      <div className="section-heading compact"><div><div className="eyebrow">FIND YOUR STAY</div><h2>PG options in {name}</h2></div><p>{publishedCount > 0 ? publishedCount + " PG options listed" : "PG options are being added"}. Filter by budget, gender, sharing, food, room type and amenities.</p></div>
+      <div className="section-heading compact"><div><div className="eyebrow">FIND YOUR STAY</div><h2>PG options in {name}</h2></div><p>{publishedCount > 0 ? publishedCount + " verified PG options available" : "Verified PG options are being added"}. Filter by budget, gender, sharing, food, room type and amenities.</p></div>
       <div id="filters"><Suspense fallback={<div className="filter-panel">Loading filters…</div>}><LocationControls /></Suspense></div>
       {nearbyMicros.length > 0 && <section className="directory-panel"><div className="eyebrow">MICROLOCATIONS</div><h3>Explore around {name}</h3><div className="chip-row">{nearbyMicros.map(x => <Link key={x.name} href={"/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation"} className="directory-chip"><SiteIcon name="pin" size={15} /> {x.name}</Link>)}</div></section>}
       {nearbyWorkplaces.length > 0 && <section className="directory-panel"><div className="eyebrow">NEARBY WORKPLACES</div><h3>Workplaces around {name}</h3><div className="workplace-list">{nearbyWorkplaces.map(x => <Link key={x.name} href={"/search?q=" + encodeURIComponent(x.name) + "&type=Workplace"} className="workplace-item"><span><SiteIcon name="building" size={18} /></span><div><strong>{x.name}</strong><small>{x.kind}</small></div><span><SiteIcon name="arrow" size={16} /></span></Link>)}</div></section>}
-      <div id="results"><Suspense fallback={<div className="listing-grid" aria-busy="true">Loading PGs…</div>}><ListingResults listings={publishedListings} /></Suspense></div>
+      <div id="results"><Suspense fallback={<div className="listing-grid" aria-busy="true">Loading verified PGs…</div>}><ListingResults listings={publishedListings} /></Suspense></div>
       <div className="mobile-bottom-bar"><a href="#filters">Filters</a><a href="#results">Results</a><a href="tel:9930007113">Enquire Now</a></div>
       </div><aside className="location-aside"><div className="aside-card"><div className="eyebrow">SEARCH BY WORKPLACE</div><h3>Looking for a PG near your office?</h3><p>Search the directory by workplace or corporate location.</p><Link href="/search?type=Workplace">Search workplaces</Link></div><div className="aside-card"><div className="eyebrow">NEED HELP?</div><h3>Tell us where you work</h3><p>Call the PG Thane enquiry number for current availability.</p><a href="tel:9930007113">9930007113</a></div></aside></section>
     <SiteFooter />

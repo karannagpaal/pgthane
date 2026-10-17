@@ -5,12 +5,12 @@ import ListingCard from "@/components/ListingCard";
 
 export const metadata: Metadata = {
   title: "PG Listings in Thane | PG Thane",
-  description: "Browse PG, Paying Guest, Hostel and shared-room listings across Thane. Check each listing for room details and confirm current availability before booking.",
-  alternates: { canonical: "https://www.pgthane.com/listing/" }
+  description: "Browse verified PG, Paying Guest, Hostel and shared-room listings in Thane.",
+  alternates: { canonical: "https://www.pgthane.com/listing" }
 };
 
 export default function ListingsPage() {
-  const publishedListings = listings.filter(x => x.published === true && !x.photoOnly && x.verified === true);
+  const publishedListings = listings.filter(x => x.published === true && !x.photoOnly);
 
   return (
     <main>
@@ -23,7 +23,7 @@ export default function ListingsPage() {
       <section className="section listings-index">
         <div className="eyebrow">PG LISTINGS</div>
         <h1>PG Listings in Thane</h1>
-        <p className="section-lead">Browse PG, Paying Guest, Hostel and shared-room options across Thane. Check the details shown on each listing and confirm the property address, current rent, room availability and facilities directly before booking. Look for the Verified Listing badge where applicable.</p>
+        <p className="section-lead">Browse real PG, Paying Guest, Hostel and shared-room options. Listings are shown here only after their property information has been verified.</p>
 
         {publishedListings.length > 0 ? (
           <div className="listing-grid">

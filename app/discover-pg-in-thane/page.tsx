@@ -28,8 +28,7 @@ const locations = [
 
 export const metadata = {
   title: "PG in Thane | Paying Guest, Hostel & Shared Rooms",
-  description: "Browse PG, Paying Guest, Hostel and shared-room accommodation locations across Thane.",
-  alternates: { canonical: "https://www.pgthane.com/discover-pg-in-thane/" }
+  description: "Browse PG, Paying Guest, Hostel and shared-room accommodation locations across Thane."
 };
 
 function LocationBuildingIcon() {
@@ -51,10 +50,10 @@ export default function DirectoryPage() {
         <div className="eyebrow">THANE PG DIRECTORY</div>
         <h1>PG in Thane</h1>
         <div className="directory-actions"><Link className="header-cta" href="/search">Search PGs</Link></div>
-        <p className="hero-copy">Browse PG, Paying Guest, Hostel and shared-room locations across Thane. Listing details and verification status can vary; confirm the exact property, rent and availability before booking.</p>
+        <p className="hero-copy">Browse PG, Paying Guest, Hostel and shared-room locations across Thane. Property-level listings are shown only when their information is verified.</p>
         <div className="location-grid directory-location-grid">
           {locations.map(([name, slug]) => (
-            <Link className="location-card directory-location-card" key={slug} href={"/discover-pg-in-thane/" + slug + "/"}>
+            <Link className="location-card directory-location-card" key={slug} href={"/discover-pg-in-thane/" + slug}>
               <LocationBuildingIcon />
               <span className="directory-location-copy">
                 <span className="directory-location-name">{name}</span>

@@ -10,8 +10,8 @@ import SiteFooter from "@/components/SiteFooter";
 const types = ["All", "Location", "Microlocation", "Workplace", "Keyword"];
 
 function locationHref(value: string) {
-  if (value === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane/";
-  return "/discover-pg-in-thane/pg-in-" + value.toLowerCase().replaceAll(" ", "-") + "-thane/";
+  if (value === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
+  return "/discover-pg-in-thane/pg-in-" + value.toLowerCase().replaceAll(" ", "-") + "-thane";
 }
 
 const allowed = {
@@ -60,7 +60,7 @@ export default function SearchClient() {
     const directoryMicros = type === "All" || type === "Microlocation" ? micros : [];
     const directoryWorkplaces = type === "All" || type === "Workplace" ? workplaces : [];
 
-    const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && x.verified === true && (() => {
+    const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && (() => {
       const text = [x.name, x.type, x.location, x.microlocation, ...x.workplace, ...(x.amenities || [])].join(" ").toLowerCase();
       if (q) {
         if (type === "Location" && ![x.location, x.microlocation].join(" ").toLowerCase().includes(q)) return false;
@@ -130,7 +130,7 @@ export default function SearchClient() {
           {data.directoryMicros.length > 0 && <section><h2>Microlocations</h2>{data.micros.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Microlocation")}><span>📍 {x.name}</span><small>{x.location}</small></Link>)}</section>}
           {data.directoryWorkplaces.length > 0 && <section><h2>Workplaces</h2>{data.workplaces.map(x => <Link key={x.name} className="search-result" href={withCurrentFilters("/search?q=" + encodeURIComponent(x.name) + "&type=Workplace")}><span>🏢 {x.name}</span><small>{x.kind} · {x.location}</small></Link>)}</section>}
           {type === "Keyword" && data.keywordMatches.length > 0 && <section><h2>Keyword matches</h2>{data.keywordMatches.map(x => <Link key={x.label + x.meta} className="search-result" href={x.href}><span>{x.label}</span><small>{x.meta}</small></Link>)}</section>}
-          {data.showListingResults && <section><h2>Real PG listings</h2>{data.matchingListings.map(x => <Link key={x.id} className="search-result" href={"/listing/" + x.slug + "/"}><span>{x.name}</span><small>{x.type} · {x.location}</small></Link>)}</section>}
+          {data.showListingResults && <section><h2>Real PG listings</h2>{data.matchingListings.map(x => <Link key={x.id} className="search-result" href={"/listing/" + x.slug}><span>{x.name}</span><small>{x.type} · {x.location}</small></Link>)}</section>}
         </div>
       </section>
       <SiteFooter />
