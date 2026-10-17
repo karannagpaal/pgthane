@@ -91,7 +91,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
             label="Enquire"
             className="listing-enquire"
           />
-          <a href={"/listing/" + listing.slug}>View details →</a>
+          <a href={"/listing/" + listing.slug + "/"}>View details →</a>
         </div>
       </div>
     </article>
