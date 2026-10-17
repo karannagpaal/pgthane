@@ -60,17 +60,30 @@ const homepageFaqs = [
 
 function homepageListings() {
   const pool = listings.filter(x => x.published === true && !x.photoOnly);
-  const score = (slug: string) => Array.from(slug).reduce((sum, char) => sum * 31 + char.charCodeAt(0), 7);
-  const shuffled = [...pool].sort((a, b) => score(a.slug) - score(b.slug));
-  const seenLocations = new Set<string>();
-  const diverse = shuffled.filter(x => {
-    const key = (x.location || "").toLowerCase();
-    if (!key || seenLocations.has(key)) return false;
-    seenLocations.add(key);
-    return true;
-  }).slice(0, 6);
-  if (diverse.length >= 6) return diverse;
-  return shuffled.slice(0, 6);
+  const homepageLocationOrder = [
+    "Hiranandani Estate",
+    "Wagle Estate",
+    "Majiwada",
+    "Kolshet",
+    "Kasarvadavali",
+    "Thane Station",
+    "Pokhran Road",
+    "Manpada",
+    "Kapurbawdi",
+  ];
+  const aliases: Record<string, string[]> = {
+    "Thane Station": ["Thane Station", "Near Thane Station"],
+    "Kolshet": ["Kolshet", "Kolshet Road"],
+  };
+
+  // Show one real, published listing for each requested homepage location.
+  // Keep the existing ListingCard design and leave all other pages/inventory untouched.
+  return homepageLocationOrder
+    .map(location => {
+      const acceptedNames = (aliases[location] || [location]).map(value => value.toLowerCase());
+      return pool.find(listing => acceptedNames.includes((listing.location || "").trim().toLowerCase()));
+    })
+    .filter((listing): listing is (typeof pool)[number] => Boolean(listing));
 }
 
 
