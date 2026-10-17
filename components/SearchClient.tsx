@@ -106,7 +106,7 @@ export default function SearchClient() {
         <h1>Search PGs in Thane</h1>
         <form className="search-page-form" role="search" aria-label="Search PGs in Thane">
           <div className="search-primary-fields">
-            <input name="q" defaultValue={rawQuery} placeholder="Location, workplace or keyword" autoComplete="off" />
+            <input name="q" defaultValue={rawQuery} placeholder={type === "Room Type" ? "Room type, e.g. Single or Sharing" : type === "Keyword" ? "PG, hostel or accommodation type" : type === "Workplace" ? "Workplace or business park" : type === "Location" ? "Search a Thane location" : "Location, workplace or keyword"} autoComplete="off" />
             <select name="type" defaultValue={type} aria-label="Search category">{types.map(x => <option key={x} value={x}>{x === "Keyword" ? "PG Type" : x}</option>)}</select>
             <select name="budget" defaultValue={budget} aria-label="Budget"><option>Any budget</option><option>Under ₹10,000</option><option>₹10,000 – ₹15,000</option><option>₹15,000 – ₹20,000</option><option>₹20,000+</option></select>
           </div>
