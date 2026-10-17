@@ -5,6 +5,11 @@ import EnquiryButton from "@/components/EnquiryButton";
 import SiteIcon from "@/components/SiteIcon";
 
 function getApprovedPricePattern(listing: Listing) {
+  // Keep card pricing consistent with the rent shown on the matching detail page.
+  if (typeof listing.priceFrom === "number" && Number.isFinite(listing.priceFrom)) {
+    return "From ₹" + listing.priceFrom.toLocaleString("en-IN") + "/month";
+  }
+
   const sharing = listing.sharing || [];
   const hasTriple = sharing.some(x => x.toLowerCase().includes("triple"));
   const hasDouble = sharing.some(x => x.toLowerCase().includes("double"));
@@ -67,12 +72,87 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         <p className="listing-location"><SiteIcon name="pin" size={16} /> {location}</p>
 
         <div className="listing-feature-grid" aria-label="Property features">
-          <span className="feature-ac"><span className="card-emoji" aria-hidden="true">❄️</span> AC / Non-AC</span>
-          <span className="feature-male"><span className="card-emoji" aria-hidden="true">👨</span> Male</span>
-          <span className="feature-female"><span className="card-emoji" aria-hidden="true">👩</span> Female</span>
-          <span className="feature-clean"><span className="card-emoji" aria-hidden="true">🧹</span> Daily housekeeping</span>
-          <span className="feature-wifi"><span className="card-emoji" aria-hidden="true">📶</span> Free Wi-Fi</span>
-          <span className="feature-furnished"><span className="card-emoji" aria-hidden="true">🛋️</span> Fully furnished</span>
+          {[
+            ...(listing.amenities || []).map((amenity, index) => ({
+              key: "amenity-" + index + "-" + amenity,
+              label: amenity === "Air conditioning" ? "AC" : amenity,
+              icon: amenity.toLowerCase().includes("wi-fi") || amenity.toLowerCase().includes("wifi")
+                ? "📶"
+                : amenity.toLowerCase().includes("housekeeping")
+                  ? "🧹"
+                  : amenity.toLowerCase().includes("furnish")
+                    ? "🛋️"
+                    : "❄️",
+              className: amenity.toLowerCase().includes("wi-fi") || amenity.toLowerCase().includes("wifi")
+                ? "feature-wifi"
+                : amenity.toLowerCase().includes("housekeeping")
+                  ? "feature-clean"
+                  : amenity.toLowerCase().includes("furnish")
+                    ? "feature-furnished"
+                    : "feature-ac"
+            })),
+            ...(listing.gender ? [{
+              key: "gender",
+              label: listing.gender === "Unisex" ? "Male & Female" : listing.gender,
+              icon: listing.gender === "Female" ? "👩" : listing.gender === "Male" ? "👨" : "👥",
+              className: "feature-male"
+            }] : []),
+            ...(listing.sharing || []).map((sharing, index) => ({
+              key: "sharing-" + index,
+              label: sharing,
+              icon: "🛏️",
+              className: "feature-furnished"
+            })),
+            ...(listing.roomType ? [{
+              key: "room-type",
+              label: listing.roomType,
+              icon: "🏠",
+              className: "feature-clean"
+            }] : [])
+          ].length > 0 ? [
+            ...(listing.amenities || []).map((amenity, index) => ({
+              key: "amenity-" + index + "-" + amenity,
+              label: amenity === "Air conditioning" ? "AC" : amenity,
+              icon: amenity.toLowerCase().includes("wi-fi") || amenity.toLowerCase().includes("wifi")
+                ? "📶"
+                : amenity.toLowerCase().includes("housekeeping")
+                  ? "🧹"
+                  : amenity.toLowerCase().includes("furnish")
+                    ? "🛋️"
+                    : "❄️",
+              className: amenity.toLowerCase().includes("wi-fi") || amenity.toLowerCase().includes("wifi")
+                ? "feature-wifi"
+                : amenity.toLowerCase().includes("housekeeping")
+                  ? "feature-clean"
+                  : amenity.toLowerCase().includes("furnish")
+                    ? "feature-furnished"
+                    : "feature-ac"
+            })),
+            ...(listing.gender ? [{
+              key: "gender",
+              label: listing.gender === "Unisex" ? "Male & Female" : listing.gender,
+              icon: listing.gender === "Female" ? "👩" : listing.gender === "Male" ? "👨" : "👥",
+              className: "feature-male"
+            }] : []),
+            ...(listing.sharing || []).map((sharing, index) => ({
+              key: "sharing-" + index,
+              label: sharing,
+              icon: "🛏️",
+              className: "feature-furnished"
+            })),
+            ...(listing.roomType ? [{
+              key: "room-type",
+              label: listing.roomType,
+              icon: "🏠",
+              className: "feature-clean"
+            }] : [])
+          ].map(feature => (
+            <span key={feature.key} className={feature.className}>
+              <span className="card-emoji" aria-hidden="true">{feature.icon}</span> {feature.label}
+            </span>
+          )) : (
+            <span className="feature-furnished"><span className="card-emoji" aria-hidden="true">🏠</span> PG accommodation</span>
+          )}
         </div>
       </div>
 
