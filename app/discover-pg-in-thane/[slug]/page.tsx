@@ -40,7 +40,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
   if (!name) notFound();
   const nearbyMicros = verifiedMicrolocationIndex.filter(x => x.location === name || x.name === name);
   const nearbyWorkplaces = verifiedWorkplaceIndex.filter(x => x.location === name);
-  const publishedListings = listings.filter(x => x.published === true && !x.photoOnly && x.verified === true && x.location.toLowerCase() === name.toLowerCase());
+  const publishedListings = listings.filter(x => x.published === true && !x.photoOnly && x.location.toLowerCase() === name.toLowerCase());
   const publishedCount = publishedListings.length;
 
   const breadcrumbSchema = {
