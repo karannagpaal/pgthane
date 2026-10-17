@@ -74,8 +74,8 @@ export default function DirectoryPage() {
         <section className="directory-microlocations" aria-labelledby="directory-microlocations-title">
           <div className="directory-section-heading">
             <div className="eyebrow">MORE PRECISE SEARCH</div>
-            <h2 id="directory-microlocations-title">Browse by microlocation & workplace</h2>
-            <p>Explore specific roads and business areas separately from the main locality cards.</p>
+            <h2 id="directory-microlocations-title">Browse by microlocation</h2>
+            <p>Explore specific areas separately from the main locality cards.</p>
           </div>
           <div className="microlocation-card-grid">
             {verifiedMicrolocationIndex.filter(item => item.name.trim().toLowerCase() !== item.location.trim().toLowerCase()).map(item => (
@@ -88,14 +88,6 @@ export default function DirectoryPage() {
                 <span className="microlocation-card-action" aria-hidden="true">Explore ↗</span>
               </Link>
             ))}
-            <Link className="microlocation-directory-card workplace-directory-card" href="/search?type=Workplace">
-              <span className="microlocation-card-symbol workplace-symbol" aria-hidden="true">▦</span>
-              <span className="microlocation-card-copy">
-                <strong>IT parks & workplaces</strong>
-                <small>Search by office or business park</small>
-              </span>
-              <span className="microlocation-card-action" aria-hidden="true">Explore ↗</span>
-            </Link>
           </div>
         </section>
       </section>
