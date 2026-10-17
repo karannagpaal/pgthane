@@ -30,7 +30,7 @@ function locationHref(location: string) {
 
 export default async function ListingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly && x.verified === true);
+  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly);
   if (!listing) notFound();
 
   const breadcrumbSchema = {
