@@ -57,6 +57,45 @@ export default function ListingCard({ listing }: { listing: Listing }) {
     ? baseLocation
     : baseLocation + ", " + areaSuffix;
 
+  const featureItems = [
+    ...(listing.amenities || []).map((amenity, index) => ({
+      key: "amenity-" + index + "-" + amenity,
+      label: amenity === "Air conditioning" ? "AC" : amenity,
+      icon: amenity.toLowerCase().includes("wi-fi") || amenity.toLowerCase().includes("wifi")
+        ? "📶"
+        : amenity.toLowerCase().includes("housekeeping")
+          ? "🧹"
+          : amenity.toLowerCase().includes("furnish")
+            ? "🛋️"
+            : "❄️",
+      className: amenity.toLowerCase().includes("wi-fi") || amenity.toLowerCase().includes("wifi")
+        ? "feature-wifi"
+        : amenity.toLowerCase().includes("housekeeping")
+          ? "feature-clean"
+          : amenity.toLowerCase().includes("furnish")
+            ? "feature-furnished"
+            : "feature-ac"
+    })),
+    ...(listing.gender ? [{
+      key: "gender",
+      label: listing.gender === "Unisex" ? "Male & Female" : listing.gender,
+      icon: listing.gender === "Female" ? "👩" : listing.gender === "Male" ? "👨" : "👥",
+      className: "feature-male"
+    }] : []),
+    ...(listing.sharing || []).map((sharing, index) => ({
+      key: "sharing-" + index,
+      label: sharing,
+      icon: "🛏️",
+      className: "feature-furnished"
+    })),
+    ...(listing.roomType ? [{
+      key: "room-type",
+      label: listing.roomType,
+      icon: "🏠",
+      className: "feature-clean"
+    }] : [])
+  ];
+
   return (
     <article className="listing-card">
       <div className="listing-photo">
@@ -72,81 +111,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         <p className="listing-location"><SiteIcon name="pin" size={16} /> {location}</p>
 
         <div className="listing-feature-grid" aria-label="Property features">
-          {[
-            ...(listing.amenities || []).map((amenity, index) => ({
-              key: "amenity-" + index + "-" + amenity,
-              label: amenity === "Air conditioning" ? "AC" : amenity,
-              icon: amenity.toLowerCase().includes("wi-fi") || amenity.toLowerCase().includes("wifi")
-                ? "📶"
-                : amenity.toLowerCase().includes("housekeeping")
-                  ? "🧹"
-                  : amenity.toLowerCase().includes("furnish")
-                    ? "🛋️"
-                    : "❄️",
-              className: amenity.toLowerCase().includes("wi-fi") || amenity.toLowerCase().includes("wifi")
-                ? "feature-wifi"
-                : amenity.toLowerCase().includes("housekeeping")
-                  ? "feature-clean"
-                  : amenity.toLowerCase().includes("furnish")
-                    ? "feature-furnished"
-                    : "feature-ac"
-            })),
-            ...(listing.gender ? [{
-              key: "gender",
-              label: listing.gender === "Unisex" ? "Male & Female" : listing.gender,
-              icon: listing.gender === "Female" ? "👩" : listing.gender === "Male" ? "👨" : "👥",
-              className: "feature-male"
-            }] : []),
-            ...(listing.sharing || []).map((sharing, index) => ({
-              key: "sharing-" + index,
-              label: sharing,
-              icon: "🛏️",
-              className: "feature-furnished"
-            })),
-            ...(listing.roomType ? [{
-              key: "room-type",
-              label: listing.roomType,
-              icon: "🏠",
-              className: "feature-clean"
-            }] : [])
-          ].length > 0 ? [
-            ...(listing.amenities || []).map((amenity, index) => ({
-              key: "amenity-" + index + "-" + amenity,
-              label: amenity === "Air conditioning" ? "AC" : amenity,
-              icon: amenity.toLowerCase().includes("wi-fi") || amenity.toLowerCase().includes("wifi")
-                ? "📶"
-                : amenity.toLowerCase().includes("housekeeping")
-                  ? "🧹"
-                  : amenity.toLowerCase().includes("furnish")
-                    ? "🛋️"
-                    : "❄️",
-              className: amenity.toLowerCase().includes("wi-fi") || amenity.toLowerCase().includes("wifi")
-                ? "feature-wifi"
-                : amenity.toLowerCase().includes("housekeeping")
-                  ? "feature-clean"
-                  : amenity.toLowerCase().includes("furnish")
-                    ? "feature-furnished"
-                    : "feature-ac"
-            })),
-            ...(listing.gender ? [{
-              key: "gender",
-              label: listing.gender === "Unisex" ? "Male & Female" : listing.gender,
-              icon: listing.gender === "Female" ? "👩" : listing.gender === "Male" ? "👨" : "👥",
-              className: "feature-male"
-            }] : []),
-            ...(listing.sharing || []).map((sharing, index) => ({
-              key: "sharing-" + index,
-              label: sharing,
-              icon: "🛏️",
-              className: "feature-furnished"
-            })),
-            ...(listing.roomType ? [{
-              key: "room-type",
-              label: listing.roomType,
-              icon: "🏠",
-              className: "feature-clean"
-            }] : [])
-          ].map(feature => (
+          {featureItems.length > 0 ? featureItems.map(feature => (
             <span key={feature.key} className={feature.className}>
               <span className="card-emoji" aria-hidden="true">{feature.icon}</span> {feature.label}
             </span>
