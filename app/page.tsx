@@ -196,7 +196,7 @@ export default function HomePage() {
                     } else if (e.key === "Escape") { setFocused(false); setActiveSuggestion(-1); }
                   }}
                   aria-activedescendant={activeSuggestion >= 0 ? "suggestion-" + activeSuggestion : undefined}
-                  placeholder={type === "Location" ? "Search a Thane location" : type === "Microlocation" ? "Search a microlocation" : type === "Workplace" ? "Search a workplace or business park" : type === "Keyword" ? "Search by PG keyword" : "Search location, workplace or keyword"}
+                  placeholder={type === "Location" ? "Search a Thane location" : type === "Microlocation" ? "Search a microlocation" : type === "Room Type" ? "Search room type, e.g. Single or Sharing" : type === "Workplace" ? "Search a workplace or business park" : type === "Keyword" ? "Search PG, hostel or accommodation type" : "Search location, workplace or keyword"}
                   inputMode="search"
                   aria-controls="search-suggestions" aria-label="Search PGs"
                   autoComplete="off"
