@@ -2152,37 +2152,3 @@ footer .footer-full-logo{
 @media (prefers-reduced-motion: reduce) {
   .directory-location-card { transition: none; }
 }
-
-
-/* Accurate listing-detail status labels; keep the approved green/brown/yellow theme. */
-.listing-verification-status{
-  display:inline-flex;
-  align-self:flex-start;
-  margin:8px 0 0;
-  padding:5px 8px;
-  border:1px solid rgba(90,44,18,.18);
-  border-radius:7px;
-  background:#fffaf0;
-  color:var(--brown);
-  font-size:10px;
-  font-weight:700;
-  line-height:1.35;
-}
-.listing-feature-empty{
-  margin:14px 0 0;
-  color:var(--brown);
-  font-size:12px;
-  line-height:1.5;
-}
-.listing-verification-note{
-  margin:0 0 20px;
-  padding:14px 16px;
-  border:1px solid rgba(90,44,18,.22);
-  border-left:4px solid var(--gold);
-  border-radius:10px;
-  background:#fffaf0;
-  color:var(--brown);
-  font-size:13px;
-  line-height:1.65;
-}
-.listing-verification-note strong{display:block;margin-bottom:3px;color:var(--brown)}

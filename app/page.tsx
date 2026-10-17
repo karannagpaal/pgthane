@@ -18,20 +18,6 @@ function locationHref(value: string) {
   return "/discover-pg-in-thane/pg-in-" + value.toLowerCase().replaceAll(" ", "-") + "-thane/";
 }
 
-function getLocationCardImages() {
-  const usedPhotos = new Set<string>();
-  return Object.fromEntries(locations.map(location => {
-    const candidates = listings
-      .filter(item => item.published === true && !item.photoOnly && item.location === location && item.photos[0])
-      .sort((a, b) => Number(b.verified === true) - Number(a.verified === true));
-    const selected = candidates.find(item => item.photos[0] && !usedPhotos.has(item.photos[0])) || candidates[0];
-    if (selected?.photos[0]) usedPhotos.add(selected.photos[0]);
-    return [location, selected?.photos[0] || "/location-map-card.svg"];
-  }));
-}
-
-const locationCardImages = getLocationCardImages();
-
 function withBudget(href: string, budget: string) {
   if (budget === "Any budget") return href;
   return href + (href.includes("?") ? "&" : "?") + "budget=" + encodeURIComponent(budget);
@@ -252,7 +238,7 @@ export default function HomePage() {
       <section id="locations" className="section">
         <div className="section-heading"><div><div className="eyebrow">EXPLORE THANE</div><h2>Popular PG locations</h2></div><p>Choose a location to explore its microlocations and nearby workplaces.</p></div>
         <div className="location-grid">
-          {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><div className="location-card-visual"><img src={locationCardImages[location] || "/location-map-card.svg"} alt={location + " PG accommodation"} loading="lazy" /></div><div className="location-card-copy"><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
+          {locations.map(location => <a className="location-card" key={location} href={withBudget(locationHref(location), budget)}><div className="location-card-visual"><img src="/location-map-card.svg" alt="" loading="lazy" /></div><div className="location-card-copy"><h3>PG in {location}</h3><p>PG · Paying Guest · Hostel · Shared Rooms</p></div><span className="arrow">→</span></a>)}
         </div>
         <div className="homepage-listings-cta">
           <a href="/discover-pg-in-thane/">View all locations <span aria-hidden="true">→</span></a>

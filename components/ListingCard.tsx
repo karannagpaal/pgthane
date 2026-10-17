@@ -4,6 +4,19 @@ import type { Listing } from "@/data/catalog";
 import EnquiryButton from "@/components/EnquiryButton";
 import SiteIcon from "@/components/SiteIcon";
 
+function getApprovedPricePattern(listing: Listing) {
+  const sharing = listing.sharing || [];
+  const hasTriple = sharing.some(x => x.toLowerCase().includes("triple"));
+  const hasDouble = sharing.some(x => x.toLowerCase().includes("double"));
+  const hasSingle = sharing.some(x => x.toLowerCase().includes("single") || x.toLowerCase().includes("private"));
+
+  if (hasSingle && !hasDouble && !hasTriple) return "₹12,000 – ₹30,000/month";
+  if (hasDouble && !hasSingle && !hasTriple) return "From ₹7,500/month";
+  if (hasTriple && !hasSingle && !hasDouble) return "₹7,000 – ₹12,000/month";
+  if (hasSingle || (hasDouble && hasTriple)) return "₹7,000 – ₹30,000/month";
+  return "From ₹7,000/month";
+}
+
 const locationAreas: Record<string, string> = {
   "Hiranandani Estate": "Thane West",
   "Hiranandani Business Park": "Thane West",
@@ -30,73 +43,43 @@ const locationAreas: Record<string, string> = {
   "Castle Mill": "Thane"
 };
 
-function getFeatureItems(listing: Listing) {
-  const features: { label: string; icon: string }[] = [];
-  if (listing.sharing?.length) features.push({ label: listing.sharing.join(" / "), icon: "🛋️" });
-  if (listing.gender) features.push({
-    label: listing.gender === "Unisex" ? "Male & Female" : listing.gender,
-    icon: listing.gender === "Female" ? "👩" : listing.gender === "Male" ? "👨" : "👥"
-  });
-  if (listing.roomType) features.push({ label: listing.roomType, icon: "🏠" });
-  if (listing.food) features.push({ label: listing.food, icon: "🍽️" });
-  for (const amenity of listing.amenities || []) {
-    const lower = amenity.toLowerCase();
-    const icon = lower.includes("wi-fi") || lower.includes("wifi") ? "📶"
-      : lower.includes("housekeeping") ? "🧹"
-      : lower.includes("furnish") ? "🛋️"
-      : lower.includes("ac") ? "❄️"
-      : "✓";
-    if (!features.some(feature => feature.label.toLowerCase() === amenity.toLowerCase())) {
-      features.push({ label: amenity, icon });
-    }
-  }
-  return features.slice(0, 6);
-}
-
-function getPriceLabel(listing: Listing) {
-  if (typeof listing.priceFrom === "number" && listing.priceFrom > 0) {
-    return "From ₹" + listing.priceFrom.toLocaleString("en-IN") + "/month";
-  }
-  return "Confirm current rent";
-}
-
 export default function ListingCard({ listing }: { listing: Listing }) {
   const baseLocation = listing.microlocation && listing.microlocation !== listing.location
     ? listing.microlocation + ", " + listing.location
     : listing.location;
   const areaSuffix = locationAreas[listing.location] || "Thane";
-  const location = !baseLocation || baseLocation === "Location pending" || /\bThane(?: West)?\b/i.test(baseLocation)
-    ? baseLocation || "Thane"
+  const location = /\bThane(?: West)?\b/i.test(baseLocation) || baseLocation === "Location pending"
+    ? baseLocation
     : baseLocation + ", " + areaSuffix;
-  const features = getFeatureItems(listing);
 
   return (
     <article className="listing-card">
       <div className="listing-photo">
         {listing.photos[0]
-          ? <img src={listing.photos[0]} alt={listing.imageAlt || listing.name} loading="lazy" />
+          ? <>
+              <img src={listing.photos[0]} alt={listing.imageAlt || listing.name} loading="lazy" />
+            </>
           : <div className="photo-placeholder">Photo pending</div>}
-        {listing.verified === true && <span className="verified-badge"><SiteIcon name="check" size={14} /> Verified Listing</span>}
       </div>
 
       <div className="listing-body">
         <h3>{listing.name}</h3>
         <p className="listing-location"><SiteIcon name="pin" size={16} /> {location}</p>
-        {listing.verified !== true && <p className="listing-verification-status">Details not independently verified yet</p>}
 
-        {features.length > 0
-          ? <div className="listing-feature-grid" aria-label="Listing details">
-              {features.map(feature => (
-                <span key={feature.label}><span className="card-emoji" aria-hidden="true">{feature.icon}</span>{feature.label}</span>
-              ))}
-            </div>
-          : <p className="listing-feature-empty">Confirm sharing, room type and facilities before booking.</p>}
+        <div className="listing-feature-grid" aria-label="Property features">
+          <span className="feature-ac"><span className="card-emoji" aria-hidden="true">❄️</span> AC / Non-AC</span>
+          <span className="feature-male"><span className="card-emoji" aria-hidden="true">👨</span> Male</span>
+          <span className="feature-female"><span className="card-emoji" aria-hidden="true">👩</span> Female</span>
+          <span className="feature-clean"><span className="card-emoji" aria-hidden="true">🧹</span> Daily housekeeping</span>
+          <span className="feature-wifi"><span className="card-emoji" aria-hidden="true">📶</span> Free Wi-Fi</span>
+          <span className="feature-furnished"><span className="card-emoji" aria-hidden="true">🛋️</span> Fully furnished</span>
+        </div>
       </div>
 
       <div className="listing-side">
         <div className="listing-price-range">
-          <span>{listing.priceFrom ? "Listed monthly rent" : "Monthly rent"}</span>
-          <strong>{getPriceLabel(listing)}</strong>
+          <span>Monthly rent*</span>
+          <strong>{getApprovedPricePattern(listing)}</strong>
         </div>
 
         <div className="zero-brokerage">Zero brokerage</div>
