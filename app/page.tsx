@@ -42,7 +42,7 @@ const homepageFaqs = [
   },
   {
     question: "Are PG listings on PGThane.com verified?",
-    answer: "PGThane.com follows a verification-first approach and publishes real property information after verification. Listing details and availability can change, so confirm the latest information before moving in.",
+    answer: "Verification status can vary by listing. Look for the Verified Listing badge where shown, and confirm the property address, room details, rent and current availability directly before making a payment.",
   },
   {
     question: "Do PG listings on PGThane.com charge brokerage?",
@@ -218,8 +218,8 @@ export default function HomePage() {
 
       <section className="trust-strip">
         <div><strong>Location-first</strong><span>Search by where you live or work</span></div>
-        <div><strong>Verification-first</strong><span>Real property information is published only after verification</span></div>
-        <div><strong>Easy enquiry</strong><span>Contact for current verified availability</span></div>
+        <div><strong>Check before booking</strong><span>Confirm property details, rent and availability directly</span></div>
+        <div><strong>Easy enquiry</strong><span>Ask about current room availability and terms</span></div>
       </section>
 
       <section className="section homepage-listings-section">
@@ -247,7 +247,7 @@ export default function HomePage() {
 
       <section id="how-it-works" className="process section">
         <div className="eyebrow">HOW IT WORKS</div><h2>Search around the place that matters to you.</h2>
-        <div className="steps"><article><b>01</b><h3>Choose a location</h3><p>Start with a Thane neighbourhood or station.</p></article><article><b>02</b><h3>Refine by workplace</h3><p>Find accommodation around the office or business park you need.</p></article><article><b>03</b><h3>Compare real listings</h3><p>Review verified information before contacting the property.</p></article></div>
+        <div className="steps"><article><b>01</b><h3>Choose a location</h3><p>Start with a Thane neighbourhood or station.</p></article><article><b>02</b><h3>Refine by workplace</h3><p>Find accommodation around the office or business park you need.</p></article><article><b>03</b><h3>Compare listing details</h3><p>Review room, rent and facility details, then confirm them before booking.</p></article></div>
       </section>
 
       <section id="contact" className="contact-section"><div><div className="eyebrow">NEED HELP?</div><h2>Looking for a PG in a specific part of Thane?</h2><p>Tell us your location or workplace and we can help you narrow the search.</p></div><EnquiryButton label="Start an Enquiry" className="contact-button" /></section>
