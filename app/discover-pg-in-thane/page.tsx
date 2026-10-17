@@ -54,7 +54,7 @@ export default function DirectoryPage() {
         <p className="hero-copy">Browse PG, Paying Guest, Hostel and shared-room locations across Thane. Listing details and verification status can vary; confirm the exact property, rent and availability before booking.</p>
         <div className="location-grid directory-location-grid">
           {locations.map(([name, slug]) => (
-            <Link className="location-card directory-location-card" key={slug} href={"/discover-pg-in-thane/" + slug}>
+            <Link className="location-card directory-location-card" key={slug} href={"/discover-pg-in-thane/" + slug + "/"}>
               <LocationBuildingIcon />
               <span className="directory-location-copy">
                 <span className="directory-location-name">{name}</span>
