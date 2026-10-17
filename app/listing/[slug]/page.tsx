@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { listings } from "@/data/catalog";
 
 export async function generateStaticParams() {
-  return listings.filter(x => x.published === true && !x.photoOnly).map(x => ({ slug: x.slug }));
+  return listings.filter(x => x.published === true && !x.photoOnly && x.verified === true).map(x => ({ slug: x.slug }));
 }
 import Link from "next/link";
 import EnquiryButton from "@/components/EnquiryButton";
@@ -13,7 +13,7 @@ import SiteFooter from "@/components/SiteFooter";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly);
+  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly && x.verified === true);
   if (!listing) return { title: "PG Listing | PG Thane", robots: { index: false, follow: true } };
   return {
     title: listing.seoTitle || (listing.name + " | PG in " + listing.location + ", Thane"),
@@ -30,7 +30,7 @@ function locationHref(location: string) {
 
 export default async function ListingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly);
+  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly && x.verified === true);
   if (!listing) notFound();
 
   const breadcrumbSchema = {
