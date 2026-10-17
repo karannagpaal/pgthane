@@ -2235,3 +2235,19 @@ footer .footer-full-logo{
 .workplace-directory-card{background:#f1f8ef;border-color:rgba(0,100,0,.25)}
 .workplace-symbol{background:#006400;color:#fff}
 @media(max-width:600px){.directory-section{margin-top:24px}.directory-section-heading{margin-bottom:14px}.directory-section-heading p{font-size:13px}.directory-microlocations{margin-top:30px;padding-top:23px}.microlocation-card-grid{grid-template-columns:minmax(0,1fr);gap:9px}.microlocation-directory-card{grid-template-columns:40px minmax(0,1fr) auto;padding:12px;gap:10px;border-radius:13px}.microlocation-card-symbol{width:38px;height:38px;border-radius:11px}.microlocation-card-copy strong{font-size:14px}.microlocation-card-action{font-size:10px}}
+
+
+/* Reuse the microlocation card visual style for the main location directory */
+.directory-location-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.directory-area-card{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:12px;padding:14px;border:1px solid rgba(244,194,26,.65);border-radius:16px;background:#fffaf0;text-decoration:none;min-width:0;min-height:82px;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.directory-area-card:hover,.directory-area-card:focus-visible{transform:translateY(-2px);border-color:#006400;box-shadow:0 6px 16px rgba(0,100,0,.08);outline:none}
+.directory-area-symbol{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#f4c21a;color:#5A2C12}
+.directory-area-symbol .directory-location-icon{width:42px;height:42px;background:transparent;border:0}
+.directory-area-symbol .directory-location-icon svg{width:25px;height:25px}
+.directory-area-copy{display:flex;flex-direction:column;gap:4px;min-width:0}
+.directory-area-copy strong{font-size:15px;color:#006400;line-height:1.3;overflow-wrap:anywhere}
+.directory-area-copy small{font-size:11px;color:#5A2C12;line-height:1.35}
+.directory-area-action{font-size:11px;font-weight:800;color:#5A2C12;white-space:nowrap}
+.directory-microlocations .directory-section-heading{margin-bottom:16px}
+.microlocation-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:600px){.directory-location-grid{grid-template-columns:minmax(0,1fr);gap:9px}.directory-area-card{grid-template-columns:40px minmax(0,1fr) auto;padding:12px;gap:10px;border-radius:13px;min-height:74px}.directory-area-symbol{width:38px;height:38px;border-radius:11px}.directory-area-symbol .directory-location-icon{width:38px;height:38px}.directory-area-copy strong{font-size:14px}.directory-area-action{font-size:10px}.microlocation-card-grid{grid-template-columns:minmax(0,1fr)}}
