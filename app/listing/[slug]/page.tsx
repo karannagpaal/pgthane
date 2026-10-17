@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: listing.seoTitle || (listing.name + " | PG in " + listing.location + ", Thane"),
     description: listing.seoDescription || [listing.type, listing.microlocation, listing.location, listing.amenities?.join(", ")].filter(Boolean).join(" · "),
-    alternates: { canonical: "https://www.pgthane.com/listing/" + listing.slug }
+    alternates: { canonical: "https://www.pgthane.com/listing/" + listing.slug + "/" }
   };
 }
 
@@ -37,7 +37,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "PG Thane", item: "https://www.pgthane.com/" },
-      { "@type": "ListItem", position: 2, name: "PG in Thane", item: "https://www.pgthane.com/discover-pg-in-thane" },
+      { "@type": "ListItem", position: 2, name: "PG in Thane", item: "https://www.pgthane.com/discover-pg-in-thane/" },
       { "@type": "ListItem", position: 3, name: listing.name, item: "https://www.pgthane.com/listing/" + listing.slug }
     ]
   };
