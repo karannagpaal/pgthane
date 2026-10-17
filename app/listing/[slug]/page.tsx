@@ -22,6 +22,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+function amenityIcon(amenity: string): "wifi" | "sofa" | "broom" | "snowflake" | "home" | "check" {
+  const value = amenity.toLowerCase();
+  if (value.includes("wi-fi") || value.includes("wifi") || value.includes("internet")) return "wifi";
+  if (value.includes("furnish") || value.includes("wardrobe") || value.includes("bed")) return "sofa";
+  if (value.includes("housekeeping") || value.includes("clean")) return "broom";
+  if (value.includes("ac") || value.includes("air condition")) return "snowflake";
+  if (value.includes("food") || value.includes("meal")) return "home";
+  return "check";
+}
+
 function locationHref(location: string) {
   if (location === "Thane Station") return "/discover-pg-in-thane/pg-near-railway-station-thane";
   return "/discover-pg-in-thane/pg-in-" + location.toLowerCase().replaceAll(" ", "-") + "-thane";
@@ -55,7 +65,8 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
           <p className="listing-location large"><span className="title-location-icon"><SiteIcon name="pin" size={17} /></span><span>{listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation + ", " + listing.location + ", Thane" : listing.location + ", Thane"}</span></p>
         </div>
         <div className="listing-detail-actions">
-          <a className="header-cta" href="tel:9930007113">Call</a><a className="outline-cta" href="https://wa.me/919930007113">WhatsApp</a>
+          <a className="header-cta" href={"tel:" + (listing.phone || "9930007113")}><SiteIcon name="phone" size={16} /> Call</a>
+          <a className="outline-cta" href={"https://wa.me/" + (listing.whatsapp || "919930007113").replace(/\D/g, "")} target="_blank" rel="noreferrer"><SiteIcon name="phone" size={16} /> WhatsApp</a>
         </div>
       </div>
 
@@ -78,17 +89,17 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             {listing.microlocation && <div><span className="quick-detail-icon"><SiteIcon name="building" size={20} /></span><dt>Microlocation</dt><dd>{listing.microlocation}</dd></div>}
             {listing.sharing?.length && <div><span className="quick-detail-icon"><SiteIcon name="sofa" size={20} /></span><dt>Sharing</dt><dd>{listing.sharing.join(" / ")}</dd></div>}
             {listing.roomType && <div><span className="quick-detail-icon"><SiteIcon name="home" size={20} /></span><dt>Room type</dt><dd>{listing.roomType}</dd></div>}
-            {listing.food && <div><span className="quick-detail-icon"><SiteIcon name="home" size={20} /></span><dt>Food</dt><dd>{listing.food}</dd></div>}
+            {listing.food && <div><span className="quick-detail-icon"><SiteIcon name="utensils" size={20} /></span><dt>Food</dt><dd>{listing.food}</dd></div>}
             {listing.gender && <div><span className="quick-detail-icon"><SiteIcon name={listing.gender === "Female" ? "female" : "male"} size={20} /></span><dt>Gender</dt><dd>{listing.gender === "Unisex" ? "Male & Female" : listing.gender}</dd></div>}
             {listing.availability && <div><span className="quick-detail-icon"><SiteIcon name="check" size={20} /></span><dt>Availability</dt><dd>{listing.availability}</dd></div>}
           </dl>
-          {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}>{a}</span>)}</div></div> : null}
+          {listing.amenities?.length ? <div className="quick-amenities"><strong>Amenities</strong><div>{listing.amenities.map(a => <span key={a}><SiteIcon name={amenityIcon(a)} size={15} /> {a}</span>)}</div></div> : null}
           {listing.phone && <div className="listing-contact-detail"><strong>PGThane Enquiry</strong><a className="listing-contact-number" href={"tel:" + listing.phone}>{listing.phone}</a></div>}
           <EnquiryButton listingName={listing.name} location={listing.location} label="Enquire Now" className="detail-enquire" />
         </aside>
       </div>
 
-      {listing.description && <section className="listing-description detail-description"><div className="eyebrow">ABOUT THIS PG</div><p>{listing.description}</p></section>}
+      <section className="listing-description detail-description"><div className="eyebrow">ABOUT THIS PG</div><p>{listing.description || `Explore this ${listing.type} option in ${listing.microlocation && listing.microlocation !== listing.location ? listing.microlocation + ", " : ""}${listing.location}, Thane. Confirm the current room configuration, rent, deposit, included facilities and availability directly before making a decision.`}</p></section>
 
       {listing.workplace?.length ? <section className="listing-workplaces"><div className="eyebrow">WORKPLACE SEARCH</div><div className="workplace-tags">{listing.workplace.map(x => <Link key={x} href={"/search?q=" + encodeURIComponent(x) + "&type=Workplace"}><SiteIcon name="building" size={16} /> {x}</Link>)}</div></section> : null}
 
@@ -103,8 +114,8 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
 
       <Link className="back-directory" href={locationHref(listing.location)}><SiteIcon name="arrow" size={16} /> Back to {listing.location} PGs</Link>
       <div className="listing-mobile-cta" aria-label="Listing enquiry actions">
-        <a href="tel:9930007113">Call</a>
-        <a href="https://wa.me/919930007113">WhatsApp</a>
+        <a href={"tel:" + (listing.phone || "9930007113")}><SiteIcon name="phone" size={15} /> Call</a>
+        <a href={"https://wa.me/" + (listing.whatsapp || "919930007113").replace(/\D/g, "")} target="_blank" rel="noreferrer"><SiteIcon name="phone" size={15} /> WhatsApp</a>
         <EnquiryButton listingName={listing.name} location={listing.location} label="Enquire" className="listing-mobile-enquire" />
       </div>
     </section>
