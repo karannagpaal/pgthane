@@ -60,7 +60,7 @@ export default function SearchClient() {
     const directoryMicros = type === "All" || type === "Microlocation" ? micros : [];
     const directoryWorkplaces = type === "All" || type === "Workplace" ? workplaces : [];
 
-    const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && (() => {
+    const matchingListings = listings.filter(x => x.published === true && !x.photoOnly && x.verified === true && (() => {
       const text = [x.name, x.type, x.location, x.microlocation, ...x.workplace, ...(x.amenities || [])].join(" ").toLowerCase();
       if (q) {
         if (type === "Location" && ![x.location, x.microlocation].join(" ").toLowerCase().includes(q)) return false;
