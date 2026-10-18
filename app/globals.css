@@ -2463,3 +2463,48 @@ footer .footer-full-logo{
     font-size: 11px;
   }
 }
+
+
+/* Final mobile side-gutter normalization for View Details pages */
+@media (max-width: 760px) {
+  .listing-detail {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .listing-detail > *,
+  .listing-detail .listing-detail-head,
+  .listing-detail .listing-description,
+  .listing-detail .listing-detail-grid,
+  .listing-detail .listing-gallery,
+  .listing-detail .listing-quick,
+  .listing-detail .rent-range-panel {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .listing-detail .listing-gallery,
+  .listing-detail .listing-quick {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .listing-detail .listing-main-photo,
+  .listing-detail .listing-thumbs {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 380px) {
+  .listing-detail {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
