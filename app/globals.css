@@ -2508,3 +2508,69 @@ footer .footer-full-logo{
     padding-right: 12px;
   }
 }
+
+
+/* View Details mobile card: prevent rent/location text from extending past the viewport. */
+@media (max-width: 760px) {
+  .listing-detail .listing-quick,
+  .listing-detail .rent-range-panel,
+  .listing-detail .quick-details-list,
+  .listing-detail .quick-details-list > div {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .listing-detail .rent-range-panel {
+    overflow: hidden;
+  }
+
+  .listing-detail .rent-range-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .listing-detail .rent-range-row > span,
+  .listing-detail .rent-range-row b {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .listing-detail .rent-range-row b {
+    font-size: clamp(10px, 2.9vw, 13px);
+    line-height: 1.35;
+    text-align: right;
+  }
+
+  .listing-detail .quick-details-list > div {
+    grid-template-columns: 36px minmax(0, .72fr) minmax(0, 1.28fr);
+    gap: 8px;
+  }
+
+  .listing-detail .quick-details-list dt,
+  .listing-detail .quick-details-list dd {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+}
+
+@media (max-width: 380px) {
+  .listing-detail .rent-range-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 40%);
+    gap: 6px;
+  }
+
+  .listing-detail .quick-details-list > div {
+    grid-template-columns: 32px minmax(0, .68fr) minmax(0, 1.32fr);
+    gap: 7px;
+  }
+}
