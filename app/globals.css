@@ -2316,3 +2316,23 @@ footer .footer-full-logo{
 @media (prefers-reduced-motion: reduce) {
   .welcome-logo-reveal { animation: none; clip-path: none; transform: none; filter: none; }
 }
+
+
+/* Additive listing-card sharing and distance controls; existing card styles remain untouched. */
+.pg-card-enhancements { margin-top: 12px; display: grid; gap: 8px; min-width: 0; }
+.pg-sharing-choices { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.pg-sharing-choice { display: inline-flex; align-items: center; gap: 5px; color: #5A2C12; font-size: 12px; line-height: 1.35; }
+.pg-sharing-choice svg { flex: 0 0 auto; color: #006400; }
+.pg-card-extra-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.pg-card-extra-button, .pg-card-distance-button { appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 34px; padding: 7px 10px; border: 1px solid #006400; border-radius: 7px; background: #fff; color: #006400; font: inherit; font-size: 12px; line-height: 1.2; text-decoration: none; cursor: pointer; }
+.pg-card-extra-button:hover, .pg-card-distance-button:hover { background: #fff8dc; }
+.pg-card-extra-button:focus-visible, .pg-card-distance-button:focus-visible { outline: 2px solid #F4C21A; outline-offset: 2px; }
+.pg-whatsapp-mark { display: inline-flex; width: 16px; height: 16px; align-items: center; justify-content: center; border-radius: 50%; background: #006400; color: #fff; font-size: 10px; font-weight: 700; }
+.pg-card-distance-button { justify-self: start; text-align: left; }
+.pg-card-distance-button:disabled { cursor: wait; opacity: .7; }
+.pg-card-feedback { margin: 0; color: #5A2C12; font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .pg-sharing-choices { gap: 7px 10px; }
+  .pg-card-extra-actions { gap: 6px; }
+  .pg-card-extra-button, .pg-card-distance-button { min-height: 36px; }
+}
