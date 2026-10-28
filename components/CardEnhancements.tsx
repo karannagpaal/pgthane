@@ -9,7 +9,7 @@ type CardEnhancementsProps = {
   longitude?: number;
 };
 
-function Icon({ name, size = 16 }: { name: "single" | "double" | "triple" | "share" | "copy" | "pin"; size?: number }) {
+function Icon({ name, size = 16 }: { name: "single" | "double" | "triple" | "share" | "copy" | "pin" | "whatsapp"; size?: number }) {
   const common = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true as const };
   const paths = {
     single: <><rect x="4" y="4" width="16" height="16" rx="1.5" /><path d="M4 9h16M7 6.5h3M7 11.5h3" /></>,
@@ -17,7 +17,8 @@ function Icon({ name, size = 16 }: { name: "single" | "double" | "triple" | "sha
     triple: <><circle cx="7" cy="8" r="2.5" /><circle cx="17" cy="8" r="2.5" /><circle cx="12" cy="6" r="2.5" /><path d="M2.5 19v-2a4.5 4.5 0 0 1 7.1-3.7M21.5 19v-2a4.5 4.5 0 0 0-7.1-3.7M7.5 20v-2a4.5 4.5 0 0 1 9 0v2" /></>,
     share: <><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="m8.7 10.6 6.6-4.2M8.7 13.4l6.6 4.2" /></>,
     copy: <><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" /></>,
-    pin: <><path d="M20 10.5c0 5.1-8 11-8 11s-8-5.9-8-11a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10.5" r="2.5" /></>
+    pin: <><path d="M20 10.5c0 5.1-8 11-8 11s-8-5.9-8-11a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10.5" r="2.5" /></>,
+    whatsapp: <><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7A8.5 8.5 0 1 1 20.5 11.5Z" /><path d="M8 7.5c.3-.5.6-.5.9-.5h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4 0 .7.5.9 1.3 1.6 2.2 2.1.3.2.5.2.7-.1l.8-.9c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.5 0 .4-.2 1.3-.8 1.8-.5.5-1.3.7-2 .5-1.2-.3-2.7-1-4.1-2.3-1.1-1-2-2.4-2.2-3.5-.2-.8.1-1.8.6-2.5Z" /></>
   };
   return <svg {...common}>{paths[name]}</svg>;
 }
@@ -113,8 +114,8 @@ export default function CardEnhancements({ listingName, listingUrl, latitude, lo
       </div>
       <div className="pg-card-extra-actions">
         <button type="button" className="pg-card-extra-button" onClick={shareListing}><Icon name="share" /> Share</button>
-        <a className="pg-card-extra-button" href={`https://wa.me/?text=${encodeURIComponent(listingName + " — " + absoluteUrl())}`} target="_blank" rel="noopener noreferrer" aria-label={`Share ${listingName} on WhatsApp}>
-          <span className="pg-whatsapp-mark" aria-hidden="true">W</span> WhatsApp
+        <a className="pg-card-extra-button" href={`https://wa.me/?text=${encodeURIComponent(listingName + " — " + absoluteUrl())}`} target="_blank" rel="noopener noreferrer" aria-label={`Share ${listingName} on WhatsApp`}>
+          <Icon name="whatsapp" /> WhatsApp
         </a>
         <button type="button" className="pg-card-extra-button" onClick={copyLink}><Icon name="copy" /> Copy Link</button>
       </div>
