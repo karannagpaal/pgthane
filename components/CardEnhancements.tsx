@@ -60,7 +60,7 @@ export default function CardEnhancements({ listingName, listingUrl, latitude, lo
     }
   }
 
-  async function shareListing() {
+  function shareWhatsApp() {\n    const url = absoluteUrl();\n    window.open(`https://wa.me/?text=${encodeURIComponent(listingName + " — " + url)}`, "_blank", "noopener,noreferrer");\n  }\n\n  async function shareListing() {
     const url = absoluteUrl();
     if (navigator.share) {
       try {
@@ -114,9 +114,9 @@ export default function CardEnhancements({ listingName, listingUrl, latitude, lo
       </div>
       <div className="pg-card-extra-actions">
         <button type="button" className="pg-card-extra-button" onClick={shareListing}><Icon name="share" /> Share</button>
-        <a className="pg-card-extra-button" href={`https://wa.me/?text=${encodeURIComponent(listingName + " — " + absoluteUrl())}`} target="_blank" rel="noopener noreferrer" aria-label={`Share ${listingName} on WhatsApp`}>
+        <button type="button" className="pg-card-extra-button" onClick={shareWhatsApp} aria-label={`Share ${listingName} on WhatsApp`}>
           <Icon name="whatsapp" /> WhatsApp
-        </a>
+        </button>
         <button type="button" className="pg-card-extra-button" onClick={copyLink}><Icon name="copy" /> Copy Link</button>
       </div>
       {shareMessage && <p className="pg-card-feedback" role="status">{shareMessage}</p>}
