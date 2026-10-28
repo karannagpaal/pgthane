@@ -60,7 +60,12 @@ export default function CardEnhancements({ listingName, listingUrl, latitude, lo
     }
   }
 
-  function shareWhatsApp() {\n    const url = absoluteUrl();\n    window.open(`https://wa.me/?text=${encodeURIComponent(listingName + " — " + url)}`, "_blank", "noopener,noreferrer");\n  }\n\n  async function shareListing() {
+  function shareWhatsApp() {
+    const url = absoluteUrl();
+    window.open(`https://wa.me/?text=${encodeURIComponent(listingName + " — " + url)}`, "_blank", "noopener,noreferrer");
+  }
+
+  async function shareListing() {
     const url = absoluteUrl();
     if (navigator.share) {
       try {
