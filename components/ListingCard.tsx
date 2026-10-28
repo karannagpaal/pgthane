@@ -3,6 +3,7 @@
 import type { Listing } from "@/data/catalog";
 import EnquiryButton from "@/components/EnquiryButton";
 import SiteIcon from "@/components/SiteIcon";
+import CardEnhancements from "@/components/CardEnhancements";
 
 function getApprovedPricePattern(listing: Listing) {
   const sharing = listing.sharing || [];
@@ -48,6 +49,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
           <span className="feature-wifi"><span className="card-emoji" aria-hidden="true">📶</span> Free Wi-Fi</span>
           <span className="feature-furnished"><span className="card-emoji" aria-hidden="true">🛋️</span> Fully furnished</span>
         </div>
+        <CardEnhancements listingName={listing.name} listingUrl={"/listing/" + listing.slug} />
       </div>
 
       <div className="listing-side">
