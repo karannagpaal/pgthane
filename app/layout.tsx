@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description:
     "Find PG, Paying Guest, Hostel and shared room accommodation across Thane by location, microlocation and workplace.",
   metadataBase: new URL("https://www.pgthane.com"),
+  alternates: { canonical: "https://www.pgthane.com/" },
   icons: { icon: "/pgthane-favicon-new.svg", apple: "/pgthane-favicon-new.svg" }
 };
 
