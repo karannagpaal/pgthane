@@ -6,7 +6,7 @@ import ListingCard from "@/components/ListingCard";
 export const metadata: Metadata = {
   title: "PG Listings in Thane | PG Thane",
   description: "Browse verified PG, Paying Guest, Hostel and shared-room listings in Thane.",
-  alternates: { canonical: "https://www.pgthane.com/listing" }
+  alternates: { canonical: "https://www.pgthane.com/listing/" }
 };
 
 export default function ListingsPage() {
