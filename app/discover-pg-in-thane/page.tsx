@@ -28,8 +28,9 @@ const locations = [
 ];
 
 export const metadata = {
-  title: "PG in Thane | Paying Guest, Hostel & Shared Rooms",
-  description: "Browse PG, Paying Guest, Hostel and shared-room accommodation locations across Thane."
+  title: "PG Locations in Thane | Areas & Workplaces | PGThane",
+  description: "Explore PG accommodation across Thane by area, including Wagle Estate, Hiranandani Estate, Majiwada and Thane Station, or search near workplaces.",
+  alternates: { canonical: "https://www.pgthane.com/discover-pg-in-thane/" }
 };
 
 function LocationBuildingIcon() {

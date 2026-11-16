@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { listings } from "@/data/catalog";
+import { listings, verifiedWorkplaceIndex } from "@/data/catalog";
 
 export async function generateStaticParams() {
   return listings.filter(x => x.published === true && !x.photoOnly).map(x => ({ slug: x.slug }));
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: listing.seoTitle || (listing.name + " | PG in " + listing.location + ", Thane"),
     description: listing.seoDescription || [listing.type, listing.microlocation, listing.location, listing.amenities?.join(", ")].filter(Boolean).join(" · "),
-    alternates: { canonical: "https://www.pgthane.com/listing/" + listing.slug }
+    alternates: { canonical: "https://www.pgthane.com/listing/" + listing.slug + "/" }
   };
 }
 
@@ -30,6 +30,13 @@ function amenityIcon(amenity: string): "wifi" | "sofa" | "broom" | "snowflake" |
   if (value.includes("ac") || value.includes("air condition")) return "snowflake";
   if (value.includes("food") || value.includes("meal")) return "home";
   return "check";
+}
+
+function workplaceHref(name: string) {
+  const workplace = verifiedWorkplaceIndex.find(item => item.name.toLowerCase() === name.toLowerCase());
+  if (!workplace) return "/search?q=" + encodeURIComponent(name) + "&type=Workplace";
+  const slug = workplace.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return "/discover-pg-in-thane/workplace/" + slug + "/";
 }
 
 function locationHref(location: string) {
@@ -47,8 +54,8 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "PG Thane", item: "https://www.pgthane.com/" },
-      { "@type": "ListItem", position: 2, name: "PG in Thane", item: "https://www.pgthane.com/discover-pg-in-thane" },
-      { "@type": "ListItem", position: 3, name: listing.name, item: "https://www.pgthane.com/listing/" + listing.slug }
+      { "@type": "ListItem", position: 2, name: "PG in Thane", item: "https://www.pgthane.com/discover-pg-in-thane/" },
+      { "@type": "ListItem", position: 3, name: listing.name, item: "https://www.pgthane.com/listing/" + listing.slug + "/" }
     ]
   };
 
@@ -108,7 +115,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
 
       <section className="listing-description detail-description"><div className="eyebrow">ABOUT THIS PG</div><p>{listing.description || `Explore this ${listing.type} option in ${listing.location}, Thane. Confirm the current room configuration, rent, deposit, included facilities and availability directly before making a decision.`}</p></section>
 
-      {listing.workplace?.length ? <section className="listing-workplaces"><div className="eyebrow">WORKPLACE SEARCH</div><div className="workplace-tags">{listing.workplace.map(x => <Link key={x} href={"/search?q=" + encodeURIComponent(x) + "&type=Workplace"}><SiteIcon name="building" size={16} /> {x}</Link>)}</div></section> : null}
+      {listing.workplace?.length ? <section className="listing-workplaces"><div className="eyebrow">WORKPLACE SEARCH</div><div className="workplace-tags">{listing.workplace.map(x => <Link key={x} href={workplaceHref(x)}><SiteIcon name="building" size={16} /> {x}</Link>)}</div></section> : null}
 
       <section className="listing-related-links">
         <div className="eyebrow">EXPLORE MORE IN THANE</div>
