@@ -11,13 +11,38 @@ import SiteIcon from "@/components/SiteIcon";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
+const indexedListings = listings.filter(item => item.published === true && !item.photoOnly);
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const listing = listings.find(x => x.slug === slug && x.published === true && !x.photoOnly);
+  const listing = indexedListings.find(item => item.slug === slug);
   if (!listing) return { title: "PG Listing | PG Thane", robots: { index: false, follow: true } };
+
+  // Keep approved SEO metadata unless it is shared by multiple published pages.
+  // Use only fields already present on the listing page; never invent property facts.
+  const repeatedTitle = !!listing.seoTitle && indexedListings.some(
+    item => item.slug !== listing.slug && item.seoTitle === listing.seoTitle
+  );
+  const uniqueName = !indexedListings.some(
+    item => item.slug !== listing.slug && item.name === listing.name
+  );
+  const repeatedDescription = !!listing.seoDescription && indexedListings.some(
+    item => item.slug !== listing.slug && item.seoDescription === listing.seoDescription
+  );
+
+  const title = repeatedTitle && uniqueName
+    ? listing.name + " | PGThane"
+    : listing.seoTitle || (listing.name + " | PG in " + listing.location + ", Thane");
+
+  const description = repeatedDescription
+    ? listing.name + " — " + listing.location + ", Thane." +
+      (listing.sharing?.length ? " Listed sharing: " + listing.sharing.join(", ") + "." : "") +
+      " See details and enquire to confirm availability."
+    : listing.seoDescription || [listing.type, listing.microlocation, listing.location, listing.amenities?.join(", ")].filter(Boolean).join(" · ");
+
   return {
-    title: listing.seoTitle || (listing.name + " | PG in " + listing.location + ", Thane"),
-    description: listing.seoDescription || [listing.type, listing.microlocation, listing.location, listing.amenities?.join(", ")].filter(Boolean).join(" · "),
+    title,
+    description,
     alternates: { canonical: "https://www.pgthane.com/listing/" + listing.slug + "/" }
   };
 }
